@@ -134,10 +134,10 @@ func (p *Painter) DrawRect(x, y, w, h int, color uint32) {
 	C2_fill_rect(&p.ctx, x, y, w, h, color)
 }
 
-// DrawRectSIMD remplit un rectangle avec accélération vectorielle AVX2 ou photométrique.
+// DrawRectSIMD remplit un rectangle avec accélération vectorielle AVX2 ou photométrique 8 voies.
 func (p *Painter) DrawRectSIMD(x, y, w, h int, color uint32) {
 	if p.PhotometricBlending && (color>>24)&0xFF != 255 {
-		p.DrawRectPhotometric(x, y, w, h, color)
+		FillRectPhotometricSIMD(&p.ctx, x, y, w, h, color)
 		return
 	}
 	FillRectSIMD(&p.ctx, x, y, w, h, color)

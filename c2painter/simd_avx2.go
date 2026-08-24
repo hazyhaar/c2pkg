@@ -252,6 +252,50 @@ func FillRectSIMD(p *C2_painter_t, x int, y int, w int, h int, color uint32) {
 	}
 }
 
+// FillRectPhotometricSIMD remplit un rectangle avec composition photométrique linéaire
+// accélérée 8 voies sur le grain canonique 32 octets de c2archsimd.
+func FillRectPhotometricSIMD(p *C2_painter_t, x int, y int, w int, h int, color uint32) {
+	if w <= 0 || h <= 0 || p == nil || len(p.Pixels) == 0 {
+		return
+	}
+
+	x0 := x
+	y0 := y
+	x1 := x + w
+	y1 := y + h
+
+	clipX0 := p.Clip.X
+	clipY0 := p.Clip.Y
+	clipX1 := clipX0 + p.Clip.W
+	clipY1 := clipY0 + p.Clip.H
+
+	if x0 < clipX0 {
+		x0 = clipX0
+	}
+	if y0 < clipY0 {
+		y0 = clipY0
+	}
+	if x1 > clipX1 {
+		x1 = clipX1
+	}
+	if y1 > clipY1 {
+		y1 = clipY1
+	}
+
+	if x0 >= x1 || y0 >= y1 {
+		return
+	}
+
+	spanW := x1 - x0
+	pixels := p.Pixels
+	stride := p.Stride
+
+	for curY := y0; curY < y1; curY++ {
+		rowOff := curY*stride + x0
+		C2_blend_solid_span_photometric(pixels[rowOff:rowOff+spanW], color, spanW)
+	}
+}
+
 // BlitRGBASIMD blitte une image RGBA avec accélération vectorielle AVX2 8 pixels par itération.
 func BlitRGBASIMD(p *C2_painter_t, dstX, dstY, w, h int, src []uint32, srcStride int) {
 	if w <= 0 || h <= 0 || p == nil || len(p.Pixels) == 0 || len(src) == 0 {
