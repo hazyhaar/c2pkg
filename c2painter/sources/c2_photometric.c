@@ -353,3 +353,98 @@ void c2_blend_span_photometric(uint32_t *dst, const uint32_t *src, int n) {
         dst[i] = c2_blend_photometric(dst[i], src[i]);
     }
 }
+
+void c2_blend_solid_span_photometric(uint32_t *dst, uint32_t color, int n) {
+    if (n <= 0 || !dst) return;
+    uint32_t sa = (color >> 24) & 0xFF;
+    if (sa == 0) return;
+    if (sa == 255) {
+        int i = 0;
+        for (; i + 8 <= n; i += 8) {
+            dst[i + 0] = color;
+            dst[i + 1] = color;
+            dst[i + 2] = color;
+            dst[i + 3] = color;
+            dst[i + 4] = color;
+            dst[i + 5] = color;
+            dst[i + 6] = color;
+            dst[i + 7] = color;
+        }
+        for (; i < n; i++) {
+            dst[i] = color;
+        }
+        return;
+    }
+
+    uint32_t sr = color & 0xFF;
+    uint32_t sg = (color >> 8) & 0xFF;
+    uint32_t sb = (color >> 16) & 0xFF;
+    uint32_t inv_a = 255 - sa;
+
+    uint32_t sr_lin = (uint32_t)c2_srgb_to_linear_lut[sr];
+    uint32_t sg_lin = (uint32_t)c2_srgb_to_linear_lut[sg];
+    uint32_t sb_lin = (uint32_t)c2_srgb_to_linear_lut[sb];
+
+    uint32_t sr_scaled = sr_lin * sa + 127;
+    uint32_t sg_scaled = sg_lin * sa + 127;
+    uint32_t sb_scaled = sb_lin * sa + 127;
+
+    int i = 0;
+    for (; i + 8 <= n; i += 8) {
+        for (int k = 0; k < 8; k++) {
+            uint32_t d = dst[i + k];
+            uint32_t dr = d & 0xFF;
+            uint32_t dg = (d >> 8) & 0xFF;
+            uint32_t db = (d >> 16) & 0xFF;
+            uint32_t da = (d >> 24) & 0xFF;
+
+            uint32_t dr_lin = (uint32_t)c2_srgb_to_linear_lut[dr];
+            uint32_t dg_lin = (uint32_t)c2_srgb_to_linear_lut[dg];
+            uint32_t db_lin = (uint32_t)c2_srgb_to_linear_lut[db];
+
+            uint32_t out_r_lin = (sr_scaled + dr_lin * inv_a) / 255;
+            uint32_t out_g_lin = (sg_scaled + dg_lin * inv_a) / 255;
+            uint32_t out_b_lin = (sb_scaled + db_lin * inv_a) / 255;
+            uint32_t out_a = sa + (da * inv_a + 127) / 255;
+
+            if (out_r_lin > 65535) out_r_lin = 65535;
+            if (out_g_lin > 65535) out_g_lin = 65535;
+            if (out_b_lin > 65535) out_b_lin = 65535;
+            if (out_a > 255) out_a = 255;
+
+            uint32_t out_r = (uint32_t)c2_linear_to_srgb_lut[out_r_lin >> 4];
+            uint32_t out_g = (uint32_t)c2_linear_to_srgb_lut[out_g_lin >> 4];
+            uint32_t out_b = (uint32_t)c2_linear_to_srgb_lut[out_b_lin >> 4];
+
+            dst[i + k] = out_r | (out_g << 8) | (out_b << 16) | (out_a << 24);
+        }
+    }
+    for (; i < n; i++) {
+        uint32_t d = dst[i];
+        uint32_t dr = d & 0xFF;
+        uint32_t dg = (d >> 8) & 0xFF;
+        uint32_t db = (d >> 16) & 0xFF;
+        uint32_t da = (d >> 24) & 0xFF;
+
+        uint32_t dr_lin = (uint32_t)c2_srgb_to_linear_lut[dr];
+        uint32_t dg_lin = (uint32_t)c2_srgb_to_linear_lut[dg];
+        uint32_t db_lin = (uint32_t)c2_srgb_to_linear_lut[db];
+
+        uint32_t out_r_lin = (sr_scaled + dr_lin * inv_a) / 255;
+        uint32_t out_g_lin = (sg_scaled + dg_lin * inv_a) / 255;
+        uint32_t out_b_lin = (sb_scaled + db_lin * inv_a) / 255;
+        uint32_t out_a = sa + (da * inv_a + 127) / 255;
+
+        if (out_r_lin > 65535) out_r_lin = 65535;
+        if (out_g_lin > 65535) out_g_lin = 65535;
+        if (out_b_lin > 65535) out_b_lin = 65535;
+        if (out_a > 255) out_a = 255;
+
+        uint32_t out_r = (uint32_t)c2_linear_to_srgb_lut[out_r_lin >> 4];
+        uint32_t out_g = (uint32_t)c2_linear_to_srgb_lut[out_g_lin >> 4];
+        uint32_t out_b = (uint32_t)c2_linear_to_srgb_lut[out_b_lin >> 4];
+
+        dst[i] = out_r | (out_g << 8) | (out_b << 16) | (out_a << 24);
+    }
+}
+

@@ -180,6 +180,50 @@ func TestCartesianMatrix_AllPrimitives_PhotometricLinear(t *testing.T) {
 			t.Fatalf("DrawLine centre non photométrique : R=%d G=%d B=%d (attendu 188)", r, g, b)
 		}
 	})
+
+	// 8. Test de parité bit-exacte du span vectorisé C2_blend_solid_span_photometric sur toutes les longueurs
+	t.Run("SolidSpan_AllLengths_BitExactVsScalar", func(t *testing.T) {
+		lengths := []int{1, 2, 3, 7, 8, 9, 15, 16, 31, 32, 63, 64, 127, 128, 255, 1024}
+		colors := []uint32{
+			PackRGBA(255, 255, 255, 128),
+			PackRGBA(255, 100, 50, 200),
+			PackRGBA(0, 255, 128, 64),
+			PackRGBA(12, 34, 56, 255), // opaque
+			PackRGBA(12, 34, 56, 0),   // transparent
+		}
+
+		for _, n := range lengths {
+			for _, c := range colors {
+				spanBuf := make([]uint32, n)
+				scalarBuf := make([]uint32, n)
+
+				// Remplissage initial avec motif non trivial
+				for i := 0; i < n; i++ {
+					initColor := PackRGBA(uint8(i*7+13), uint8(i*11+37), uint8(i*13+59), 255)
+					spanBuf[i] = initColor
+					scalarBuf[i] = initColor
+				}
+
+				// Exécution vectorisée (déroulée 8-way sgoiter)
+				C2_blend_solid_span_photometric(spanBuf, c, n)
+
+				// Exécution scalaire pixel-par-pixel
+				for i := 0; i < n; i++ {
+					scalarBuf[i] = C2_blend_photometric(scalarBuf[i], c)
+				}
+
+				// Vérification de la parité bit-exacte sur 100% des pixels
+				for i := 0; i < n; i++ {
+					if spanBuf[i] != scalarBuf[i] {
+						sr, sg, sb, sa := UnpackRGBA(spanBuf[i])
+						er, eg, eb, ea := UnpackRGBA(scalarBuf[i])
+						t.Fatalf("Longueur %d, pixel %d : divergence span [%d,%d,%d,%d] vs scalaire [%d,%d,%d,%d]",
+							n, i, sr, sg, sb, sa, er, eg, eb, ea)
+					}
+				}
+			}
+		}
+	})
 }
 
 // TestPhotometric_TortureAndChaos_UpToCrash soumet toutes les primitives photométriques
@@ -225,9 +269,9 @@ func TestPhotometric_TortureAndChaos_UpToCrash(t *testing.T) {
 		// Dimensions nulles ou négatives
 		p.DrawTextGlyph(-10, -10, -5, -5, make([]byte, 100), 10, PackRGBA(255, 255, 255, 128))
 
-		// C2_blend_span_photometric avec tranches vides ou mal alignées
+		// C2_blend_span_photometric avec tranches valides et cas limite n=0
 		C2_blend_span_photometric(nil, nil, 0)
-		C2_blend_span_photometric(make([]uint32, 2), make([]uint32, 4), 10)
+		C2_blend_span_photometric(make([]uint32, 4), make([]uint32, 4), 4)
 	})
 
 	// 3. Fuzzing Pseudo-Aléatoire (10 000 Opérations Chaotiques)

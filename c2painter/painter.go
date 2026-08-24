@@ -307,12 +307,11 @@ func (p *Painter) DrawRectPhotometric(x, y, w, h int, color uint32) {
 
 	stride := p.ctx.Stride
 	pixels := p.ctx.Pixels
+	spanW := x2 - x1
 
 	for row := y1; row < y2; row++ {
 		off := row*stride + x1
-		for col := 0; col < x2-x1; col++ {
-			pixels[off+col] = C2_blend_photometric(pixels[off+col], color)
-		}
+		C2_blend_solid_span_photometric(pixels[off:off+spanW], color, spanW)
 	}
 }
 

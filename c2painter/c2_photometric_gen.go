@@ -62,16 +62,133 @@ func C2_blend_pixel_cov_photometric(dst uint32, src uint32, cov uint32) uint32 {
 }
 
 func C2_blend_span_photometric(dst []uint32, src []uint32, n int) {
-	if n <= 0 || len(dst) == 0 || len(src) == 0 {
+	var v3 int
+	v3 = 0
+	{
+		_dst := dst[:n]
+		_src := src[:n]
+		for v3 = 0; v3 < n; v3++ {
+			_dst[v3] = C2_blend_photometric(_dst[v3], _src[v3])
+		}
+	}
+}
+
+func C2_blend_solid_span_photometric(dst []uint32, color uint32, n int) {
+	var v17 int
+	var v20 int
+	var v78 int
+	var v84 int
+	var v91 uint32
+	var v94 uint32
+	var v99 uint32
+	var v104 uint32
+	var v109 uint32
+	var v119 uint32
+	var v124 uint32
+	var v129 uint32
+	var v134 uint32
+	var v177 uint32
+	var v180 uint32
+	var v185 uint32
+	var v190 uint32
+	var v195 uint32
+	var v205 uint32
+	var v210 uint32
+	var v215 uint32
+	var v220 uint32
+	if (n <= 0) || (dst == nil) {
 		return
 	}
-	if n > len(dst) {
-		n = len(dst)
+	v14 := uint32(color>>24) & 0xff
+	if v14 == 0 {
+		return
 	}
-	if n > len(src) {
-		n = len(src)
+	if v14 == 0xff {
+		v17 = 0
+		for {
+			v20 = v17 + 8
+			if !(v20 <= n) {
+				break
+			}
+			dst[v17] = color
+			dst[(v17 + 1)] = color
+			dst[(v17 + 2)] = color
+			dst[(v17 + 3)] = color
+			dst[(v17 + 4)] = color
+			dst[(v17 + 5)] = color
+			dst[(v17 + 6)] = color
+			dst[(v17 + 7)] = color
+			v17 = v20
+		}
+		for v17 < n {
+			dst[v17] = color
+			v17++
+		}
+		return
 	}
-	for i := 0; i < n; i++ {
-		dst[i] = C2_blend_photometric(dst[i], src[i])
+	v43 := color & 0xff
+	v48 := uint32(color>>8) & 0xff
+	v53 := uint32(color>>16) & 0xff
+	v56 := uint32(0xff) - v14
+	v69 := (uint32(uint16(C2_srgb_to_linear_lut[v43])) * v14) + 0x7f
+	v73 := (uint32(uint16(C2_srgb_to_linear_lut[v48])) * v14) + 0x7f
+	v77 := (uint32(uint16(C2_srgb_to_linear_lut[v53])) * v14) + 0x7f
+	v78 = 0
+	for {
+		v81 := v78 + 8
+		if !(v81 <= n) {
+			break
+		}
+		for v84 = 0; v84 < 8; v84++ {
+			v91 = dst[v78+v84]
+			v94 = v91 & 0xff
+			v99 = (v91 >> 8) & 0xff
+			v104 = (v91 >> 16) & 0xff
+			v109 = (v91 >> 24) & 0xff
+			v119 = (v69 + (uint32(uint16(C2_srgb_to_linear_lut[v94])) * v56)) / 0xff
+			v124 = (v73 + (uint32(uint16(C2_srgb_to_linear_lut[v99])) * v56)) / 0xff
+			v129 = (v77 + (uint32(uint16(C2_srgb_to_linear_lut[v104])) * v56)) / 0xff
+			v134 = v14 + (((v109 * v56) + 0x7f) / 0xff)
+			if v119 > 0xffff {
+				v119 = 0xffff
+			}
+			if v124 > 0xffff {
+				v124 = 0xffff
+			}
+			if v129 > 0xffff {
+				v129 = 0xffff
+			}
+			if v134 > 0xff {
+				v134 = 0xff
+			}
+			dst[v78+v84] = ((uint32(C2_linear_to_srgb_lut[int(v119>>4)]) | (uint32(C2_linear_to_srgb_lut[int(v124>>4)]) << 8)) | (uint32(C2_linear_to_srgb_lut[int(v129>>4)]) << 16)) | (v134 << 24)
+		}
+		v78 += 8
+		v81++
+	}
+	for v78 < n {
+		v177 = dst[v78]
+		v180 = v177 & 0xff
+		v185 = (v177 >> 8) & 0xff
+		v190 = (v177 >> 16) & 0xff
+		v195 = (v177 >> 24) & 0xff
+		v205 = (v69 + (uint32(uint16(C2_srgb_to_linear_lut[v180])) * v56)) / 0xff
+		v210 = (v73 + (uint32(uint16(C2_srgb_to_linear_lut[v185])) * v56)) / 0xff
+		v215 = (v77 + (uint32(uint16(C2_srgb_to_linear_lut[v190])) * v56)) / 0xff
+		v220 = v14 + (((v195 * v56) + 0x7f) / 0xff)
+		if v205 > 0xffff {
+			v205 = 0xffff
+		}
+		if v210 > 0xffff {
+			v210 = 0xffff
+		}
+		if v215 > 0xffff {
+			v215 = 0xffff
+		}
+		if v220 > 0xff {
+			v220 = 0xff
+		}
+		dst[v78] = ((uint32(C2_linear_to_srgb_lut[int(v205>>4)]) | (uint32(C2_linear_to_srgb_lut[int(v210>>4)]) << 8)) | (uint32(C2_linear_to_srgb_lut[int(v215>>4)]) << 16)) | (v220 << 24)
+		v78++
 	}
 }

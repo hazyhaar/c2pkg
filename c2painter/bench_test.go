@@ -61,6 +61,36 @@ func BenchmarkFillRectAlphaBlend(b *testing.B) {
 	}
 }
 
+func BenchmarkFillRectPhotometricTranslucent(b *testing.B) {
+	surf := NewSurface(1920, 1080)
+	p := NewPainter(surf)
+	p.PhotometricBlending = true
+	col := RGBA(255, 100, 50, 128)
+
+	b.SetBytes(500 * 300 * 4)
+	b.ResetTimer()
+	b.ReportAllocs()
+
+	for i := 0; i < b.N; i++ {
+		p.DrawRectSIMD(100, 100, 500, 300, col)
+	}
+}
+
+func BenchmarkFillRectPhotometric1080p(b *testing.B) {
+	surf := NewSurface(1920, 1080)
+	p := NewPainter(surf)
+	p.PhotometricBlending = true
+	col := RGBA(255, 255, 255, 128)
+
+	b.SetBytes(1920 * 1080 * 4)
+	b.ResetTimer()
+	b.ReportAllocs()
+
+	for i := 0; i < b.N; i++ {
+		p.DrawRectSIMD(0, 0, 1920, 1080, col)
+	}
+}
+
 func BenchmarkFillRoundedRectAA(b *testing.B) {
 	surf := NewSurface(1920, 1080)
 	p := NewPainter(surf)
