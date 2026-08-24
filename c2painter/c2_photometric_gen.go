@@ -48,6 +48,19 @@ func C2_blend_photometric(dst uint32, src uint32) uint32 {
 	return uint32(((uint32(C2_linear_to_srgb_lut[int(uint32(v58>>4))]) | uint32(uint32(C2_linear_to_srgb_lut[int(uint32(v66>>4))])<<8)) | uint32(uint32(C2_linear_to_srgb_lut[int(uint32(v74>>4))])<<16)) | uint32(v82<<24))
 }
 
+func C2_blend_pixel_cov_photometric(dst uint32, src uint32, cov uint32) uint32 {
+	if cov == 0 {
+		return dst
+	}
+	v8 := uint32(src>>24) & 0xff
+	v14 := ((v8 * cov) + 0x7f) / 0xff
+	if v14 == 0 {
+		return dst
+	}
+	v18 := src & 0xffffff
+	return uint32(C2_blend_photometric(dst, (v18 | uint32(v14<<24))))
+}
+
 func C2_blend_span_photometric(dst []uint32, src []uint32, n int) {
 	var v3 int
 	v3 = 0

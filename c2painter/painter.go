@@ -226,7 +226,60 @@ func (p *Painter) DrawLine(x0, y0, x1, y1, strokeWidth int, color uint32) {
 
 // DrawTextGlyph blitte un masque alpha 8-bit (glyphe textuel) avec la couleur spécifiée.
 func (p *Painter) DrawTextGlyph(dstX, dstY, w, h int, mask []byte, maskStride int, color uint32) {
+	if p.PhotometricBlending {
+		C2_blit_mask_photometric(&p.ctx, dstX, dstY, w, h, mask, maskStride, color)
+		return
+	}
 	C2_blit_mask(&p.ctx, dstX, dstY, w, h, mask, maskStride, color)
+}
+
+// C2_blit_mask_photometric effectue le blitte d'un masque alpha 8-bit avec composition photométrique linéaire.
+func C2_blit_mask_photometric(p *C2_painter_t, dstX, dstY, w, h int, mask []byte, maskStride int, color uint32) {
+	if len(mask) == 0 || w <= 0 || h <= 0 {
+		return
+	}
+	clipX := p.Clip.X
+	clipY := p.Clip.Y
+	clipX2 := clipX + p.Clip.W
+	clipY2 := clipY + p.Clip.H
+
+	x1 := dstX
+	y1 := dstY
+	x2 := dstX + w
+	y2 := dstY + h
+
+	if x1 < clipX {
+		x1 = clipX
+	}
+	if y1 < clipY {
+		y1 = clipY
+	}
+	if x2 > clipX2 {
+		x2 = clipX2
+	}
+	if y2 > clipY2 {
+		y2 = clipY2
+	}
+
+	if x1 >= x2 || y1 >= y2 {
+		return
+	}
+
+	pixels := p.Pixels
+	stride := p.Stride
+
+	for y := y1; y < y2; y++ {
+		srcY := y - dstY
+		dstRow := y * stride
+		maskRow := srcY * maskStride
+		for x := x1; x < x2; x++ {
+			srcX := x - dstX
+			alpha := mask[maskRow+srcX]
+			if alpha > 0 {
+				pixels[dstRow+x] = C2_blend_pixel_cov_photometric(pixels[dstRow+x], color, uint32(alpha))
+			}
+		}
+	}
 }
 
 // DrawTextGlyphRLE décode un masque alpha compressé en RLE à la volée et effectue la composition sans allocation.

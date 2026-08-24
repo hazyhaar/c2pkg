@@ -335,6 +335,19 @@ uint32_t c2_blend_photometric(uint32_t dst, uint32_t src) {
     return out_r | (out_g << 8) | (out_b << 16) | (out_a << 24);
 }
 
+uint32_t c2_blend_pixel_cov_photometric(uint32_t dst, uint32_t src, uint32_t cov) {
+    if (cov == 0) {
+        return dst;
+    }
+    uint32_t sa = (src >> 24) & 0xFF;
+    uint32_t effective_a = (sa * cov + 127) / 255;
+    if (effective_a == 0) {
+        return dst;
+    }
+    uint32_t modified_src = (src & 0x00FFFFFF) | (effective_a << 24);
+    return c2_blend_photometric(dst, modified_src);
+}
+
 void c2_blend_span_photometric(uint32_t *dst, const uint32_t *src, int n) {
     for (int i = 0; i < n; i++) {
         dst[i] = c2_blend_photometric(dst[i], src[i]);
