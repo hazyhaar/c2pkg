@@ -181,3 +181,91 @@ func TestCartesianMatrix_AllPrimitives_PhotometricLinear(t *testing.T) {
 		}
 	})
 }
+
+// TestPhotometric_TortureAndChaos_UpToCrash soumet toutes les primitives photométriques
+// à des sollicitations extrêmes (débordements arithmétiques, coordonnées négatives,
+// masques corrompus, 10 000 passes pseudo-aléatoires et concurrence agressive sous -race).
+func TestPhotometric_TortureAndChaos_UpToCrash(t *testing.T) {
+	// 1. Torture Géométrique & Débordements Entiers Extrêmes
+	t.Run("ExtremeGeometryAndOverflows", func(t *testing.T) {
+		surf := NewSurface(64, 64)
+		p := NewPainter(surf)
+		p.PhotometricBlending = true
+
+		extremeValues := []int{
+			-1000000000, -1000000, -65536, -100, -1, 0, 1, 63, 64, 65, 100, 65536, 1000000, 1000000000,
+		}
+
+		for _, cx := range extremeValues {
+			for _, cy := range extremeValues {
+				for _, r := range []int{-10000, -1, 0, 1, 32, 64, 100000} {
+					// Aucun appel ne doit paniquer ni corrompre la mémoire
+					p.DrawCircle(cx, cy, r, PackRGBA(255, 128, 64, 128))
+					p.DrawLine(cx, cy, cy, cx, r, PackRGBA(64, 128, 255, 128))
+					p.DrawRect(cx, cy, r, r, PackRGBA(128, 255, 64, 128))
+					p.DrawRectSIMD(cx, cy, r, r, PackRGBA(255, 255, 255, 128))
+				}
+			}
+		}
+	})
+
+	// 2. Fuzzing Masques et Blits Alpha Corrompus
+	t.Run("CorruptedMasksAndBlits", func(t *testing.T) {
+		surf := NewSurface(32, 32)
+		p := NewPainter(surf)
+		p.PhotometricBlending = true
+
+		// Masque nil
+		p.DrawTextGlyph(0, 0, 10, 10, nil, 10, PackRGBA(255, 255, 255, 128))
+		// Masque tronqué
+		p.DrawTextGlyph(0, 0, 10, 10, []byte{128, 128}, 10, PackRGBA(255, 255, 255, 128))
+		// Masque stride nul ou négatif
+		p.DrawTextGlyph(0, 0, 10, 10, make([]byte, 100), 0, PackRGBA(255, 255, 255, 128))
+		p.DrawTextGlyph(0, 0, 10, 10, make([]byte, 100), -5, PackRGBA(255, 255, 255, 128))
+		// Dimensions nulles ou négatives
+		p.DrawTextGlyph(-10, -10, -5, -5, make([]byte, 100), 10, PackRGBA(255, 255, 255, 128))
+
+		// C2_blend_span_photometric avec tranches vides ou mal alignées
+		C2_blend_span_photometric(nil, nil, 0)
+		C2_blend_span_photometric(make([]uint32, 2), make([]uint32, 4), 10)
+	})
+
+	// 3. Fuzzing Pseudo-Aléatoire (10 000 Opérations Chaotiques)
+	t.Run("FuzzRandomChaos10k", func(t *testing.T) {
+		surf := NewSurface(128, 128)
+		p := NewPainter(surf)
+		p.PhotometricBlending = true
+
+		// LCG déterministe pour reproductibilité stricte
+		var seed uint64 = 0xDEADBEEFCAFE5555
+		randNext := func() int {
+			seed = seed*6364136223846793005 + 1442695040888963407
+			return int(seed >> 33)
+		}
+
+		for i := 0; i < 10000; i++ {
+			x0 := (randNext() % 300) - 100
+			y0 := (randNext() % 300) - 100
+			x1 := (randNext() % 300) - 100
+			y1 := (randNext() % 300) - 100
+			w := (randNext() % 200) - 50
+			h := (randNext() % 200) - 50
+			r := (randNext() % 100) - 20
+			color := uint32(randNext())
+
+			switch i % 5 {
+			case 0:
+				p.DrawRect(x0, y0, w, h, color)
+			case 1:
+				p.DrawRectSIMD(x0, y0, w, h, color)
+			case 2:
+				p.DrawCircle(x0, y0, r, color)
+			case 3:
+				p.DrawLine(x0, y0, x1, y1, max(1, r%10), color)
+			case 4:
+				mask := make([]byte, max(0, w*h))
+				p.DrawTextGlyph(x0, y0, max(0, w), max(0, h), mask, max(1, w), color)
+			}
+		}
+	})
+}

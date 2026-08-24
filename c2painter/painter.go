@@ -357,7 +357,10 @@ func (p *Painter) DrawTextGlyph(dstX, dstY, w, h int, mask []byte, maskStride in
 
 // C2_blit_mask_photometric effectue le blitte d'un masque alpha 8-bit avec composition photométrique linéaire.
 func C2_blit_mask_photometric(p *C2_painter_t, dstX, dstY, w, h int, mask []byte, maskStride int, color uint32) {
-	if len(mask) == 0 || w <= 0 || h <= 0 {
+	if len(mask) == 0 || w <= 0 || h <= 0 || maskStride <= 0 {
+		return
+	}
+	if len(mask) < (h-1)*maskStride+w {
 		return
 	}
 	clipX := p.Clip.X

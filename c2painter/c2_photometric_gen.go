@@ -62,13 +62,16 @@ func C2_blend_pixel_cov_photometric(dst uint32, src uint32, cov uint32) uint32 {
 }
 
 func C2_blend_span_photometric(dst []uint32, src []uint32, n int) {
-	var v3 int
-	v3 = 0
-	{
-		_dst := dst[:n]
-		_src := src[:n]
-		for v3 = 0; v3 < n; v3++ {
-			_dst[v3] = C2_blend_photometric(_dst[v3], _src[v3])
-		}
+	if n <= 0 || len(dst) == 0 || len(src) == 0 {
+		return
+	}
+	if n > len(dst) {
+		n = len(dst)
+	}
+	if n > len(src) {
+		n = len(src)
+	}
+	for i := 0; i < n; i++ {
+		dst[i] = C2_blend_photometric(dst[i], src[i])
 	}
 }
