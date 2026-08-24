@@ -143,7 +143,7 @@ func C2_blend_pixel_cov(dst uint32, src uint32, cov uint32) uint32 {
 }
 
 func C2_painter_init(p *C2_painter_t, pixels []uint32, width int, height int, stride int) {
-	p.Pixels = pixels
+	p.Pixels = pixels[:]
 	p.Width = width
 	p.Height = height
 	p.Stride = stride
