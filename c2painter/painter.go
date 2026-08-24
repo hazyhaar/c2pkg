@@ -134,9 +134,146 @@ func (p *Painter) DrawRect(x, y, w, h int, color uint32) {
 	C2_fill_rect(&p.ctx, x, y, w, h, color)
 }
 
-// DrawRectSIMD remplit un rectangle avec accélération vectorielle AVX2.
+// DrawRectSIMD remplit un rectangle avec accélération vectorielle AVX2 ou photométrique.
 func (p *Painter) DrawRectSIMD(x, y, w, h int, color uint32) {
+	if p.PhotometricBlending && (color>>24)&0xFF != 255 {
+		p.DrawRectPhotometric(x, y, w, h, color)
+		return
+	}
 	FillRectSIMD(&p.ctx, x, y, w, h, color)
+}
+
+// DrawCircle remplit un cercle avec antialiasing (ou composition photométrique linéaire).
+func (p *Painter) DrawCircle(cx, cy, radius int, color uint32) {
+	if p.PhotometricBlending && (color>>24)&0xFF != 255 {
+		p.DrawCirclePhotometric(cx, cy, radius, color)
+		return
+	}
+	C2_fill_circle(&p.ctx, cx, cy, radius, color)
+}
+
+// DrawCirclePhotometric remplit un cercle avec composition photométrique linéaire.
+func (p *Painter) DrawCirclePhotometric(cx, cy, radius int, color uint32) {
+	if radius <= 0 || p.ctx.Pixels == nil {
+		return
+	}
+	r := radius
+	x0 := max(cx-r-1, p.ctx.Clip.X)
+	x1 := min(cx+r+1, p.ctx.Clip.X+p.ctx.Clip.W)
+	y0 := max(cy-r-1, p.ctx.Clip.Y)
+	y1 := min(cy+r+1, p.ctx.Clip.Y+p.ctx.Clip.H)
+	if x0 >= x1 || y0 >= y1 {
+		return
+	}
+
+	rInner := int64(max(0, r-1)) * int64(max(0, r-1))
+	rOuter := int64(r+1) * int64(r+1)
+
+	for y := y0; y < y1; y++ {
+		dy := int64(y - cy)
+		dy2 := dy * dy
+		rowOff := y * p.ctx.Stride
+		for x := x0; x < x1; x++ {
+			dx := int64(x - cx)
+			dist2 := dx*dx + dy2
+			if dist2 <= rInner {
+				p.ctx.Pixels[rowOff+x] = C2_blend_photometric(p.ctx.Pixels[rowOff+x], color)
+			} else if dist2 <= rOuter {
+				dist := C2_isqrt64(dist2 << 16)
+				cov := int((int64(r)<<8 + 128) - dist)
+				if cov >= 255 {
+					p.ctx.Pixels[rowOff+x] = C2_blend_photometric(p.ctx.Pixels[rowOff+x], color)
+				} else if cov > 0 {
+					p.ctx.Pixels[rowOff+x] = C2_blend_pixel_cov_photometric(p.ctx.Pixels[rowOff+x], color, uint32(cov))
+				}
+			}
+		}
+	}
+}
+
+// StrokeCircle trace le contour d'un cercle avec antialiasing.
+func (p *Painter) StrokeCircle(cx, cy, radius, strokeWidth int, color uint32) {
+	C2_stroke_circle(&p.ctx, cx, cy, radius, strokeWidth, color)
+}
+
+// DrawLine trace un segment de droite antialiasé (ou composition photométrique linéaire).
+func (p *Painter) DrawLine(x0, y0, x1, y1, strokeWidth int, color uint32) {
+	if p.PhotometricBlending && (color>>24)&0xFF != 255 {
+		p.DrawLinePhotometric(x0, y0, x1, y1, strokeWidth, color)
+		return
+	}
+	C2_draw_line(&p.ctx, x0, y0, x1, y1, strokeWidth, color)
+}
+
+// DrawLinePhotometric trace un segment de droite avec composition photométrique linéaire.
+func (p *Painter) DrawLinePhotometric(x0, y0, x1, y1, strokeWidth int, color uint32) {
+	if strokeWidth <= 0 || p.ctx.Pixels == nil {
+		return
+	}
+	dx := int64(x1 - x0)
+	dy := int64(y1 - y0)
+	lenSq := dx*dx + dy*dy
+	if lenSq == 0 {
+		p.DrawCirclePhotometric(x0, y0, (strokeWidth+1)/2, color)
+		return
+	}
+
+	rad := (strokeWidth + 3) / 2
+	minX := max(min(x0, x1)-rad, p.ctx.Clip.X)
+	maxX := min(max(x0, x1)+rad, p.ctx.Clip.X+p.ctx.Clip.W)
+	minY := max(min(y0, y1)-rad, p.ctx.Clip.Y)
+	maxY := min(max(y0, y1)+rad, p.ctx.Clip.Y+p.ctx.Clip.H)
+	if minX >= maxX || minY >= maxY {
+		return
+	}
+
+	halfWidthFixed := int64(strokeWidth) * 128
+	length := C2_isqrt64(lenSq)
+	if length == 0 {
+		length = 1
+	}
+
+	for y := minY; y < maxY; y++ {
+		rowOff := y * p.ctx.Stride
+		for x := minX; x < maxX; x++ {
+			px := int64(x - x0)
+			py := int64(y - y0)
+			proj := (px*dx + py*dy)
+			if proj < 0 {
+				d2 := px*px + py*py
+				d := C2_isqrt64(d2 << 16)
+				cov := int(halfWidthFixed + 128 - d)
+				if cov >= 255 {
+					p.ctx.Pixels[rowOff+x] = C2_blend_photometric(p.ctx.Pixels[rowOff+x], color)
+				} else if cov > 0 {
+					p.ctx.Pixels[rowOff+x] = C2_blend_pixel_cov_photometric(p.ctx.Pixels[rowOff+x], color, uint32(cov))
+				}
+			} else if proj > lenSq {
+				px1 := int64(x - x1)
+				py1 := int64(y - y1)
+				d2 := px1*px1 + py1*py1
+				d := C2_isqrt64(d2 << 16)
+				cov := int(halfWidthFixed + 128 - d)
+				if cov >= 255 {
+					p.ctx.Pixels[rowOff+x] = C2_blend_photometric(p.ctx.Pixels[rowOff+x], color)
+				} else if cov > 0 {
+					p.ctx.Pixels[rowOff+x] = C2_blend_pixel_cov_photometric(p.ctx.Pixels[rowOff+x], color, uint32(cov))
+				}
+			} else {
+				cross := px*dy - py*dx
+				if cross < 0 {
+					cross = -cross
+				}
+				dist := (cross << 8) / length
+				cov := int(halfWidthFixed + 128 - dist)
+				if cov >= 255 {
+					p.ctx.Pixels[rowOff+x] = C2_blend_photometric(p.ctx.Pixels[rowOff+x], color)
+				} else if cov > 0 {
+					p.ctx.Pixels[rowOff+x] = C2_blend_pixel_cov_photometric(p.ctx.Pixels[rowOff+x], color, uint32(cov))
+				}
+			}
+		}
+	}
 }
 
 // DrawRectPhotometric remplit un rectangle avec composition photométrique linéaire sgoiter.
@@ -199,16 +336,6 @@ func (p *Painter) StrokeRoundedRect(x, y, w, h, radius, strokeWidth int, color u
 	C2_stroke_rounded_rect(&p.ctx, x, y, w, h, radius, strokeWidth, color)
 }
 
-// DrawCircle remplit un cercle avec antialiasing.
-func (p *Painter) DrawCircle(cx, cy, radius int, color uint32) {
-	C2_fill_circle(&p.ctx, cx, cy, radius, color)
-}
-
-// StrokeCircle trace le contour d'un cercle avec antialiasing.
-func (p *Painter) StrokeCircle(cx, cy, radius, strokeWidth int, color uint32) {
-	C2_stroke_circle(&p.ctx, cx, cy, radius, strokeWidth, color)
-}
-
 // DrawEllipse remplit une ellipse avec antialiasing.
 func (p *Painter) DrawEllipse(cx, cy, rx, ry int, color uint32) {
 	C2_fill_ellipse(&p.ctx, cx, cy, rx, ry, color)
@@ -217,11 +344,6 @@ func (p *Painter) DrawEllipse(cx, cy, rx, ry int, color uint32) {
 // StrokeEllipse trace le contour d'une ellipse avec antialiasing.
 func (p *Painter) StrokeEllipse(cx, cy, rx, ry, strokeWidth int, color uint32) {
 	C2_stroke_ellipse(&p.ctx, cx, cy, rx, ry, strokeWidth, color)
-}
-
-// DrawLine trace un segment de droite antialiasé d'épaisseur strokeWidth.
-func (p *Painter) DrawLine(x0, y0, x1, y1, strokeWidth int, color uint32) {
-	C2_draw_line(&p.ctx, x0, y0, x1, y1, strokeWidth, color)
 }
 
 // DrawTextGlyph blitte un masque alpha 8-bit (glyphe textuel) avec la couleur spécifiée.

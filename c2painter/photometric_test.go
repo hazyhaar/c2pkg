@@ -139,4 +139,45 @@ func TestCartesianMatrix_AllPrimitives_PhotometricLinear(t *testing.T) {
 			}
 		}
 	})
+
+	// 5. Primitive: Rectangle vectoriel SIMD (DrawRectSIMD)
+	t.Run("Primitive_DrawRectSIMD_50pct", func(t *testing.T) {
+		surf := NewSurface(16, 16)
+		p := NewPainter(surf)
+		p.PhotometricBlending = true
+		p.Clear(black)
+		p.DrawRectSIMD(2, 2, 12, 12, white50)
+		r, g, b, _ := UnpackRGBA(surf.Pixels[8*surf.Stride+8])
+		if r != 188 || g != 188 || b != 188 {
+			t.Fatalf("DrawRectSIMD non photométrique : R=%d G=%d B=%d (attendu 188)", r, g, b)
+		}
+	})
+
+	// 6. Primitive: Cercle antialiasé à 50% d'alpha (DrawCircle)
+	t.Run("Primitive_DrawCircle_50pct", func(t *testing.T) {
+		surf := NewSurface(32, 32)
+		p := NewPainter(surf)
+		p.PhotometricBlending = true
+		p.Clear(black)
+		p.DrawCircle(16, 16, 8, white50)
+		// Le centre du cercle doit recevoir exactement 50% de blanc sur noir physique -> 188 bit-exact
+		r, g, b, _ := UnpackRGBA(surf.Pixels[16*surf.Stride+16])
+		if r != 188 || g != 188 || b != 188 {
+			t.Fatalf("DrawCircle centre non photométrique : R=%d G=%d B=%d (attendu 188)", r, g, b)
+		}
+	})
+
+	// 7. Primitive: Ligne épaisse antialiasée à 50% d'alpha (DrawLine)
+	t.Run("Primitive_DrawLine_50pct", func(t *testing.T) {
+		surf := NewSurface(32, 32)
+		p := NewPainter(surf)
+		p.PhotometricBlending = true
+		p.Clear(black)
+		p.DrawLine(4, 16, 28, 16, 4, white50)
+		// Le centre de la ligne doit recevoir 188 bit-exact
+		r, g, b, _ := UnpackRGBA(surf.Pixels[16*surf.Stride+16])
+		if r != 188 || g != 188 || b != 188 {
+			t.Fatalf("DrawLine centre non photométrique : R=%d G=%d B=%d (attendu 188)", r, g, b)
+		}
+	})
 }
