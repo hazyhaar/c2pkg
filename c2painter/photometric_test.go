@@ -80,3 +80,63 @@ func TestPhotometricVsCOracle(t *testing.T) {
 		t.Fatalf("Divergence Go transpilé vs Oracle C : Go=%s, C=%s", expectedStr, outStr)
 	}
 }
+
+// TestCartesianMatrix_AllPrimitives_PhotometricLinear valide mécaniquement la matrice cartésienne
+// de toutes les primitives sous mode photométrique pour garantir l'absence de régression vers sRGB naïf.
+func TestCartesianMatrix_AllPrimitives_PhotometricLinear(t *testing.T) {
+	black := PackRGBA(0, 0, 0, 255)
+	whiteOpaque := PackRGBA(255, 255, 255, 255)
+	white50 := PackRGBA(255, 255, 255, 128)
+
+	// 1. Primitive: Rectangle translucide (DrawRect)
+	t.Run("Primitive_DrawRect_50pct", func(t *testing.T) {
+		surf := NewSurface(16, 16)
+		p := NewPainter(surf)
+		p.PhotometricBlending = true
+		p.Clear(black)
+		p.DrawRect(2, 2, 12, 12, white50)
+		r, g, b, _ := UnpackRGBA(surf.Pixels[8*surf.Stride+8])
+		if r != 188 || g != 188 || b != 188 {
+			t.Fatalf("DrawRect non photométrique : R=%d G=%d B=%d (attendu 188)", r, g, b)
+		}
+	})
+
+	// 2. Primitive: Glyphe textuel avec masque antialiasé à 50% (DrawTextGlyph)
+	t.Run("Primitive_DrawTextGlyph_Alpha50", func(t *testing.T) {
+		surf := NewSurface(16, 16)
+		p := NewPainter(surf)
+		p.PhotometricBlending = true
+		p.Clear(black)
+		mask := []byte{
+			128, 128,
+			128, 128,
+		}
+		p.DrawTextGlyph(4, 4, 2, 2, mask, 2, whiteOpaque)
+		r, g, b, _ := UnpackRGBA(surf.Pixels[4*surf.Stride+4])
+		if r != 188 || g != 188 || b != 188 {
+			t.Fatalf("DrawTextGlyph non photométrique : R=%d G=%d B=%d (attendu 188)", r, g, b)
+		}
+	})
+
+	// 3. Primitive: Couverture arbitraire (BlendPixelCov)
+	t.Run("Primitive_BlendPixelCov_128", func(t *testing.T) {
+		blended := C2_blend_pixel_cov_photometric(black, whiteOpaque, 128)
+		r, g, b, _ := UnpackRGBA(blended)
+		if r != 188 || g != 188 || b != 188 {
+			t.Fatalf("BlendPixelCov non photométrique : R=%d G=%d B=%d (attendu 188)", r, g, b)
+		}
+	})
+
+	// 4. Primitive: Traitement de portée (BlendSpan)
+	t.Run("Primitive_BlendSpan_50pct", func(t *testing.T) {
+		dst := []uint32{black, black, black, black}
+		src := []uint32{white50, white50, white50, white50}
+		C2_blend_span_photometric(dst, src, 4)
+		for i := 0; i < 4; i++ {
+			r, g, b, _ := UnpackRGBA(dst[i])
+			if r != 188 || g != 188 || b != 188 {
+				t.Fatalf("BlendSpan[%d] non photométrique : R=%d G=%d B=%d (attendu 188)", i, r, g, b)
+			}
+		}
+	})
+}
