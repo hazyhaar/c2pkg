@@ -87,6 +87,21 @@ func BenchmarkFillRectPhotometric1080p(b *testing.B) {
 	b.ReportAllocs()
 
 	for i := 0; i < b.N; i++ {
+		p.DrawRect(0, 0, 1920, 1080, col)
+	}
+}
+
+func BenchmarkFillRectPhotometricSIMD1080p(b *testing.B) {
+	surf := NewSurface(1920, 1080)
+	p := NewPainter(surf)
+	p.PhotometricBlending = true
+	col := RGBA(255, 255, 255, 128)
+
+	b.SetBytes(1920 * 1080 * 4)
+	b.ResetTimer()
+	b.ReportAllocs()
+
+	for i := 0; i < b.N; i++ {
 		p.DrawRectSIMD(0, 0, 1920, 1080, col)
 	}
 }

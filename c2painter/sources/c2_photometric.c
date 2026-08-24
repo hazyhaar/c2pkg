@@ -318,10 +318,10 @@ uint32_t c2_blend_photometric(uint32_t dst, uint32_t src) {
     uint32_t db_lin = (uint32_t)c2_srgb_to_linear_lut[(dst >> 16) & 0xFF];
 
     uint32_t inv_a = 255 - sa;
-    uint32_t out_r_lin = (sr_lin * sa + dr_lin * inv_a + 127) / 255;
-    uint32_t out_g_lin = (sg_lin * sa + dg_lin * inv_a + 127) / 255;
-    uint32_t out_b_lin = (sb_lin * sa + db_lin * inv_a + 127) / 255;
-    uint32_t out_a = sa + (da * inv_a + 127) / 255;
+    uint32_t out_r_lin = c2_div255_u32(sr_lin * sa + dr_lin * inv_a);
+    uint32_t out_g_lin = c2_div255_u32(sg_lin * sa + dg_lin * inv_a);
+    uint32_t out_b_lin = c2_div255_u32(sb_lin * sa + db_lin * inv_a);
+    uint32_t out_a = sa + c2_div255_u32(da * inv_a);
 
     if (out_r_lin > 65535) out_r_lin = 65535;
     if (out_g_lin > 65535) out_g_lin = 65535;
@@ -340,7 +340,7 @@ uint32_t c2_blend_pixel_cov_photometric(uint32_t dst, uint32_t src, uint32_t cov
         return dst;
     }
     uint32_t sa = (src >> 24) & 0xFF;
-    uint32_t effective_a = (sa * cov + 127) / 255;
+    uint32_t effective_a = c2_div255_u32(sa * cov);
     if (effective_a == 0) {
         return dst;
     }
@@ -385,9 +385,9 @@ void c2_blend_solid_span_photometric(uint32_t *dst, uint32_t color, int n) {
     uint32_t sg_lin = (uint32_t)c2_srgb_to_linear_lut[sg];
     uint32_t sb_lin = (uint32_t)c2_srgb_to_linear_lut[sb];
 
-    uint32_t sr_scaled = sr_lin * sa + 127;
-    uint32_t sg_scaled = sg_lin * sa + 127;
-    uint32_t sb_scaled = sb_lin * sa + 127;
+    uint32_t sr_scaled = sr_lin * sa;
+    uint32_t sg_scaled = sg_lin * sa;
+    uint32_t sb_scaled = sb_lin * sa;
 
     int i = 0;
     for (; i + 8 <= n; i += 8) {
@@ -402,10 +402,10 @@ void c2_blend_solid_span_photometric(uint32_t *dst, uint32_t color, int n) {
             uint32_t dg_lin = (uint32_t)c2_srgb_to_linear_lut[dg];
             uint32_t db_lin = (uint32_t)c2_srgb_to_linear_lut[db];
 
-            uint32_t out_r_lin = (sr_scaled + dr_lin * inv_a) / 255;
-            uint32_t out_g_lin = (sg_scaled + dg_lin * inv_a) / 255;
-            uint32_t out_b_lin = (sb_scaled + db_lin * inv_a) / 255;
-            uint32_t out_a = sa + (da * inv_a + 127) / 255;
+            uint32_t out_r_lin = c2_div255_u32(sr_scaled + dr_lin * inv_a);
+            uint32_t out_g_lin = c2_div255_u32(sg_scaled + dg_lin * inv_a);
+            uint32_t out_b_lin = c2_div255_u32(sb_scaled + db_lin * inv_a);
+            uint32_t out_a = sa + c2_div255_u32(da * inv_a);
 
             if (out_r_lin > 65535) out_r_lin = 65535;
             if (out_g_lin > 65535) out_g_lin = 65535;
@@ -430,10 +430,10 @@ void c2_blend_solid_span_photometric(uint32_t *dst, uint32_t color, int n) {
         uint32_t dg_lin = (uint32_t)c2_srgb_to_linear_lut[dg];
         uint32_t db_lin = (uint32_t)c2_srgb_to_linear_lut[db];
 
-        uint32_t out_r_lin = (sr_scaled + dr_lin * inv_a) / 255;
-        uint32_t out_g_lin = (sg_scaled + dg_lin * inv_a) / 255;
-        uint32_t out_b_lin = (sb_scaled + db_lin * inv_a) / 255;
-        uint32_t out_a = sa + (da * inv_a + 127) / 255;
+        uint32_t out_r_lin = c2_div255_u32(sr_scaled + dr_lin * inv_a);
+        uint32_t out_g_lin = c2_div255_u32(sg_scaled + dg_lin * inv_a);
+        uint32_t out_b_lin = c2_div255_u32(sb_scaled + db_lin * inv_a);
+        uint32_t out_a = sa + c2_div255_u32(da * inv_a);
 
         if (out_r_lin > 65535) out_r_lin = 65535;
         if (out_g_lin > 65535) out_g_lin = 65535;
