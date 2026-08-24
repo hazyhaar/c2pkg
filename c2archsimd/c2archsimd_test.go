@@ -125,7 +125,7 @@ func TestC2ARCHSIMD_ParityVsCOracle(t *testing.T) {
 	cSimdSrc := filepath.Join(srcDir, "c2archsimd_simd.c")
 
 	tmpBin := filepath.Join(t.TempDir(), "test_c2archsimd_oracle")
-	cmd := exec.Command("gcc", "-O2", "-mavx2", "-fsanitize=address,undefined", "-I", srcDir, oracleSrc, cSrc, cSimdSrc, "-o", tmpBin)
+	cmd := exec.Command("gcc", "-O2", "-mavx2", "-fsanitize=address,undefined", "-I", srcDir, oracleSrc, cSrc, cSimdSrc, "-lm", "-o", tmpBin)
 	if out, err := cmd.CombinedOutput(); err != nil {
 		t.Fatalf("gcc compile failed with ASan/UBSan: %v\n%s", err, string(out))
 	}

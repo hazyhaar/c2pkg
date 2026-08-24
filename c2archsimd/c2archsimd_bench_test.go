@@ -243,3 +243,63 @@ func BenchmarkHexEncode_AVX2_Sgoiter(b *testing.B) {
 		BenchSinkByte ^= out[0]
 	}
 }
+
+// 7. Photometric Solid Blend 8-voies (32 octets) : sgoiter vs AVX2
+func BenchmarkBlendSolidPhotometric8_Sgoiter(b *testing.B) {
+	in := [8]uint32{0xFF112233, 0xFF445566, 0xFF778899, 0xFFAABBCC, 0xFFDDEEFF, 0xFF001122, 0xFF334455, 0xFF667788}
+	var lutLin [256]uint16
+	var lutSrgb [4096]byte
+	for i := range lutLin {
+		lutLin[i] = uint16(i * 257)
+	}
+	for i := range lutSrgb {
+		lutSrgb[i] = byte(i >> 4)
+	}
+	ctx := C2archsimd_solid_blend_ctx_t{
+		Sa:              128,
+		Inv_a:           127,
+		Sr_scaled:       128 * 128,
+		Sg_scaled:       128 * 128,
+		Sb_scaled:       128 * 128,
+		Lut_srgb_to_lin: lutLin[:],
+		Lut_lin_to_srgb: lutSrgb[:],
+	}
+	var out [8]uint32
+	b.SetBytes(32)
+	b.ReportAllocs()
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		C2archsimd_blend_solid_photometric8(in[:], &ctx, out[:])
+		BenchSinkByte ^= byte(out[0])
+	}
+}
+
+func BenchmarkBlendSolidPhotometric8_AVX2(b *testing.B) {
+	in := [8]uint32{0xFF112233, 0xFF445566, 0xFF778899, 0xFFAABBCC, 0xFFDDEEFF, 0xFF001122, 0xFF334455, 0xFF667788}
+	var lutLin [256]uint16
+	var lutSrgb [4096]byte
+	for i := range lutLin {
+		lutLin[i] = uint16(i * 257)
+	}
+	for i := range lutSrgb {
+		lutSrgb[i] = byte(i >> 4)
+	}
+	ctx := C2archsimd_solid_blend_ctx_t{
+		Sa:              128,
+		Inv_a:           127,
+		Sr_scaled:       128 * 128,
+		Sg_scaled:       128 * 128,
+		Sb_scaled:       128 * 128,
+		Lut_srgb_to_lin: lutLin[:],
+		Lut_lin_to_srgb: lutSrgb[:],
+	}
+	var out [8]uint32
+	b.SetBytes(32)
+	b.ReportAllocs()
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		C2archsimd_blend_solid_photometric8_avx2(in[:], &ctx, out[:])
+		BenchSinkByte ^= byte(out[0])
+	}
+}
+
