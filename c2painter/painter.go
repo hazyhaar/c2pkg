@@ -53,9 +53,10 @@ func RGBAPremul(r, g, b, a uint8) uint32 {
 	return C2_rgba_premul(r, g, b, a)
 }
 
-// Painter est l'enveloppe idiomatique Go du contexte C2_painter_t transpilé.
+// Painter encapsule un contexte de rendu graphique 2D C2_painter_t transpilé depuis C99 via sgoiter.
 type Painter struct {
-	ctx C2_painter_t
+	ctx                 C2_painter_t
+	PhotometricBlending bool
 }
 
 // NewPainter crée un peintre opérant sur la surface fournie.
@@ -124,8 +125,12 @@ func (p *Painter) Clear(color uint32) {
 	C2_clear(&p.ctx, color)
 }
 
-// DrawRect remplit un rectangle avec couleur RGBA prémultipliée.
+// DrawRect remplit un rectangle avec couleur RGBA prémultipliée (ou photométrique si PhotometricBlending est activé).
 func (p *Painter) DrawRect(x, y, w, h int, color uint32) {
+	if p.PhotometricBlending && (color>>24)&0xFF != 255 {
+		p.DrawRectPhotometric(x, y, w, h, color)
+		return
+	}
 	C2_fill_rect(&p.ctx, x, y, w, h, color)
 }
 

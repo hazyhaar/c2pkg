@@ -23,29 +23,25 @@ func TestBlendPixelPhotometric_DarkFringeElimination(t *testing.T) {
 		t.Errorf("Alpha attendu 255, obtenu %d", a)
 	}
 
-	// 50% d'énergie lumineuse dans l'espace sRGB correspond à 188 (et non 128)
-	if r < 184 || r > 188 {
-		t.Fatalf("VIOLATION PHOTOMÉTRIQUE : Énergie lumineuse corrompue R=%d (attendu 188 pour 50%% d'énergie lumineuse réelle, 128 = frange sombre parasite)", r)
-	}
-	if g < 184 || g > 188 {
-		t.Fatalf("VIOLATION PHOTOMÉTRIQUE G=%d", g)
-	}
-	if b < 184 || b > 188 {
-		t.Fatalf("VIOLATION PHOTOMÉTRIQUE B=%d", b)
+	// 50% d'énergie lumineuse dans l'espace sRGB correspond à 188 bit-exact (et non 128)
+	if r != 188 || g != 188 || b != 188 {
+		t.Fatalf("VIOLATION PHOTOMÉTRIQUE : Énergie lumineuse corrompue R=%d G=%d B=%d (attendu 188 exact pour 50%% d'énergie lumineuse réelle, 128 = frange sombre parasite)", r, g, b)
 	}
 }
 
-func TestPainter_DrawRectPhotometric(t *testing.T) {
+func TestPainter_DrawRectStandard_AutoPhotometric(t *testing.T) {
 	surf := NewSurface(100, 100)
 	p := NewPainter(surf)
+	p.PhotometricBlending = true
 	p.Clear(PackRGBA(0, 0, 0, 255))
-	p.DrawRectPhotometric(10, 10, 80, 80, PackRGBA(255, 255, 255, 128))
+	// Appel à DrawRect standard avec PhotometricBlending activé : route vers le mélange linéaire
+	p.DrawRect(10, 10, 80, 80, PackRGBA(255, 255, 255, 128))
 
 	center := surf.Pixels[50*surf.Stride+50]
-	r, _, _, a := UnpackRGBA(center)
+	r, g, b, a := UnpackRGBA(center)
 
-	if a != 255 || r < 184 || r > 188 {
-		t.Fatalf("DrawRectPhotometric a échoué : obtenu R=%d, A=%d", r, a)
+	if a != 255 || r != 188 || g != 188 || b != 188 {
+		t.Fatalf("DrawRect standard a échoué à éliminer la frange sombre : obtenu R=%d G=%d B=%d, A=%d (attendu 188 bit-exact)", r, g, b, a)
 	}
 }
 
