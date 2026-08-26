@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 package c2quic
 
 import (
@@ -294,7 +296,7 @@ func TestC2QUIC_ParityVsCOracle(t *testing.T) {
 	srcCandidates := []string{
 		filepath.Join("..", "..", "sources", "c2quic"),
 		filepath.Join("..", "..", "c2simd", "sources", "c2quic"),
-		"/devhoros/c2simd/sources/c2quic",
+		filepath.Join("sources", "c2quic"),
 	}
 	var srcDir string
 	for _, c := range srcCandidates {
@@ -488,3 +490,50 @@ func TestOverflowVint(t *testing.T) {
 		t.Fatalf("attendu trunc, st=%d", st)
 	}
 }
+
+func TestKAT_Batch8_SIMDGather_Parity(t *testing.T) {
+	rng := xorshift{s: 0xDEADBEEFCAFE1234}
+	const totalBuf = 16384
+	buf := make([]byte, totalBuf)
+	for i := 0; i < totalBuf; i++ {
+		buf[i] = byte(rng.next())
+	}
+
+	for iter := 0; iter < 10000; iter++ {
+		var bSIMD, bScalar C2quic_batch8_t
+		for k := 0; k < 8; k++ {
+			// Offset garantissant au moins 8 octets disponibles
+			off := uint32(rng.next() % (totalBuf - 16))
+			bSIMD.Offs[k] = off
+			bScalar.Offs[k] = off
+		}
+
+		C2quic_vint_decode_batch8(buf, totalBuf, &bSIMD)
+		C2quic_vint_decode_batch8_scalar(buf, totalBuf, &bScalar)
+
+		for k := 0; k < 8; k++ {
+			if bSIMD.Vals[k] != bScalar.Vals[k] || bSIMD.Nbytes[k] != bScalar.Nbytes[k] || bSIMD.Status[k] != bScalar.Status[k] {
+				t.Fatalf("Divergence batch8 iter=%d voie=%d: SIMD(val=%d, n=%d, st=%d) vs Scalar(val=%d, n=%d, st=%d)",
+					iter, k, bSIMD.Vals[k], bSIMD.Nbytes[k], bSIMD.Status[k], bScalar.Vals[k], bScalar.Nbytes[k], bScalar.Status[k])
+			}
+		}
+	}
+}
+
+func TestZeroAlloc_Batch8SIMD(t *testing.T) {
+	buf := make([]byte, 256)
+	for i := range buf {
+		buf[i] = byte(i)
+	}
+	var b C2quic_batch8_t
+	for k := 0; k < 8; k++ {
+		b.Offs[k] = uint32(k * 16)
+	}
+	allocs := testing.AllocsPerRun(1000, func() {
+		C2quic_vint_decode_batch8(buf, 256, &b)
+	})
+	if allocs != 0 {
+		t.Fatalf("C2quic_vint_decode_batch8 allocs/op = %.2f, attendu 0", allocs)
+	}
+}
+

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 package c2archsimd
 
 import (
@@ -106,9 +108,9 @@ func TestZeroAlloc(t *testing.T) {
 
 func TestC2ARCHSIMD_ParityVsCOracle(t *testing.T) {
 	srcCandidates := []string{
-		filepath.Join("..", "..", "sources", "c2archsimd"),
 		filepath.Join("..", "..", "c2simd", "sources", "c2archsimd"),
-		"/devhoros/c2simd/sources/c2archsimd",
+		filepath.Join("..", "..", "sources", "c2archsimd"),
+		filepath.Join("sources", "c2archsimd"),
 	}
 	var srcDir string
 	for _, c := range srcCandidates {
@@ -118,7 +120,7 @@ func TestC2ARCHSIMD_ParityVsCOracle(t *testing.T) {
 		}
 	}
 	if srcDir == "" {
-		t.Fatalf("CRITICAL GATE FAILURE: Oracle C source absent dans les chemins candidats: %v", srcCandidates)
+		t.Fatalf("CRITICAL GATE FAILURE: Oracle C source absent dans les chemins: %v", srcCandidates)
 	}
 	oracleSrc := filepath.Join(srcDir, "test_c2archsimd_oracle.c")
 	cSrc := filepath.Join(srcDir, "c2archsimd.c")
@@ -163,11 +165,9 @@ func TestC2ARCHSIMD_ParityVsCOracle(t *testing.T) {
 
 		// 1. LUT16 (Scalar & AVX2)
 		C2archsimd_lut16(inBuf[:], &table16, outBuf[:])
-		if HasAVX2() {
-			C2archsimd_lut16_avx2(inBuf[:], &table16, outAvx2[:])
-			if !bytes.Equal(outBuf[:], outAvx2[:]) {
-				t.Fatalf("LUT16 Go scalar vs Go AVX2 mismatch at iter %d", iter)
-			}
+		C2archsimd_lut16_avx2(inBuf[:], &table16, outAvx2[:])
+		if !bytes.Equal(outBuf[:], outAvx2[:]) {
+			t.Fatalf("LUT16 Go scalar vs Go AVX2 mismatch at iter %d", iter)
 		}
 		for k := 0; k < 32; k += 8 {
 			val := binary.LittleEndian.Uint64(outBuf[k : k+8])
@@ -185,11 +185,9 @@ func TestC2ARCHSIMD_ParityVsCOracle(t *testing.T) {
 		var in16 [16]byte
 		copy(in16[:], inBuf[:16])
 		C2archsimd_hex_encode16(in16[:], outHex[:])
-		if HasAVX2() {
-			C2archsimd_hex_encode16_avx2(in16[:], outHexAvx2[:])
-			if !bytes.Equal(outHex[:], outHexAvx2[:]) {
-				t.Fatalf("HexEncode Go scalar vs Go AVX2 mismatch at iter %d", iter)
-			}
+		C2archsimd_hex_encode16_avx2(in16[:], outHexAvx2[:])
+		if !bytes.Equal(outHex[:], outHexAvx2[:]) {
+			t.Fatalf("HexEncode Go scalar vs Go AVX2 mismatch at iter %d", iter)
 		}
 		for k := 0; k < 32; k += 8 {
 			val := binary.LittleEndian.Uint64(outHex[k : k+8])
@@ -198,11 +196,9 @@ func TestC2ARCHSIMD_ParityVsCOracle(t *testing.T) {
 
 		// 4. Vint Lens (Scalar & AVX2)
 		C2archsimd_vint_lens32(inBuf[:], outBuf[:])
-		if HasAVX2() {
-			C2archsimd_vint_lens32_avx2(inBuf[:], outAvx2[:])
-			if !bytes.Equal(outBuf[:], outAvx2[:]) {
-				t.Fatalf("VintLens Go scalar vs Go AVX2 mismatch at iter %d", iter)
-			}
+		C2archsimd_vint_lens32_avx2(inBuf[:], outAvx2[:])
+		if !bytes.Equal(outBuf[:], outAvx2[:]) {
+			t.Fatalf("VintLens Go scalar vs Go AVX2 mismatch at iter %d", iter)
 		}
 		for k := 0; k < 32; k += 8 {
 			val := binary.LittleEndian.Uint64(outBuf[k : k+8])

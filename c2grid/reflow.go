@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 package c2grid
 
 // Reflow resizes the grid and reflows text. Basic implementation.

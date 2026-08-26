@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 //go:build goexperiment.simd && arm64
 
 package c2tuidiff

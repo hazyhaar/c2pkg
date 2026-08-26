@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 package c2blueteam
 
 import (
@@ -182,6 +184,46 @@ func TestEntropy_ConcurrencyTorture_100Goroutines(t *testing.T) {
 	}
 
 	wg.Wait()
+}
+
+// TestEntropy_AdversarialDegenerateSingleSymbol teste un flux massif d'un seul symbole pour éprouver le repli scalaire au-delà de 256.
+func TestEntropy_AdversarialDegenerateSingleSymbol(t *testing.T) {
+	const sz = 100000
+	buf := make([]byte, sz)
+	for i := range buf {
+		buf[i] = 0x42
+	}
+	entQ8 := C2bt_calc_entropy_8_8(buf, sz)
+	if entQ8 != 0 {
+		t.Fatalf("Entropie attendue 0 pour flux mono-symbole, obtenu Q8.8=%d", entQ8)
+	}
+
+	allocs := testing.AllocsPerRun(100, func() {
+		sink := C2bt_calc_entropy_8_8(buf, sz)
+		_ = sink
+	})
+	if allocs != 0 {
+		t.Fatalf("C2bt_calc_entropy_8_8 allocs/op = %.2f, attendu 0", allocs)
+	}
+}
+
+// TestEntropy_AdversarialTwoSymbolsSkewed teste deux symboles avec forte asymétrie.
+func TestEntropy_AdversarialTwoSymbolsSkewed(t *testing.T) {
+	const sz = 65536
+	buf := make([]byte, sz)
+	for i := 0; i < 65000; i++ {
+		buf[i] = 'A'
+	}
+	for i := 65000; i < sz; i++ {
+		buf[i] = 'B'
+	}
+	entQ8 := C2bt_calc_entropy_8_8(buf, sz)
+	refEnt := referenceShannonEntropy(buf)
+	gotFloat := float64(entQ8) / 256.0
+	diff := math.Abs(gotFloat - refEnt)
+	if diff > 0.05 {
+		t.Fatalf("Divergence entropie asymétrique : got=%.4f, want=%.4f (diff=%.4f)", gotFloat, refEnt, diff)
+	}
 }
 
 func BenchmarkEntropy_Sweep_ARCHTIME(b *testing.B) {

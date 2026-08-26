@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 // Package c2uuidv7 implémente un générateur et manipulateur d'UUID (RFC 9562)
 // haute performance, 0-allocation (0 B/op), lock-free, à parité mécanique C99.
 // Il constitue un sur-ensemble 100% compatible avec le paquet standard uuid de Go 1.27.

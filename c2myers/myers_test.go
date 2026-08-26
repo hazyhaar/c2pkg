@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 package c2myers
 
 import (
@@ -284,3 +286,5 @@ func BenchmarkMyersDiff_1kLines(b *testing.B) {
 		_ = GenerateUnifiedDiff("file.go", "file.go", strA, strB, 3)
 	}
 }
+
+

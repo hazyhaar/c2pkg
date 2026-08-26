@@ -1,4 +1,6 @@
-//go:build !(amd64 && goexperiment.simd)
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
+//go:build !amd64 || !goexperiment.simd || js || wasm
 
 package c2archsimd
 
@@ -25,8 +27,4 @@ func C2archsimd_hex_encode16_avx2(in []byte, out []byte) {
 
 func C2archsimd_vint_lens32_avx2(in []byte, out []byte) {
 	C2archsimd_vint_lens32(in, out)
-}
-
-func C2archsimd_blend_solid_photometric8_avx2(in []uint32, ctx *C2archsimd_solid_blend_ctx_t, out []uint32) {
-	C2archsimd_blend_solid_photometric8(in, ctx, out)
 }

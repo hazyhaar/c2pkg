@@ -46,9 +46,6 @@ func C2bt_calc_entropy_8_8(data []byte, len_ uint64) uint32 {
 	var v89 byte
 	var v90 uint32
 	var v92 uint32
-	var v94 uint64
-	var v96 int
-	var v102 uint32
 	var v117 uint32
 	if uint64(len(data)) < len_ {
 		len_ = uint64(len(data))
@@ -115,19 +112,19 @@ func C2bt_calc_entropy_8_8(data []byte, len_ uint64) uint32 {
 		v9[v89] = v92
 		v13++
 	}
-	v94 = 0
-	for v96 = 0; v96 < 0x100; v96++ {
-		v102 = v9[v96]
-		if v102 > 0 {
-			if v102 <= 0x100 {
-				v94 += uint64(uint32(c_log2_c_table[v102]))
+	var sum_c_log_c uint64
+	for j := 0; j < 256; j++ {
+		c := v9[j]
+		if c > 0 {
+			if c <= 256 {
+				sum_c_log_c += uint64(c_log2_c_table[c])
 			} else {
-				v94 += (uint64(v102) * uint64(Arch_log2_q8_8(uint64(v102))))
+				sum_c_log_c += uint64(c) * uint64(Arch_log2_q8_8(uint64(c)))
 			}
 		}
 	}
 	v114 := Arch_log2_q8_8(len_)
-	v117 = uint32(v94 / len_)
+	v117 = uint32(sum_c_log_c / len_)
 	if v114 >= v117 {
 		return uint32(v114 - v117)
 	}

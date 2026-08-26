@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 package c2grid
 
 type Grid struct {
@@ -22,6 +24,8 @@ func NewGrid(cols, rows int) *Grid {
 		primary:   make([]C2_cell_t, cols*rows),
 		alternate: make([]C2_cell_t, cols*rows),
 	}
+	C2_grid_clear(g.primary, len(g.primary), 0, 0)
+	C2_grid_clear(g.alternate, len(g.alternate), 0, 0)
 	g.active = &g.primary
 	return g
 }
@@ -32,7 +36,7 @@ func (g *Grid) PutCell(r uint32, width uint8) {
 	}
 	idx := g.cursorY*g.cols + g.cursorX
 	(*g.active)[idx] = C2_cell_t{
-		Rune:  r,
+		Rune_: r,
 		Fg:    g.currentFg,
 		Bg:    g.currentBg,
 		Flags: g.currentFlags,
@@ -50,10 +54,7 @@ func (g *Grid) PutCell(r uint32, width uint8) {
 }
 
 func (g *Grid) Clear() {
-	buf := *g.active
-	for i := range buf {
-		buf[i] = C2_cell_t{Bg: g.currentBg}
-	}
+	C2_grid_clear(*g.active, len(*g.active), g.currentFg, g.currentBg)
 	g.cursorX = 0
 	g.cursorY = 0
 }
@@ -63,12 +64,7 @@ func (g *Grid) ScrollUp(n int) {
 		g.Clear()
 		return
 	}
-	buf := *g.active
-	copy(buf, buf[n*g.cols:])
-	clearStart := (g.rows - n) * g.cols
-	for i := clearStart; i < len(buf); i++ {
-		buf[i] = C2_cell_t{Bg: g.currentBg}
-	}
+	C2_grid_scroll_up(*g.active, g.cols, g.rows, g.cols, n)
 }
 
 func (g *Grid) ScrollDown(n int) {
@@ -78,10 +74,7 @@ func (g *Grid) ScrollDown(n int) {
 	}
 	buf := *g.active
 	copy(buf[n*g.cols:], buf[:(g.rows-n)*g.cols])
-	clearEnd := n * g.cols
-	for i := 0; i < clearEnd; i++ {
-		buf[i] = C2_cell_t{Bg: g.currentBg}
-	}
+	C2_grid_clear(buf[:n*g.cols], n*g.cols, g.currentFg, g.currentBg)
 }
 
 func (g *Grid) SetSGR(fg, bg, flags uint8) {

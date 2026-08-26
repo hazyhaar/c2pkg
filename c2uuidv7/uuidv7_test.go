@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 package c2uuidv7
 
 import (
@@ -349,5 +351,43 @@ func TestUUID_StandardInterfacesAndParity(t *testing.T) {
 	defaultU := New()
 	if !defaultU.IsV7() {
 		t.Errorf("New() default should be V7")
+	}
+}
+
+func TestUUIDv7_AdversarialHighByteRejection(t *testing.T) {
+	validStr := "01953258-2940-7000-8000-000000000000"
+	b := []byte(validStr)
+
+	// Injecter des octets non-ASCII (0x80..0xFF) à chaque position
+	for pos := 0; pos < 36; pos++ {
+		if pos == 8 || pos == 13 || pos == 18 || pos == 23 {
+			continue // Délimiteurs
+		}
+		orig := b[pos]
+		for badVal := 0x80; badVal <= 0xFF; badVal += 17 {
+			b[pos] = byte(badVal)
+			_, err := ParseBytes(b)
+			if err == nil {
+				t.Fatalf("ParseBytes n'a pas rejeté l'octet invalide 0x%02X à la position %d", badVal, pos)
+			}
+		}
+		b[pos] = orig
+	}
+}
+
+func TestUUIDv7_AdversarialMalformedDelimiters(t *testing.T) {
+	badDelims := []string{
+		"01953258_2940-7000-8000-000000000000",
+		"01953258-2940_7000-8000-000000000000",
+		"01953258-2940-7000_8000-000000000000",
+		"01953258-2940-7000-8000_000000000000",
+		"01953258 2940 7000 8000 000000000000",
+		"01953258-2940-7000-8000-00000000000G",
+	}
+	for _, bad := range badDelims {
+		_, err := Parse(bad)
+		if err == nil {
+			t.Fatalf("Parse aurait dû rejeter la chaîne malformée %q", bad)
+		}
 	}
 }

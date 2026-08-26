@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 package c2grid
 
 // ScrollbackRing est un tampon circulaire paginé pour les lignes d'historique de terminal,

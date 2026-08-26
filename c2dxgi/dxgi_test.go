@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 package c2dxgi
 
 import (
@@ -73,14 +75,15 @@ func TestDXGIVsCOracle(t *testing.T) {
 	tmpDir := t.TempDir()
 	oracleBin := filepath.Join(tmpDir, "test_dxgi_oracle")
 
+	srcDir, _ := filepath.Abs(filepath.Join("..", "..", "sources"))
 	srcs := []string{
-		"/devhoros/c2simd/sources/test_dxgi_oracle.c",
-		"/devhoros/c2simd/sources/c2_dxgi_abi.c",
+		filepath.Join(srcDir, "test_dxgi_oracle.c"),
+		filepath.Join(srcDir, "c2_dxgi_abi.c"),
 	}
 
 	cmd := exec.Command("gcc", append([]string{
 		"-O2", "-Wall", "-Wextra", "-std=gnu99",
-		"-I/devhoros/c2simd/sources",
+		"-I" + srcDir,
 		"-o", oracleBin,
 	}, srcs...)...)
 

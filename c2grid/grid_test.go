@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 package c2grid
 
 import (
@@ -23,7 +25,7 @@ func TestGridPutCellAndWrap(t *testing.T) {
 		t.Fatalf("Curseur attendu en (0, 1) après wrap, got: (%d, %d)", g.cursorX, g.cursorY)
 	}
 	// Vérifier la première cellule
-	if (*g.active)[0].Rune != '0' || (*g.active)[9].Rune != '9' {
+	if (*g.active)[0].Rune_ != '0' || (*g.active)[9].Rune_ != '9' {
 		t.Fatalf("Contenu de ligne 0 invalide")
 	}
 }
@@ -40,19 +42,19 @@ func TestGridScrollUpAndDown(t *testing.T) {
 
 	// ScrollUp 1 ligne : 'B', 'C' remontent aux lignes 0 et 1, la ligne 2 et 3 sont vides
 	g.ScrollUp(1)
-	if (*g.active)[0].Rune != 'B' || (*g.active)[10].Rune != 'C' {
+	if (*g.active)[0].Rune_ != 'B' || (*g.active)[10].Rune_ != 'C' {
 		t.Fatalf("Lignes 0-1 invalides après ScrollUp(1)")
 	}
-	if (*g.active)[20].Rune != 0 || (*g.active)[30].Rune != 0 {
+	if (*g.active)[20].Rune_ != 32 || (*g.active)[30].Rune_ != 32 {
 		t.Fatalf("Lignes inférieures non effacées après ScrollUp(1)")
 	}
 
 	// ScrollDown 1 ligne : réinsertion en haut
 	g.ScrollDown(1)
-	if (*g.active)[0].Rune != 0 {
+	if (*g.active)[0].Rune_ != 32 {
 		t.Fatalf("Première ligne non effacée après ScrollDown(1)")
 	}
-	if (*g.active)[10].Rune != 'B' || (*g.active)[20].Rune != 'C' {
+	if (*g.active)[10].Rune_ != 'B' || (*g.active)[20].Rune_ != 'C' {
 		t.Fatalf("Lignes 1-2 invalides après ScrollDown(1)")
 	}
 }
@@ -60,24 +62,24 @@ func TestGridScrollUpAndDown(t *testing.T) {
 func TestGridSwapScreen(t *testing.T) {
 	g := NewGrid(10, 5)
 	g.PutCell('P', 1)
-	if (*g.active)[0].Rune != 'P' {
+	if (*g.active)[0].Rune_ != 'P' {
 		t.Fatalf("Primary cell invalide")
 	}
 
 	// Bascule sur Alternate Screen et positionnement curseur en (0, 0)
 	g.SwapScreen()
 	g.SetCursor(0, 0)
-	if (*g.active)[0].Rune != 0 {
+	if (*g.active)[0].Rune_ != 32 {
 		t.Fatalf("Alternate screen attendu vide au départ")
 	}
 	g.PutCell('A', 1)
-	if (*g.active)[0].Rune != 'A' {
+	if (*g.active)[0].Rune_ != 'A' {
 		t.Fatalf("Alternate cell invalide")
 	}
 
 	// Retour sur Primary
 	g.SwapScreen()
-	if (*g.active)[0].Rune != 'P' {
+	if (*g.active)[0].Rune_ != 'P' {
 		t.Fatalf("Primary cell non restaurée après SwapScreen")
 	}
 }
@@ -93,7 +95,7 @@ func TestGridReflow(t *testing.T) {
 	if g.cols != 20 || g.rows != 10 {
 		t.Fatalf("Dimensions invalides après Reflow: %dx%d", g.cols, g.rows)
 	}
-	if (*g.active)[0].Rune != 'A' || (*g.active)[4].Rune != 'E' {
+	if (*g.active)[0].Rune_ != 'A' || (*g.active)[4].Rune_ != 'E' {
 		t.Fatalf("Contenu corrompu après expansion")
 	}
 
@@ -102,7 +104,7 @@ func TestGridReflow(t *testing.T) {
 	if g.cols != 4 || g.rows != 2 {
 		t.Fatalf("Dimensions invalides après shrinking: %dx%d", g.cols, g.rows)
 	}
-	if (*g.active)[0].Rune != 'A' || (*g.active)[3].Rune != 'D' {
+	if (*g.active)[0].Rune_ != 'A' || (*g.active)[3].Rune_ != 'D' {
 		t.Fatalf("Contenu corrompu après réduction")
 	}
 }
@@ -116,30 +118,30 @@ func TestScrollbackRing(t *testing.T) {
 	// Insérer 5 lignes
 	for i := 0; i < 5; i++ {
 		line := make([]C2_cell_t, 10)
-		line[0].Rune = uint32('0' + i)
+		line[0].Rune_ = uint32('0' + i)
 		ring.Push(line)
 	}
 	if ring.Count() != 5 {
 		t.Fatalf("Count attendu 5, got %d", ring.Count())
 	}
-	if ring.Get(0)[0].Rune != '0' || ring.Get(4)[0].Rune != '4' {
+	if ring.Get(0)[0].Rune_ != '0' || ring.Get(4)[0].Rune_ != '4' {
 		t.Fatalf("Lignes 0 ou 4 invalides")
 	}
 
 	// Insérer une 6ème ligne (éviction de '0')
 	line6 := make([]C2_cell_t, 10)
-	line6[0].Rune = '5'
+	line6[0].Rune_ = '5'
 	ring.Push(line6)
 	if ring.Count() != 5 {
 		t.Fatalf("Count attendu 5 après saturation, got %d", ring.Count())
 	}
 	// L'élément le plus ancien est maintenant '1'
-	if ring.Get(0)[0].Rune != '1' {
-		t.Fatalf("Éviction FIFO incorrecte: got %c, want '1'", ring.Get(0)[0].Rune)
+	if ring.Get(0)[0].Rune_ != '1' {
+		t.Fatalf("Éviction FIFO incorrecte: got %c, want '1'", ring.Get(0)[0].Rune_)
 	}
 	// L'élément le plus récent est '5'
-	if ring.Get(4)[0].Rune != '5' {
-		t.Fatalf("Dernier élément attendu '5', got %c", ring.Get(4)[0].Rune)
+	if ring.Get(4)[0].Rune_ != '5' {
+		t.Fatalf("Dernier élément attendu '5', got %c", ring.Get(4)[0].Rune_)
 	}
 
 	// Hors-bornes
@@ -161,7 +163,7 @@ func BenchmarkScrollbackRingPush(b *testing.B) {
 	ring := NewScrollbackRing(10000)
 	line := make([]C2_cell_t, 80)
 	for i := range line {
-		line[i].Rune = 'X'
+		line[i].Rune_ = 'X'
 	}
 	b.ResetTimer()
 	b.ReportAllocs()

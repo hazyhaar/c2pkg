@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 // Package c2vtparser ingère un flux ANSI et mute une grille de cellules
 // in-place. Parser.Feed est le chemin de production (UTF-8, wrap, scroll).
 // Les symboles C2_vt_* sont un sous-ensemble C transpilé, pas un remplacement
@@ -1019,7 +1021,7 @@ func (g *CursorGrid) putRunLUT(text []byte, lut *[256]uint32, fg, bg, flags uint
 			break
 		}
 
-		// Boucle interne serrée déroulée x4 : injection uint64 directe avec transcodage LUT
+		// Boucle interne directe LUT 4x déroulée
 		rowOffset := row + cx
 		k := 0
 		for k+4 <= toWrite {

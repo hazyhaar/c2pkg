@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 // Package c2tuidiff compare deux grilles de cellules terminales et produit
 // les segments horizontaux de cellules modifiées (spans).
 //
