@@ -82,9 +82,21 @@ run_bench() {
   } | tee "$RESULTS/benchstat.md"
 }
 
+run_strata() {
+  echo "== banc stratifié du pipeline (étages s1..s5 du scellement)"
+  (cd "$C2SIMD" && ./bin/c2simd-probe strata)
+}
+
+run_mutations() {
+  echo "== profilage micro-unitaire des 10 mutations de données (M1..M10)"
+  (cd "$C2SIMD" && ./bin/c2simd-probe mutations)
+}
+
 case "${1:-all}" in
-  test)  materialize; run_tests ;;
-  bench) [ -d "$PKG" ] || materialize; run_bench ;;
-  all)   materialize; run_tests; run_bench ;;
-  *) echo "usage: $0 [test|bench|all]" >&2; exit 1 ;;
+  test)      materialize; run_tests ;;
+  bench)     [ -d "$PKG" ] || materialize; run_bench ;;
+  strata)    run_strata ;;
+  mutations) run_mutations ;;
+  all)       materialize; run_tests; run_bench; run_strata; run_mutations ;;
+  *) echo "usage: $0 [test|bench|strata|mutations|all]" >&2; exit 1 ;;
 esac
