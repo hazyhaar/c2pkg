@@ -6,7 +6,7 @@ Tous les paquets sont garantis :
 - **$0\text{ CGO}$ / $100\%$ Pur Go** (sans runtime C ni dépendance dynamique).
 - **Parité bit-exacte** prouvée contre oracles C99 compilés avec `gcc -O2` sous ASan/UBSan.
 - **Zéro allocation** sur les chemins chauds de calcul.
-- **Accélération vectorielle SIMD** (AVX2, AVX-512, ARM NEON).
+- **Accélération vectorielle SIMD** via `simd/archsimd` (AVX2, AVX-512, ARM NEON).
 
 ---
 
@@ -14,8 +14,14 @@ Tous les paquets sont garantis :
 
 | Paquet | Source C parente | Rôle & Invariants |
 | :--- | :--- | :--- |
+| **`c2chacha8`** | `c2chacha8_simd.c` | Noyau ChaCha20 vectoriel 8 blocs (512 octets/appel), $0,296\text{ ns/o}$ ($3,3\text{ Go/s}$). |
+| **`c2chacha4`** | `c2chacha4_simd.c` | Noyau ChaCha20 vectoriel 4 blocs (256 octets/appel) en 8 registres YMM. |
+| **`c2chacha1`** | `c2chacha1_simd.c` | Noyau ChaCha20 unitaire (64 octets/appel) pour dérivation de clé Poly1305. |
+| **`c2poly1305`** | `monocypher.c` | Authentificateur Poly1305 RFC 8439 en Go pur 26 bits à zéro allocation. |
+| **`c2poly1305x2`** | `monocypher.c` | Authentificateur Poly1305 multi-voies vectoriel. |
 | **`c2archsimd`** | `c2archsimd.c` | Tables ARCHTIME `.rodata`, LUT16/LUT256 AVX2, encodage Hex rapide. |
-| **`c2painter`** | `c2_painter.c`, `c2_photometric.c` | Rastériseur 2D, Porter-Duff Over, composition photométrique linéaire sans franges sombres. |
+| **`c2base64`** | `base64_simd.c` | Encodage / Décodage Base64 vectoriel AVX2 sans table en mémoire. |
+| **`c2pngfilter`** | `stbi_png_filter.c` | Filtres de reconstruction PNG (Sub, Up, Average, Paeth) vectorisés. |
 | **`c2swizzle`** | `c2_swizzle_simd.c` | Transposition vectorielle RGBA $\leftrightarrow$ BGRA via `vpshufb` ($\ge 36\text{ Go/s}$). |
 | **`c2ssim`** | `c2_ssim_gaussian.c` | Filtre gaussien séparable 11x11 et calcul SSIM instantané. |
 | **`c2dxgi`** | `c2_dxgi_abi.c` | Descripteurs GPU 64-bit ABI DirectX / DirectComposition pour Windows sans CGO. |
