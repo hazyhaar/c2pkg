@@ -43,3 +43,14 @@ Tous les paquets sont garantis :
 ```bash
 GOEXPERIMENT=simd go test -v -race ./...
 ```
+
+---
+
+## Harnais Amont x/crypto/chacha20poly1305 (RFC 8439)
+
+Le sous-répertoire [`upstream/xcrypto/`](upstream/xcrypto/) contient le banc d'évaluation opposable contre la suite de tests officielle `golang.org/x/crypto/chacha20poly1305` sans modification des tests amont :
+
+```bash
+cd upstream/xcrypto && ./harness.sh all
+```
+

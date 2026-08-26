@@ -1,0 +1,42 @@
+goos: linux
+goarch: amd64
+pkg: golang.org/x/crypto/chacha20poly1305
+cpu: Intel(R) Core(TM) i9-14900K
+BenchmarkChacha20Poly1305/Open-64-16         	  528664	       235.8 ns/op	 271.45 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-64-16         	  536598	       221.0 ns/op	 289.62 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-64-16         	  555879	       224.7 ns/op	 284.77 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-64-16         	  491985	       227.9 ns/op	 280.88 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-64-16         	  568939	       230.5 ns/op	 277.64 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-64-16         	  554017	       230.2 ns/op	 278.02 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-64-X-16       	  406856	       288.9 ns/op	 221.54 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-64-X-16       	  423718	       304.1 ns/op	 210.47 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-64-X-16       	  344972	       342.8 ns/op	 186.72 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-64-X-16       	  433369	       275.4 ns/op	 232.39 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-64-X-16       	  427268	       279.4 ns/op	 229.06 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-64-X-16       	  437331	       278.7 ns/op	 229.66 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-1350-16       	  115662	      1038 ns/op	1300.74 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-1350-16       	  111266	      1060 ns/op	1274.08 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-1350-16       	  108921	      1068 ns/op	1263.66 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-1350-16       	  108020	      1172 ns/op	1151.61 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-1350-16       	  108580	      1124 ns/op	1200.99 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-1350-16       	   93598	      1130 ns/op	1194.41 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-1350-X-16     	   83353	      1203 ns/op	1122.45 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-1350-X-16     	   92708	      1229 ns/op	1098.17 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-1350-X-16     	   95166	      1268 ns/op	1064.62 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-1350-X-16     	   96162	      1237 ns/op	1091.71 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-1350-X-16     	   98721	      1277 ns/op	1056.87 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-1350-X-16     	   82413	      2873 ns/op	 469.91 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-8192-16       	   26953	      3776 ns/op	2169.51 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-8192-16       	   31750	      3802 ns/op	2154.78 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-8192-16       	   30201	      3870 ns/op	2116.69 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-8192-16       	   29400	      4203 ns/op	1949.20 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-8192-16       	   28393	      4047 ns/op	2024.03 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-8192-16       	   29154	      4228 ns/op	1937.51 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-8192-X-16     	   26414	      4298 ns/op	1905.96 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-8192-X-16     	   25855	      4357 ns/op	1880.28 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Open-8192-X-16     	   26160	      4333 ns/op	1890.68 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-8192-X-16     	   26455	      4371 ns/op	1874.17 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-8192-X-16     	   27049	      4420 ns/op	1853.34 MB/s	       0 B/op	       0 allocs/op
+BenchmarkChacha20Poly1305/Seal-8192-X-16     	   26450	      6845 ns/op	1196.80 MB/s	       0 B/op	       0 allocs/op
+PASS
+ok  	golang.org/x/crypto/chacha20poly1305	5.184s
