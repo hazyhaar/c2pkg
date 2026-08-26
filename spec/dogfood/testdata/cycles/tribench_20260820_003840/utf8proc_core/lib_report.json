@@ -1,0 +1,78 @@
+{
+  "id": "utf8proc_core",
+  "kind": "utf8proc",
+  "notes": "utf8proc UTF-8 iterator",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 66,
+      "binary_bytes": 82040,
+      "run_ms": 0,
+      "stdout_sha256": "33416b73a34c2fe44e20c2347817c970307eb8ad17235362e35deab4dee1d689",
+      "stdout": "empty 0 0\nhello 1 104\n16b 1 48\n17b 1 48\n64b -1 -1\n1k 1 90\n64k 1 60\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "1 48",
+        "17b": "1 48",
+        "1k": "1 90",
+        "64b": "-1 -1",
+        "64k": "1 60",
+        "empty": "0 0",
+        "hello": "1 104"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 75,
+      "binary_bytes": 81848,
+      "run_ms": 0,
+      "stdout_sha256": "33416b73a34c2fe44e20c2347817c970307eb8ad17235362e35deab4dee1d689",
+      "stdout": "empty 0 0\nhello 1 104\n16b 1 48\n17b 1 48\n64b -1 -1\n1k 1 90\n64k 1 60\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "1 48",
+        "17b": "1 48",
+        "1k": "1 90",
+        "64b": "-1 -1",
+        "64k": "1 60",
+        "empty": "0 0",
+        "hello": "1 104"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 280,
+      "binary_bytes": 2429729,
+      "run_ms": 1,
+      "stdout_sha256": "33416b73a34c2fe44e20c2347817c970307eb8ad17235362e35deab4dee1d689",
+      "stdout": "empty 0 0\nhello 1 104\n16b 1 48\n17b 1 48\n64b -1 -1\n1k 1 90\n64k 1 60\n",
+      "match_oracle": true,
+      "lines": {
+        "16b": "1 48",
+        "17b": "1 48",
+        "1k": "1 90",
+        "64b": "-1 -1",
+        "64k": "1 60",
+        "empty": "0 0",
+        "hello": "1 104"
+      },
+      "code_lines": 95,
+      "var_count": 1,
+      "int_cast_index": 2
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 431
+}

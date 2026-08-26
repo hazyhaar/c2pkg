@@ -1,0 +1,78 @@
+{
+  "id": "simsimd_dot_f32",
+  "kind": "dot_f32",
+  "notes": "SimSIMD float32 dot product",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 80,
+      "binary_bytes": 147704,
+      "run_ms": 0,
+      "stdout_sha256": "c52233bee718a5633bd2fbf0fad2b4fa6410d7cba8241c4a9df7a7be4aeb071a",
+      "stdout": "empty 0.000000e+00\n16b 6.502500e+04\n17b 4.335000e+03\n64b 2.376000e+05\n1k 3.801600e+06\n64k 1.916928e+08\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "6.502500e+04",
+        "17b": "4.335000e+03",
+        "1k": "3.801600e+06",
+        "64b": "2.376000e+05",
+        "64k": "1.916928e+08",
+        "empty": "0.000000e+00"
+      },
+      "bench_ns_per_op": 456269
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 96,
+      "binary_bytes": 147528,
+      "run_ms": 0,
+      "stdout_sha256": "c52233bee718a5633bd2fbf0fad2b4fa6410d7cba8241c4a9df7a7be4aeb071a",
+      "stdout": "empty 0.000000e+00\n16b 6.502500e+04\n17b 4.335000e+03\n64b 2.376000e+05\n1k 3.801600e+06\n64k 1.916928e+08\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "6.502500e+04",
+        "17b": "4.335000e+03",
+        "1k": "3.801600e+06",
+        "64b": "2.376000e+05",
+        "64k": "1.916928e+08",
+        "empty": "0.000000e+00"
+      },
+      "bench_ns_per_op": 431195
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 272,
+      "binary_bytes": 2550013,
+      "run_ms": 0,
+      "stdout_sha256": "c52233bee718a5633bd2fbf0fad2b4fa6410d7cba8241c4a9df7a7be4aeb071a",
+      "stdout": "empty 0.000000e+00\n16b 6.502500e+04\n17b 4.335000e+03\n64b 2.376000e+05\n1k 3.801600e+06\n64k 1.916928e+08\n",
+      "match_oracle": true,
+      "lines": {
+        "16b": "6.502500e+04",
+        "17b": "4.335000e+03",
+        "1k": "3.801600e+06",
+        "64b": "2.376000e+05",
+        "64k": "1.916928e+08",
+        "empty": "0.000000e+00"
+      },
+      "bench_ns_per_op": 1057297,
+      "code_lines": 29,
+      "var_count": 4
+    },
+    {
+      "backend": "ccgo",
+      "status": "fail",
+      "error": "go build: # tribccgo\n./main.go:30:2: declared and not used: d0\n./main.go:32:2: declared and not used: d1\n./main.go:33:2: declared and not used: e1\n./main.go:35:2: declared and not used: d2\n./main.go:36:2: declared and not used: e2\n./main.go:38:2: declared and not used: d3\n./main.go:39:2: declared and not used: e3\n./main.go:41:2: declared and not used: d4\n./main.go:42:2: declared and not used: e4\n./main.go:44:2: declared and not used: d5\n./main.go:44:2: too many errors\n",
+      "compile_ms": 323,
+      "run_ms": 0,
+      "match_oracle": false,
+      "code_lines": 420
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 1074
+}

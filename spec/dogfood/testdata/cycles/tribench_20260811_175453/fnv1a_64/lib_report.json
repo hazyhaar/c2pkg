@@ -1,0 +1,77 @@
+{
+  "id": "fnv1a_64",
+  "kind": "hash64",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 125,
+      "binary_bytes": 81912,
+      "run_ms": 0,
+      "stdout_sha256": "089bf958b0db5cd2d4a66ac51bad571cf15d0f020fbe9e99d1f666db0b7018e2",
+      "stdout": "empty cbf29ce484222325\nhello a430d84680aabd0b\n16b 2e373913e5ad677d\n17b 353d21cf45a643df\n64b 6502f47973980765\n1k ab0aecec8ae50325\n64k c38d62bd0a622325\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "2e373913e5ad677d",
+        "17b": "353d21cf45a643df",
+        "1k": "ab0aecec8ae50325",
+        "64b": "6502f47973980765",
+        "64k": "c38d62bd0a622325",
+        "empty": "cbf29ce484222325",
+        "hello": "a430d84680aabd0b"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 81,
+      "binary_bytes": 81776,
+      "run_ms": 0,
+      "stdout_sha256": "089bf958b0db5cd2d4a66ac51bad571cf15d0f020fbe9e99d1f666db0b7018e2",
+      "stdout": "empty cbf29ce484222325\nhello a430d84680aabd0b\n16b 2e373913e5ad677d\n17b 353d21cf45a643df\n64b 6502f47973980765\n1k ab0aecec8ae50325\n64k c38d62bd0a622325\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "2e373913e5ad677d",
+        "17b": "353d21cf45a643df",
+        "1k": "ab0aecec8ae50325",
+        "64b": "6502f47973980765",
+        "64k": "c38d62bd0a622325",
+        "empty": "cbf29ce484222325",
+        "hello": "a430d84680aabd0b"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 236,
+      "binary_bytes": 2479899,
+      "run_ms": 1,
+      "stdout_sha256": "089bf958b0db5cd2d4a66ac51bad571cf15d0f020fbe9e99d1f666db0b7018e2",
+      "stdout": "empty cbf29ce484222325\nhello a430d84680aabd0b\n16b 2e373913e5ad677d\n17b 353d21cf45a643df\n64b 6502f47973980765\n1k ab0aecec8ae50325\n64k c38d62bd0a622325\n",
+      "match_oracle": true,
+      "lines": {
+        "16b": "2e373913e5ad677d",
+        "17b": "353d21cf45a643df",
+        "1k": "ab0aecec8ae50325",
+        "64b": "6502f47973980765",
+        "64k": "c38d62bd0a622325",
+        "empty": "cbf29ce484222325",
+        "hello": "a430d84680aabd0b"
+      },
+      "code_lines": 17,
+      "var_count": 2,
+      "int_cast_index": 1
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 451
+}

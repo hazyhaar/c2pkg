@@ -1,0 +1,64 @@
+{
+  "id": "simsimd_l2sq_f32",
+  "kind": "dot_f32",
+  "notes": "SimSIMD L2 squared distance float32",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 85,
+      "binary_bytes": 147664,
+      "run_ms": 0,
+      "stdout_sha256": "3574e45f392c2272a5771c27d1477778dbd0ede7a2541a833c28645a87516d1b",
+      "stdout": "empty 0.000000e+00\n16b 0.000000e+00\n17b 0.000000e+00\n64b 0.000000e+00\n1k 0.000000e+00\n64k 0.000000e+00\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "0.000000e+00",
+        "17b": "0.000000e+00",
+        "1k": "0.000000e+00",
+        "64b": "0.000000e+00",
+        "64k": "0.000000e+00",
+        "empty": "0.000000e+00"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 96,
+      "binary_bytes": 147480,
+      "run_ms": 0,
+      "stdout_sha256": "3574e45f392c2272a5771c27d1477778dbd0ede7a2541a833c28645a87516d1b",
+      "stdout": "empty 0.000000e+00\n16b 0.000000e+00\n17b 0.000000e+00\n64b 0.000000e+00\n1k 0.000000e+00\n64k 0.000000e+00\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "0.000000e+00",
+        "17b": "0.000000e+00",
+        "1k": "0.000000e+00",
+        "64b": "0.000000e+00",
+        "64k": "0.000000e+00",
+        "empty": "0.000000e+00"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "fail",
+      "error": "go build: # trib/kernel\nkernel/kernel.go:11:21: invalid argument: index v5 (variable of type float32) must be integer\n",
+      "compile_ms": 44,
+      "run_ms": 0,
+      "match_oracle": false,
+      "code_lines": 17,
+      "var_count": 2
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": false,
+  "wall_ms": 236
+}

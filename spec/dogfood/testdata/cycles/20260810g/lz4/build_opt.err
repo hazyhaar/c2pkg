@@ -1,0 +1,9 @@
+# code.hazyhaar.fr/devhoros/c2simd/spec/dogfood/cycles/20260810g/lz4/build_opt
+spec/dogfood/cycles/20260810g/lz4/build_opt/opt.go:1419:160: constant -1 overflows uintptr
+spec/dogfood/cycles/20260810g/lz4/build_opt/opt.go:2095:3: undefined: iqlibc
+spec/dogfood/cycles/20260810g/lz4/build_opt/opt.go:2168:3: undefined: iqlibc
+spec/dogfood/cycles/20260810g/lz4/build_opt/opt.go:2204:5: undefined: iqlibc
+spec/dogfood/cycles/20260810g/lz4/build_opt/opt.go:2209:5: undefined: iqlibc
+spec/dogfood/cycles/20260810g/lz4/build_opt/opt.go:2428:5: undefined: iqlibc
+spec/dogfood/cycles/20260810g/lz4/build_opt/opt.go:2561:3: undefined: iqlibc
+spec/dogfood/cycles/20260810g/lz4/build_opt/opt.go:2619:4: undefined: iqlibc

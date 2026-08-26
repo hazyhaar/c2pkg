@@ -1,0 +1,91 @@
+{
+  "stamp": "20260811_sgoiter12_green",
+  "ok": 12,
+  "total": 12,
+  "rows": [
+    {
+      "lib": "base64_simd",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK"
+    },
+    {
+      "lib": "blake2b_compress",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK"
+    },
+    {
+      "lib": "chacha20_qr",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK"
+    },
+    {
+      "lib": "crc32_ieee",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK"
+    },
+    {
+      "lib": "fast_xor",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK"
+    },
+    {
+      "lib": "fnv1a_64",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK"
+    },
+    {
+      "lib": "libinjection_sqli",
+      "status": "ok",
+      "funcs": 10,
+      "stubs": 3,
+      "build": "OK"
+    },
+    {
+      "lib": "md5_transform",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK"
+    },
+    {
+      "lib": "murmur3_x86_32",
+      "status": "ok",
+      "funcs": 3,
+      "stubs": 0,
+      "build": "OK"
+    },
+    {
+      "lib": "poly1305_block5",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK"
+    },
+    {
+      "lib": "siphash24",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK"
+    },
+    {
+      "lib": "tweetnacl_dogfood",
+      "status": "ok",
+      "funcs": 38,
+      "stubs": 10,
+      "build": "OK"
+    }
+  ]
+}

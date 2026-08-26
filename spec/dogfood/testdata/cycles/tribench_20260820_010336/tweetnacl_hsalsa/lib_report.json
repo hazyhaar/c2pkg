@@ -1,0 +1,63 @@
+{
+  "id": "tweetnacl_hsalsa",
+  "kind": "tweet_hsalsa",
+  "notes": "TweetNaCl HSalsa20 core",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 38,
+      "binary_bytes": 16352,
+      "run_ms": 0,
+      "stdout_sha256": "fd89dbc344673ce8a7ac9761affcf05d842d85d80d02a6ade3507456d6cdb819",
+      "stdout": "zero e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\npattern e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e",
+        "zero": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 53,
+      "binary_bytes": 16096,
+      "run_ms": 0,
+      "stdout_sha256": "fd89dbc344673ce8a7ac9761affcf05d842d85d80d02a6ade3507456d6cdb819",
+      "stdout": "zero e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\npattern e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e",
+        "zero": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 153,
+      "binary_bytes": 2369750,
+      "run_ms": 1,
+      "stdout_sha256": "fd89dbc344673ce8a7ac9761affcf05d842d85d80d02a6ade3507456d6cdb819",
+      "stdout": "zero e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\npattern e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\n",
+      "match_oracle": true,
+      "lines": {
+        "pattern": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e",
+        "zero": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e"
+      },
+      "code_lines": 107,
+      "var_count": 12,
+      "rot_left_calls": 1
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 248
+}

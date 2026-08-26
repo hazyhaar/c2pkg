@@ -1,0 +1,22 @@
+# tribccgo
+./main.go:45:36: too many arguments in call to strlenspn_lab
+	have (*libc.TLS, uintptr, uint64, uintptr)
+	want (*libc.TLS, uintptr, size_t)
+./main.go:49:36: too many arguments in call to strlenspn_lab
+	have (*libc.TLS, uintptr, uint64, uintptr)
+	want (*libc.TLS, uintptr, size_t)
+./main.go:53:36: too many arguments in call to strlenspn_lab
+	have (*libc.TLS, uintptr, uint64, uintptr)
+	want (*libc.TLS, uintptr, size_t)
+./main.go:57:36: too many arguments in call to strlenspn_lab
+	have (*libc.TLS, uintptr, uint64, uintptr)
+	want (*libc.TLS, uintptr, size_t)
+./main.go:61:36: too many arguments in call to strlenspn_lab
+	have (*libc.TLS, uintptr, uint64, uintptr)
+	want (*libc.TLS, uintptr, size_t)
+./main.go:65:36: too many arguments in call to strlenspn_lab
+	have (*libc.TLS, uintptr, uint64, uintptr)
+	want (*libc.TLS, uintptr, size_t)
+./main.go:69:36: too many arguments in call to strlenspn_lab
+	have (*libc.TLS, uintptr, uint64, uintptr)
+	want (*libc.TLS, uintptr, size_t)

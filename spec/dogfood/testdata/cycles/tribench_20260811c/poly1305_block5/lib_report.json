@@ -1,0 +1,69 @@
+{
+  "id": "poly1305_block5",
+  "kind": "poly5",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 33,
+      "binary_bytes": 16232,
+      "run_ms": 0,
+      "stdout_sha256": "3cc13c368a5ba7ad362685aeb4fd68ca32a3daff3a5a077263fb0cb33a5865f9",
+      "stdout": "zero 0000000900000012000000180000001c0000001e\npattern 0000000900000012000000180000001c0000001e\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "0000000900000012000000180000001c0000001e",
+        "zero": "0000000900000012000000180000001c0000001e"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 39,
+      "binary_bytes": 16096,
+      "run_ms": 0,
+      "stdout_sha256": "3cc13c368a5ba7ad362685aeb4fd68ca32a3daff3a5a077263fb0cb33a5865f9",
+      "stdout": "zero 0000000900000012000000180000001c0000001e\npattern 0000000900000012000000180000001c0000001e\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "0000000900000012000000180000001c0000001e",
+        "zero": "0000000900000012000000180000001c0000001e"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 120,
+      "binary_bytes": 2420006,
+      "run_ms": 0,
+      "stdout_sha256": "0cbbe9d272d9ffd7f9ec5cb948d46e6ad2c2640ae9a422b1102348950b398462",
+      "stdout": "zero 0000000000000000000000180000001c0000001e\npattern 0000000000000000000000180000001c0000001e\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "0000000000000000000000180000001c0000001e",
+        "zero": "0000000000000000000000180000001c0000001e"
+      },
+      "bench_ns_per_op": 918341,
+      "code_lines": 205
+    },
+    {
+      "backend": "ccgo",
+      "status": "ok",
+      "compile_ms": 407,
+      "binary_bytes": 3614541,
+      "run_ms": 1,
+      "stdout_sha256": "3cc13c368a5ba7ad362685aeb4fd68ca32a3daff3a5a077263fb0cb33a5865f9",
+      "stdout": "zero 0000000900000012000000180000001c0000001e\npattern 0000000900000012000000180000001c0000001e\n",
+      "match_oracle": true,
+      "lines": {
+        "pattern": "0000000900000012000000180000001c0000001e",
+        "zero": "0000000900000012000000180000001c0000001e"
+      },
+      "bench_ns_per_op": 1198364,
+      "code_lines": 517
+    }
+  ],
+  "all_match_oracle": false,
+  "wall_ms": 637
+}

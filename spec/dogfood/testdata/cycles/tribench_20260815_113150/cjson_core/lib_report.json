@@ -1,0 +1,79 @@
+{
+  "id": "cjson_core",
+  "kind": "cjson_core",
+  "notes": "cJSON case-insensitive compare",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 85,
+      "binary_bytes": 147640,
+      "run_ms": 0,
+      "stdout_sha256": "fd36850c0c5d26bd3047a58a6df489260a2e369cf026b6196afc8febddd931ea",
+      "stdout": "empty 0\n16b -207\n17b 31\n64b 43\n1k -43\n64k -135\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "-207",
+        "17b": "31",
+        "1k": "-43",
+        "64b": "43",
+        "64k": "-135",
+        "empty": "0"
+      },
+      "bench_ns_per_op": 341779
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 88,
+      "binary_bytes": 147448,
+      "run_ms": 0,
+      "stdout_sha256": "fd36850c0c5d26bd3047a58a6df489260a2e369cf026b6196afc8febddd931ea",
+      "stdout": "empty 0\n16b -207\n17b 31\n64b 43\n1k -43\n64k -135\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "-207",
+        "17b": "31",
+        "1k": "-43",
+        "64b": "43",
+        "64k": "-135",
+        "empty": "0"
+      },
+      "bench_ns_per_op": 374657
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 289,
+      "binary_bytes": 2545331,
+      "run_ms": 0,
+      "stdout_sha256": "fd36850c0c5d26bd3047a58a6df489260a2e369cf026b6196afc8febddd931ea",
+      "stdout": "empty 0\n16b -207\n17b 31\n64b 43\n1k -43\n64k -135\n",
+      "match_oracle": true,
+      "lines": {
+        "16b": "-207",
+        "17b": "31",
+        "1k": "-43",
+        "64b": "43",
+        "64k": "-135",
+        "empty": "0"
+      },
+      "bench_ns_per_op": 951947,
+      "code_lines": 57,
+      "var_count": 4,
+      "int_cast_index": 2
+    },
+    {
+      "backend": "ccgo",
+      "status": "fail",
+      "error": "go build: # tribccgo\n./main.go:30:2: declared and not used: d0\n./main.go:32:2: declared and not used: d1\n./main.go:33:2: declared and not used: e1\n./main.go:35:2: declared and not used: d2\n./main.go:36:2: declared and not used: e2\n./main.go:38:2: declared and not used: d3\n./main.go:39:2: declared and not used: e3\n./main.go:41:2: declared and not used: d4\n./main.go:42:2: declared and not used: e4\n./main.go:44:2: declared and not used: d5\n./main.go:44:2: too many errors\n",
+      "compile_ms": 331,
+      "run_ms": 0,
+      "match_oracle": false,
+      "code_lines": 551
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 1130
+}

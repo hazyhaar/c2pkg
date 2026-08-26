@@ -1,0 +1,62 @@
+{
+  "id": "md5_transform",
+  "kind": "md5",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 35,
+      "binary_bytes": 16376,
+      "run_ms": 0,
+      "stdout_sha256": "4c3ba5ef43889cd5a98fcdc820a83677dc74429a4fe7de6f11c4a04eee970c98",
+      "stdout": "zero 0c650a75beb621092cad884e31c7a754\npattern df37dcc8e4a0fcffd4a6e47e1217b723\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "df37dcc8e4a0fcffd4a6e47e1217b723",
+        "zero": "0c650a75beb621092cad884e31c7a754"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 36,
+      "binary_bytes": 16096,
+      "run_ms": 0,
+      "stdout_sha256": "4c3ba5ef43889cd5a98fcdc820a83677dc74429a4fe7de6f11c4a04eee970c98",
+      "stdout": "zero 0c650a75beb621092cad884e31c7a754\npattern df37dcc8e4a0fcffd4a6e47e1217b723\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "df37dcc8e4a0fcffd4a6e47e1217b723",
+        "zero": "0c650a75beb621092cad884e31c7a754"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 135,
+      "binary_bytes": 2414474,
+      "run_ms": 1,
+      "stdout_sha256": "4c3ba5ef43889cd5a98fcdc820a83677dc74429a4fe7de6f11c4a04eee970c98",
+      "stdout": "zero 0c650a75beb621092cad884e31c7a754\npattern df37dcc8e4a0fcffd4a6e47e1217b723\n",
+      "match_oracle": true,
+      "lines": {
+        "pattern": "df37dcc8e4a0fcffd4a6e47e1217b723",
+        "zero": "0c650a75beb621092cad884e31c7a754"
+      },
+      "code_lines": 51,
+      "var_count": 5,
+      "rot_left_calls": 4
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 210
+}

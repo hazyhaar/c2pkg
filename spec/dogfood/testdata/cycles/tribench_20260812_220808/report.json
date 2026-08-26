@@ -1,0 +1,249 @@
+{
+  "stamp": "2026-08-12T20:08:08Z",
+  "host": "linux/amd64",
+  "go_version": "go1.26.5",
+  "sgoiter_bin": "./bin/sgoiter",
+  "ccgo_bin": "/home/cl-ment/go/bin/ccgo",
+  "out_dir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260812_220808",
+  "libs": [
+    {
+      "id": "fnv1a_64",
+      "kind": "hash64",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 78,
+          "binary_bytes": 81912,
+          "run_ms": 0,
+          "stdout_sha256": "089bf958b0db5cd2d4a66ac51bad571cf15d0f020fbe9e99d1f666db0b7018e2",
+          "stdout": "empty cbf29ce484222325\nhello a430d84680aabd0b\n16b 2e373913e5ad677d\n17b 353d21cf45a643df\n64b 6502f47973980765\n1k ab0aecec8ae50325\n64k c38d62bd0a622325\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "2e373913e5ad677d",
+            "17b": "353d21cf45a643df",
+            "1k": "ab0aecec8ae50325",
+            "64b": "6502f47973980765",
+            "64k": "c38d62bd0a622325",
+            "empty": "cbf29ce484222325",
+            "hello": "a430d84680aabd0b"
+          }
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 93,
+          "binary_bytes": 81776,
+          "run_ms": 0,
+          "stdout_sha256": "089bf958b0db5cd2d4a66ac51bad571cf15d0f020fbe9e99d1f666db0b7018e2",
+          "stdout": "empty cbf29ce484222325\nhello a430d84680aabd0b\n16b 2e373913e5ad677d\n17b 353d21cf45a643df\n64b 6502f47973980765\n1k ab0aecec8ae50325\n64k c38d62bd0a622325\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "2e373913e5ad677d",
+            "17b": "353d21cf45a643df",
+            "1k": "ab0aecec8ae50325",
+            "64b": "6502f47973980765",
+            "64k": "c38d62bd0a622325",
+            "empty": "cbf29ce484222325",
+            "hello": "a430d84680aabd0b"
+          }
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 229,
+          "binary_bytes": 2480011,
+          "run_ms": 1,
+          "stdout_sha256": "089bf958b0db5cd2d4a66ac51bad571cf15d0f020fbe9e99d1f666db0b7018e2",
+          "stdout": "empty cbf29ce484222325\nhello a430d84680aabd0b\n16b 2e373913e5ad677d\n17b 353d21cf45a643df\n64b 6502f47973980765\n1k ab0aecec8ae50325\n64k c38d62bd0a622325\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "2e373913e5ad677d",
+            "17b": "353d21cf45a643df",
+            "1k": "ab0aecec8ae50325",
+            "64b": "6502f47973980765",
+            "64k": "c38d62bd0a622325",
+            "empty": "cbf29ce484222325",
+            "hello": "a430d84680aabd0b"
+          },
+          "code_lines": 27,
+          "var_count": 1
+        },
+        {
+          "backend": "ccgo",
+          "status": "skip",
+          "error": "ccgo disabled or missing",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 410
+    },
+    {
+      "id": "murmur3_x86_32",
+      "kind": "hash32_seed",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 121,
+          "binary_bytes": 81976,
+          "run_ms": 0,
+          "stdout_sha256": "5f79a9a34a6232c034635eea98f3b2d865e942529b48f60358609cf6c45d2cb7",
+          "stdout": "empty 00000000\nhello 248bfa47\n16b 2ada2fcc\n17b 5bce889b\n64b bc48b6a1\n1k af1c5a8f\n64k 77a47541\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "2ada2fcc",
+            "17b": "5bce889b",
+            "1k": "af1c5a8f",
+            "64b": "bc48b6a1",
+            "64k": "77a47541",
+            "empty": "00000000",
+            "hello": "248bfa47"
+          }
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 85,
+          "binary_bytes": 81784,
+          "run_ms": 0,
+          "stdout_sha256": "5f79a9a34a6232c034635eea98f3b2d865e942529b48f60358609cf6c45d2cb7",
+          "stdout": "empty 00000000\nhello 248bfa47\n16b 2ada2fcc\n17b 5bce889b\n64b bc48b6a1\n1k af1c5a8f\n64k 77a47541\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "2ada2fcc",
+            "17b": "5bce889b",
+            "1k": "af1c5a8f",
+            "64b": "bc48b6a1",
+            "64k": "77a47541",
+            "empty": "00000000",
+            "hello": "248bfa47"
+          }
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 298,
+          "binary_bytes": 2484297,
+          "run_ms": 1,
+          "stdout_sha256": "5f79a9a34a6232c034635eea98f3b2d865e942529b48f60358609cf6c45d2cb7",
+          "stdout": "empty 00000000\nhello 248bfa47\n16b 2ada2fcc\n17b 5bce889b\n64b bc48b6a1\n1k af1c5a8f\n64k 77a47541\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "2ada2fcc",
+            "17b": "5bce889b",
+            "1k": "af1c5a8f",
+            "64b": "bc48b6a1",
+            "64k": "77a47541",
+            "empty": "00000000",
+            "hello": "248bfa47"
+          },
+          "code_lines": 58,
+          "var_count": 3,
+          "rot_left_calls": 3
+        },
+        {
+          "backend": "ccgo",
+          "status": "skip",
+          "error": "ccgo disabled or missing",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 512
+    },
+    {
+      "id": "base64_simd",
+      "kind": "base64",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 80,
+          "binary_bytes": 16456,
+          "run_ms": 0,
+          "stdout_sha256": "a8453e92d8664e1cb02fbd6489e4bfe90e5caa69740ff69be2146e52ce3001a3",
+          "stdout": "pad0 \npad1 Zg==\npad2 Zm8=\npad3 Zm9v\nbin_null AAAAAA==\nhello aGVsbG8=\n16b MDEyMzQ1Njc4OWFiY2RlZg==\n1k WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "MDEyMzQ1Njc4OWFiY2RlZg==",
+            "1k": "WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==",
+            "bin_null": "AAAAAA==",
+            "hello": "aGVsbG8=",
+            "pad1": "Zg==",
+            "pad2": "Zm8=",
+            "pad3": "Zm9v"
+          }
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 58,
+          "binary_bytes": 16368,
+          "run_ms": 0,
+          "stdout_sha256": "a8453e92d8664e1cb02fbd6489e4bfe90e5caa69740ff69be2146e52ce3001a3",
+          "stdout": "pad0 \npad1 Zg==\npad2 Zm8=\npad3 Zm9v\nbin_null AAAAAA==\nhello aGVsbG8=\n16b MDEyMzQ1Njc4OWFiY2RlZg==\n1k WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "MDEyMzQ1Njc4OWFiY2RlZg==",
+            "1k": "WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==",
+            "bin_null": "AAAAAA==",
+            "hello": "aGVsbG8=",
+            "pad1": "Zg==",
+            "pad2": "Zm8=",
+            "pad3": "Zm9v"
+          }
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 138,
+          "binary_bytes": 2419682,
+          "run_ms": 1,
+          "stdout_sha256": "a8453e92d8664e1cb02fbd6489e4bfe90e5caa69740ff69be2146e52ce3001a3",
+          "stdout": "pad0 \npad1 Zg==\npad2 Zm8=\npad3 Zm9v\nbin_null AAAAAA==\nhello aGVsbG8=\n16b MDEyMzQ1Njc4OWFiY2RlZg==\n1k WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "MDEyMzQ1Njc4OWFiY2RlZg==",
+            "1k": "WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==",
+            "bin_null": "AAAAAA==",
+            "hello": "aGVsbG8=",
+            "pad1": "Zg==",
+            "pad2": "Zm8=",
+            "pad3": "Zm9v"
+          },
+          "code_lines": 49
+        },
+        {
+          "backend": "ccgo",
+          "status": "skip",
+          "error": "ccgo disabled or missing",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 280
+    }
+  ],
+  "summary": {
+    "libs_total": 3,
+    "libs_all_match": 3,
+    "backend_ok": 9,
+    "backend_fail": 0,
+    "backend_skip": 3,
+    "sgoiter_match_oracle": 3,
+    "ccgo_match_oracle": 0,
+    "libs_compared": 3,
+    "libs_no_oracle": 0
+  }
+}

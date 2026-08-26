@@ -1,0 +1,45 @@
+{
+  "id": "libinjection_sqli",
+  "kind": "libinj",
+  "notes": "multi-header — SkipC/ccgo",
+  "oracle_backend": "sgoiter",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "skip",
+      "error": "SkipC",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "skip",
+      "error": "SkipC",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    },
+    {
+      "backend": "sgoiter",
+      "status": "fail",
+      "error": "go build: # trib\n./main.go:27:38: undefined: kernel.Libinjection_is_sqli\n./main.go:28:38: undefined: kernel.Libinjection_is_sqli\n./main.go:29:36: undefined: kernel.Libinjection_is_sqli\n./main.go:30:36: undefined: kernel.Libinjection_is_sqli\n./main.go:31:36: undefined: kernel.Libinjection_is_sqli\n./main.go:32:35: undefined: kernel.Libinjection_is_sqli\n./main.go:33:36: undefined: kernel.Libinjection_is_sqli\n",
+      "compile_ms": 159,
+      "run_ms": 0,
+      "match_oracle": false,
+      "code_lines": 56,
+      "var_count": 2,
+      "int_cast_index": 2
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "SkipC multi-file",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": false,
+  "wall_ms": 164
+}

@@ -1,0 +1,39 @@
+{
+  "stamp": "2026-08-19T22:35:09Z",
+  "host": "linux/amd64",
+  "go_version": "go1.27rc3",
+  "sgoiter_bin": "/devhoros/c2simd/bin/sgoiter",
+  "ccgo_bin": "/home/cl-ment/go/bin/ccgo",
+  "out_dir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003509",
+  "libs": [
+    {
+      "id": "xxhash64_core",
+      "kind": "hash64_seed",
+      "notes": "xxHash64 core round and loop",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "setup",
+          "status": "fail",
+          "error": "open /devhoros/c2simd/spec/c_sources/testdata/c_sources/xxhash_core.c: no such file or directory",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": false,
+      "wall_ms": 0
+    }
+  ],
+  "summary": {
+    "libs_total": 1,
+    "libs_all_match": 0,
+    "backend_ok": 0,
+    "backend_fail": 1,
+    "backend_skip": 0,
+    "sgoiter_match_oracle": 0,
+    "ccgo_match_oracle": 0,
+    "libs_compared": 1,
+    "libs_no_oracle": 0
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "chacha20_qr",
+  "kind": "chacha_qr",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 32,
+      "binary_bytes": 16280,
+      "run_ms": 0,
+      "stdout_sha256": "c88aa904786ece24a5c02b90d7431bcb49d65d8e37f0ec27508fe334f6a4461e",
+      "stdout": "zero bbbbbbbbffffff7f77777776cccccccc\npattern bbbbbbbbffffff7f77777776cccccccc\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "bbbbbbbbffffff7f77777776cccccccc",
+        "zero": "bbbbbbbbffffff7f77777776cccccccc"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 33,
+      "binary_bytes": 16144,
+      "run_ms": 0,
+      "stdout_sha256": "c88aa904786ece24a5c02b90d7431bcb49d65d8e37f0ec27508fe334f6a4461e",
+      "stdout": "zero bbbbbbbbffffff7f77777776cccccccc\npattern bbbbbbbbffffff7f77777776cccccccc\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "bbbbbbbbffffff7f77777776cccccccc",
+        "zero": "bbbbbbbbffffff7f77777776cccccccc"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 134,
+      "binary_bytes": 2364432,
+      "run_ms": 1,
+      "stdout_sha256": "c88aa904786ece24a5c02b90d7431bcb49d65d8e37f0ec27508fe334f6a4461e",
+      "stdout": "zero bbbbbbbbffffff7f77777776cccccccc\npattern bbbbbbbbffffff7f77777776cccccccc\n",
+      "match_oracle": true,
+      "lines": {
+        "pattern": "bbbbbbbbffffff7f77777776cccccccc",
+        "zero": "bbbbbbbbffffff7f77777776cccccccc"
+      },
+      "code_lines": 57,
+      "rot_left_calls": 4
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 202
+}

@@ -1,0 +1,26 @@
+c2simd-gen: transformé avec succès spec/dogfood/cycles/20260810h/mpc/raw.go -> spec/dogfood/cycles/20260810h/mpc/opt.go
+{
+  "delta": {
+    "bits_rotate": 0,
+    "ccgo_up": -427,
+    "lines": -4,
+    "rotl_calls": 0,
+    "tls_param": -19
+  },
+  "in": "spec/dogfood/cycles/20260810h/mpc/raw.go",
+  "opt": {
+    "CcgoUp": 0,
+    "BitsRotate": 0,
+    "RotlCalls": 0,
+    "TLSParamFn": 257,
+    "Lines": 6006
+  },
+  "out": "spec/dogfood/cycles/20260810h/mpc/opt.go",
+  "raw": {
+    "CcgoUp": 427,
+    "BitsRotate": 0,
+    "RotlCalls": 0,
+    "TLSParamFn": 276,
+    "Lines": 6010
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "id": "yyjson_int",
+  "kind": "yyjson_int",
+  "notes": "yyjson fast u32 serializer",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 36,
+      "binary_bytes": 16216,
+      "run_ms": 0,
+      "stdout_sha256": "0f4b6885f631cb94dd39df21e679166d5ebccffa82b687c09f7a4f55b9f6b193",
+      "stdout": "zero 0\nsingle 7\ndouble 42\nmedium 12345\nlarge 123456789\nmax 4294967295\n",
+      "match_oracle": false,
+      "lines": {
+        "double": "42",
+        "large": "123456789",
+        "max": "4294967295",
+        "medium": "12345",
+        "single": "7",
+        "zero": "0"
+      },
+      "bench_ns_per_op": 359454
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 35,
+      "binary_bytes": 16128,
+      "run_ms": 0,
+      "stdout_sha256": "0f4b6885f631cb94dd39df21e679166d5ebccffa82b687c09f7a4f55b9f6b193",
+      "stdout": "zero 0\nsingle 7\ndouble 42\nmedium 12345\nlarge 123456789\nmax 4294967295\n",
+      "match_oracle": false,
+      "lines": {
+        "double": "42",
+        "large": "123456789",
+        "max": "4294967295",
+        "medium": "12345",
+        "single": "7",
+        "zero": "0"
+      },
+      "bench_ns_per_op": 358000
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 99,
+      "binary_bytes": 2414907,
+      "run_ms": 0,
+      "stdout_sha256": "0f4b6885f631cb94dd39df21e679166d5ebccffa82b687c09f7a4f55b9f6b193",
+      "stdout": "zero 0\nsingle 7\ndouble 42\nmedium 12345\nlarge 123456789\nmax 4294967295\n",
+      "match_oracle": true,
+      "lines": {
+        "double": "42",
+        "large": "123456789",
+        "max": "4294967295",
+        "medium": "12345",
+        "single": "7",
+        "zero": "0"
+      },
+      "bench_ns_per_op": 981336,
+      "code_lines": 43,
+      "var_count": 3,
+      "int_cast_index": 5
+    },
+    {
+      "backend": "ccgo",
+      "status": "fail",
+      "error": "go build: # tribccgo\n./main.go:30:2: declared and not used: d0\n./main.go:32:2: declared and not used: d1\n./main.go:34:2: declared and not used: d2\n./main.go:36:2: declared and not used: d3\n./main.go:38:2: declared and not used: d4\n./main.go:40:2: declared and not used: d5\n",
+      "compile_ms": 262,
+      "run_ms": 0,
+      "match_oracle": false,
+      "code_lines": 525
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 742
+}

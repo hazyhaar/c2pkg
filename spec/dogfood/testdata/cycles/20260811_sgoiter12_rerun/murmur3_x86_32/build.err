@@ -1,0 +1,4 @@
+# t
+./out.go:20:1: missing return
+./out.go:53:1: missing return
+./out.go:222:1: missing return

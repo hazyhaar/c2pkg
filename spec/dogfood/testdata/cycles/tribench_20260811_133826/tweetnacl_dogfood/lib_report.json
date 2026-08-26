@@ -1,0 +1,63 @@
+{
+  "id": "tweetnacl_dogfood",
+  "kind": "tweet_ver",
+  "notes": "surface verify_16; stub tweetnacl.h",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 80,
+      "binary_bytes": 39328,
+      "run_ms": 0,
+      "stdout_sha256": "fa5ba03698915194d43435c407693bf36a496a342ff50239ad553246fd9abaf2",
+      "stdout": "eq 0\nneq -1\n",
+      "match_oracle": false,
+      "lines": {
+        "eq": "0",
+        "neq": "-1"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 250,
+      "binary_bytes": 38536,
+      "run_ms": 0,
+      "stdout_sha256": "fa5ba03698915194d43435c407693bf36a496a342ff50239ad553246fd9abaf2",
+      "stdout": "eq 0\nneq -1\n",
+      "match_oracle": false,
+      "lines": {
+        "eq": "0",
+        "neq": "-1"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 159,
+      "binary_bytes": 2414262,
+      "run_ms": 1,
+      "stdout_sha256": "fa5ba03698915194d43435c407693bf36a496a342ff50239ad553246fd9abaf2",
+      "stdout": "eq 0\nneq -1\n",
+      "match_oracle": true,
+      "lines": {
+        "eq": "0",
+        "neq": "-1"
+      },
+      "code_lines": 270,
+      "var_count": 10,
+      "int_cast_index": 14
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 492
+}

@@ -1,0 +1,3 @@
+# t
+./out.go:46:6: undefined: v20
+./out.go:60:1: missing return

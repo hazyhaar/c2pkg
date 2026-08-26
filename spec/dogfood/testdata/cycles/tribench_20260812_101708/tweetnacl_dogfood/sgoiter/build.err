@@ -1,0 +1,3 @@
+# trib/kernel
+kernel/kernel.go:24:30: syntax error: unexpected ( in parameter list; possibly missing comma or )
+kernel/kernel.go:193:10: syntax error: unexpected ., expected (

@@ -1,0 +1,69 @@
+{
+  "id": "chacha20_qr",
+  "kind": "chacha_qr",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 30,
+      "binary_bytes": 16280,
+      "run_ms": 0,
+      "stdout_sha256": "c88aa904786ece24a5c02b90d7431bcb49d65d8e37f0ec27508fe334f6a4461e",
+      "stdout": "zero bbbbbbbbffffff7f77777776cccccccc\npattern bbbbbbbbffffff7f77777776cccccccc\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "bbbbbbbbffffff7f77777776cccccccc",
+        "zero": "bbbbbbbbffffff7f77777776cccccccc"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 34,
+      "binary_bytes": 16144,
+      "run_ms": 0,
+      "stdout_sha256": "c88aa904786ece24a5c02b90d7431bcb49d65d8e37f0ec27508fe334f6a4461e",
+      "stdout": "zero bbbbbbbbffffff7f77777776cccccccc\npattern bbbbbbbbffffff7f77777776cccccccc\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "bbbbbbbbffffff7f77777776cccccccc",
+        "zero": "bbbbbbbbffffff7f77777776cccccccc"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 105,
+      "binary_bytes": 2419237,
+      "run_ms": 1,
+      "stdout_sha256": "c88aa904786ece24a5c02b90d7431bcb49d65d8e37f0ec27508fe334f6a4461e",
+      "stdout": "zero bbbbbbbbffffff7f77777776cccccccc\npattern bbbbbbbbffffff7f77777776cccccccc\n",
+      "match_oracle": true,
+      "lines": {
+        "pattern": "bbbbbbbbffffff7f77777776cccccccc",
+        "zero": "bbbbbbbbffffff7f77777776cccccccc"
+      },
+      "bench_ns_per_op": 946018,
+      "code_lines": 89
+    },
+    {
+      "backend": "ccgo",
+      "status": "ok",
+      "compile_ms": 393,
+      "binary_bytes": 3610004,
+      "run_ms": 0,
+      "stdout_sha256": "c88aa904786ece24a5c02b90d7431bcb49d65d8e37f0ec27508fe334f6a4461e",
+      "stdout": "zero bbbbbbbbffffff7f77777776cccccccc\npattern bbbbbbbbffffff7f77777776cccccccc\n",
+      "match_oracle": true,
+      "lines": {
+        "pattern": "bbbbbbbbffffff7f77777776cccccccc",
+        "zero": "bbbbbbbbffffff7f77777776cccccccc"
+      },
+      "bench_ns_per_op": 1140130,
+      "code_lines": 502
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 600
+}

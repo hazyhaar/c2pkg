@@ -1,0 +1,22 @@
+# trib
+./main.go:27:52: not enough arguments in call to kernel.Strlenspn
+	have ([]byte, uint64)
+	want ([]byte, uint64, []byte)
+./main.go:28:52: not enough arguments in call to kernel.Strlenspn
+	have ([]byte, uint64)
+	want ([]byte, uint64, []byte)
+./main.go:29:50: not enough arguments in call to kernel.Strlenspn
+	have ([]byte, uint64)
+	want ([]byte, uint64, []byte)
+./main.go:30:50: not enough arguments in call to kernel.Strlenspn
+	have ([]byte, uint64)
+	want ([]byte, uint64, []byte)
+./main.go:31:50: not enough arguments in call to kernel.Strlenspn
+	have ([]byte, uint64)
+	want ([]byte, uint64, []byte)
+./main.go:32:49: not enough arguments in call to kernel.Strlenspn
+	have ([]byte, uint64)
+	want ([]byte, uint64, []byte)
+./main.go:33:50: not enough arguments in call to kernel.Strlenspn
+	have ([]byte, uint64)
+	want ([]byte, uint64, []byte)

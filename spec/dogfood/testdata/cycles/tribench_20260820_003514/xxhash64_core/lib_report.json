@@ -1,0 +1,46 @@
+{
+  "id": "xxhash64_core",
+  "kind": "hash64_seed",
+  "notes": "xxHash64 core round and loop",
+  "oracle_backend": "c_gcc_O0",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "fail",
+      "error": "/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c: In function ‘main’:\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:4200:39: error: expected expression before ‘%’ token\n 4200 |   { uint64_t h = xxhash64_core(d0, 0, %!l(uint64=0)luULL); hex_u64(h); printf(\"\\n\"); }\n      |                                       ^\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:4202:39: error: expected expression before ‘%’ token\n 4202 |   { uint64_t h = xxhash64_core(d1, 5, %!l(uint64=0)luULL); hex_u64(h); printf(\"\\n\"); }\n      |                                       ^\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:4204:40: error: expected expression before ‘%’ token\n 4204 |   { uint64_t h = xxhash64_core(d2, 16, %!l(uint64=2538058380)luULL); hex_u64(h); printf(\"\\n\"); }\n      |                                        ^\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:4206:40: error: expected expression before ‘%’ token\n 4206 |   { uint64_t h = xxhash64_core(d3, 17, %!l(uint64=2538058380)luULL); hex_u64(h); printf(\"\\n\"); }\n      |                                        ^\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:4208:40: error: expected expression before ‘%’ token\n 4208 |   { uint64_t h = xxhash64_core(d4, 64, %!l(uint64=42)luULL); hex_u64(h); printf(\"\\n\"); }\n      |                                        ^\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:4210:42: error: expected expression before ‘%’ token\n 4210 |   { uint64_t h = xxhash64_core(d5, 1024, %!l(uint64=42)luULL); hex_u64(h); printf(\"\\n\"); }\n      |                                          ^\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:4212:43: error: expected expression before ‘%’ token\n 4212 |   { uint64_t h = xxhash64_core(d6, 65536, %!l(uint64=42)luULL); hex_u64(h); printf(\"\\n\"); }\n      |                                           ^\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c: At top level:\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:12:13: warning: ‘hex_buf’ defined but not used [-Wunused-function]\n   12 | static void hex_buf(const uint8_t *p, size_t n) {\n      |             ^~~~~~~\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:11:13: warning: ‘hex_u32’ defined but not used [-Wunused-function]\n   11 | static void hex_u32(uint32_t v) { printf(\"%08x\", v); }\n      |             ^~~~~~~\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/kernel.c:4:17: warning: ‘xxh32_round’ defined but not used [-Wunused-function]\n    4 | static uint32_t xxh32_round(uint32_t seed, uint32_t input) {\n      |                 ^~~~~~~~~~~\n",
+      "compile_ms": 53,
+      "run_ms": 0,
+      "match_oracle": false
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "fail",
+      "error": "/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c: In function ‘main’:\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:4200:39: error: expected expression before ‘%’ token\n 4200 |   { uint64_t h = xxhash64_core(d0, 0, %!l(uint64=0)luULL); hex_u64(h); printf(\"\\n\"); }\n      |                                       ^\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:4202:39: error: expected expression before ‘%’ token\n 4202 |   { uint64_t h = xxhash64_core(d1, 5, %!l(uint64=0)luULL); hex_u64(h); printf(\"\\n\"); }\n      |                                       ^\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:4204:40: error: expected expression before ‘%’ token\n 4204 |   { uint64_t h = xxhash64_core(d2, 16, %!l(uint64=2538058380)luULL); hex_u64(h); printf(\"\\n\"); }\n      |                                        ^\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:4206:40: error: expected expression before ‘%’ token\n 4206 |   { uint64_t h = xxhash64_core(d3, 17, %!l(uint64=2538058380)luULL); hex_u64(h); printf(\"\\n\"); }\n      |                                        ^\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:4208:40: error: expected expression before ‘%’ token\n 4208 |   { uint64_t h = xxhash64_core(d4, 64, %!l(uint64=42)luULL); hex_u64(h); printf(\"\\n\"); }\n      |                                        ^\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:4210:42: error: expected expression before ‘%’ token\n 4210 |   { uint64_t h = xxhash64_core(d5, 1024, %!l(uint64=42)luULL); hex_u64(h); printf(\"\\n\"); }\n      |                                          ^\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:4212:43: error: expected expression before ‘%’ token\n 4212 |   { uint64_t h = xxhash64_core(d6, 65536, %!l(uint64=42)luULL); hex_u64(h); printf(\"\\n\"); }\n      |                                           ^\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c: At top level:\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:12:13: warning: ‘hex_buf’ defined but not used [-Wunused-function]\n   12 | static void hex_buf(const uint8_t *p, size_t n) {\n      |             ^~~~~~~\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/harness.c:11:13: warning: ‘hex_u32’ defined but not used [-Wunused-function]\n   11 | static void hex_u32(uint32_t v) { printf(\"%08x\", v); }\n      |             ^~~~~~~\n/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003514/xxhash64_core/kernel.c:4:17: warning: ‘xxh32_round’ defined but not used [-Wunused-function]\n    4 | static uint32_t xxh32_round(uint32_t seed, uint32_t input) {\n      |                 ^~~~~~~~~~~\n",
+      "compile_ms": 66,
+      "run_ms": 0,
+      "match_oracle": false
+    },
+    {
+      "backend": "sgoiter",
+      "status": "fail",
+      "error": "go build: # trib/kernel\nkernel/kernel.go:49:9: invalid operation: input \u003c= input (operator \u003c= not defined on slice)\nkernel/kernel.go:63:8: invalid operation: input \u003c= input (operator \u003c= not defined on slice)\nkernel/kernel.go:71:5: invalid operation: input \u003c= input (operator \u003c= not defined on slice)\nkernel/kernel.go:76:6: invalid operation: input \u003c input (operator \u003c not defined on slice)\n",
+      "compile_ms": 198,
+      "run_ms": 0,
+      "match_oracle": false,
+      "code_lines": 89,
+      "identity_assigns": 1,
+      "var_count": 7,
+      "rot_left_calls": 9
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": false,
+  "wall_ms": 322
+}

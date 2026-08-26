@@ -1,0 +1,650 @@
+{
+  "name": "src",
+  "funcs": [
+    {
+      "name": "fast_xor_bytes",
+      "result": "void",
+      "params": [
+        {
+          "name": "dst",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "src1",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        },
+        {
+          "name": "src2",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 2
+        },
+        {
+          "name": "len",
+          "type": "uint64",
+          "reg": 3
+        }
+      ],
+      "nvals": 35,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 5
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 4,
+            "args": [
+              5
+            ]
+          }
+        },
+        {
+          "kind": 1,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 6,
+              "imm": 8
+            }
+          ],
+          "for_cond_prep": [
+            {
+              "op": 3,
+              "dst": 7,
+              "args": [
+                4,
+                6
+              ]
+            }
+          ],
+          "cond_left": 7,
+          "cond_op": "<=",
+          "cond_right": 3,
+          "for_post": [
+            {
+              "op": 1,
+              "dst": 8,
+              "imm": 8
+            },
+            {
+              "op": 3,
+              "dst": 9,
+              "args": [
+                4,
+                8
+              ]
+            },
+            {
+              "op": 2,
+              "dst": 4,
+              "args": [
+                9
+              ]
+            }
+          ],
+          "for_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 2,
+                "dst": 11,
+                "args": [
+                  1
+                ],
+                "sym": "ptr_cast"
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 12,
+                "imm": 8
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 6,
+                "dst": 13,
+                "args": [
+                  4,
+                  12
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 15,
+                "imm": 8
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 5,
+                "dst": 16,
+                "args": [
+                  13,
+                  15
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 15,
+                "dst": 14,
+                "args": [
+                  1,
+                  16
+                ],
+                "elem": "uint64"
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 2,
+                "dst": 10,
+                "args": [
+                  14
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 2,
+                "dst": 18,
+                "args": [
+                  2
+                ],
+                "sym": "ptr_cast"
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 19,
+                "imm": 8
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 6,
+                "dst": 20,
+                "args": [
+                  4,
+                  19
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 22,
+                "imm": 8
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 5,
+                "dst": 23,
+                "args": [
+                  20,
+                  22
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 15,
+                "dst": 21,
+                "args": [
+                  2,
+                  23
+                ],
+                "elem": "uint64"
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 2,
+                "dst": 17,
+                "args": [
+                  21
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 10,
+                "dst": 24,
+                "args": [
+                  10,
+                  17
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 2,
+                "dst": 25,
+                "args": [
+                  0
+                ],
+                "sym": "ptr_cast"
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 26,
+                "imm": 8
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 6,
+                "dst": 27,
+                "args": [
+                  4,
+                  26
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 28,
+                "imm": 8
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 5,
+                "dst": 29,
+                "args": [
+                  27,
+                  28
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 16,
+                "args": [
+                  0,
+                  29,
+                  24
+                ],
+                "elem": "uint64"
+              }
+            }
+          ]
+        },
+        {
+          "kind": 1,
+          "ins": {
+            "op": 0
+          },
+          "cond_left": 4,
+          "cond_op": "<",
+          "cond_right": 3,
+          "for_post": [
+            {
+              "op": 1,
+              "dst": 30,
+              "imm": 1
+            },
+            {
+              "op": 3,
+              "dst": 31,
+              "args": [
+                4,
+                30
+              ]
+            },
+            {
+              "op": 2,
+              "dst": 4,
+              "args": [
+                31
+              ]
+            }
+          ],
+          "for_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 15,
+                "dst": 32,
+                "args": [
+                  1,
+                  4
+                ],
+                "elem": "uint8"
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 15,
+                "dst": 33,
+                "args": [
+                  2,
+                  4
+                ],
+                "elem": "uint8"
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 10,
+                "dst": 34,
+                "args": [
+                  32,
+                  33
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 16,
+                "args": [
+                  0,
+                  4,
+                  34
+                ],
+                "elem": "uint8"
+              }
+            }
+          ]
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 5
+        },
+        {
+          "op": 2,
+          "dst": 4,
+          "args": [
+            5
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 6,
+          "imm": 8
+        },
+        {
+          "op": 3,
+          "dst": 7,
+          "args": [
+            4,
+            6
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 11,
+          "args": [
+            1
+          ],
+          "sym": "ptr_cast"
+        },
+        {
+          "op": 1,
+          "dst": 12,
+          "imm": 8
+        },
+        {
+          "op": 6,
+          "dst": 13,
+          "args": [
+            4,
+            12
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 15,
+          "imm": 8
+        },
+        {
+          "op": 5,
+          "dst": 16,
+          "args": [
+            13,
+            15
+          ]
+        },
+        {
+          "op": 15,
+          "dst": 14,
+          "args": [
+            1,
+            16
+          ],
+          "elem": "uint64"
+        },
+        {
+          "op": 2,
+          "dst": 10,
+          "args": [
+            14
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 18,
+          "args": [
+            2
+          ],
+          "sym": "ptr_cast"
+        },
+        {
+          "op": 1,
+          "dst": 19,
+          "imm": 8
+        },
+        {
+          "op": 6,
+          "dst": 20,
+          "args": [
+            4,
+            19
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 22,
+          "imm": 8
+        },
+        {
+          "op": 5,
+          "dst": 23,
+          "args": [
+            20,
+            22
+          ]
+        },
+        {
+          "op": 15,
+          "dst": 21,
+          "args": [
+            2,
+            23
+          ],
+          "elem": "uint64"
+        },
+        {
+          "op": 2,
+          "dst": 17,
+          "args": [
+            21
+          ]
+        },
+        {
+          "op": 10,
+          "dst": 24,
+          "args": [
+            10,
+            17
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 25,
+          "args": [
+            0
+          ],
+          "sym": "ptr_cast"
+        },
+        {
+          "op": 1,
+          "dst": 26,
+          "imm": 8
+        },
+        {
+          "op": 6,
+          "dst": 27,
+          "args": [
+            4,
+            26
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 28,
+          "imm": 8
+        },
+        {
+          "op": 5,
+          "dst": 29,
+          "args": [
+            27,
+            28
+          ]
+        },
+        {
+          "op": 16,
+          "args": [
+            0,
+            29,
+            24
+          ],
+          "elem": "uint64"
+        },
+        {
+          "op": 1,
+          "dst": 8,
+          "imm": 8
+        },
+        {
+          "op": 3,
+          "dst": 9,
+          "args": [
+            4,
+            8
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 4,
+          "args": [
+            9
+          ]
+        },
+        {
+          "op": 15,
+          "dst": 32,
+          "args": [
+            1,
+            4
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 15,
+          "dst": 33,
+          "args": [
+            2,
+            4
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 10,
+          "dst": 34,
+          "args": [
+            32,
+            33
+          ]
+        },
+        {
+          "op": 16,
+          "args": [
+            0,
+            4,
+            34
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 1,
+          "dst": 30,
+          "imm": 1
+        },
+        {
+          "op": 3,
+          "dst": 31,
+          "args": [
+            4,
+            30
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 4,
+          "args": [
+            31
+          ]
+        }
+      ]
+    }
+  ]
+}

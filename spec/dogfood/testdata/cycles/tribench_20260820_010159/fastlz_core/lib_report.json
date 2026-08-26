@@ -1,0 +1,79 @@
+{
+  "id": "fastlz_core",
+  "kind": "fastlz1",
+  "notes": "FastLZ Level-1 decompressor",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 64,
+      "binary_bytes": 82000,
+      "run_ms": 0,
+      "stdout_sha256": "dbeb771a455d6a109cc6ff1ce486d8c79caca76a54b358b37ef4ea1ace8c7d3a",
+      "stdout": "empty 0\nhello 0\n16b 0\n17b 0\n64b 0\n1k 0\n64k 0\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "0",
+        "17b": "0",
+        "1k": "0",
+        "64b": "0",
+        "64k": "0",
+        "empty": "0",
+        "hello": "0"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 72,
+      "binary_bytes": 81840,
+      "run_ms": 0,
+      "stdout_sha256": "dbeb771a455d6a109cc6ff1ce486d8c79caca76a54b358b37ef4ea1ace8c7d3a",
+      "stdout": "empty 0\nhello 0\n16b 0\n17b 0\n64b 0\n1k 0\n64k 0\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "0",
+        "17b": "0",
+        "1k": "0",
+        "64b": "0",
+        "64k": "0",
+        "empty": "0",
+        "hello": "0"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 202,
+      "binary_bytes": 2429379,
+      "run_ms": 1,
+      "stdout_sha256": "dbeb771a455d6a109cc6ff1ce486d8c79caca76a54b358b37ef4ea1ace8c7d3a",
+      "stdout": "empty 0\nhello 0\n16b 0\n17b 0\n64b 0\n1k 0\n64k 0\n",
+      "match_oracle": true,
+      "lines": {
+        "16b": "0",
+        "17b": "0",
+        "1k": "0",
+        "64b": "0",
+        "64k": "0",
+        "empty": "0",
+        "hello": "0"
+      },
+      "code_lines": 60,
+      "identity_assigns": 1,
+      "var_count": 6,
+      "int_cast_index": 2
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 347
+}

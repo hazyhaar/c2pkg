@@ -1,0 +1,11 @@
+{
+  "kernel": "libinjection_sqli",
+  "raw_lines": 40444,
+  "opt_lines": 40444,
+  "raw_bits": 0,
+  "opt_bits": 0,
+  "raw_tls": 60,
+  "opt_tls": 41,
+  "ccgo_up": 305,
+  "goto_lbl": 8
+}

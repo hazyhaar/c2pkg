@@ -1,0 +1,3 @@
+# trib/kernel
+kernel/kernel.go:402:92: undefined: _9
+kernel/kernel.go:413:89: undefined: _0

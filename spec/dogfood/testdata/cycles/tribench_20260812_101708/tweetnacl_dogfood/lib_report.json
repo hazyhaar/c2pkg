@@ -1,0 +1,58 @@
+{
+  "id": "tweetnacl_dogfood",
+  "kind": "tweet_ver",
+  "notes": "surface verify_16; stub tweetnacl.h",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 88,
+      "binary_bytes": 39328,
+      "run_ms": 0,
+      "stdout_sha256": "fa5ba03698915194d43435c407693bf36a496a342ff50239ad553246fd9abaf2",
+      "stdout": "eq 0\nneq -1\n",
+      "match_oracle": false,
+      "lines": {
+        "eq": "0",
+        "neq": "-1"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 422,
+      "binary_bytes": 38536,
+      "run_ms": 0,
+      "stdout_sha256": "fa5ba03698915194d43435c407693bf36a496a342ff50239ad553246fd9abaf2",
+      "stdout": "eq 0\nneq -1\n",
+      "match_oracle": false,
+      "lines": {
+        "eq": "0",
+        "neq": "-1"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "fail",
+      "error": "go build: # trib/kernel\nkernel/kernel.go:24:30: syntax error: unexpected ( in parameter list; possibly missing comma or )\nkernel/kernel.go:193:10: syntax error: unexpected ., expected (\n",
+      "compile_ms": 190,
+      "run_ms": 0,
+      "match_oracle": false,
+      "code_lines": 311,
+      "var_count": 10,
+      "int_cast_index": 3,
+      "rot_left_calls": 13
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": false,
+  "wall_ms": 702
+}

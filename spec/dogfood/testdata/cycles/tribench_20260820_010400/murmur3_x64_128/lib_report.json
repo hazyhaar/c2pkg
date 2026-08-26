@@ -1,0 +1,79 @@
+{
+  "id": "murmur3_x64_128",
+  "kind": "murmur128",
+  "notes": "MurmurHash3 x64 128-bit",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 66,
+      "binary_bytes": 82032,
+      "run_ms": 0,
+      "stdout_sha256": "e03ca2f153bd8eeccbe5d28d7a0e64dac733af2ebdbbc99c4fdf6589b7e44c28",
+      "stdout": "empty 00000000000000000000000000000000\nhello cbd8a7b341bd9b025b1e906a48ae1d19\n16b d8061eb14f48c9c9521e1174e459c2cc\n17b 206d31bc07b8fe6bf2d7475f33a7f922\n64b 4d2295d0c4a02488da9f75c7837ad5fe\n1k 41f9c7d735a53518061bd8931c7427f3\n64k 20f8c2f70e8f8a5c214fd4b19d8d98dc\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "d8061eb14f48c9c9521e1174e459c2cc",
+        "17b": "206d31bc07b8fe6bf2d7475f33a7f922",
+        "1k": "41f9c7d735a53518061bd8931c7427f3",
+        "64b": "4d2295d0c4a02488da9f75c7837ad5fe",
+        "64k": "20f8c2f70e8f8a5c214fd4b19d8d98dc",
+        "empty": "00000000000000000000000000000000",
+        "hello": "cbd8a7b341bd9b025b1e906a48ae1d19"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 76,
+      "binary_bytes": 81832,
+      "run_ms": 0,
+      "stdout_sha256": "e03ca2f153bd8eeccbe5d28d7a0e64dac733af2ebdbbc99c4fdf6589b7e44c28",
+      "stdout": "empty 00000000000000000000000000000000\nhello cbd8a7b341bd9b025b1e906a48ae1d19\n16b d8061eb14f48c9c9521e1174e459c2cc\n17b 206d31bc07b8fe6bf2d7475f33a7f922\n64b 4d2295d0c4a02488da9f75c7837ad5fe\n1k 41f9c7d735a53518061bd8931c7427f3\n64k 20f8c2f70e8f8a5c214fd4b19d8d98dc\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "d8061eb14f48c9c9521e1174e459c2cc",
+        "17b": "206d31bc07b8fe6bf2d7475f33a7f922",
+        "1k": "41f9c7d735a53518061bd8931c7427f3",
+        "64b": "4d2295d0c4a02488da9f75c7837ad5fe",
+        "64k": "20f8c2f70e8f8a5c214fd4b19d8d98dc",
+        "empty": "00000000000000000000000000000000",
+        "hello": "cbd8a7b341bd9b025b1e906a48ae1d19"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 262,
+      "binary_bytes": 2434357,
+      "run_ms": 1,
+      "stdout_sha256": "e03ca2f153bd8eeccbe5d28d7a0e64dac733af2ebdbbc99c4fdf6589b7e44c28",
+      "stdout": "empty 00000000000000000000000000000000\nhello cbd8a7b341bd9b025b1e906a48ae1d19\n16b d8061eb14f48c9c9521e1174e459c2cc\n17b 206d31bc07b8fe6bf2d7475f33a7f922\n64b 4d2295d0c4a02488da9f75c7837ad5fe\n1k 41f9c7d735a53518061bd8931c7427f3\n64k 20f8c2f70e8f8a5c214fd4b19d8d98dc\n",
+      "match_oracle": true,
+      "lines": {
+        "16b": "d8061eb14f48c9c9521e1174e459c2cc",
+        "17b": "206d31bc07b8fe6bf2d7475f33a7f922",
+        "1k": "41f9c7d735a53518061bd8931c7427f3",
+        "64b": "4d2295d0c4a02488da9f75c7837ad5fe",
+        "64k": "20f8c2f70e8f8a5c214fd4b19d8d98dc",
+        "empty": "00000000000000000000000000000000",
+        "hello": "cbd8a7b341bd9b025b1e906a48ae1d19"
+      },
+      "code_lines": 123,
+      "identity_assigns": 2,
+      "var_count": 7,
+      "rot_left_calls": 1
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 412
+}

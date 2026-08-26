@@ -1,0 +1,148 @@
+{
+  "stamp": "2026-08-11T23:09:38Z",
+  "host": "linux/amd64",
+  "go_version": "go1.26.5",
+  "sgoiter_bin": "./bin/sgoiter",
+  "ccgo_bin": "/home/cl-ment/go/bin/ccgo",
+  "out_dir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260812_010938",
+  "libs": [
+    {
+      "id": "strlenspn_lab",
+      "kind": "libinj",
+      "notes": "oracle C for strspn-like",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 76,
+          "binary_bytes": 82128,
+          "run_ms": 0,
+          "stdout_sha256": "15d0e62936b6357299ef0ceb8b0c50a24be7e4d1556226bea93c7d7071249bbd",
+          "stdout": "empty 0000000000000000\nhello 0000000000000004\n16b 0000000000000000\n17b 0000000000000000\n64b 0000000000000000\n1k 0000000000000000\n64k 0000000000000000\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "0000000000000000",
+            "17b": "0000000000000000",
+            "1k": "0000000000000000",
+            "64b": "0000000000000000",
+            "64k": "0000000000000000",
+            "empty": "0000000000000000",
+            "hello": "0000000000000004"
+          }
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 80,
+          "binary_bytes": 81992,
+          "run_ms": 0,
+          "stdout_sha256": "15d0e62936b6357299ef0ceb8b0c50a24be7e4d1556226bea93c7d7071249bbd",
+          "stdout": "empty 0000000000000000\nhello 0000000000000004\n16b 0000000000000000\n17b 0000000000000000\n64b 0000000000000000\n1k 0000000000000000\n64k 0000000000000000\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "0000000000000000",
+            "17b": "0000000000000000",
+            "1k": "0000000000000000",
+            "64b": "0000000000000000",
+            "64k": "0000000000000000",
+            "empty": "0000000000000000",
+            "hello": "0000000000000004"
+          }
+        },
+        {
+          "backend": "sgoiter",
+          "status": "fail",
+          "error": "sgoiter: sgoiter/front: err_empty: no function harvested; skipped: strlenspn_lab: sgoiter/front: err_parse: expr: \"hel\"\n",
+          "compile_ms": 2,
+          "run_ms": 0,
+          "match_oracle": false
+        },
+        {
+          "backend": "ccgo",
+          "status": "skip",
+          "error": "ccgo disabled or missing",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": false,
+      "wall_ms": 166
+    },
+    {
+      "id": "md5_transform_full",
+      "kind": "md5",
+      "notes": "full 64-step MD5",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 41,
+          "binary_bytes": 16384,
+          "run_ms": 0,
+          "stdout_sha256": "3ca18623ab522a93fa380bdca085d9a473d94bfbf38de98400111700752b17af",
+          "stdout": "zero 031f1dac6ea58ed01fab67b774317791\npattern b75a993607d7cbf324289821484cc19b\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "b75a993607d7cbf324289821484cc19b",
+            "zero": "031f1dac6ea58ed01fab67b774317791"
+          }
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 83,
+          "binary_bytes": 16104,
+          "run_ms": 0,
+          "stdout_sha256": "3ca18623ab522a93fa380bdca085d9a473d94bfbf38de98400111700752b17af",
+          "stdout": "zero 031f1dac6ea58ed01fab67b774317791\npattern b75a993607d7cbf324289821484cc19b\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "b75a993607d7cbf324289821484cc19b",
+            "zero": "031f1dac6ea58ed01fab67b774317791"
+          }
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 3267,
+          "binary_bytes": 2419511,
+          "run_ms": 0,
+          "stdout_sha256": "3ca18623ab522a93fa380bdca085d9a473d94bfbf38de98400111700752b17af",
+          "stdout": "zero 031f1dac6ea58ed01fab67b774317791\npattern b75a993607d7cbf324289821484cc19b\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "b75a993607d7cbf324289821484cc19b",
+            "zero": "031f1dac6ea58ed01fab67b774317791"
+          },
+          "code_lines": 248,
+          "var_count": 6,
+          "rot_left_calls": 64
+        },
+        {
+          "backend": "ccgo",
+          "status": "skip",
+          "error": "ccgo disabled or missing",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 3394
+    }
+  ],
+  "summary": {
+    "libs_total": 2,
+    "libs_all_match": 1,
+    "backend_ok": 5,
+    "backend_fail": 1,
+    "backend_skip": 2,
+    "sgoiter_match_oracle": 1,
+    "ccgo_match_oracle": 0,
+    "libs_compared": 2,
+    "libs_no_oracle": 0
+  }
+}

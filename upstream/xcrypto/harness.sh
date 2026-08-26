@@ -58,6 +58,11 @@ EOF
   if [ -d "$C2SIMD/c2pkg" ]; then
     echo "	$C2SIMD/c2pkg" >> "$BUILD/go.work"
   fi
+  if [ -d "$HERE/../../c2simd" ]; then
+    echo "	$HERE/../../c2simd" >> "$BUILD/go.work"
+  elif [ -d "/devhoros/c2simd" ]; then
+    echo "	/devhoros/c2simd" >> "$BUILD/go.work"
+  fi
   echo ")" >> "$BUILD/go.work"
   # preuve : fichiers de test identiques à l'amont
   for f in chacha20poly1305_test.go chacha20poly1305_vectors_test.go; do

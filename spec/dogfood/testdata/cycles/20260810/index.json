@@ -1,0 +1,14 @@
+{
+  "stamp": "20260810",
+  "cycles": [
+    {      "kernel": "base64_simd",      "stamp": "20260810",      "src_c": "spec/c_sources/testdata/c_sources/base64_simd.c",      "ccgo": "/home/cl-ment/go/bin/ccgo",      "raw_lines": 538,      "opt_lines": 538,      "raw_rotl_calls": 0,      "opt_rotl_calls": 0,      "raw_bits_rotate": 0,      "opt_bits_rotate": 0,      "raw_tls_first_param_funcs": 1,      "opt_tls_first_param_funcs": 0,      "tls_params_elided": 1,      "bits_rotate_gained": 0,      "build_raw_ok": 1,      "build_opt_ok": 1    }
+,
+    {      "kernel": "blake2b_compress",      "stamp": "20260810",      "src_c": "spec/c_sources/testdata/c_sources/blake2b_compress.c",      "ccgo": "/home/cl-ment/go/bin/ccgo",      "raw_lines": 809,      "opt_lines": 807,      "raw_rotl_calls": 0,      "opt_rotl_calls": 0,      "raw_bits_rotate": 0,      "opt_bits_rotate": 0,      "raw_tls_first_param_funcs": 1,      "opt_tls_first_param_funcs": 0,      "tls_params_elided": 1,      "bits_rotate_gained": 0,      "build_raw_ok": 1,      "build_opt_ok": 1    }
+,
+    {      "kernel": "fast_xor",      "stamp": "20260810",      "src_c": "spec/c_sources/testdata/c_sources/fast_xor.c",      "ccgo": "/home/cl-ment/go/bin/ccgo",      "raw_lines": 510,      "opt_lines": 510,      "raw_rotl_calls": 0,      "opt_rotl_calls": 0,      "raw_bits_rotate": 0,      "opt_bits_rotate": 0,      "raw_tls_first_param_funcs": 1,      "opt_tls_first_param_funcs": 0,      "tls_params_elided": 1,      "bits_rotate_gained": 0,      "build_raw_ok": 1,      "build_opt_ok": 1    }
+,
+    {      "kernel": "md5_transform",      "stamp": "20260810",      "src_c": "spec/c_sources/testdata/c_sources/md5_transform.c",      "ccgo": "/home/cl-ment/go/bin/ccgo",      "raw_lines": 525,      "opt_lines": 526,      "raw_rotl_calls": 0,      "opt_rotl_calls": 0,      "raw_bits_rotate": 0,      "opt_bits_rotate": 4,      "raw_tls_first_param_funcs": 1,      "opt_tls_first_param_funcs": 0,      "tls_params_elided": 1,      "bits_rotate_gained": 4,      "build_raw_ok": 1,      "build_opt_ok": 1    }
+,
+    {      "kernel": "siphash24",      "stamp": "20260810",      "src_c": "spec/c_sources/testdata/c_sources/siphash24.c",      "ccgo": "/home/cl-ment/go/bin/ccgo",      "raw_lines": 648,      "opt_lines": 647,      "raw_rotl_calls": 0,      "opt_rotl_calls": 0,      "raw_bits_rotate": 0,      "opt_bits_rotate": 48,      "raw_tls_first_param_funcs": 1,      "opt_tls_first_param_funcs": 0,      "tls_params_elided": 1,      "bits_rotate_gained": 48,      "build_raw_ok": 1,      "build_opt_ok": 1    }
+  ]
+}

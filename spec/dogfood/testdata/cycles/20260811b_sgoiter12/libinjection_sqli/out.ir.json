@@ -1,0 +1,1019 @@
+{
+  "name": "src",
+  "funcs": [
+    {
+      "name": "strlenspn",
+      "result": "uint64",
+      "params": [
+        {
+          "name": "s",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "len",
+          "type": "uint64",
+          "reg": 1
+        },
+        {
+          "name": "accept",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 2
+        }
+      ],
+      "nvals": 10,
+      "stmts": [
+        {
+          "kind": 1,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 4
+            },
+            {
+              "op": 2,
+              "dst": 3,
+              "args": [
+                4
+              ]
+            }
+          ],
+          "cond_left": 3,
+          "cond_op": "<",
+          "cond_right": 1,
+          "for_post": [
+            {
+              "op": 1,
+              "dst": 5,
+              "imm": 1
+            },
+            {
+              "op": 3,
+              "dst": 6,
+              "args": [
+                3,
+                5
+              ]
+            },
+            {
+              "op": 2,
+              "dst": 3,
+              "args": [
+                6
+              ]
+            }
+          ],
+          "for_body": [
+            {
+              "kind": 4,
+              "ins": {
+                "op": 0
+              },
+              "for_init": [
+                {
+                  "op": 15,
+                  "dst": 7,
+                  "args": [
+                    0,
+                    3
+                  ],
+                  "elem": "uint8"
+                },
+                {
+                  "op": 14,
+                  "dst": 8,
+                  "args": [
+                    2,
+                    7
+                  ],
+                  "sym": "strchr"
+                },
+                {
+                  "op": 1,
+                  "dst": 9
+                }
+              ],
+              "cond_left": 8,
+              "cond_op": "==",
+              "cond_right": 9,
+              "then_body": [
+                {
+                  "kind": 0,
+                  "ins": {
+                    "op": 13,
+                    "args": [
+                      3
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              1
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 4
+        },
+        {
+          "op": 2,
+          "dst": 3,
+          "args": [
+            4
+          ]
+        },
+        {
+          "op": 15,
+          "dst": 7,
+          "args": [
+            0,
+            3
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 14,
+          "dst": 8,
+          "args": [
+            2,
+            7
+          ],
+          "sym": "strchr"
+        },
+        {
+          "op": 1,
+          "dst": 9
+        },
+        {
+          "op": 13,
+          "args": [
+            3
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 5,
+          "imm": 1
+        },
+        {
+          "op": 3,
+          "dst": 6,
+          "args": [
+            3,
+            5
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 3,
+          "args": [
+            6
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strlencspn",
+      "result": "uint64",
+      "params": [
+        {
+          "name": "s",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "len",
+          "type": "uint64",
+          "reg": 1
+        },
+        {
+          "name": "accept",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 2
+        }
+      ],
+      "nvals": 10,
+      "stmts": [
+        {
+          "kind": 1,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 4
+            },
+            {
+              "op": 2,
+              "dst": 3,
+              "args": [
+                4
+              ]
+            }
+          ],
+          "cond_left": 3,
+          "cond_op": "<",
+          "cond_right": 1,
+          "for_post": [
+            {
+              "op": 1,
+              "dst": 5,
+              "imm": 1
+            },
+            {
+              "op": 3,
+              "dst": 6,
+              "args": [
+                3,
+                5
+              ]
+            },
+            {
+              "op": 2,
+              "dst": 3,
+              "args": [
+                6
+              ]
+            }
+          ],
+          "for_body": [
+            {
+              "kind": 4,
+              "ins": {
+                "op": 0
+              },
+              "for_init": [
+                {
+                  "op": 15,
+                  "dst": 7,
+                  "args": [
+                    0,
+                    3
+                  ],
+                  "elem": "uint8"
+                },
+                {
+                  "op": 14,
+                  "dst": 8,
+                  "args": [
+                    2,
+                    7
+                  ],
+                  "sym": "strchr"
+                },
+                {
+                  "op": 1,
+                  "dst": 9
+                }
+              ],
+              "cond_left": 8,
+              "cond_op": "!=",
+              "cond_right": 9,
+              "then_body": [
+                {
+                  "kind": 0,
+                  "ins": {
+                    "op": 13,
+                    "args": [
+                      3
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              1
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 4
+        },
+        {
+          "op": 2,
+          "dst": 3,
+          "args": [
+            4
+          ]
+        },
+        {
+          "op": 15,
+          "dst": 7,
+          "args": [
+            0,
+            3
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 14,
+          "dst": 8,
+          "args": [
+            2,
+            7
+          ],
+          "sym": "strchr"
+        },
+        {
+          "op": 1,
+          "dst": 9
+        },
+        {
+          "op": 13,
+          "args": [
+            3
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 5,
+          "imm": 1
+        },
+        {
+          "op": 3,
+          "dst": 6,
+          "args": [
+            3,
+            5
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 3,
+          "args": [
+            6
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "streq",
+      "result": "int",
+      "params": [
+        {
+          "name": "a",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "b",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        }
+      ],
+      "nvals": 5,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 2,
+            "args": [
+              0,
+              1
+            ],
+            "sym": "strcmp"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 3
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 4,
+            "args": [
+              2,
+              3
+            ],
+            "sym": "__cmp_=="
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              4
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 14,
+          "dst": 2,
+          "args": [
+            0,
+            1
+          ],
+          "sym": "strcmp"
+        },
+        {
+          "op": 1,
+          "dst": 3
+        },
+        {
+          "op": 14,
+          "dst": 4,
+          "args": [
+            2,
+            3
+          ],
+          "sym": "__cmp_=="
+        },
+        {
+          "op": 13,
+          "args": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "name": "st_clear",
+      "result": "void",
+      "params": [
+        {
+          "name": "st",
+          "type": "int",
+          "ptr": true,
+          "reg": 0
+        }
+      ],
+      "nvals": 4,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 1
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 2,
+            "imm": 64
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              0,
+              1,
+              2
+            ],
+            "sym": "memset"
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 1
+        },
+        {
+          "op": 1,
+          "dst": 2,
+          "imm": 64
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            0,
+            1,
+            2
+          ],
+          "sym": "memset"
+        }
+      ]
+    },
+    {
+      "name": "st_copy",
+      "result": "void",
+      "params": [
+        {
+          "name": "dest",
+          "type": "int",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "src",
+          "type": "int",
+          "ptr": true,
+          "reg": 1
+        }
+      ],
+      "nvals": 4,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 2,
+            "imm": 64
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              0,
+              1,
+              2
+            ],
+            "sym": "memcpy"
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 2,
+          "imm": 64
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            0,
+            1,
+            2
+          ],
+          "sym": "memcpy"
+        }
+      ]
+    },
+    {
+      "name": "is_mysql_comment",
+      "result": "uint64",
+      "params": [
+        {
+          "name": "cs",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "len",
+          "type": "uint64",
+          "reg": 1
+        },
+        {
+          "name": "pos",
+          "type": "uint64",
+          "reg": 2
+        }
+      ],
+      "nvals": 12,
+      "stmts": [
+        {
+          "kind": 4,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 3,
+              "imm": 2
+            },
+            {
+              "op": 3,
+              "dst": 4,
+              "args": [
+                2,
+                3
+              ]
+            }
+          ],
+          "cond_left": 4,
+          "cond_op": ">=",
+          "cond_right": 1,
+          "then_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 5
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 13,
+                "args": [
+                  5
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": 4,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 6,
+              "imm": 2
+            },
+            {
+              "op": 3,
+              "dst": 7,
+              "args": [
+                2,
+                6
+              ]
+            },
+            {
+              "op": 15,
+              "dst": 8,
+              "args": [
+                0,
+                7
+              ],
+              "elem": "uint8"
+            },
+            {
+              "op": 1,
+              "dst": 9,
+              "imm": 33
+            }
+          ],
+          "cond_left": 8,
+          "cond_op": "!=",
+          "cond_right": 9,
+          "then_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 10
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 13,
+                "args": [
+                  10
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 11,
+            "imm": 1
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              11
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 3,
+          "imm": 2
+        },
+        {
+          "op": 3,
+          "dst": 4,
+          "args": [
+            2,
+            3
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 5
+        },
+        {
+          "op": 13,
+          "args": [
+            5
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 6,
+          "imm": 2
+        },
+        {
+          "op": 3,
+          "dst": 7,
+          "args": [
+            2,
+            6
+          ]
+        },
+        {
+          "op": 15,
+          "dst": 8,
+          "args": [
+            0,
+            7
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 1,
+          "dst": 9,
+          "imm": 33
+        },
+        {
+          "op": 1,
+          "dst": 10
+        },
+        {
+          "op": 13,
+          "args": [
+            10
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 11,
+          "imm": 1
+        },
+        {
+          "op": 13,
+          "args": [
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "name": "is_double_delim_escaped",
+      "result": "uint64",
+      "params": [
+        {
+          "name": "cur",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "end",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        }
+      ],
+      "nvals": 11,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 2,
+            "imm": 1
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 3,
+            "args": [
+              0
+            ],
+            "sym": "ptr_alias"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 4,
+            "args": [
+              3,
+              1
+            ],
+            "sym": "__cmp_<"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 5,
+            "imm": 1
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 6,
+            "args": [
+              0
+            ],
+            "sym": "ptr_alias"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 15,
+            "dst": 7,
+            "args": [
+              6
+            ],
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 15,
+            "dst": 8,
+            "args": [
+              0
+            ],
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 9,
+            "args": [
+              7,
+              8
+            ],
+            "sym": "__cmp_=="
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 10,
+            "args": [
+              4,
+              9
+            ],
+            "sym": "__cmp_&&"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              10
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 2,
+          "imm": 1
+        },
+        {
+          "op": 2,
+          "dst": 3,
+          "args": [
+            0
+          ],
+          "sym": "ptr_alias"
+        },
+        {
+          "op": 14,
+          "dst": 4,
+          "args": [
+            3,
+            1
+          ],
+          "sym": "__cmp_<"
+        },
+        {
+          "op": 1,
+          "dst": 5,
+          "imm": 1
+        },
+        {
+          "op": 2,
+          "dst": 6,
+          "args": [
+            0
+          ],
+          "sym": "ptr_alias"
+        },
+        {
+          "op": 15,
+          "dst": 7,
+          "args": [
+            6
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 15,
+          "dst": 8,
+          "args": [
+            0
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 14,
+          "dst": 9,
+          "args": [
+            7,
+            8
+          ],
+          "sym": "__cmp_=="
+        },
+        {
+          "op": 14,
+          "dst": 10,
+          "args": [
+            4,
+            9
+          ],
+          "sym": "__cmp_&&"
+        },
+        {
+          "op": 13,
+          "args": [
+            10
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "libinjection_sqli",
+  "kind": "libinj",
+  "notes": "multi-header upstream — SkipC/ccgo",
+  "oracle_backend": "",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "skip",
+      "error": "SkipC",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "skip",
+      "error": "SkipC",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 276,
+      "binary_bytes": 2480132,
+      "run_ms": 1,
+      "stdout_sha256": "15d0e62936b6357299ef0ceb8b0c50a24be7e4d1556226bea93c7d7071249bbd",
+      "stdout": "empty 0000000000000000\nhello 0000000000000004\n16b 0000000000000000\n17b 0000000000000000\n64b 0000000000000000\n1k 0000000000000000\n64k 0000000000000000\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "0000000000000000",
+        "17b": "0000000000000000",
+        "1k": "0000000000000000",
+        "64b": "0000000000000000",
+        "64k": "0000000000000000",
+        "empty": "0000000000000000",
+        "hello": "0000000000000004"
+      },
+      "code_lines": 56,
+      "var_count": 2,
+      "int_cast_index": 2
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "SkipC multi-file",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": false,
+  "no_oracle": true,
+  "built_not_compared": true,
+  "wall_ms": 282
+}

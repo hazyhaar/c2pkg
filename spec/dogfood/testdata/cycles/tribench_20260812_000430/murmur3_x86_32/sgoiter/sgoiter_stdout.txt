@@ -1,0 +1,7 @@
+empty 00000000
+hello 248bfa47
+16b 2ada2fcc
+17b 5bce889b
+64b bc48b6a1
+1k af1c5a8f
+64k 77a47541

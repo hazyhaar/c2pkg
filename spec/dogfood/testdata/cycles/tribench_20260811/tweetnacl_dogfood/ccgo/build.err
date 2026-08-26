@@ -1,0 +1,5 @@
+# tribccgo
+./main.go:10:6: u64 redeclared in this block
+	./kernel.go:493:6: other declaration of u64
+./main.go:11:6: u32 redeclared in this block
+	./kernel.go:491:6: other declaration of u32

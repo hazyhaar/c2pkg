@@ -1,0 +1,61 @@
+{
+  "stamp": "2026-08-11T14:54:54Z",
+  "host": "linux/amd64",
+  "go_version": "go1.26.5",
+  "sgoiter_bin": "./bin/sgoiter",
+  "ccgo_bin": "/home/cl-ment/go/bin/ccgo",
+  "out_dir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260811_165454",
+  "libs": [
+    {
+      "id": "libinjection_sqli",
+      "kind": "libinj",
+      "notes": "multi-header upstream — SkipC/ccgo",
+      "oracle_backend": "sgoiter",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "skip",
+          "error": "SkipC",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "skip",
+          "error": "SkipC",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        },
+        {
+          "backend": "sgoiter",
+          "status": "fail",
+          "error": "sgoiter: sgoiter/front: err_include: include not found: libinjection.h\n",
+          "compile_ms": 3,
+          "run_ms": 0,
+          "match_oracle": false
+        },
+        {
+          "backend": "ccgo",
+          "status": "skip",
+          "error": "SkipC multi-file",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": false,
+      "wall_ms": 8
+    }
+  ],
+  "summary": {
+    "libs_total": 1,
+    "libs_all_match": 0,
+    "backend_ok": 0,
+    "backend_fail": 1,
+    "backend_skip": 3,
+    "sgoiter_match_oracle": 0,
+    "ccgo_match_oracle": 0
+  }
+}

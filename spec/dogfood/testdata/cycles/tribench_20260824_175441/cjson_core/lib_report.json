@@ -1,0 +1,75 @@
+{
+  "id": "cjson_core",
+  "kind": "cjson_core",
+  "notes": "cJSON case-insensitive compare",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 82,
+      "binary_bytes": 147640,
+      "run_ms": 0,
+      "stdout_sha256": "fd36850c0c5d26bd3047a58a6df489260a2e369cf026b6196afc8febddd931ea",
+      "stdout": "empty 0\n16b -207\n17b 31\n64b 43\n1k -43\n64k -135\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "-207",
+        "17b": "31",
+        "1k": "-43",
+        "64b": "43",
+        "64k": "-135",
+        "empty": "0"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 85,
+      "binary_bytes": 147448,
+      "run_ms": 0,
+      "stdout_sha256": "fd36850c0c5d26bd3047a58a6df489260a2e369cf026b6196afc8febddd931ea",
+      "stdout": "empty 0\n16b -207\n17b 31\n64b 43\n1k -43\n64k -135\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "-207",
+        "17b": "31",
+        "1k": "-43",
+        "64b": "43",
+        "64k": "-135",
+        "empty": "0"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 280,
+      "binary_bytes": 2494726,
+      "run_ms": 1,
+      "stdout_sha256": "af80e0b92f469eb42ba01bc080cb83a5633f22e4728c19c30bfb25971bd716d0",
+      "stdout": "empty 0\n16b -207\n17b 31\n64b -22\n1k 22\n64k -135\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "-207",
+        "17b": "31",
+        "1k": "22",
+        "64b": "-22",
+        "64k": "-135",
+        "empty": "0"
+      },
+      "code_lines": 63,
+      "var_count": 11,
+      "int_cast_index": 2
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": false,
+  "wall_ms": 457
+}

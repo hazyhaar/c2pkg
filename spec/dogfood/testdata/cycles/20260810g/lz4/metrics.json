@@ -1,0 +1,11 @@
+{
+  "kernel": "lz4",
+  "raw_lines": 3084,
+  "opt_lines": 3084,
+  "opt_bits": 0,
+  "raw_tls": 87,
+  "opt_tls": 85,
+  "ccgo_up": 151,
+  "gotos": 50,
+  "switches": 4
+}

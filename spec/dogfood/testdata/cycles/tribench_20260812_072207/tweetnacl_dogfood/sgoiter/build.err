@@ -1,0 +1,3 @@
+# trib/kernel
+kernel/kernel.go:249:48: invalid character U+0023 '#'
+kernel/kernel.go:249:54: syntax error: unexpected literal 0x70, expected {

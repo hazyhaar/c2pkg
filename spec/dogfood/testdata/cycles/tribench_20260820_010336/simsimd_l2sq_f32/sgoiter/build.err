@@ -1,0 +1,16 @@
+# trib
+./main.go:49:45: too many arguments in call to kernel.Simsimd_l2sq_f32
+	have ([]float32, []float32, uint64, *float64)
+	want ([]float32, []float32, uint64)
+./main.go:59:45: too many arguments in call to kernel.Simsimd_l2sq_f32
+	have ([]float32, []float32, uint64, *float64)
+	want ([]float32, []float32, uint64)
+./main.go:69:45: too many arguments in call to kernel.Simsimd_l2sq_f32
+	have ([]float32, []float32, uint64, *float64)
+	want ([]float32, []float32, uint64)
+./main.go:79:45: too many arguments in call to kernel.Simsimd_l2sq_f32
+	have ([]float32, []float32, uint64, *float64)
+	want ([]float32, []float32, uint64)
+./main.go:89:45: too many arguments in call to kernel.Simsimd_l2sq_f32
+	have ([]float32, []float32, uint64, *float64)
+	want ([]float32, []float32, uint64)

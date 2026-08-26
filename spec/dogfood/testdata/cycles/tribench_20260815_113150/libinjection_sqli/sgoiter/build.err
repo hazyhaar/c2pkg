@@ -1,0 +1,6 @@
+# trib/kernel
+kernel/kernel.go:40:5: st.Type_ undefined (type []int has no field or method Type_)
+kernel/kernel.go:41:5: st.Pos undefined (type []int has no field or method Pos)
+kernel/kernel.go:42:5: st.Len_ undefined (type []int has no field or method Len_)
+kernel/kernel.go:43:5: st.Val undefined (type []int has no field or method Val)
+kernel/kernel.go:44:5: st.Val undefined (type []int has no field or method Val)

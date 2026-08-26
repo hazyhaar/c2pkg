@@ -1,0 +1,300 @@
+{
+  "stamp": "2026-08-12T20:00:41Z",
+  "host": "linux/amd64",
+  "go_version": "go1.26.5",
+  "sgoiter_bin": "./bin/sgoiter",
+  "ccgo_bin": "/home/cl-ment/go/bin/ccgo",
+  "out_dir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260812_220041",
+  "libs": [
+    {
+      "id": "fnv1a_64",
+      "kind": "hash64",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 72,
+          "binary_bytes": 81912,
+          "run_ms": 0,
+          "stdout_sha256": "089bf958b0db5cd2d4a66ac51bad571cf15d0f020fbe9e99d1f666db0b7018e2",
+          "stdout": "empty cbf29ce484222325\nhello a430d84680aabd0b\n16b 2e373913e5ad677d\n17b 353d21cf45a643df\n64b 6502f47973980765\n1k ab0aecec8ae50325\n64k c38d62bd0a622325\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "2e373913e5ad677d",
+            "17b": "353d21cf45a643df",
+            "1k": "ab0aecec8ae50325",
+            "64b": "6502f47973980765",
+            "64k": "c38d62bd0a622325",
+            "empty": "cbf29ce484222325",
+            "hello": "a430d84680aabd0b"
+          }
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 75,
+          "binary_bytes": 81776,
+          "run_ms": 1,
+          "stdout_sha256": "089bf958b0db5cd2d4a66ac51bad571cf15d0f020fbe9e99d1f666db0b7018e2",
+          "stdout": "empty cbf29ce484222325\nhello a430d84680aabd0b\n16b 2e373913e5ad677d\n17b 353d21cf45a643df\n64b 6502f47973980765\n1k ab0aecec8ae50325\n64k c38d62bd0a622325\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "2e373913e5ad677d",
+            "17b": "353d21cf45a643df",
+            "1k": "ab0aecec8ae50325",
+            "64b": "6502f47973980765",
+            "64k": "c38d62bd0a622325",
+            "empty": "cbf29ce484222325",
+            "hello": "a430d84680aabd0b"
+          }
+        },
+        {
+          "backend": "sgoiter",
+          "status": "fail",
+          "error": "go build: # trib/kernel\nkernel/kernel.go:7:6: declared and not used: v4\n",
+          "compile_ms": 42,
+          "run_ms": 0,
+          "match_oracle": false,
+          "code_lines": 28,
+          "var_count": 2
+        },
+        {
+          "backend": "ccgo",
+          "status": "skip",
+          "error": "ccgo disabled or missing",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": false,
+      "wall_ms": 199
+    },
+    {
+      "id": "crc32_ieee",
+      "kind": "hash32",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 82,
+          "binary_bytes": 81912,
+          "run_ms": 1,
+          "stdout_sha256": "3afb05d21419f9099b8adb7ac92411aac6c1fc05bd8862812859389b649bf68e",
+          "stdout": "empty 00000000\nhello 3610a686\n16b 68c4f033\n17b 080a93ad\n64b 74465cc5\n1k a9da8aa6\n64k 47bee6f3\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "68c4f033",
+            "17b": "080a93ad",
+            "1k": "a9da8aa6",
+            "64b": "74465cc5",
+            "64k": "47bee6f3",
+            "empty": "00000000",
+            "hello": "3610a686"
+          }
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 94,
+          "binary_bytes": 81776,
+          "run_ms": 1,
+          "stdout_sha256": "3afb05d21419f9099b8adb7ac92411aac6c1fc05bd8862812859389b649bf68e",
+          "stdout": "empty 00000000\nhello 3610a686\n16b 68c4f033\n17b 080a93ad\n64b 74465cc5\n1k a9da8aa6\n64k 47bee6f3\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "68c4f033",
+            "17b": "080a93ad",
+            "1k": "a9da8aa6",
+            "64b": "74465cc5",
+            "64k": "47bee6f3",
+            "empty": "00000000",
+            "hello": "3610a686"
+          }
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 239,
+          "binary_bytes": 2479981,
+          "run_ms": 1,
+          "stdout_sha256": "3afb05d21419f9099b8adb7ac92411aac6c1fc05bd8862812859389b649bf68e",
+          "stdout": "empty 00000000\nhello 3610a686\n16b 68c4f033\n17b 080a93ad\n64b 74465cc5\n1k a9da8aa6\n64k 47bee6f3\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "68c4f033",
+            "17b": "080a93ad",
+            "1k": "a9da8aa6",
+            "64b": "74465cc5",
+            "64k": "47bee6f3",
+            "empty": "00000000",
+            "hello": "3610a686"
+          },
+          "code_lines": 23,
+          "var_count": 3,
+          "int_cast_index": 1
+        },
+        {
+          "backend": "ccgo",
+          "status": "skip",
+          "error": "ccgo disabled or missing",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 425
+    },
+    {
+      "id": "blake2b_compress",
+      "kind": "blake2b",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 47,
+          "binary_bytes": 16416,
+          "run_ms": 0,
+          "stdout_sha256": "3b91dbe2d075febceaabb102e263f7f89761ad4f39099f004ea98ed2a3b269ed",
+          "stdout": "zero 9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747\npattern 0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9",
+            "zero": "9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747"
+          }
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 79,
+          "binary_bytes": 16136,
+          "run_ms": 0,
+          "stdout_sha256": "3b91dbe2d075febceaabb102e263f7f89761ad4f39099f004ea98ed2a3b269ed",
+          "stdout": "zero 9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747\npattern 0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9",
+            "zero": "9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747"
+          }
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 974,
+          "binary_bytes": 2419799,
+          "run_ms": 1,
+          "stdout_sha256": "3b91dbe2d075febceaabb102e263f7f89761ad4f39099f004ea98ed2a3b269ed",
+          "stdout": "zero 9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747\npattern 0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9",
+            "zero": "9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747"
+          },
+          "code_lines": 143,
+          "var_count": 4,
+          "rot_left_calls": 32
+        },
+        {
+          "backend": "ccgo",
+          "status": "skip",
+          "error": "ccgo disabled or missing",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 1104
+    },
+    {
+      "id": "base64_simd",
+      "kind": "base64",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 37,
+          "binary_bytes": 16456,
+          "run_ms": 0,
+          "stdout_sha256": "a8453e92d8664e1cb02fbd6489e4bfe90e5caa69740ff69be2146e52ce3001a3",
+          "stdout": "pad0 \npad1 Zg==\npad2 Zm8=\npad3 Zm9v\nbin_null AAAAAA==\nhello aGVsbG8=\n16b MDEyMzQ1Njc4OWFiY2RlZg==\n1k WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "MDEyMzQ1Njc4OWFiY2RlZg==",
+            "1k": "WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==",
+            "bin_null": "AAAAAA==",
+            "hello": "aGVsbG8=",
+            "pad1": "Zg==",
+            "pad2": "Zm8=",
+            "pad3": "Zm9v"
+          }
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 55,
+          "binary_bytes": 16368,
+          "run_ms": 0,
+          "stdout_sha256": "a8453e92d8664e1cb02fbd6489e4bfe90e5caa69740ff69be2146e52ce3001a3",
+          "stdout": "pad0 \npad1 Zg==\npad2 Zm8=\npad3 Zm9v\nbin_null AAAAAA==\nhello aGVsbG8=\n16b MDEyMzQ1Njc4OWFiY2RlZg==\n1k WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "MDEyMzQ1Njc4OWFiY2RlZg==",
+            "1k": "WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==",
+            "bin_null": "AAAAAA==",
+            "hello": "aGVsbG8=",
+            "pad1": "Zg==",
+            "pad2": "Zm8=",
+            "pad3": "Zm9v"
+          }
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 141,
+          "binary_bytes": 2419159,
+          "run_ms": 1,
+          "stdout_sha256": "a8453e92d8664e1cb02fbd6489e4bfe90e5caa69740ff69be2146e52ce3001a3",
+          "stdout": "pad0 \npad1 Zg==\npad2 Zm8=\npad3 Zm9v\nbin_null AAAAAA==\nhello aGVsbG8=\n16b MDEyMzQ1Njc4OWFiY2RlZg==\n1k WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "MDEyMzQ1Njc4OWFiY2RlZg==",
+            "1k": "WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==",
+            "bin_null": "AAAAAA==",
+            "hello": "aGVsbG8=",
+            "pad1": "Zg==",
+            "pad2": "Zm8=",
+            "pad3": "Zm9v"
+          },
+          "code_lines": 41
+        },
+        {
+          "backend": "ccgo",
+          "status": "skip",
+          "error": "ccgo disabled or missing",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 236
+    }
+  ],
+  "summary": {
+    "libs_total": 4,
+    "libs_all_match": 3,
+    "backend_ok": 11,
+    "backend_fail": 1,
+    "backend_skip": 4,
+    "sgoiter_match_oracle": 3,
+    "ccgo_match_oracle": 0,
+    "libs_compared": 4,
+    "libs_no_oracle": 0
+  }
+}

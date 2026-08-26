@@ -1,0 +1,26 @@
+c2simd-gen: transformé avec succès spec/dogfood/cycles/20260810h/tiny_regex/raw.go -> spec/dogfood/cycles/20260810h/tiny_regex/opt.go
+{
+  "delta": {
+    "bits_rotate": 0,
+    "ccgo_up": -75,
+    "lines": -4,
+    "rotl_calls": 0,
+    "tls_param": -10
+  },
+  "in": "spec/dogfood/cycles/20260810h/tiny_regex/raw.go",
+  "opt": {
+    "CcgoUp": 0,
+    "BitsRotate": 0,
+    "RotlCalls": 0,
+    "TLSParamFn": 8,
+    "Lines": 940
+  },
+  "out": "spec/dogfood/cycles/20260810h/tiny_regex/opt.go",
+  "raw": {
+    "CcgoUp": 75,
+    "BitsRotate": 0,
+    "RotlCalls": 0,
+    "TLSParamFn": 18,
+    "Lines": 944
+  }
+}

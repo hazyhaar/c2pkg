@@ -1,0 +1,62 @@
+{
+  "id": "poly1305_donna32",
+  "kind": "poly_donna32",
+  "notes": "Poly1305 Donna-32 (26-bit limbs)",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 40,
+      "binary_bytes": 16312,
+      "run_ms": 0,
+      "stdout_sha256": "a14c9ab2da763a57e3761e14d342e1db3cd70880b984d734ac243b8cbaf35abd",
+      "stdout": "zero 000f0f10005a5a5902c3c3c100b4b4b003878782\npattern 000f0f10005a5a5902c3c3c100b4b4b003878782\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "000f0f10005a5a5902c3c3c100b4b4b003878782",
+        "zero": "000f0f10005a5a5902c3c3c100b4b4b003878782"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 43,
+      "binary_bytes": 16104,
+      "run_ms": 0,
+      "stdout_sha256": "a14c9ab2da763a57e3761e14d342e1db3cd70880b984d734ac243b8cbaf35abd",
+      "stdout": "zero 000f0f10005a5a5902c3c3c100b4b4b003878782\npattern 000f0f10005a5a5902c3c3c100b4b4b003878782\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "000f0f10005a5a5902c3c3c100b4b4b003878782",
+        "zero": "000f0f10005a5a5902c3c3c100b4b4b003878782"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 208,
+      "binary_bytes": 2365056,
+      "run_ms": 1,
+      "stdout_sha256": "a14c9ab2da763a57e3761e14d342e1db3cd70880b984d734ac243b8cbaf35abd",
+      "stdout": "zero 000f0f10005a5a5902c3c3c100b4b4b003878782\npattern 000f0f10005a5a5902c3c3c100b4b4b003878782\n",
+      "match_oracle": true,
+      "lines": {
+        "pattern": "000f0f10005a5a5902c3c3c100b4b4b003878782",
+        "zero": "000f0f10005a5a5902c3c3c100b4b4b003878782"
+      },
+      "code_lines": 68,
+      "var_count": 10
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 294
+}

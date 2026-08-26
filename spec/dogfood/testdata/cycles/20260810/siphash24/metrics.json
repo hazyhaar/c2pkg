@@ -1,0 +1,18 @@
+{
+  "kernel": "siphash24",
+  "stamp": "20260810",
+  "src_c": "spec/c_sources/testdata/c_sources/siphash24.c",
+  "ccgo": "/home/cl-ment/go/bin/ccgo",
+  "raw_lines": 648,
+  "opt_lines": 647,
+  "raw_rotl_calls": 0,
+  "opt_rotl_calls": 0,
+  "raw_bits_rotate": 0,
+  "opt_bits_rotate": 48,
+  "raw_tls_first_param_funcs": 1,
+  "opt_tls_first_param_funcs": 0,
+  "tls_params_elided": 1,
+  "bits_rotate_gained": 48,
+  "build_raw_ok": 1,
+  "build_opt_ok": 1
+}

@@ -1,0 +1,2 @@
+# code.hazyhaar.fr/devhoros/c2simd/spec/dogfood/cycles/20260810g/tiny_regex/build_opt
+spec/dogfood/cycles/20260810g/tiny_regex/build_opt/opt.go:777:70: constant -1 overflows uintptr

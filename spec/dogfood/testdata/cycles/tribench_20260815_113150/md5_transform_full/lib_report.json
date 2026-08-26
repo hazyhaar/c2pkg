@@ -1,0 +1,74 @@
+{
+  "id": "md5_transform_full",
+  "kind": "md5",
+  "notes": "full 64-step MD5",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 38,
+      "binary_bytes": 16384,
+      "run_ms": 0,
+      "stdout_sha256": "3ca18623ab522a93fa380bdca085d9a473d94bfbf38de98400111700752b17af",
+      "stdout": "zero 031f1dac6ea58ed01fab67b774317791\npattern b75a993607d7cbf324289821484cc19b\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "b75a993607d7cbf324289821484cc19b",
+        "zero": "031f1dac6ea58ed01fab67b774317791"
+      },
+      "bench_ns_per_op": 351026
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 56,
+      "binary_bytes": 16104,
+      "run_ms": 0,
+      "stdout_sha256": "3ca18623ab522a93fa380bdca085d9a473d94bfbf38de98400111700752b17af",
+      "stdout": "zero 031f1dac6ea58ed01fab67b774317791\npattern b75a993607d7cbf324289821484cc19b\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "b75a993607d7cbf324289821484cc19b",
+        "zero": "031f1dac6ea58ed01fab67b774317791"
+      },
+      "bench_ns_per_op": 343351
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 2521,
+      "binary_bytes": 2419935,
+      "run_ms": 0,
+      "stdout_sha256": "3ca18623ab522a93fa380bdca085d9a473d94bfbf38de98400111700752b17af",
+      "stdout": "zero 031f1dac6ea58ed01fab67b774317791\npattern b75a993607d7cbf324289821484cc19b\n",
+      "match_oracle": true,
+      "lines": {
+        "pattern": "b75a993607d7cbf324289821484cc19b",
+        "zero": "031f1dac6ea58ed01fab67b774317791"
+      },
+      "bench_ns_per_op": 929667,
+      "code_lines": 248,
+      "var_count": 6,
+      "rot_left_calls": 64
+    },
+    {
+      "backend": "ccgo",
+      "status": "ok",
+      "compile_ms": 407,
+      "binary_bytes": 3614582,
+      "run_ms": 1,
+      "stdout_sha256": "3ca18623ab522a93fa380bdca085d9a473d94bfbf38de98400111700752b17af",
+      "stdout": "zero 031f1dac6ea58ed01fab67b774317791\npattern b75a993607d7cbf324289821484cc19b\n",
+      "match_oracle": true,
+      "lines": {
+        "pattern": "b75a993607d7cbf324289821484cc19b",
+        "zero": "031f1dac6ea58ed01fab67b774317791"
+      },
+      "bench_ns_per_op": 1151979,
+      "code_lines": 709
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 3311
+}

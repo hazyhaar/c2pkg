@@ -1,0 +1,1 @@
+/* tribench stub */

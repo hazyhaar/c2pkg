@@ -1,0 +1,9 @@
+# trib/kernel
+kernel/kernel.go:10:7: undefined: v12
+kernel/kernel.go:10:13: undefined: v17
+kernel/kernel.go:15:7: undefined: v27
+kernel/kernel.go:15:13: undefined: v32
+kernel/kernel.go:19:7: undefined: v42
+kernel/kernel.go:19:13: undefined: v47
+kernel/kernel.go:22:7: undefined: v57
+kernel/kernel.go:22:13: undefined: v62

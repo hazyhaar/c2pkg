@@ -1,0 +1,76 @@
+{
+  "id": "strlenspn_lab",
+  "kind": "libinj",
+  "notes": "oracle C for strspn-like",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 59,
+      "binary_bytes": 81952,
+      "run_ms": 0,
+      "stdout_sha256": "15d0e62936b6357299ef0ceb8b0c50a24be7e4d1556226bea93c7d7071249bbd",
+      "stdout": "empty 0000000000000000\nhello 0000000000000004\n16b 0000000000000000\n17b 0000000000000000\n64b 0000000000000000\n1k 0000000000000000\n64k 0000000000000000\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "0000000000000000",
+        "17b": "0000000000000000",
+        "1k": "0000000000000000",
+        "64b": "0000000000000000",
+        "64k": "0000000000000000",
+        "empty": "0000000000000000",
+        "hello": "0000000000000004"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 64,
+      "binary_bytes": 81816,
+      "run_ms": 0,
+      "stdout_sha256": "15d0e62936b6357299ef0ceb8b0c50a24be7e4d1556226bea93c7d7071249bbd",
+      "stdout": "empty 0000000000000000\nhello 0000000000000004\n16b 0000000000000000\n17b 0000000000000000\n64b 0000000000000000\n1k 0000000000000000\n64k 0000000000000000\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "0000000000000000",
+        "17b": "0000000000000000",
+        "1k": "0000000000000000",
+        "64b": "0000000000000000",
+        "64k": "0000000000000000",
+        "empty": "0000000000000000",
+        "hello": "0000000000000004"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 183,
+      "binary_bytes": 2428931,
+      "run_ms": 1,
+      "stdout_sha256": "15d0e62936b6357299ef0ceb8b0c50a24be7e4d1556226bea93c7d7071249bbd",
+      "stdout": "empty 0000000000000000\nhello 0000000000000004\n16b 0000000000000000\n17b 0000000000000000\n64b 0000000000000000\n1k 0000000000000000\n64k 0000000000000000\n",
+      "match_oracle": true,
+      "lines": {
+        "16b": "0000000000000000",
+        "17b": "0000000000000000",
+        "1k": "0000000000000000",
+        "64b": "0000000000000000",
+        "64k": "0000000000000000",
+        "empty": "0000000000000000",
+        "hello": "0000000000000004"
+      },
+      "code_lines": 21
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 315
+}

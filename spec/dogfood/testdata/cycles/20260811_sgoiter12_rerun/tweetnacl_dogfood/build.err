@@ -1,0 +1,3 @@
+# t
+./out.go:397:8: invalid operation: m - uint8(n) (mismatched types []byte and uint8)
+./out.go:398:6: cannot use v17 (variable of type uint8) as []byte value in assignment

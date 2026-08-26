@@ -1,0 +1,218 @@
+{
+  "name": "libinjection_sqli",
+  "funcs": [
+    {
+      "name": "is_mysql_comment",
+      "result": "uint64",
+      "params": [
+        {
+          "name": "cs",
+          "type": "int",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "len",
+          "type": "uint64",
+          "reg": 1
+        },
+        {
+          "name": "pos",
+          "type": "uint64",
+          "reg": 2
+        }
+      ],
+      "nvals": 12,
+      "stmts": [
+        {
+          "kind": 4,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 3,
+              "imm": 2
+            },
+            {
+              "op": 3,
+              "dst": 4,
+              "args": [
+                2,
+                3
+              ]
+            }
+          ],
+          "cond_left": 4,
+          "cond_op": ">=",
+          "cond_right": 1,
+          "then_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 5
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 13,
+                "args": [
+                  5
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": 4,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 6,
+              "imm": 2
+            },
+            {
+              "op": 3,
+              "dst": 7,
+              "args": [
+                2,
+                6
+              ]
+            },
+            {
+              "op": 15,
+              "dst": 8,
+              "args": [
+                0,
+                7
+              ],
+              "elem": "int"
+            },
+            {
+              "op": 1,
+              "dst": 9,
+              "imm": 33
+            }
+          ],
+          "cond_left": 8,
+          "cond_op": "!=",
+          "cond_right": 9,
+          "then_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 10
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 13,
+                "args": [
+                  10
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 11,
+            "imm": 1
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              11
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 3,
+          "imm": 2
+        },
+        {
+          "op": 3,
+          "dst": 4,
+          "args": [
+            2,
+            3
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 5
+        },
+        {
+          "op": 13,
+          "args": [
+            5
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 6,
+          "imm": 2
+        },
+        {
+          "op": 3,
+          "dst": 7,
+          "args": [
+            2,
+            6
+          ]
+        },
+        {
+          "op": 15,
+          "dst": 8,
+          "args": [
+            0,
+            7
+          ],
+          "elem": "int"
+        },
+        {
+          "op": 1,
+          "dst": 9,
+          "imm": 33
+        },
+        {
+          "op": 1,
+          "dst": 10
+        },
+        {
+          "op": 13,
+          "args": [
+            10
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 11,
+          "imm": 1
+        },
+        {
+          "op": 13,
+          "args": [
+            11
+          ]
+        }
+      ]
+    }
+  ]
+}

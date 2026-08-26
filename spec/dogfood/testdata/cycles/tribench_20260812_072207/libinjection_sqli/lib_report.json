@@ -1,0 +1,46 @@
+{
+  "id": "libinjection_sqli",
+  "kind": "libinj",
+  "notes": "SkipC permanent: multi-header upstream; see strlenspn_lab",
+  "oracle_backend": "",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "skip",
+      "error": "SkipC",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "skip",
+      "error": "SkipC",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    },
+    {
+      "backend": "sgoiter",
+      "status": "fail",
+      "error": "go build: # trib/kernel\nkernel/kernel.go:32:243: invalid character U+0023 '#'\nkernel/kernel.go:32:247: syntax error: unexpected literal 0, expected {\n",
+      "compile_ms": 114,
+      "run_ms": 0,
+      "match_oracle": false,
+      "code_lines": 67,
+      "var_count": 2,
+      "int_cast_index": 2
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "SkipC multi-file",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": false,
+  "no_oracle": true,
+  "wall_ms": 117
+}

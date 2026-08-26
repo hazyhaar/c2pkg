@@ -1,0 +1,8 @@
+# trib
+./main.go:27:38: undefined: kernel.Libinjection_is_sqli
+./main.go:28:38: undefined: kernel.Libinjection_is_sqli
+./main.go:29:36: undefined: kernel.Libinjection_is_sqli
+./main.go:30:36: undefined: kernel.Libinjection_is_sqli
+./main.go:31:36: undefined: kernel.Libinjection_is_sqli
+./main.go:32:35: undefined: kernel.Libinjection_is_sqli
+./main.go:33:36: undefined: kernel.Libinjection_is_sqli

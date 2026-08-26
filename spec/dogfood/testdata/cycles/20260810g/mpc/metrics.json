@@ -1,0 +1,11 @@
+{
+  "kernel": "mpc",
+  "raw_lines": 6010,
+  "opt_lines": 6010,
+  "opt_bits": 0,
+  "raw_tls": 276,
+  "opt_tls": 257,
+  "ccgo_up": 427,
+  "gotos": 82,
+  "switches": 13
+}

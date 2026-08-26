@@ -1,0 +1,11 @@
+{
+  "kernel": "tiny_regex",
+  "raw_lines": 944,
+  "opt_lines": 944,
+  "opt_bits": 0,
+  "raw_tls": 18,
+  "opt_tls": 8,
+  "ccgo_up": 75,
+  "gotos": 6,
+  "switches": 4
+}

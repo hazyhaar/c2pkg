@@ -1,0 +1,77 @@
+{
+  "id": "utf8_iterate_dogfood",
+  "kind": "hash64",
+  "notes": "utf8proc fast UTF-8 iterator",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 61,
+      "binary_bytes": 81960,
+      "run_ms": 0,
+      "stdout_sha256": "b3ce7dc528ba99ec77ffe7ad7168a6b67c06a175761656bc14e545de186b8a7e",
+      "stdout": "empty 00000000ffffffff\nhello 0000000100000068\n16b 0000000100000030\n17b 0000000100000030\n64b 00000000ffffffff\n1k 000000010000005a\n64k 000000010000003c\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "0000000100000030",
+        "17b": "0000000100000030",
+        "1k": "000000010000005a",
+        "64b": "00000000ffffffff",
+        "64k": "000000010000003c",
+        "empty": "00000000ffffffff",
+        "hello": "0000000100000068"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 64,
+      "binary_bytes": 81832,
+      "run_ms": 0,
+      "stdout_sha256": "b3ce7dc528ba99ec77ffe7ad7168a6b67c06a175761656bc14e545de186b8a7e",
+      "stdout": "empty 00000000ffffffff\nhello 0000000100000068\n16b 0000000100000030\n17b 0000000100000030\n64b 00000000ffffffff\n1k 000000010000005a\n64k 000000010000003c\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "0000000100000030",
+        "17b": "0000000100000030",
+        "1k": "000000010000005a",
+        "64b": "00000000ffffffff",
+        "64k": "000000010000003c",
+        "empty": "00000000ffffffff",
+        "hello": "0000000100000068"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 190,
+      "binary_bytes": 2429315,
+      "run_ms": 1,
+      "stdout_sha256": "b3ce7dc528ba99ec77ffe7ad7168a6b67c06a175761656bc14e545de186b8a7e",
+      "stdout": "empty 00000000ffffffff\nhello 0000000100000068\n16b 0000000100000030\n17b 0000000100000030\n64b 00000000ffffffff\n1k 000000010000005a\n64k 000000010000003c\n",
+      "match_oracle": true,
+      "lines": {
+        "16b": "0000000100000030",
+        "17b": "0000000100000030",
+        "1k": "000000010000005a",
+        "64b": "00000000ffffffff",
+        "64k": "000000010000003c",
+        "empty": "00000000ffffffff",
+        "hello": "0000000100000068"
+      },
+      "code_lines": 57,
+      "var_count": 4
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 322
+}

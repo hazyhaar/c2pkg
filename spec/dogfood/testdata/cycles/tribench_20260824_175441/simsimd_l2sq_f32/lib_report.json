@@ -1,0 +1,74 @@
+{
+  "id": "simsimd_l2sq_f32",
+  "kind": "dot_f32",
+  "notes": "SimSIMD L2 squared distance float32",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 81,
+      "binary_bytes": 147664,
+      "run_ms": 0,
+      "stdout_sha256": "ae46fb940c2daa2e15f271a421a5c825c0a5608dc0e281cef7056427c6e99321",
+      "stdout": "empty 0.000000e+00\n16b 1.479950e+05\n17b 1.043100e+04\n64b 9.000000e+04\n1k 1.440000e+06\n64k 2.985984e+08\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "1.479950e+05",
+        "17b": "1.043100e+04",
+        "1k": "1.440000e+06",
+        "64b": "9.000000e+04",
+        "64k": "2.985984e+08",
+        "empty": "0.000000e+00"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 91,
+      "binary_bytes": 147480,
+      "run_ms": 0,
+      "stdout_sha256": "ae46fb940c2daa2e15f271a421a5c825c0a5608dc0e281cef7056427c6e99321",
+      "stdout": "empty 0.000000e+00\n16b 1.479950e+05\n17b 1.043100e+04\n64b 9.000000e+04\n1k 1.440000e+06\n64k 2.985984e+08\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "1.479950e+05",
+        "17b": "1.043100e+04",
+        "1k": "1.440000e+06",
+        "64b": "9.000000e+04",
+        "64k": "2.985984e+08",
+        "empty": "0.000000e+00"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 255,
+      "binary_bytes": 2499201,
+      "run_ms": 1,
+      "stdout_sha256": "ae46fb940c2daa2e15f271a421a5c825c0a5608dc0e281cef7056427c6e99321",
+      "stdout": "empty 0.000000e+00\n16b 1.479950e+05\n17b 1.043100e+04\n64b 9.000000e+04\n1k 1.440000e+06\n64k 2.985984e+08\n",
+      "match_oracle": true,
+      "lines": {
+        "16b": "1.479950e+05",
+        "17b": "1.043100e+04",
+        "1k": "1.440000e+06",
+        "64b": "9.000000e+04",
+        "64k": "2.985984e+08",
+        "empty": "0.000000e+00"
+      },
+      "code_lines": 14,
+      "var_count": 2
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 441
+}

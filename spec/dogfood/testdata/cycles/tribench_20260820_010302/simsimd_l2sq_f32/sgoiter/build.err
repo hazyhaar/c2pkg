@@ -1,0 +1,2 @@
+# trib/kernel
+kernel/kernel.go:11:21: invalid argument: index v5 (variable of type float32) must be integer

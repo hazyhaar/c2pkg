@@ -1,0 +1,100 @@
+{
+  "stamp": "2026-08-19T22:35:52Z",
+  "host": "linux/amd64",
+  "go_version": "go1.27rc3",
+  "sgoiter_bin": "/devhoros/c2simd/bin/sgoiter",
+  "ccgo_bin": "/home/cl-ment/go/bin/ccgo",
+  "out_dir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260820_003552",
+  "libs": [
+    {
+      "id": "xxhash64_core",
+      "kind": "hash64_seed",
+      "notes": "xxHash64 core round and loop",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 63,
+          "binary_bytes": 82032,
+          "run_ms": 0,
+          "stdout_sha256": "07bf97b9048418c68620b5271e5c4c4a9bca0cc042f90189be6e78e805a9f9fd",
+          "stdout": "empty ef46db3751d8e999\nhello 26c7827d889f6da3\n16b 0ddb774a82d32a38\n17b 621584f4b17a69ab\n64b cde272fa85fc5a2e\n1k 0ca285f1866e0a63\n64k 1fa78345c31b4d5b\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "0ddb774a82d32a38",
+            "17b": "621584f4b17a69ab",
+            "1k": "0ca285f1866e0a63",
+            "64b": "cde272fa85fc5a2e",
+            "64k": "1fa78345c31b4d5b",
+            "empty": "ef46db3751d8e999",
+            "hello": "26c7827d889f6da3"
+          }
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 80,
+          "binary_bytes": 81784,
+          "run_ms": 0,
+          "stdout_sha256": "07bf97b9048418c68620b5271e5c4c4a9bca0cc042f90189be6e78e805a9f9fd",
+          "stdout": "empty ef46db3751d8e999\nhello 26c7827d889f6da3\n16b 0ddb774a82d32a38\n17b 621584f4b17a69ab\n64b cde272fa85fc5a2e\n1k 0ca285f1866e0a63\n64k 1fa78345c31b4d5b\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "0ddb774a82d32a38",
+            "17b": "621584f4b17a69ab",
+            "1k": "0ca285f1866e0a63",
+            "64b": "cde272fa85fc5a2e",
+            "64k": "1fa78345c31b4d5b",
+            "empty": "ef46db3751d8e999",
+            "hello": "26c7827d889f6da3"
+          }
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 369,
+          "binary_bytes": 2434435,
+          "run_ms": 1,
+          "stdout_sha256": "07bf97b9048418c68620b5271e5c4c4a9bca0cc042f90189be6e78e805a9f9fd",
+          "stdout": "empty ef46db3751d8e999\nhello 26c7827d889f6da3\n16b 0ddb774a82d32a38\n17b 621584f4b17a69ab\n64b cde272fa85fc5a2e\n1k 0ca285f1866e0a63\n64k 1fa78345c31b4d5b\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "0ddb774a82d32a38",
+            "17b": "621584f4b17a69ab",
+            "1k": "0ca285f1866e0a63",
+            "64b": "cde272fa85fc5a2e",
+            "64k": "1fa78345c31b4d5b",
+            "empty": "ef46db3751d8e999",
+            "hello": "26c7827d889f6da3"
+          },
+          "code_lines": 85,
+          "identity_assigns": 1,
+          "var_count": 7,
+          "rot_left_calls": 9
+        },
+        {
+          "backend": "ccgo",
+          "status": "skip",
+          "error": "ccgo disabled or missing",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 521
+    }
+  ],
+  "summary": {
+    "libs_total": 1,
+    "libs_all_match": 1,
+    "backend_ok": 3,
+    "backend_fail": 0,
+    "backend_skip": 1,
+    "sgoiter_match_oracle": 1,
+    "ccgo_match_oracle": 0,
+    "libs_compared": 1,
+    "libs_no_oracle": 0
+  }
+}

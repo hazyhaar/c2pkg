@@ -1,0 +1,1884 @@
+{
+  "stamp": "2026-08-15T09:31:50Z",
+  "host": "linux/amd64",
+  "go_version": "go1.26.5",
+  "sgoiter_bin": "/devhoros/c2simd/bin/sgoiter",
+  "ccgo_bin": "/home/cl-ment/go/bin/ccgo",
+  "out_dir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260815_113150",
+  "libs": [
+    {
+      "id": "fnv1a_64",
+      "kind": "hash64",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 59,
+          "binary_bytes": 81912,
+          "run_ms": 0,
+          "stdout_sha256": "089bf958b0db5cd2d4a66ac51bad571cf15d0f020fbe9e99d1f666db0b7018e2",
+          "stdout": "empty cbf29ce484222325\nhello a430d84680aabd0b\n16b 2e373913e5ad677d\n17b 353d21cf45a643df\n64b 6502f47973980765\n1k ab0aecec8ae50325\n64k c38d62bd0a622325\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "2e373913e5ad677d",
+            "17b": "353d21cf45a643df",
+            "1k": "ab0aecec8ae50325",
+            "64b": "6502f47973980765",
+            "64k": "c38d62bd0a622325",
+            "empty": "cbf29ce484222325",
+            "hello": "a430d84680aabd0b"
+          },
+          "bench_ns_per_op": 479935
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 60,
+          "binary_bytes": 81776,
+          "run_ms": 0,
+          "stdout_sha256": "089bf958b0db5cd2d4a66ac51bad571cf15d0f020fbe9e99d1f666db0b7018e2",
+          "stdout": "empty cbf29ce484222325\nhello a430d84680aabd0b\n16b 2e373913e5ad677d\n17b 353d21cf45a643df\n64b 6502f47973980765\n1k ab0aecec8ae50325\n64k c38d62bd0a622325\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "2e373913e5ad677d",
+            "17b": "353d21cf45a643df",
+            "1k": "ab0aecec8ae50325",
+            "64b": "6502f47973980765",
+            "64k": "c38d62bd0a622325",
+            "empty": "cbf29ce484222325",
+            "hello": "a430d84680aabd0b"
+          },
+          "bench_ns_per_op": 451809
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 186,
+          "binary_bytes": 2480019,
+          "run_ms": 1,
+          "stdout_sha256": "089bf958b0db5cd2d4a66ac51bad571cf15d0f020fbe9e99d1f666db0b7018e2",
+          "stdout": "empty cbf29ce484222325\nhello a430d84680aabd0b\n16b 2e373913e5ad677d\n17b 353d21cf45a643df\n64b 6502f47973980765\n1k ab0aecec8ae50325\n64k c38d62bd0a622325\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "2e373913e5ad677d",
+            "17b": "353d21cf45a643df",
+            "1k": "ab0aecec8ae50325",
+            "64b": "6502f47973980765",
+            "64k": "c38d62bd0a622325",
+            "empty": "cbf29ce484222325",
+            "hello": "a430d84680aabd0b"
+          },
+          "bench_ns_per_op": 1094329,
+          "code_lines": 27,
+          "var_count": 1
+        },
+        {
+          "backend": "ccgo",
+          "status": "ok",
+          "compile_ms": 434,
+          "binary_bytes": 3680044,
+          "run_ms": 1,
+          "stdout_sha256": "089bf958b0db5cd2d4a66ac51bad571cf15d0f020fbe9e99d1f666db0b7018e2",
+          "stdout": "empty cbf29ce484222325\nhello a430d84680aabd0b\n16b 2e373913e5ad677d\n17b 353d21cf45a643df\n64b 6502f47973980765\n1k ab0aecec8ae50325\n64k c38d62bd0a622325\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "2e373913e5ad677d",
+            "17b": "353d21cf45a643df",
+            "1k": "ab0aecec8ae50325",
+            "64b": "6502f47973980765",
+            "64k": "c38d62bd0a622325",
+            "empty": "cbf29ce484222325",
+            "hello": "a430d84680aabd0b"
+          },
+          "bench_ns_per_op": 1322186,
+          "code_lines": 505
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 1143
+    },
+    {
+      "id": "crc32_ieee",
+      "kind": "hash32",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 54,
+          "binary_bytes": 81912,
+          "run_ms": 1,
+          "stdout_sha256": "3afb05d21419f9099b8adb7ac92411aac6c1fc05bd8862812859389b649bf68e",
+          "stdout": "empty 00000000\nhello 3610a686\n16b 68c4f033\n17b 080a93ad\n64b 74465cc5\n1k a9da8aa6\n64k 47bee6f3\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "68c4f033",
+            "17b": "080a93ad",
+            "1k": "a9da8aa6",
+            "64b": "74465cc5",
+            "64k": "47bee6f3",
+            "empty": "00000000",
+            "hello": "3610a686"
+          },
+          "bench_ns_per_op": 1054151
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 64,
+          "binary_bytes": 81776,
+          "run_ms": 0,
+          "stdout_sha256": "3afb05d21419f9099b8adb7ac92411aac6c1fc05bd8862812859389b649bf68e",
+          "stdout": "empty 00000000\nhello 3610a686\n16b 68c4f033\n17b 080a93ad\n64b 74465cc5\n1k a9da8aa6\n64k 47bee6f3\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "68c4f033",
+            "17b": "080a93ad",
+            "1k": "a9da8aa6",
+            "64b": "74465cc5",
+            "64k": "47bee6f3",
+            "empty": "00000000",
+            "hello": "3610a686"
+          },
+          "bench_ns_per_op": 843891
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 185,
+          "binary_bytes": 2479981,
+          "run_ms": 1,
+          "stdout_sha256": "3afb05d21419f9099b8adb7ac92411aac6c1fc05bd8862812859389b649bf68e",
+          "stdout": "empty 00000000\nhello 3610a686\n16b 68c4f033\n17b 080a93ad\n64b 74465cc5\n1k a9da8aa6\n64k 47bee6f3\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "68c4f033",
+            "17b": "080a93ad",
+            "1k": "a9da8aa6",
+            "64b": "74465cc5",
+            "64k": "47bee6f3",
+            "empty": "00000000",
+            "hello": "3610a686"
+          },
+          "bench_ns_per_op": 1464136,
+          "code_lines": 23,
+          "var_count": 3
+        },
+        {
+          "backend": "ccgo",
+          "status": "ok",
+          "compile_ms": 438,
+          "binary_bytes": 3680118,
+          "run_ms": 1,
+          "stdout_sha256": "3afb05d21419f9099b8adb7ac92411aac6c1fc05bd8862812859389b649bf68e",
+          "stdout": "empty 00000000\nhello 3610a686\n16b 68c4f033\n17b 080a93ad\n64b 74465cc5\n1k a9da8aa6\n64k 47bee6f3\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "68c4f033",
+            "17b": "080a93ad",
+            "1k": "a9da8aa6",
+            "64b": "74465cc5",
+            "64k": "47bee6f3",
+            "empty": "00000000",
+            "hello": "3610a686"
+          },
+          "bench_ns_per_op": 1866107,
+          "code_lines": 517
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 1103
+    },
+    {
+      "id": "fast_xor",
+      "kind": "xor",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 90,
+          "binary_bytes": 148024,
+          "run_ms": 1,
+          "stdout_sha256": "973671933afd29d96eff81cd857c125b05273b7dd0d80e5bb02c3db54dd1977e",
+          "stdout": "empty e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n16b 62f4d4fe175ff2a9827fa629d546b59e6c698f9435ad0e6cf9d4c3ab639533fd\n17b 45b7a9a758343e155a19560fd7e28ee486d6ada2c87901019cbe4d1533529725\n64b 8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7\n1k 5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2\n64k 71189f7fb6aed638640078fba3a35fda6c39c8962e74dcc75935aac948da9063\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "62f4d4fe175ff2a9827fa629d546b59e6c698f9435ad0e6cf9d4c3ab639533fd",
+            "17b": "45b7a9a758343e155a19560fd7e28ee486d6ada2c87901019cbe4d1533529725",
+            "1k": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "64b": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+            "64k": "71189f7fb6aed638640078fba3a35fda6c39c8962e74dcc75935aac948da9063",
+            "empty": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "bench_ns_per_op": 1437483
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 118,
+          "binary_bytes": 147736,
+          "run_ms": 0,
+          "stdout_sha256": "973671933afd29d96eff81cd857c125b05273b7dd0d80e5bb02c3db54dd1977e",
+          "stdout": "empty e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n16b 62f4d4fe175ff2a9827fa629d546b59e6c698f9435ad0e6cf9d4c3ab639533fd\n17b 45b7a9a758343e155a19560fd7e28ee486d6ada2c87901019cbe4d1533529725\n64b 8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7\n1k 5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2\n64k 71189f7fb6aed638640078fba3a35fda6c39c8962e74dcc75935aac948da9063\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "62f4d4fe175ff2a9827fa629d546b59e6c698f9435ad0e6cf9d4c3ab639533fd",
+            "17b": "45b7a9a758343e155a19560fd7e28ee486d6ada2c87901019cbe4d1533529725",
+            "1k": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "64b": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+            "64k": "71189f7fb6aed638640078fba3a35fda6c39c8962e74dcc75935aac948da9063",
+            "empty": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "bench_ns_per_op": 651669
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 278,
+          "binary_bytes": 2770332,
+          "run_ms": 1,
+          "stdout_sha256": "973671933afd29d96eff81cd857c125b05273b7dd0d80e5bb02c3db54dd1977e",
+          "stdout": "empty e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n16b 62f4d4fe175ff2a9827fa629d546b59e6c698f9435ad0e6cf9d4c3ab639533fd\n17b 45b7a9a758343e155a19560fd7e28ee486d6ada2c87901019cbe4d1533529725\n64b 8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7\n1k 5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2\n64k 71189f7fb6aed638640078fba3a35fda6c39c8962e74dcc75935aac948da9063\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "62f4d4fe175ff2a9827fa629d546b59e6c698f9435ad0e6cf9d4c3ab639533fd",
+            "17b": "45b7a9a758343e155a19560fd7e28ee486d6ada2c87901019cbe4d1533529725",
+            "1k": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "64b": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+            "64k": "71189f7fb6aed638640078fba3a35fda6c39c8962e74dcc75935aac948da9063",
+            "empty": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "bench_ns_per_op": 1028027,
+          "code_lines": 50
+        },
+        {
+          "backend": "ccgo",
+          "status": "fail",
+          "error": "go build: # tribccgo\n./main.go:50:34: undefined: e0\n",
+          "compile_ms": 320,
+          "run_ms": 0,
+          "match_oracle": false,
+          "code_lines": 511
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 1098
+    },
+    {
+      "id": "siphash24",
+      "kind": "siphash",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 58,
+          "binary_bytes": 82120,
+          "run_ms": 0,
+          "stdout_sha256": "7661d8b9f3806d85e20ad9921b3fc573f92b258960b40bd00febef7ab9f94292",
+          "stdout": "empty d96f54279d770740\nhello f0a292ca06aa7fd7\n16b fb9abf18e1be1837\n17b 2400bfee621cba5b\n64b 54d658da106f4544\n1k e18fcc113bc5ec44\n64k 79d7c4069dca0c14\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "fb9abf18e1be1837",
+            "17b": "2400bfee621cba5b",
+            "1k": "e18fcc113bc5ec44",
+            "64b": "54d658da106f4544",
+            "64k": "79d7c4069dca0c14",
+            "empty": "d96f54279d770740",
+            "hello": "f0a292ca06aa7fd7"
+          },
+          "bench_ns_per_op": 425659
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 70,
+          "binary_bytes": 81984,
+          "run_ms": 0,
+          "stdout_sha256": "7661d8b9f3806d85e20ad9921b3fc573f92b258960b40bd00febef7ab9f94292",
+          "stdout": "empty d96f54279d770740\nhello f0a292ca06aa7fd7\n16b fb9abf18e1be1837\n17b 2400bfee621cba5b\n64b 54d658da106f4544\n1k e18fcc113bc5ec44\n64k 79d7c4069dca0c14\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "fb9abf18e1be1837",
+            "17b": "2400bfee621cba5b",
+            "1k": "e18fcc113bc5ec44",
+            "64b": "54d658da106f4544",
+            "64k": "79d7c4069dca0c14",
+            "empty": "d96f54279d770740",
+            "hello": "f0a292ca06aa7fd7"
+          },
+          "bench_ns_per_op": 394110
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 409,
+          "binary_bytes": 2483876,
+          "run_ms": 0,
+          "stdout_sha256": "7661d8b9f3806d85e20ad9921b3fc573f92b258960b40bd00febef7ab9f94292",
+          "stdout": "empty d96f54279d770740\nhello f0a292ca06aa7fd7\n16b fb9abf18e1be1837\n17b 2400bfee621cba5b\n64b 54d658da106f4544\n1k e18fcc113bc5ec44\n64k 79d7c4069dca0c14\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "fb9abf18e1be1837",
+            "17b": "2400bfee621cba5b",
+            "1k": "e18fcc113bc5ec44",
+            "64b": "54d658da106f4544",
+            "64k": "79d7c4069dca0c14",
+            "empty": "d96f54279d770740",
+            "hello": "f0a292ca06aa7fd7"
+          },
+          "bench_ns_per_op": 1012046,
+          "code_lines": 69,
+          "rot_left_calls": 48
+        },
+        {
+          "backend": "ccgo",
+          "status": "ok",
+          "compile_ms": 471,
+          "binary_bytes": 3680758,
+          "run_ms": 1,
+          "stdout_sha256": "7661d8b9f3806d85e20ad9921b3fc573f92b258960b40bd00febef7ab9f94292",
+          "stdout": "empty d96f54279d770740\nhello f0a292ca06aa7fd7\n16b fb9abf18e1be1837\n17b 2400bfee621cba5b\n64b 54d658da106f4544\n1k e18fcc113bc5ec44\n64k 79d7c4069dca0c14\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "fb9abf18e1be1837",
+            "17b": "2400bfee621cba5b",
+            "1k": "e18fcc113bc5ec44",
+            "64b": "54d658da106f4544",
+            "64k": "79d7c4069dca0c14",
+            "empty": "d96f54279d770740",
+            "hello": "f0a292ca06aa7fd7"
+          },
+          "bench_ns_per_op": 1266462,
+          "code_lines": 649
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 1317
+    },
+    {
+      "id": "murmur3_x86_32",
+      "kind": "hash32_seed",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 62,
+          "binary_bytes": 81976,
+          "run_ms": 0,
+          "stdout_sha256": "5f79a9a34a6232c034635eea98f3b2d865e942529b48f60358609cf6c45d2cb7",
+          "stdout": "empty 00000000\nhello 248bfa47\n16b 2ada2fcc\n17b 5bce889b\n64b bc48b6a1\n1k af1c5a8f\n64k 77a47541\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "2ada2fcc",
+            "17b": "5bce889b",
+            "1k": "af1c5a8f",
+            "64b": "bc48b6a1",
+            "64k": "77a47541",
+            "empty": "00000000",
+            "hello": "248bfa47"
+          },
+          "bench_ns_per_op": 406427
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 69,
+          "binary_bytes": 81784,
+          "run_ms": 0,
+          "stdout_sha256": "5f79a9a34a6232c034635eea98f3b2d865e942529b48f60358609cf6c45d2cb7",
+          "stdout": "empty 00000000\nhello 248bfa47\n16b 2ada2fcc\n17b 5bce889b\n64b bc48b6a1\n1k af1c5a8f\n64k 77a47541\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "2ada2fcc",
+            "17b": "5bce889b",
+            "1k": "af1c5a8f",
+            "64b": "bc48b6a1",
+            "64k": "77a47541",
+            "empty": "00000000",
+            "hello": "248bfa47"
+          },
+          "bench_ns_per_op": 391234
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 222,
+          "binary_bytes": 2484369,
+          "run_ms": 1,
+          "stdout_sha256": "5f79a9a34a6232c034635eea98f3b2d865e942529b48f60358609cf6c45d2cb7",
+          "stdout": "empty 00000000\nhello 248bfa47\n16b 2ada2fcc\n17b 5bce889b\n64b bc48b6a1\n1k af1c5a8f\n64k 77a47541\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "2ada2fcc",
+            "17b": "5bce889b",
+            "1k": "af1c5a8f",
+            "64b": "bc48b6a1",
+            "64k": "77a47541",
+            "empty": "00000000",
+            "hello": "248bfa47"
+          },
+          "bench_ns_per_op": 970665,
+          "code_lines": 62,
+          "var_count": 3,
+          "rot_left_calls": 1
+        },
+        {
+          "backend": "ccgo",
+          "status": "ok",
+          "compile_ms": 438,
+          "binary_bytes": 3680346,
+          "run_ms": 0,
+          "stdout_sha256": "5f79a9a34a6232c034635eea98f3b2d865e942529b48f60358609cf6c45d2cb7",
+          "stdout": "empty 00000000\nhello 248bfa47\n16b 2ada2fcc\n17b 5bce889b\n64b bc48b6a1\n1k af1c5a8f\n64k 77a47541\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "2ada2fcc",
+            "17b": "5bce889b",
+            "1k": "af1c5a8f",
+            "64b": "bc48b6a1",
+            "64k": "77a47541",
+            "empty": "00000000",
+            "hello": "248bfa47"
+          },
+          "bench_ns_per_op": 1308783,
+          "code_lines": 545
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 1078
+    },
+    {
+      "id": "blake2b_compress",
+      "kind": "blake2b",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 30,
+          "binary_bytes": 16416,
+          "run_ms": 0,
+          "stdout_sha256": "3b91dbe2d075febceaabb102e263f7f89761ad4f39099f004ea98ed2a3b269ed",
+          "stdout": "zero 9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747\npattern 0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9",
+            "zero": "9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747"
+          },
+          "bench_ns_per_op": 285383
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 52,
+          "binary_bytes": 16136,
+          "run_ms": 0,
+          "stdout_sha256": "3b91dbe2d075febceaabb102e263f7f89761ad4f39099f004ea98ed2a3b269ed",
+          "stdout": "zero 9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747\npattern 0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9",
+            "zero": "9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747"
+          },
+          "bench_ns_per_op": 369348
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 747,
+          "binary_bytes": 2419799,
+          "run_ms": 1,
+          "stdout_sha256": "3b91dbe2d075febceaabb102e263f7f89761ad4f39099f004ea98ed2a3b269ed",
+          "stdout": "zero 9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747\npattern 0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9",
+            "zero": "9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747"
+          },
+          "bench_ns_per_op": 1016913,
+          "code_lines": 143,
+          "var_count": 4,
+          "rot_left_calls": 32
+        },
+        {
+          "backend": "ccgo",
+          "status": "ok",
+          "compile_ms": 390,
+          "binary_bytes": 3614447,
+          "run_ms": 1,
+          "stdout_sha256": "3b91dbe2d075febceaabb102e263f7f89761ad4f39099f004ea98ed2a3b269ed",
+          "stdout": "zero 9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747\npattern 0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9",
+            "zero": "9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747"
+          },
+          "bench_ns_per_op": 1231608,
+          "code_lines": 810
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 1588
+    },
+    {
+      "id": "chacha20_qr",
+      "kind": "chacha_qr",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 32,
+          "binary_bytes": 16280,
+          "run_ms": 0,
+          "stdout_sha256": "c88aa904786ece24a5c02b90d7431bcb49d65d8e37f0ec27508fe334f6a4461e",
+          "stdout": "zero bbbbbbbbffffff7f77777776cccccccc\npattern bbbbbbbbffffff7f77777776cccccccc\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "bbbbbbbbffffff7f77777776cccccccc",
+            "zero": "bbbbbbbbffffff7f77777776cccccccc"
+          },
+          "bench_ns_per_op": 352461
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 34,
+          "binary_bytes": 16144,
+          "run_ms": 0,
+          "stdout_sha256": "c88aa904786ece24a5c02b90d7431bcb49d65d8e37f0ec27508fe334f6a4461e",
+          "stdout": "zero bbbbbbbbffffff7f77777776cccccccc\npattern bbbbbbbbffffff7f77777776cccccccc\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "bbbbbbbbffffff7f77777776cccccccc",
+            "zero": "bbbbbbbbffffff7f77777776cccccccc"
+          },
+          "bench_ns_per_op": 376408
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 127,
+          "binary_bytes": 2414941,
+          "run_ms": 0,
+          "stdout_sha256": "c88aa904786ece24a5c02b90d7431bcb49d65d8e37f0ec27508fe334f6a4461e",
+          "stdout": "zero bbbbbbbbffffff7f77777776cccccccc\npattern bbbbbbbbffffff7f77777776cccccccc\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "bbbbbbbbffffff7f77777776cccccccc",
+            "zero": "bbbbbbbbffffff7f77777776cccccccc"
+          },
+          "bench_ns_per_op": 889752,
+          "code_lines": 57,
+          "rot_left_calls": 4
+        },
+        {
+          "backend": "ccgo",
+          "status": "ok",
+          "compile_ms": 371,
+          "binary_bytes": 3610004,
+          "run_ms": 1,
+          "stdout_sha256": "c88aa904786ece24a5c02b90d7431bcb49d65d8e37f0ec27508fe334f6a4461e",
+          "stdout": "zero bbbbbbbbffffff7f77777776cccccccc\npattern bbbbbbbbffffff7f77777776cccccccc\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "bbbbbbbbffffff7f77777776cccccccc",
+            "zero": "bbbbbbbbffffff7f77777776cccccccc"
+          },
+          "bench_ns_per_op": 1208814,
+          "code_lines": 502
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 911
+    },
+    {
+      "id": "md5_transform",
+      "kind": "md5",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 37,
+          "binary_bytes": 16376,
+          "run_ms": 0,
+          "stdout_sha256": "4c3ba5ef43889cd5a98fcdc820a83677dc74429a4fe7de6f11c4a04eee970c98",
+          "stdout": "zero 0c650a75beb621092cad884e31c7a754\npattern df37dcc8e4a0fcffd4a6e47e1217b723\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "df37dcc8e4a0fcffd4a6e47e1217b723",
+            "zero": "0c650a75beb621092cad884e31c7a754"
+          },
+          "bench_ns_per_op": 354403
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 36,
+          "binary_bytes": 16096,
+          "run_ms": 0,
+          "stdout_sha256": "4c3ba5ef43889cd5a98fcdc820a83677dc74429a4fe7de6f11c4a04eee970c98",
+          "stdout": "zero 0c650a75beb621092cad884e31c7a754\npattern df37dcc8e4a0fcffd4a6e47e1217b723\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "df37dcc8e4a0fcffd4a6e47e1217b723",
+            "zero": "0c650a75beb621092cad884e31c7a754"
+          },
+          "bench_ns_per_op": 372906
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 132,
+          "binary_bytes": 2414490,
+          "run_ms": 0,
+          "stdout_sha256": "4c3ba5ef43889cd5a98fcdc820a83677dc74429a4fe7de6f11c4a04eee970c98",
+          "stdout": "zero 0c650a75beb621092cad884e31c7a754\npattern df37dcc8e4a0fcffd4a6e47e1217b723\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "df37dcc8e4a0fcffd4a6e47e1217b723",
+            "zero": "0c650a75beb621092cad884e31c7a754"
+          },
+          "bench_ns_per_op": 921657,
+          "code_lines": 44,
+          "rot_left_calls": 4
+        },
+        {
+          "backend": "ccgo",
+          "status": "ok",
+          "compile_ms": 355,
+          "binary_bytes": 3610241,
+          "run_ms": 1,
+          "stdout_sha256": "4c3ba5ef43889cd5a98fcdc820a83677dc74429a4fe7de6f11c4a04eee970c98",
+          "stdout": "zero 0c650a75beb621092cad884e31c7a754\npattern df37dcc8e4a0fcffd4a6e47e1217b723\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "df37dcc8e4a0fcffd4a6e47e1217b723",
+            "zero": "0c650a75beb621092cad884e31c7a754"
+          },
+          "bench_ns_per_op": 1151945,
+          "code_lines": 526
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 875
+    },
+    {
+      "id": "poly1305_block5",
+      "kind": "poly5",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 38,
+          "binary_bytes": 16232,
+          "run_ms": 0,
+          "stdout_sha256": "3cc13c368a5ba7ad362685aeb4fd68ca32a3daff3a5a077263fb0cb33a5865f9",
+          "stdout": "zero 0000000900000012000000180000001c0000001e\npattern 0000000900000012000000180000001c0000001e\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "0000000900000012000000180000001c0000001e",
+            "zero": "0000000900000012000000180000001c0000001e"
+          },
+          "bench_ns_per_op": 363120
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 34,
+          "binary_bytes": 16096,
+          "run_ms": 0,
+          "stdout_sha256": "3cc13c368a5ba7ad362685aeb4fd68ca32a3daff3a5a077263fb0cb33a5865f9",
+          "stdout": "zero 0000000900000012000000180000001c0000001e\npattern 0000000900000012000000180000001c0000001e\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "0000000900000012000000180000001c0000001e",
+            "zero": "0000000900000012000000180000001c0000001e"
+          },
+          "bench_ns_per_op": 358539
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 198,
+          "binary_bytes": 2419182,
+          "run_ms": 0,
+          "stdout_sha256": "3cc13c368a5ba7ad362685aeb4fd68ca32a3daff3a5a077263fb0cb33a5865f9",
+          "stdout": "zero 0000000900000012000000180000001c0000001e\npattern 0000000900000012000000180000001c0000001e\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "0000000900000012000000180000001c0000001e",
+            "zero": "0000000900000012000000180000001c0000001e"
+          },
+          "bench_ns_per_op": 873326,
+          "code_lines": 55,
+          "var_count": 5,
+          "int_cast_index": 4
+        },
+        {
+          "backend": "ccgo",
+          "status": "ok",
+          "compile_ms": 366,
+          "binary_bytes": 3614565,
+          "run_ms": 1,
+          "stdout_sha256": "3cc13c368a5ba7ad362685aeb4fd68ca32a3daff3a5a077263fb0cb33a5865f9",
+          "stdout": "zero 0000000900000012000000180000001c0000001e\npattern 0000000900000012000000180000001c0000001e\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "0000000900000012000000180000001c0000001e",
+            "zero": "0000000900000012000000180000001c0000001e"
+          },
+          "bench_ns_per_op": 1185134,
+          "code_lines": 517
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 1007
+    },
+    {
+      "id": "poly1305_donna32",
+      "kind": "poly_donna32",
+      "notes": "Poly1305 Donna-32 (26-bit limbs)",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 31,
+          "binary_bytes": 16312,
+          "run_ms": 0,
+          "stdout_sha256": "a14c9ab2da763a57e3761e14d342e1db3cd70880b984d734ac243b8cbaf35abd",
+          "stdout": "zero 000f0f10005a5a5902c3c3c100b4b4b003878782\npattern 000f0f10005a5a5902c3c3c100b4b4b003878782\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "000f0f10005a5a5902c3c3c100b4b4b003878782",
+            "zero": "000f0f10005a5a5902c3c3c100b4b4b003878782"
+          },
+          "bench_ns_per_op": 369401
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 35,
+          "binary_bytes": 16104,
+          "run_ms": 0,
+          "stdout_sha256": "a14c9ab2da763a57e3761e14d342e1db3cd70880b984d734ac243b8cbaf35abd",
+          "stdout": "zero 000f0f10005a5a5902c3c3c100b4b4b003878782\npattern 000f0f10005a5a5902c3c3c100b4b4b003878782\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "000f0f10005a5a5902c3c3c100b4b4b003878782",
+            "zero": "000f0f10005a5a5902c3c3c100b4b4b003878782"
+          },
+          "bench_ns_per_op": 366293
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 190,
+          "binary_bytes": 2419941,
+          "run_ms": 0,
+          "stdout_sha256": "a14c9ab2da763a57e3761e14d342e1db3cd70880b984d734ac243b8cbaf35abd",
+          "stdout": "zero 000f0f10005a5a5902c3c3c100b4b4b003878782\npattern 000f0f10005a5a5902c3c3c100b4b4b003878782\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "000f0f10005a5a5902c3c3c100b4b4b003878782",
+            "zero": "000f0f10005a5a5902c3c3c100b4b4b003878782"
+          },
+          "bench_ns_per_op": 919549,
+          "code_lines": 68,
+          "var_count": 10
+        },
+        {
+          "backend": "ccgo",
+          "status": "fail",
+          "error": "go build: # tribccgo\n./main.go:30:2: declared and not used: d0\n./main.go:32:2: declared and not used: d1\n",
+          "compile_ms": 267,
+          "run_ms": 0,
+          "match_oracle": false,
+          "code_lines": 541
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 845
+    },
+    {
+      "id": "curve25519_donna64",
+      "kind": "curve_donna64",
+      "notes": "Curve25519 Donna-64 mul121666 (51-bit limbs)",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 33,
+          "binary_bytes": 16368,
+          "run_ms": 0,
+          "stdout_sha256": "41eca5048194b871a0a2773d525981169e73a72b5de4182f21efab6778b0315a",
+          "stdout": "zero 00021cbcdeffe465000417adf010d5b40006129f0121c71600000d901232b878000208812343a9db\npattern 00021cbcdeffe465000417adf010d5b40006129f0121c71600000d901232b878000208812343a9db\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "00021cbcdeffe465000417adf010d5b40006129f0121c71600000d901232b878000208812343a9db",
+            "zero": "00021cbcdeffe465000417adf010d5b40006129f0121c71600000d901232b878000208812343a9db"
+          },
+          "bench_ns_per_op": 362372
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 38,
+          "binary_bytes": 16232,
+          "run_ms": 0,
+          "stdout_sha256": "41eca5048194b871a0a2773d525981169e73a72b5de4182f21efab6778b0315a",
+          "stdout": "zero 00021cbcdeffe465000417adf010d5b40006129f0121c71600000d901232b878000208812343a9db\npattern 00021cbcdeffe465000417adf010d5b40006129f0121c71600000d901232b878000208812343a9db\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "00021cbcdeffe465000417adf010d5b40006129f0121c71600000d901232b878000208812343a9db",
+            "zero": "00021cbcdeffe465000417adf010d5b40006129f0121c71600000d901232b878000208812343a9db"
+          },
+          "bench_ns_per_op": 339409
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 209,
+          "binary_bytes": 2416751,
+          "run_ms": 1,
+          "stdout_sha256": "41eca5048194b871a0a2773d525981169e73a72b5de4182f21efab6778b0315a",
+          "stdout": "zero 00021cbcdeffe465000417adf010d5b40006129f0121c71600000d901232b878000208812343a9db\npattern 00021cbcdeffe465000417adf010d5b40006129f0121c71600000d901232b878000208812343a9db\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "00021cbcdeffe465000417adf010d5b40006129f0121c71600000d901232b878000208812343a9db",
+            "zero": "00021cbcdeffe465000417adf010d5b40006129f0121c71600000d901232b878000208812343a9db"
+          },
+          "bench_ns_per_op": 904404,
+          "code_lines": 89,
+          "var_count": 7
+        },
+        {
+          "backend": "ccgo",
+          "status": "fail",
+          "error": "go build: # tribccgo\n./main.go:30:2: declared and not used: d0\n./main.go:32:2: declared and not used: d1\n",
+          "compile_ms": 263,
+          "run_ms": 0,
+          "match_oracle": false,
+          "code_lines": 568
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 866
+    },
+    {
+      "id": "yyjson_int",
+      "kind": "yyjson_int",
+      "notes": "yyjson fast u32 serializer",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 36,
+          "binary_bytes": 16216,
+          "run_ms": 0,
+          "stdout_sha256": "0f4b6885f631cb94dd39df21e679166d5ebccffa82b687c09f7a4f55b9f6b193",
+          "stdout": "zero 0\nsingle 7\ndouble 42\nmedium 12345\nlarge 123456789\nmax 4294967295\n",
+          "match_oracle": false,
+          "lines": {
+            "double": "42",
+            "large": "123456789",
+            "max": "4294967295",
+            "medium": "12345",
+            "single": "7",
+            "zero": "0"
+          },
+          "bench_ns_per_op": 359454
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 35,
+          "binary_bytes": 16128,
+          "run_ms": 0,
+          "stdout_sha256": "0f4b6885f631cb94dd39df21e679166d5ebccffa82b687c09f7a4f55b9f6b193",
+          "stdout": "zero 0\nsingle 7\ndouble 42\nmedium 12345\nlarge 123456789\nmax 4294967295\n",
+          "match_oracle": false,
+          "lines": {
+            "double": "42",
+            "large": "123456789",
+            "max": "4294967295",
+            "medium": "12345",
+            "single": "7",
+            "zero": "0"
+          },
+          "bench_ns_per_op": 358000
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 99,
+          "binary_bytes": 2414907,
+          "run_ms": 0,
+          "stdout_sha256": "0f4b6885f631cb94dd39df21e679166d5ebccffa82b687c09f7a4f55b9f6b193",
+          "stdout": "zero 0\nsingle 7\ndouble 42\nmedium 12345\nlarge 123456789\nmax 4294967295\n",
+          "match_oracle": true,
+          "lines": {
+            "double": "42",
+            "large": "123456789",
+            "max": "4294967295",
+            "medium": "12345",
+            "single": "7",
+            "zero": "0"
+          },
+          "bench_ns_per_op": 981336,
+          "code_lines": 43,
+          "var_count": 3,
+          "int_cast_index": 5
+        },
+        {
+          "backend": "ccgo",
+          "status": "fail",
+          "error": "go build: # tribccgo\n./main.go:30:2: declared and not used: d0\n./main.go:32:2: declared and not used: d1\n./main.go:34:2: declared and not used: d2\n./main.go:36:2: declared and not used: d3\n./main.go:38:2: declared and not used: d4\n./main.go:40:2: declared and not used: d5\n",
+          "compile_ms": 262,
+          "run_ms": 0,
+          "match_oracle": false,
+          "code_lines": 525
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 742
+    },
+    {
+      "id": "cjson_core",
+      "kind": "cjson_core",
+      "notes": "cJSON case-insensitive compare",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 85,
+          "binary_bytes": 147640,
+          "run_ms": 0,
+          "stdout_sha256": "fd36850c0c5d26bd3047a58a6df489260a2e369cf026b6196afc8febddd931ea",
+          "stdout": "empty 0\n16b -207\n17b 31\n64b 43\n1k -43\n64k -135\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "-207",
+            "17b": "31",
+            "1k": "-43",
+            "64b": "43",
+            "64k": "-135",
+            "empty": "0"
+          },
+          "bench_ns_per_op": 341779
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 88,
+          "binary_bytes": 147448,
+          "run_ms": 0,
+          "stdout_sha256": "fd36850c0c5d26bd3047a58a6df489260a2e369cf026b6196afc8febddd931ea",
+          "stdout": "empty 0\n16b -207\n17b 31\n64b 43\n1k -43\n64k -135\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "-207",
+            "17b": "31",
+            "1k": "-43",
+            "64b": "43",
+            "64k": "-135",
+            "empty": "0"
+          },
+          "bench_ns_per_op": 374657
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 289,
+          "binary_bytes": 2545331,
+          "run_ms": 0,
+          "stdout_sha256": "fd36850c0c5d26bd3047a58a6df489260a2e369cf026b6196afc8febddd931ea",
+          "stdout": "empty 0\n16b -207\n17b 31\n64b 43\n1k -43\n64k -135\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "-207",
+            "17b": "31",
+            "1k": "-43",
+            "64b": "43",
+            "64k": "-135",
+            "empty": "0"
+          },
+          "bench_ns_per_op": 951947,
+          "code_lines": 57,
+          "var_count": 4,
+          "int_cast_index": 2
+        },
+        {
+          "backend": "ccgo",
+          "status": "fail",
+          "error": "go build: # tribccgo\n./main.go:30:2: declared and not used: d0\n./main.go:32:2: declared and not used: d1\n./main.go:33:2: declared and not used: e1\n./main.go:35:2: declared and not used: d2\n./main.go:36:2: declared and not used: e2\n./main.go:38:2: declared and not used: d3\n./main.go:39:2: declared and not used: e3\n./main.go:41:2: declared and not used: d4\n./main.go:42:2: declared and not used: e4\n./main.go:44:2: declared and not used: d5\n./main.go:44:2: too many errors\n",
+          "compile_ms": 331,
+          "run_ms": 0,
+          "match_oracle": false,
+          "code_lines": 551
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 1130
+    },
+    {
+      "id": "stbi_png_filter",
+      "kind": "stbi_png",
+      "notes": "stb_image PNG filter reconstruction",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 88,
+          "binary_bytes": 152160,
+          "run_ms": 1,
+          "stdout_sha256": "ccea1aa574fe5943fc27a411dcd7e3fd589bbd1b16e0adbb23eef02356678e64",
+          "stdout": "empty 00000000\n16b e60891393d5302707ca3636549da59e4b17210cd71a8c3bb7ed77e7e3deca590\n17b 6fbf51a009341cc24f4a2146c44eef9304a1de33e9d2d5641bf5c11734da8dd1\n64b ff30f73e631b6569ba02d9d8d2a7681b9fe093eb29be17b9c82fbbbf963694c1\n1k 9395d753a70026810cf935c90099d4ed7f89ca3b3348bcde194f2744ef3ba068\n64k 31dfbcbc27b6fd1746d2bff695ea3579bc15634bc0db5b44543a7fa86df8c93b\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "e60891393d5302707ca3636549da59e4b17210cd71a8c3bb7ed77e7e3deca590",
+            "17b": "6fbf51a009341cc24f4a2146c44eef9304a1de33e9d2d5641bf5c11734da8dd1",
+            "1k": "9395d753a70026810cf935c90099d4ed7f89ca3b3348bcde194f2744ef3ba068",
+            "64b": "ff30f73e631b6569ba02d9d8d2a7681b9fe093eb29be17b9c82fbbbf963694c1",
+            "64k": "31dfbcbc27b6fd1746d2bff695ea3579bc15634bc0db5b44543a7fa86df8c93b",
+            "empty": "00000000"
+          },
+          "bench_ns_per_op": 1798698
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 123,
+          "binary_bytes": 151840,
+          "run_ms": 0,
+          "stdout_sha256": "ccea1aa574fe5943fc27a411dcd7e3fd589bbd1b16e0adbb23eef02356678e64",
+          "stdout": "empty 00000000\n16b e60891393d5302707ca3636549da59e4b17210cd71a8c3bb7ed77e7e3deca590\n17b 6fbf51a009341cc24f4a2146c44eef9304a1de33e9d2d5641bf5c11734da8dd1\n64b ff30f73e631b6569ba02d9d8d2a7681b9fe093eb29be17b9c82fbbbf963694c1\n1k 9395d753a70026810cf935c90099d4ed7f89ca3b3348bcde194f2744ef3ba068\n64k 31dfbcbc27b6fd1746d2bff695ea3579bc15634bc0db5b44543a7fa86df8c93b\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "e60891393d5302707ca3636549da59e4b17210cd71a8c3bb7ed77e7e3deca590",
+            "17b": "6fbf51a009341cc24f4a2146c44eef9304a1de33e9d2d5641bf5c11734da8dd1",
+            "1k": "9395d753a70026810cf935c90099d4ed7f89ca3b3348bcde194f2744ef3ba068",
+            "64b": "ff30f73e631b6569ba02d9d8d2a7681b9fe093eb29be17b9c82fbbbf963694c1",
+            "64k": "31dfbcbc27b6fd1746d2bff695ea3579bc15634bc0db5b44543a7fa86df8c93b",
+            "empty": "00000000"
+          },
+          "bench_ns_per_op": 758262
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 306,
+          "binary_bytes": 2771070,
+          "run_ms": 1,
+          "stdout_sha256": "ccea1aa574fe5943fc27a411dcd7e3fd589bbd1b16e0adbb23eef02356678e64",
+          "stdout": "empty 00000000\n16b e60891393d5302707ca3636549da59e4b17210cd71a8c3bb7ed77e7e3deca590\n17b 6fbf51a009341cc24f4a2146c44eef9304a1de33e9d2d5641bf5c11734da8dd1\n64b ff30f73e631b6569ba02d9d8d2a7681b9fe093eb29be17b9c82fbbbf963694c1\n1k 9395d753a70026810cf935c90099d4ed7f89ca3b3348bcde194f2744ef3ba068\n64k 31dfbcbc27b6fd1746d2bff695ea3579bc15634bc0db5b44543a7fa86df8c93b\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "e60891393d5302707ca3636549da59e4b17210cd71a8c3bb7ed77e7e3deca590",
+            "17b": "6fbf51a009341cc24f4a2146c44eef9304a1de33e9d2d5641bf5c11734da8dd1",
+            "1k": "9395d753a70026810cf935c90099d4ed7f89ca3b3348bcde194f2744ef3ba068",
+            "64b": "ff30f73e631b6569ba02d9d8d2a7681b9fe093eb29be17b9c82fbbbf963694c1",
+            "64k": "31dfbcbc27b6fd1746d2bff695ea3579bc15634bc0db5b44543a7fa86df8c93b",
+            "empty": "00000000"
+          },
+          "bench_ns_per_op": 1199697,
+          "code_lines": 96,
+          "var_count": 11,
+          "int_cast_index": 4
+        },
+        {
+          "backend": "ccgo",
+          "status": "fail",
+          "error": "go build: # tribccgo\n./main.go:30:2: declared and not used: d0\n./main.go:32:2: declared and not used: d1\n./main.go:33:2: declared and not used: e1\n./main.go:35:2: declared and not used: d2\n./main.go:36:2: declared and not used: e2\n./main.go:38:2: declared and not used: d3\n./main.go:39:2: declared and not used: e3\n./main.go:41:2: declared and not used: d4\n./main.go:42:2: declared and not used: e4\n./main.go:44:2: declared and not used: d5\n./main.go:44:2: too many errors\n",
+          "compile_ms": 324,
+          "run_ms": 0,
+          "match_oracle": false,
+          "code_lines": 614
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 1271
+    },
+    {
+      "id": "utf8proc_core",
+      "kind": "utf8proc",
+      "notes": "utf8proc UTF-8 iterator",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 58,
+          "binary_bytes": 82040,
+          "run_ms": 0,
+          "stdout_sha256": "33416b73a34c2fe44e20c2347817c970307eb8ad17235362e35deab4dee1d689",
+          "stdout": "empty 0 0\nhello 1 104\n16b 1 48\n17b 1 48\n64b -1 -1\n1k 1 90\n64k 1 60\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "1 48",
+            "17b": "1 48",
+            "1k": "1 90",
+            "64b": "-1 -1",
+            "64k": "1 60",
+            "empty": "0 0",
+            "hello": "1 104"
+          },
+          "bench_ns_per_op": 374940
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 70,
+          "binary_bytes": 81848,
+          "run_ms": 0,
+          "stdout_sha256": "33416b73a34c2fe44e20c2347817c970307eb8ad17235362e35deab4dee1d689",
+          "stdout": "empty 0 0\nhello 1 104\n16b 1 48\n17b 1 48\n64b -1 -1\n1k 1 90\n64k 1 60\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "1 48",
+            "17b": "1 48",
+            "1k": "1 90",
+            "64b": "-1 -1",
+            "64k": "1 60",
+            "empty": "0 0",
+            "hello": "1 104"
+          },
+          "bench_ns_per_op": 328920
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 266,
+          "binary_bytes": 2484542,
+          "run_ms": 0,
+          "stdout_sha256": "33416b73a34c2fe44e20c2347817c970307eb8ad17235362e35deab4dee1d689",
+          "stdout": "empty 0 0\nhello 1 104\n16b 1 48\n17b 1 48\n64b -1 -1\n1k 1 90\n64k 1 60\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "1 48",
+            "17b": "1 48",
+            "1k": "1 90",
+            "64b": "-1 -1",
+            "64k": "1 60",
+            "empty": "0 0",
+            "hello": "1 104"
+          },
+          "bench_ns_per_op": 943265,
+          "code_lines": 95,
+          "var_count": 1,
+          "int_cast_index": 2
+        },
+        {
+          "backend": "ccgo",
+          "status": "fail",
+          "error": "go build: # tribccgo\n./main.go:30:2: declared and not used: d0\n./main.go:32:2: declared and not used: d1\n./main.go:34:2: declared and not used: d2\n./main.go:36:2: declared and not used: d3\n./main.go:38:2: declared and not used: d4\n./main.go:40:2: declared and not used: d5\n./main.go:42:2: declared and not used: d6\n",
+          "compile_ms": 289,
+          "run_ms": 0,
+          "match_oracle": false,
+          "code_lines": 573
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 994
+    },
+    {
+      "id": "fastlz_core",
+      "kind": "fastlz1",
+      "notes": "FastLZ Level-1 decompressor",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 56,
+          "binary_bytes": 82000,
+          "run_ms": 0,
+          "stdout_sha256": "dbeb771a455d6a109cc6ff1ce486d8c79caca76a54b358b37ef4ea1ace8c7d3a",
+          "stdout": "empty 0\nhello 0\n16b 0\n17b 0\n64b 0\n1k 0\n64k 0\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "0",
+            "17b": "0",
+            "1k": "0",
+            "64b": "0",
+            "64k": "0",
+            "empty": "0",
+            "hello": "0"
+          },
+          "bench_ns_per_op": 352648
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 72,
+          "binary_bytes": 81840,
+          "run_ms": 0,
+          "stdout_sha256": "dbeb771a455d6a109cc6ff1ce486d8c79caca76a54b358b37ef4ea1ace8c7d3a",
+          "stdout": "empty 0\nhello 0\n16b 0\n17b 0\n64b 0\n1k 0\n64k 0\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "0",
+            "17b": "0",
+            "1k": "0",
+            "64b": "0",
+            "64k": "0",
+            "empty": "0",
+            "hello": "0"
+          },
+          "bench_ns_per_op": 371408
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 191,
+          "binary_bytes": 2480312,
+          "run_ms": 0,
+          "stdout_sha256": "dbeb771a455d6a109cc6ff1ce486d8c79caca76a54b358b37ef4ea1ace8c7d3a",
+          "stdout": "empty 0\nhello 0\n16b 0\n17b 0\n64b 0\n1k 0\n64k 0\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "0",
+            "17b": "0",
+            "1k": "0",
+            "64b": "0",
+            "64k": "0",
+            "empty": "0",
+            "hello": "0"
+          },
+          "bench_ns_per_op": 917176,
+          "code_lines": 60,
+          "identity_assigns": 1,
+          "var_count": 6,
+          "int_cast_index": 2
+        },
+        {
+          "backend": "ccgo",
+          "status": "fail",
+          "error": "go build: # tribccgo\n./main.go:30:2: declared and not used: d0\n./main.go:32:2: declared and not used: d1\n./main.go:34:2: declared and not used: d2\n./main.go:36:2: declared and not used: d3\n./main.go:38:2: declared and not used: d4\n./main.go:40:2: declared and not used: d5\n./main.go:42:2: declared and not used: d6\n",
+          "compile_ms": 295,
+          "run_ms": 0,
+          "match_oracle": false,
+          "code_lines": 549
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 1008
+    },
+    {
+      "id": "murmur3_x64_128",
+      "kind": "murmur128",
+      "notes": "MurmurHash3 x64 128-bit",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 61,
+          "binary_bytes": 82032,
+          "run_ms": 0,
+          "stdout_sha256": "e03ca2f153bd8eeccbe5d28d7a0e64dac733af2ebdbbc99c4fdf6589b7e44c28",
+          "stdout": "empty 00000000000000000000000000000000\nhello cbd8a7b341bd9b025b1e906a48ae1d19\n16b d8061eb14f48c9c9521e1174e459c2cc\n17b 206d31bc07b8fe6bf2d7475f33a7f922\n64b 4d2295d0c4a02488da9f75c7837ad5fe\n1k 41f9c7d735a53518061bd8931c7427f3\n64k 20f8c2f70e8f8a5c214fd4b19d8d98dc\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "d8061eb14f48c9c9521e1174e459c2cc",
+            "17b": "206d31bc07b8fe6bf2d7475f33a7f922",
+            "1k": "41f9c7d735a53518061bd8931c7427f3",
+            "64b": "4d2295d0c4a02488da9f75c7837ad5fe",
+            "64k": "20f8c2f70e8f8a5c214fd4b19d8d98dc",
+            "empty": "00000000000000000000000000000000",
+            "hello": "cbd8a7b341bd9b025b1e906a48ae1d19"
+          },
+          "bench_ns_per_op": 409426
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 82,
+          "binary_bytes": 81832,
+          "run_ms": 0,
+          "stdout_sha256": "e03ca2f153bd8eeccbe5d28d7a0e64dac733af2ebdbbc99c4fdf6589b7e44c28",
+          "stdout": "empty 00000000000000000000000000000000\nhello cbd8a7b341bd9b025b1e906a48ae1d19\n16b d8061eb14f48c9c9521e1174e459c2cc\n17b 206d31bc07b8fe6bf2d7475f33a7f922\n64b 4d2295d0c4a02488da9f75c7837ad5fe\n1k 41f9c7d735a53518061bd8931c7427f3\n64k 20f8c2f70e8f8a5c214fd4b19d8d98dc\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "d8061eb14f48c9c9521e1174e459c2cc",
+            "17b": "206d31bc07b8fe6bf2d7475f33a7f922",
+            "1k": "41f9c7d735a53518061bd8931c7427f3",
+            "64b": "4d2295d0c4a02488da9f75c7837ad5fe",
+            "64k": "20f8c2f70e8f8a5c214fd4b19d8d98dc",
+            "empty": "00000000000000000000000000000000",
+            "hello": "cbd8a7b341bd9b025b1e906a48ae1d19"
+          },
+          "bench_ns_per_op": 401795
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 262,
+          "binary_bytes": 2484794,
+          "run_ms": 0,
+          "stdout_sha256": "e03ca2f153bd8eeccbe5d28d7a0e64dac733af2ebdbbc99c4fdf6589b7e44c28",
+          "stdout": "empty 00000000000000000000000000000000\nhello cbd8a7b341bd9b025b1e906a48ae1d19\n16b d8061eb14f48c9c9521e1174e459c2cc\n17b 206d31bc07b8fe6bf2d7475f33a7f922\n64b 4d2295d0c4a02488da9f75c7837ad5fe\n1k 41f9c7d735a53518061bd8931c7427f3\n64k 20f8c2f70e8f8a5c214fd4b19d8d98dc\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "d8061eb14f48c9c9521e1174e459c2cc",
+            "17b": "206d31bc07b8fe6bf2d7475f33a7f922",
+            "1k": "41f9c7d735a53518061bd8931c7427f3",
+            "64b": "4d2295d0c4a02488da9f75c7837ad5fe",
+            "64k": "20f8c2f70e8f8a5c214fd4b19d8d98dc",
+            "empty": "00000000000000000000000000000000",
+            "hello": "cbd8a7b341bd9b025b1e906a48ae1d19"
+          },
+          "bench_ns_per_op": 959595,
+          "code_lines": 123,
+          "identity_assigns": 2,
+          "var_count": 7,
+          "int_cast_index": 29,
+          "rot_left_calls": 1
+        },
+        {
+          "backend": "ccgo",
+          "status": "fail",
+          "error": "go build: # tribccgo\n./main.go:30:2: declared and not used: d0\n./main.go:32:2: declared and not used: d1\n./main.go:34:2: declared and not used: d2\n./main.go:36:2: declared and not used: d3\n./main.go:38:2: declared and not used: d4\n./main.go:40:2: declared and not used: d5\n./main.go:42:2: declared and not used: d6\n",
+          "compile_ms": 297,
+          "run_ms": 0,
+          "match_oracle": false,
+          "code_lines": 600
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 1040
+    },
+    {
+      "id": "tweetnacl_hsalsa",
+      "kind": "tweet_hsalsa",
+      "notes": "TweetNaCl HSalsa20 core",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 35,
+          "binary_bytes": 16352,
+          "run_ms": 0,
+          "stdout_sha256": "fd89dbc344673ce8a7ac9761affcf05d842d85d80d02a6ade3507456d6cdb819",
+          "stdout": "zero e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\npattern e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e",
+            "zero": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e"
+          },
+          "bench_ns_per_op": 357910
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 55,
+          "binary_bytes": 16096,
+          "run_ms": 0,
+          "stdout_sha256": "fd89dbc344673ce8a7ac9761affcf05d842d85d80d02a6ade3507456d6cdb819",
+          "stdout": "zero e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\npattern e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e",
+            "zero": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e"
+          },
+          "bench_ns_per_op": 373192
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 151,
+          "binary_bytes": 2420243,
+          "run_ms": 0,
+          "stdout_sha256": "fd89dbc344673ce8a7ac9761affcf05d842d85d80d02a6ade3507456d6cdb819",
+          "stdout": "zero e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\npattern e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e",
+            "zero": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e"
+          },
+          "bench_ns_per_op": 910770,
+          "code_lines": 120,
+          "var_count": 17,
+          "rot_left_calls": 1
+        },
+        {
+          "backend": "ccgo",
+          "status": "fail",
+          "error": "go build: # tribccgo\n./main.go:30:2: declared and not used: d0\n./main.go:32:2: declared and not used: d1\n",
+          "compile_ms": 260,
+          "run_ms": 0,
+          "match_oracle": false,
+          "code_lines": 658
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 832
+    },
+    {
+      "id": "base64_simd",
+      "kind": "base64",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 33,
+          "binary_bytes": 16456,
+          "run_ms": 0,
+          "stdout_sha256": "a8453e92d8664e1cb02fbd6489e4bfe90e5caa69740ff69be2146e52ce3001a3",
+          "stdout": "pad0 \npad1 Zg==\npad2 Zm8=\npad3 Zm9v\nbin_null AAAAAA==\nhello aGVsbG8=\n16b MDEyMzQ1Njc4OWFiY2RlZg==\n1k WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "MDEyMzQ1Njc4OWFiY2RlZg==",
+            "1k": "WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==",
+            "bin_null": "AAAAAA==",
+            "hello": "aGVsbG8=",
+            "pad1": "Zg==",
+            "pad2": "Zm8=",
+            "pad3": "Zm9v"
+          },
+          "bench_ns_per_op": 357982
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 39,
+          "binary_bytes": 16368,
+          "run_ms": 0,
+          "stdout_sha256": "a8453e92d8664e1cb02fbd6489e4bfe90e5caa69740ff69be2146e52ce3001a3",
+          "stdout": "pad0 \npad1 Zg==\npad2 Zm8=\npad3 Zm9v\nbin_null AAAAAA==\nhello aGVsbG8=\n16b MDEyMzQ1Njc4OWFiY2RlZg==\n1k WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "MDEyMzQ1Njc4OWFiY2RlZg==",
+            "1k": "WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==",
+            "bin_null": "AAAAAA==",
+            "hello": "aGVsbG8=",
+            "pad1": "Zg==",
+            "pad2": "Zm8=",
+            "pad3": "Zm9v"
+          },
+          "bench_ns_per_op": 356312
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 117,
+          "binary_bytes": 2419159,
+          "run_ms": 0,
+          "stdout_sha256": "a8453e92d8664e1cb02fbd6489e4bfe90e5caa69740ff69be2146e52ce3001a3",
+          "stdout": "pad0 \npad1 Zg==\npad2 Zm8=\npad3 Zm9v\nbin_null AAAAAA==\nhello aGVsbG8=\n16b MDEyMzQ1Njc4OWFiY2RlZg==\n1k WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "MDEyMzQ1Njc4OWFiY2RlZg==",
+            "1k": "WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==",
+            "bin_null": "AAAAAA==",
+            "hello": "aGVsbG8=",
+            "pad1": "Zg==",
+            "pad2": "Zm8=",
+            "pad3": "Zm9v"
+          },
+          "bench_ns_per_op": 915211,
+          "code_lines": 41
+        },
+        {
+          "backend": "ccgo",
+          "status": "ok",
+          "compile_ms": 371,
+          "binary_bytes": 3615753,
+          "run_ms": 1,
+          "stdout_sha256": "a8453e92d8664e1cb02fbd6489e4bfe90e5caa69740ff69be2146e52ce3001a3",
+          "stdout": "pad0 \npad1 Zg==\npad2 Zm8=\npad3 Zm9v\nbin_null AAAAAA==\nhello aGVsbG8=\n16b MDEyMzQ1Njc4OWFiY2RlZg==\n1k WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "MDEyMzQ1Njc4OWFiY2RlZg==",
+            "1k": "WlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==",
+            "bin_null": "AAAAAA==",
+            "hello": "aGVsbG8=",
+            "pad1": "Zg==",
+            "pad2": "Zm8=",
+            "pad3": "Zm9v"
+          },
+          "bench_ns_per_op": 1193575,
+          "code_lines": 539
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 925
+    },
+    {
+      "id": "tweetnacl_dogfood",
+      "kind": "tweet_ver",
+      "notes": "surface verify_16; stub tweetnacl.h",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 71,
+          "binary_bytes": 39328,
+          "run_ms": 0,
+          "stdout_sha256": "fa5ba03698915194d43435c407693bf36a496a342ff50239ad553246fd9abaf2",
+          "stdout": "eq 0\nneq -1\n",
+          "match_oracle": false,
+          "lines": {
+            "eq": "0",
+            "neq": "-1"
+          },
+          "bench_ns_per_op": 384738
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 235,
+          "binary_bytes": 38536,
+          "run_ms": 0,
+          "stdout_sha256": "fa5ba03698915194d43435c407693bf36a496a342ff50239ad553246fd9abaf2",
+          "stdout": "eq 0\nneq -1\n",
+          "match_oracle": false,
+          "lines": {
+            "eq": "0",
+            "neq": "-1"
+          },
+          "bench_ns_per_op": 375275
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 263,
+          "binary_bytes": 2413997,
+          "run_ms": 0,
+          "stdout_sha256": "fa5ba03698915194d43435c407693bf36a496a342ff50239ad553246fd9abaf2",
+          "stdout": "eq 0\nneq -1\n",
+          "match_oracle": true,
+          "lines": {
+            "eq": "0",
+            "neq": "-1"
+          },
+          "bench_ns_per_op": 900484,
+          "code_lines": 332,
+          "var_count": 11,
+          "int_cast_index": 1,
+          "rot_left_calls": 10
+        },
+        {
+          "backend": "ccgo",
+          "status": "ok",
+          "compile_ms": 512,
+          "binary_bytes": 3609984,
+          "run_ms": 1,
+          "stdout_sha256": "fa5ba03698915194d43435c407693bf36a496a342ff50239ad553246fd9abaf2",
+          "stdout": "eq 0\nneq -1\n",
+          "match_oracle": true,
+          "lines": {
+            "eq": "0",
+            "neq": "-1"
+          },
+          "bench_ns_per_op": 1186365,
+          "code_lines": 2550
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 1409
+    },
+    {
+      "id": "simsimd_dot_f32",
+      "kind": "dot_f32",
+      "notes": "SimSIMD float32 dot product",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 80,
+          "binary_bytes": 147704,
+          "run_ms": 0,
+          "stdout_sha256": "c52233bee718a5633bd2fbf0fad2b4fa6410d7cba8241c4a9df7a7be4aeb071a",
+          "stdout": "empty 0.000000e+00\n16b 6.502500e+04\n17b 4.335000e+03\n64b 2.376000e+05\n1k 3.801600e+06\n64k 1.916928e+08\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "6.502500e+04",
+            "17b": "4.335000e+03",
+            "1k": "3.801600e+06",
+            "64b": "2.376000e+05",
+            "64k": "1.916928e+08",
+            "empty": "0.000000e+00"
+          },
+          "bench_ns_per_op": 456269
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 96,
+          "binary_bytes": 147528,
+          "run_ms": 0,
+          "stdout_sha256": "c52233bee718a5633bd2fbf0fad2b4fa6410d7cba8241c4a9df7a7be4aeb071a",
+          "stdout": "empty 0.000000e+00\n16b 6.502500e+04\n17b 4.335000e+03\n64b 2.376000e+05\n1k 3.801600e+06\n64k 1.916928e+08\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "6.502500e+04",
+            "17b": "4.335000e+03",
+            "1k": "3.801600e+06",
+            "64b": "2.376000e+05",
+            "64k": "1.916928e+08",
+            "empty": "0.000000e+00"
+          },
+          "bench_ns_per_op": 431195
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 272,
+          "binary_bytes": 2550013,
+          "run_ms": 0,
+          "stdout_sha256": "c52233bee718a5633bd2fbf0fad2b4fa6410d7cba8241c4a9df7a7be4aeb071a",
+          "stdout": "empty 0.000000e+00\n16b 6.502500e+04\n17b 4.335000e+03\n64b 2.376000e+05\n1k 3.801600e+06\n64k 1.916928e+08\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "6.502500e+04",
+            "17b": "4.335000e+03",
+            "1k": "3.801600e+06",
+            "64b": "2.376000e+05",
+            "64k": "1.916928e+08",
+            "empty": "0.000000e+00"
+          },
+          "bench_ns_per_op": 1057297,
+          "code_lines": 29,
+          "var_count": 4
+        },
+        {
+          "backend": "ccgo",
+          "status": "fail",
+          "error": "go build: # tribccgo\n./main.go:30:2: declared and not used: d0\n./main.go:32:2: declared and not used: d1\n./main.go:33:2: declared and not used: e1\n./main.go:35:2: declared and not used: d2\n./main.go:36:2: declared and not used: e2\n./main.go:38:2: declared and not used: d3\n./main.go:39:2: declared and not used: e3\n./main.go:41:2: declared and not used: d4\n./main.go:42:2: declared and not used: e4\n./main.go:44:2: declared and not used: d5\n./main.go:44:2: too many errors\n",
+          "compile_ms": 323,
+          "run_ms": 0,
+          "match_oracle": false,
+          "code_lines": 420
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 1074
+    },
+    {
+      "id": "libinjection_sqli",
+      "kind": "libinj",
+      "notes": "SkipC permanent: multi-header upstream; see strlenspn_lab",
+      "oracle_backend": "",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "skip",
+          "error": "SkipC",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "skip",
+          "error": "SkipC",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        },
+        {
+          "backend": "sgoiter",
+          "status": "fail",
+          "error": "go build: # trib/kernel\nkernel/kernel.go:40:5: st.Type_ undefined (type []int has no field or method Type_)\nkernel/kernel.go:41:5: st.Pos undefined (type []int has no field or method Pos)\nkernel/kernel.go:42:5: st.Len_ undefined (type []int has no field or method Len_)\nkernel/kernel.go:43:5: st.Val undefined (type []int has no field or method Val)\nkernel/kernel.go:44:5: st.Val undefined (type []int has no field or method Val)\n",
+          "compile_ms": 100,
+          "run_ms": 0,
+          "match_oracle": false,
+          "code_lines": 65,
+          "var_count": 2
+        },
+        {
+          "backend": "ccgo",
+          "status": "skip",
+          "error": "SkipC multi-file",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": false,
+      "no_oracle": true,
+      "wall_ms": 105
+    },
+    {
+      "id": "strlenspn_lab",
+      "kind": "libinj",
+      "notes": "oracle C for strspn-like",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 55,
+          "binary_bytes": 81952,
+          "run_ms": 0,
+          "stdout_sha256": "15d0e62936b6357299ef0ceb8b0c50a24be7e4d1556226bea93c7d7071249bbd",
+          "stdout": "empty 0000000000000000\nhello 0000000000000004\n16b 0000000000000000\n17b 0000000000000000\n64b 0000000000000000\n1k 0000000000000000\n64k 0000000000000000\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "0000000000000000",
+            "17b": "0000000000000000",
+            "1k": "0000000000000000",
+            "64b": "0000000000000000",
+            "64k": "0000000000000000",
+            "empty": "0000000000000000",
+            "hello": "0000000000000004"
+          },
+          "bench_ns_per_op": 373554
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 66,
+          "binary_bytes": 81816,
+          "run_ms": 0,
+          "stdout_sha256": "15d0e62936b6357299ef0ceb8b0c50a24be7e4d1556226bea93c7d7071249bbd",
+          "stdout": "empty 0000000000000000\nhello 0000000000000004\n16b 0000000000000000\n17b 0000000000000000\n64b 0000000000000000\n1k 0000000000000000\n64k 0000000000000000\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "0000000000000000",
+            "17b": "0000000000000000",
+            "1k": "0000000000000000",
+            "64b": "0000000000000000",
+            "64k": "0000000000000000",
+            "empty": "0000000000000000",
+            "hello": "0000000000000004"
+          },
+          "bench_ns_per_op": 371150
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 189,
+          "binary_bytes": 2479952,
+          "run_ms": 0,
+          "stdout_sha256": "15d0e62936b6357299ef0ceb8b0c50a24be7e4d1556226bea93c7d7071249bbd",
+          "stdout": "empty 0000000000000000\nhello 0000000000000004\n16b 0000000000000000\n17b 0000000000000000\n64b 0000000000000000\n1k 0000000000000000\n64k 0000000000000000\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "0000000000000000",
+            "17b": "0000000000000000",
+            "1k": "0000000000000000",
+            "64b": "0000000000000000",
+            "64k": "0000000000000000",
+            "empty": "0000000000000000",
+            "hello": "0000000000000004"
+          },
+          "bench_ns_per_op": 930169,
+          "code_lines": 21
+        },
+        {
+          "backend": "ccgo",
+          "status": "fail",
+          "error": "go build: # tribccgo\n./main.go:45:36: too many arguments in call to strlenspn_lab\n\thave (*libc.TLS, uintptr, uint64, uintptr)\n\twant (*libc.TLS, uintptr, size_t)\n./main.go:49:36: too many arguments in call to strlenspn_lab\n\thave (*libc.TLS, uintptr, uint64, uintptr)\n\twant (*libc.TLS, uintptr, size_t)\n./main.go:53:36: too many arguments in call to strlenspn_lab\n\thave (*libc.TLS, uintptr, uint64, uintptr)\n\twant (*libc.TLS, uintptr, size_t)\n./main.go:57:36: too many arguments in call to strlenspn_lab\n\thave (*libc.TLS, uintptr, uint64, uintptr)\n\twant (*libc.TLS, uintptr, size_t)\n./main.go:61:36: too many arguments in call to strlenspn_lab\n\thave (*libc.TLS, uintptr, uint64, uintptr)\n\twant (*libc.TLS, uintptr, size_t)\n./main.go:65:36: too many arguments in call to strlenspn_lab\n\thave (*libc.TLS, uintptr, uint64, uintptr)\n\twant (*libc.TLS, uintptr, size_t)\n./main.go:69:36: too many arguments in call to strlenspn_lab\n\thave (*libc.TLS, uintptr, uint64, uintptr)\n\twant (*libc.TLS, uintptr, size_t)\n",
+          "compile_ms": 290,
+          "run_ms": 0,
+          "match_oracle": false,
+          "code_lines": 515
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 913
+    },
+    {
+      "id": "md5_transform_full",
+      "kind": "md5",
+      "notes": "full 64-step MD5",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 38,
+          "binary_bytes": 16384,
+          "run_ms": 0,
+          "stdout_sha256": "3ca18623ab522a93fa380bdca085d9a473d94bfbf38de98400111700752b17af",
+          "stdout": "zero 031f1dac6ea58ed01fab67b774317791\npattern b75a993607d7cbf324289821484cc19b\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "b75a993607d7cbf324289821484cc19b",
+            "zero": "031f1dac6ea58ed01fab67b774317791"
+          },
+          "bench_ns_per_op": 351026
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 56,
+          "binary_bytes": 16104,
+          "run_ms": 0,
+          "stdout_sha256": "3ca18623ab522a93fa380bdca085d9a473d94bfbf38de98400111700752b17af",
+          "stdout": "zero 031f1dac6ea58ed01fab67b774317791\npattern b75a993607d7cbf324289821484cc19b\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "b75a993607d7cbf324289821484cc19b",
+            "zero": "031f1dac6ea58ed01fab67b774317791"
+          },
+          "bench_ns_per_op": 343351
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 2521,
+          "binary_bytes": 2419935,
+          "run_ms": 0,
+          "stdout_sha256": "3ca18623ab522a93fa380bdca085d9a473d94bfbf38de98400111700752b17af",
+          "stdout": "zero 031f1dac6ea58ed01fab67b774317791\npattern b75a993607d7cbf324289821484cc19b\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "b75a993607d7cbf324289821484cc19b",
+            "zero": "031f1dac6ea58ed01fab67b774317791"
+          },
+          "bench_ns_per_op": 929667,
+          "code_lines": 248,
+          "var_count": 6,
+          "rot_left_calls": 64
+        },
+        {
+          "backend": "ccgo",
+          "status": "ok",
+          "compile_ms": 407,
+          "binary_bytes": 3614582,
+          "run_ms": 1,
+          "stdout_sha256": "3ca18623ab522a93fa380bdca085d9a473d94bfbf38de98400111700752b17af",
+          "stdout": "zero 031f1dac6ea58ed01fab67b774317791\npattern b75a993607d7cbf324289821484cc19b\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "b75a993607d7cbf324289821484cc19b",
+            "zero": "031f1dac6ea58ed01fab67b774317791"
+          },
+          "bench_ns_per_op": 1151979,
+          "code_lines": 709
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 3311
+    }
+  ],
+  "summary": {
+    "libs_total": 24,
+    "libs_all_match": 23,
+    "backend_ok": 80,
+    "backend_fail": 13,
+    "backend_skip": 3,
+    "sgoiter_match_oracle": 23,
+    "ccgo_match_oracle": 11,
+    "libs_compared": 23,
+    "libs_no_oracle": 1
+  }
+}

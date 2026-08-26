@@ -1,0 +1,63 @@
+{
+  "id": "blake2b_compress",
+  "kind": "blake2b",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 41,
+      "binary_bytes": 16416,
+      "run_ms": 0,
+      "stdout_sha256": "3b91dbe2d075febceaabb102e263f7f89761ad4f39099f004ea98ed2a3b269ed",
+      "stdout": "zero 9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747\npattern 0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9",
+        "zero": "9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 59,
+      "binary_bytes": 16136,
+      "run_ms": 0,
+      "stdout_sha256": "3b91dbe2d075febceaabb102e263f7f89761ad4f39099f004ea98ed2a3b269ed",
+      "stdout": "zero 9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747\npattern 0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9",
+        "zero": "9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 195,
+      "binary_bytes": 2421215,
+      "run_ms": 1,
+      "stdout_sha256": "3b91dbe2d075febceaabb102e263f7f89761ad4f39099f004ea98ed2a3b269ed",
+      "stdout": "zero 9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747\npattern 0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9\n",
+      "match_oracle": true,
+      "lines": {
+        "pattern": "0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9",
+        "zero": "9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747"
+      },
+      "code_lines": 426,
+      "var_count": 2,
+      "int_cast_index": 33,
+      "rot_left_calls": 2
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 299
+}

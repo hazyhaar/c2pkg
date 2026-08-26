@@ -1,0 +1,67 @@
+{
+  "id": "tweetnacl_hsalsa",
+  "kind": "tweet_hsalsa",
+  "notes": "TweetNaCl HSalsa20 core",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 35,
+      "binary_bytes": 16352,
+      "run_ms": 0,
+      "stdout_sha256": "fd89dbc344673ce8a7ac9761affcf05d842d85d80d02a6ade3507456d6cdb819",
+      "stdout": "zero e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\npattern e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e",
+        "zero": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e"
+      },
+      "bench_ns_per_op": 357910
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 55,
+      "binary_bytes": 16096,
+      "run_ms": 0,
+      "stdout_sha256": "fd89dbc344673ce8a7ac9761affcf05d842d85d80d02a6ade3507456d6cdb819",
+      "stdout": "zero e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\npattern e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\n",
+      "match_oracle": false,
+      "lines": {
+        "pattern": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e",
+        "zero": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e"
+      },
+      "bench_ns_per_op": 373192
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 151,
+      "binary_bytes": 2420243,
+      "run_ms": 0,
+      "stdout_sha256": "fd89dbc344673ce8a7ac9761affcf05d842d85d80d02a6ade3507456d6cdb819",
+      "stdout": "zero e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\npattern e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e\n",
+      "match_oracle": true,
+      "lines": {
+        "pattern": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e",
+        "zero": "e6b0a07ea0a869caab31287ad2952c1c843ddbf3f26c2ba8f208c6d30452380e"
+      },
+      "bench_ns_per_op": 910770,
+      "code_lines": 120,
+      "var_count": 17,
+      "rot_left_calls": 1
+    },
+    {
+      "backend": "ccgo",
+      "status": "fail",
+      "error": "go build: # tribccgo\n./main.go:30:2: declared and not used: d0\n./main.go:32:2: declared and not used: d1\n",
+      "compile_ms": 260,
+      "run_ms": 0,
+      "match_oracle": false,
+      "code_lines": 658
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 832
+}

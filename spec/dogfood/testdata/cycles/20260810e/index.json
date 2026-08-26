@@ -1,0 +1,6 @@
+{
+  "stamp": "20260810e",
+  "cycles": [
+    {      "kernel": "murmur3_x86_32",      "stamp": "20260810e",      "src_c": "spec/c_sources/testdata/c_sources/murmur3_x86_32.c",      "ccgo": "/home/cl-ment/go/bin/ccgo",      "raw_lines": 544,      "opt_lines": 541,      "raw_rotl_calls": 4,      "opt_rotl_calls": 0,      "raw_bits_rotate": 0,      "opt_bits_rotate": 3,      "raw_tls_first_param_funcs": 3,      "opt_tls_first_param_funcs": 0,      "tls_params_elided": 3,      "bits_rotate_gained": 3,      "build_raw_ok": 1,      "build_opt_ok": 1    }
+  ]
+}

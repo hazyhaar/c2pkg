@@ -1,0 +1,22 @@
+# trib
+./main.go:27:73: too many arguments in call to kernel.Strlenspn_lab
+	have ([]byte, uint64, []byte)
+	want ([]byte, uint64)
+./main.go:28:73: too many arguments in call to kernel.Strlenspn_lab
+	have ([]byte, uint64, []byte)
+	want ([]byte, uint64)
+./main.go:29:71: too many arguments in call to kernel.Strlenspn_lab
+	have ([]byte, uint64, []byte)
+	want ([]byte, uint64)
+./main.go:30:71: too many arguments in call to kernel.Strlenspn_lab
+	have ([]byte, uint64, []byte)
+	want ([]byte, uint64)
+./main.go:31:71: too many arguments in call to kernel.Strlenspn_lab
+	have ([]byte, uint64, []byte)
+	want ([]byte, uint64)
+./main.go:32:70: too many arguments in call to kernel.Strlenspn_lab
+	have ([]byte, uint64, []byte)
+	want ([]byte, uint64)
+./main.go:33:71: too many arguments in call to kernel.Strlenspn_lab
+	have ([]byte, uint64, []byte)
+	want ([]byte, uint64)

@@ -1,0 +1,5 @@
+# trib/kernel
+kernel/kernel.go:49:9: invalid operation: input <= input (operator <= not defined on slice)
+kernel/kernel.go:63:8: invalid operation: input <= input (operator <= not defined on slice)
+kernel/kernel.go:71:5: invalid operation: input <= input (operator <= not defined on slice)
+kernel/kernel.go:76:6: invalid operation: input < input (operator < not defined on slice)

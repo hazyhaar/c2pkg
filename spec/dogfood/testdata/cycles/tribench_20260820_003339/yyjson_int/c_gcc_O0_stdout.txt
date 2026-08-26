@@ -1,0 +1,6 @@
+zero 0
+single 7
+double 42
+medium 12345
+large 123456789
+max 4294967295

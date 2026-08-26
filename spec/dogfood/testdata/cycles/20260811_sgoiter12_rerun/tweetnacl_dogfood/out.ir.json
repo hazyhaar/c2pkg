@@ -1,0 +1,6121 @@
+{
+  "name": "src",
+  "globals": [
+    {
+      "name": "minusp",
+      "type": "uint64",
+      "init_csv": " 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 252 "
+    },
+    {
+      "name": "K",
+      "type": "uint64",
+      "init_csv": " 0x428a2f98d728ae22ULL, 0x7137449123ef65cdULL, 0xb5c0fbcfec4d3b2fULL, 0xe9b5dba58189dbbcULL, 0x3956c25bf348b538ULL, 0x59f111f1b605d019ULL, 0x923f82a4af194f9bULL, 0xab1c5ed5da6d8118ULL, 0xd807aa98a3030242ULL, 0x12835b0145706fbeULL, 0x243185be4ee4b28cULL, 0x550c7dc3d5ffb4e2ULL, 0x72be5d74f27b896fULL, 0x80deb1fe3b1696b1ULL, 0x9bdc06a725c71235ULL, 0xc19bf174cf692694ULL, 0xe49b69c19ef14ad2ULL, 0xefbe4786384f25e3ULL, 0x0fc19dc68b8cd5b5ULL, 0x240ca1cc77ac9c65ULL, 0x2de92c6f592b0275ULL, 0x4a7484aa6ea6e483ULL, 0x5cb0a9dcbd41fbd4ULL, 0x76f988da831153b5ULL, 0x983e5152ee66dfabULL, 0xa831c66d2db43210ULL, 0xb00327c898fb213fULL, 0xbf597fc7beef0ee4ULL, 0xc6e00bf33da88fc2ULL, 0xd5a79147930aa725ULL, 0x06ca6351e003826fULL, 0x142929670a0e6e70ULL, 0x27b70a8546d22ffcULL, 0x2e1b21385c26c926ULL, 0x4d2c6dfc5ac42aedULL, 0x53380d139d95b3dfULL, 0x650a73548baf63deULL, 0x766a0abb3c77b2a8ULL, 0x81c2c92e47edaee6ULL, 0x92722c851482353bULL, 0xa2bfe8a14cf10364ULL, 0xa81a664bbc423001ULL, 0xc24b8b70d0f89791ULL, 0xc76c51a30654be30ULL, 0xd192e819d6ef5218ULL, 0xd69906245565a910ULL, 0xf40e35855771202aULL, 0x106aa07032bbd1b8ULL, 0x19a4c116b8d2d0c8ULL, 0x1e376c085141ab53ULL, 0x2748774cdf8eeb99ULL, 0x34b0bcb5e19b48a8ULL, 0x391c0cb3c5c95a63ULL, 0x4ed8aa4ae3418acbULL, 0x5b9cca4f7763e373ULL, 0x682e6ff3d6b2b8a3ULL, 0x748f82ee5defb2fcULL, 0x78a5636f43172f60ULL, 0x84c87814a1f0ab72ULL, 0x8cc702081a6439ecULL, 0x90befffa23631e28ULL, 0xa4506cebde82bde9ULL, 0xbef9a3f7b2c67915ULL, 0xc67178f2e372532bULL, 0xca273eceea26619cULL, 0xd186b8c721c0c207ULL, 0xeada7dd6cde0eb1eULL, 0xf57d4f7fee6ed178ULL, 0x06f067aa72176fbaULL, 0x0a637dc5a2c898a6ULL, 0x113f9804bef90daeULL, 0x1b710b35131c471bULL, 0x28db77f523047d84ULL, 0x32caab7b40c72493ULL, 0x3c9ebe0a15c9bebcULL, 0x431d67c49c100d4cULL, 0x4cc5d4becb3e42b6ULL, 0x597f299cfc657e2aULL, 0x5fcb6fab3ad6faecULL, 0x6c44198c4a475817ULL "
+    },
+    {
+      "name": "iv",
+      "type": "uint8",
+      "init_csv": " 0x6a,0x09,0xe6,0x67,0xf3,0xbc,0xc9,0x08, 0xbb,0x67,0xae,0x85,0x84,0xca,0xa7,0x3b, 0x3c,0x6e,0xf3,0x72,0xfe,0x94,0xf8,0x2b, 0xa5,0x4f,0xf5,0x3a,0x5f,0x1d,0x36,0xf1, 0x51,0x0e,0x52,0x7f,0xad,0xe6,0x82,0xd1, 0x9b,0x05,0x68,0x8c,0x2b,0x3e,0x6c,0x1f, 0x1f,0x83,0xd9,0xab,0xfb,0x41,0xbd,0x6b, 0x5b,0xe0,0xcd,0x19,0x13,0x7e,0x21,0x79 "
+    },
+    {
+      "name": "L",
+      "type": "uint64",
+      "init_csv": "0xed, 0xd3, 0xf5, 0x5c, 0x1a, 0x63, 0x12, 0x58, 0xd6, 0x9c, 0xf7, 0xa2, 0xde, 0xf9, 0xde, 0x14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x10"
+    }
+  ],
+  "funcs": [
+    {
+      "name": "randombytes",
+      "result": "void",
+      "params": [
+        {
+          "name": "p",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "n",
+          "type": "uint64",
+          "reg": 1
+        }
+      ],
+      "nvals": 11,
+      "stmts": [
+        {
+          "kind": 1,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 3
+            },
+            {
+              "op": 2,
+              "dst": 2,
+              "args": [
+                3
+              ]
+            }
+          ],
+          "cond_left": 2,
+          "cond_op": "<",
+          "cond_right": 1,
+          "for_post": [
+            {
+              "op": 1,
+              "dst": 4,
+              "imm": 1
+            },
+            {
+              "op": 3,
+              "dst": 5,
+              "args": [
+                2,
+                4
+              ]
+            },
+            {
+              "op": 2,
+              "dst": 2,
+              "args": [
+                5
+              ]
+            }
+          ],
+          "for_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 6,
+                "imm": 17
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 5,
+                "dst": 7,
+                "args": [
+                  2,
+                  6
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 8,
+                "imm": 41
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 3,
+                "dst": 9,
+                "args": [
+                  7,
+                  8
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 2,
+                "dst": 10,
+                "args": [
+                  9
+                ],
+                "sym": "cast",
+                "elem": "uint8"
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 16,
+                "args": [
+                  0,
+                  2,
+                  10
+                ],
+                "elem": "uint8"
+              }
+            }
+          ]
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 3
+        },
+        {
+          "op": 2,
+          "dst": 2,
+          "args": [
+            3
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 6,
+          "imm": 17
+        },
+        {
+          "op": 5,
+          "dst": 7,
+          "args": [
+            2,
+            6
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 8,
+          "imm": 41
+        },
+        {
+          "op": 3,
+          "dst": 9,
+          "args": [
+            7,
+            8
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 10,
+          "args": [
+            9
+          ],
+          "sym": "cast",
+          "elem": "uint8"
+        },
+        {
+          "op": 16,
+          "args": [
+            0,
+            2,
+            10
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 1,
+          "dst": 4,
+          "imm": 1
+        },
+        {
+          "op": 3,
+          "dst": 5,
+          "args": [
+            2,
+            4
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 2,
+          "args": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "L32",
+      "result": "uint64",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64",
+          "reg": 0
+        },
+        {
+          "name": "c",
+          "type": "int",
+          "reg": 1
+        }
+      ],
+      "nvals": 9,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 11,
+            "dst": 2,
+            "args": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 3,
+            "imm": 4294967295
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 8,
+            "dst": 4,
+            "args": [
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 5,
+            "imm": 32
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 4,
+            "dst": 6,
+            "args": [
+              5,
+              1
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 12,
+            "dst": 7,
+            "args": [
+              4,
+              6
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 9,
+            "dst": 8,
+            "args": [
+              2,
+              7
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              8
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 11,
+          "dst": 2,
+          "args": [
+            0,
+            1
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 3,
+          "imm": 4294967295
+        },
+        {
+          "op": 8,
+          "dst": 4,
+          "args": [
+            0,
+            3
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 5,
+          "imm": 32
+        },
+        {
+          "op": 4,
+          "dst": 6,
+          "args": [
+            5,
+            1
+          ]
+        },
+        {
+          "op": 12,
+          "dst": 7,
+          "args": [
+            4,
+            6
+          ]
+        },
+        {
+          "op": 9,
+          "dst": 8,
+          "args": [
+            2,
+            7
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ld32",
+      "result": "uint64",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        }
+      ],
+      "nvals": 19,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 2,
+            "imm": 3
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 15,
+            "dst": 3,
+            "args": [
+              0,
+              2
+            ],
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 1,
+            "args": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 4,
+            "imm": 8
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 11,
+            "dst": 5,
+            "args": [
+              1,
+              4
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 6,
+            "imm": 2
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 15,
+            "dst": 7,
+            "args": [
+              0,
+              6
+            ],
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 9,
+            "dst": 8,
+            "args": [
+              5,
+              7
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 1,
+            "args": [
+              8
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 9,
+            "imm": 8
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 11,
+            "dst": 10,
+            "args": [
+              1,
+              9
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 11,
+            "imm": 1
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 15,
+            "dst": 12,
+            "args": [
+              0,
+              11
+            ],
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 9,
+            "dst": 13,
+            "args": [
+              10,
+              12
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 1,
+            "args": [
+              13
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 14,
+            "imm": 8
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 11,
+            "dst": 15,
+            "args": [
+              1,
+              14
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 16
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 15,
+            "dst": 17,
+            "args": [
+              0,
+              16
+            ],
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 9,
+            "dst": 18,
+            "args": [
+              15,
+              17
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              18
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 2,
+          "imm": 3
+        },
+        {
+          "op": 15,
+          "dst": 3,
+          "args": [
+            0,
+            2
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 2,
+          "dst": 1,
+          "args": [
+            3
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 4,
+          "imm": 8
+        },
+        {
+          "op": 11,
+          "dst": 5,
+          "args": [
+            1,
+            4
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 6,
+          "imm": 2
+        },
+        {
+          "op": 15,
+          "dst": 7,
+          "args": [
+            0,
+            6
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 9,
+          "dst": 8,
+          "args": [
+            5,
+            7
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 1,
+          "args": [
+            8
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 9,
+          "imm": 8
+        },
+        {
+          "op": 11,
+          "dst": 10,
+          "args": [
+            1,
+            9
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 11,
+          "imm": 1
+        },
+        {
+          "op": 15,
+          "dst": 12,
+          "args": [
+            0,
+            11
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 9,
+          "dst": 13,
+          "args": [
+            10,
+            12
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 1,
+          "args": [
+            13
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 14,
+          "imm": 8
+        },
+        {
+          "op": 11,
+          "dst": 15,
+          "args": [
+            1,
+            14
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 16
+        },
+        {
+          "op": 15,
+          "dst": 17,
+          "args": [
+            0,
+            16
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 9,
+          "dst": 18,
+          "args": [
+            15,
+            17
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dl64",
+      "result": "uint64",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        }
+      ],
+      "nvals": 12,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 3
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 2,
+            "args": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": 1,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 4
+            },
+            {
+              "op": 2,
+              "dst": 1,
+              "args": [
+                4
+              ]
+            },
+            {
+              "op": 1,
+              "dst": 5,
+              "imm": 8
+            }
+          ],
+          "cond_left": 1,
+          "cond_op": "<",
+          "cond_right": 5,
+          "for_post": [
+            {
+              "op": 1,
+              "dst": 6,
+              "imm": 1
+            },
+            {
+              "op": 3,
+              "dst": 7,
+              "args": [
+                1,
+                6
+              ]
+            },
+            {
+              "op": 2,
+              "dst": 1,
+              "args": [
+                7
+              ]
+            }
+          ],
+          "for_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 8,
+                "imm": 8
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 11,
+                "dst": 9,
+                "args": [
+                  2,
+                  8
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 15,
+                "dst": 10,
+                "args": [
+                  0,
+                  1
+                ],
+                "elem": "uint8"
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 9,
+                "dst": 11,
+                "args": [
+                  9,
+                  10
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 2,
+                "dst": 2,
+                "args": [
+                  11
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              2
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 3
+        },
+        {
+          "op": 2,
+          "dst": 2,
+          "args": [
+            3
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 4
+        },
+        {
+          "op": 2,
+          "dst": 1,
+          "args": [
+            4
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 5,
+          "imm": 8
+        },
+        {
+          "op": 1,
+          "dst": 8,
+          "imm": 8
+        },
+        {
+          "op": 11,
+          "dst": 9,
+          "args": [
+            2,
+            8
+          ]
+        },
+        {
+          "op": 15,
+          "dst": 10,
+          "args": [
+            0,
+            1
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 9,
+          "dst": 11,
+          "args": [
+            9,
+            10
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 2,
+          "args": [
+            11
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 6,
+          "imm": 1
+        },
+        {
+          "op": 3,
+          "dst": 7,
+          "args": [
+            1,
+            6
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 1,
+          "args": [
+            7
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vn",
+      "result": "int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "y",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        },
+        {
+          "name": "n",
+          "type": "int",
+          "reg": 2
+        }
+      ],
+      "nvals": 21,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 5
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 4,
+            "args": [
+              5
+            ]
+          }
+        },
+        {
+          "kind": 1,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 6
+            },
+            {
+              "op": 2,
+              "dst": 3,
+              "args": [
+                6
+              ]
+            }
+          ],
+          "cond_left": 3,
+          "cond_op": "<",
+          "cond_right": 2,
+          "for_post": [
+            {
+              "op": 1,
+              "dst": 7,
+              "imm": 1
+            },
+            {
+              "op": 3,
+              "dst": 8,
+              "args": [
+                3,
+                7
+              ]
+            },
+            {
+              "op": 2,
+              "dst": 3,
+              "args": [
+                8
+              ]
+            }
+          ],
+          "for_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 15,
+                "dst": 9,
+                "args": [
+                  0,
+                  3
+                ],
+                "elem": "uint8"
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 15,
+                "dst": 10,
+                "args": [
+                  1,
+                  3
+                ],
+                "elem": "uint8"
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 10,
+                "dst": 11,
+                "args": [
+                  9,
+                  10
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 9,
+                "dst": 12,
+                "args": [
+                  4,
+                  11
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 2,
+                "dst": 4,
+                "args": [
+                  12
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 13,
+            "imm": 1
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 14,
+            "imm": 1
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 4,
+            "dst": 15,
+            "args": [
+              4,
+              14
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 16,
+            "imm": 8
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 12,
+            "dst": 17,
+            "args": [
+              15,
+              16
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 8,
+            "dst": 18,
+            "args": [
+              13,
+              17
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 19,
+            "imm": 1
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 4,
+            "dst": 20,
+            "args": [
+              18,
+              19
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              20
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 5
+        },
+        {
+          "op": 2,
+          "dst": 4,
+          "args": [
+            5
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 6
+        },
+        {
+          "op": 2,
+          "dst": 3,
+          "args": [
+            6
+          ]
+        },
+        {
+          "op": 15,
+          "dst": 9,
+          "args": [
+            0,
+            3
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 15,
+          "dst": 10,
+          "args": [
+            1,
+            3
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 10,
+          "dst": 11,
+          "args": [
+            9,
+            10
+          ]
+        },
+        {
+          "op": 9,
+          "dst": 12,
+          "args": [
+            4,
+            11
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 4,
+          "args": [
+            12
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 7,
+          "imm": 1
+        },
+        {
+          "op": 3,
+          "dst": 8,
+          "args": [
+            3,
+            7
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 3,
+          "args": [
+            8
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 13,
+          "imm": 1
+        },
+        {
+          "op": 1,
+          "dst": 14,
+          "imm": 1
+        },
+        {
+          "op": 4,
+          "dst": 15,
+          "args": [
+            4,
+            14
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 16,
+          "imm": 8
+        },
+        {
+          "op": 12,
+          "dst": 17,
+          "args": [
+            15,
+            16
+          ]
+        },
+        {
+          "op": 8,
+          "dst": 18,
+          "args": [
+            13,
+            17
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 19,
+          "imm": 1
+        },
+        {
+          "op": 4,
+          "dst": 20,
+          "args": [
+            18,
+            19
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crypto_verify_16",
+      "result": "int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "y",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        }
+      ],
+      "nvals": 4,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 2,
+            "imm": 16
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 3,
+            "args": [
+              0,
+              1,
+              2
+            ],
+            "sym": "vn"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              3
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 2,
+          "imm": 16
+        },
+        {
+          "op": 14,
+          "dst": 3,
+          "args": [
+            0,
+            1,
+            2
+          ],
+          "sym": "vn"
+        },
+        {
+          "op": 13,
+          "args": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crypto_verify_32",
+      "result": "int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "y",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        }
+      ],
+      "nvals": 4,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 2,
+            "imm": 32
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 3,
+            "args": [
+              0,
+              1,
+              2
+            ],
+            "sym": "vn"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              3
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 2,
+          "imm": 32
+        },
+        {
+          "op": 14,
+          "dst": 3,
+          "args": [
+            0,
+            1,
+            2
+          ],
+          "sym": "vn"
+        },
+        {
+          "op": 13,
+          "args": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crypto_core_salsa20",
+      "result": "int",
+      "params": [
+        {
+          "name": "out",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "in",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        },
+        {
+          "name": "k",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 2
+        },
+        {
+          "name": "c",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 3
+        }
+      ],
+      "nvals": 7,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 4
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "sym": "core"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 6
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              6
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 4
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "sym": "core"
+        },
+        {
+          "op": 1,
+          "dst": 6
+        },
+        {
+          "op": 13,
+          "args": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crypto_core_hsalsa20",
+      "result": "int",
+      "params": [
+        {
+          "name": "out",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "in",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        },
+        {
+          "name": "k",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 2
+        },
+        {
+          "name": "c",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 3
+        }
+      ],
+      "nvals": 7,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 4,
+            "imm": 1
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "sym": "core"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 6
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              6
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 4,
+          "imm": 1
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "sym": "core"
+        },
+        {
+          "op": 1,
+          "dst": 6
+        },
+        {
+          "op": 13,
+          "args": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crypto_stream_salsa20",
+      "result": "int",
+      "params": [
+        {
+          "name": "c",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "d",
+          "type": "uint64",
+          "reg": 1
+        },
+        {
+          "name": "n",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 2
+        },
+        {
+          "name": "k",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 3
+        }
+      ],
+      "nvals": 6,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 4
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 5,
+            "args": [
+              0,
+              4,
+              1,
+              2,
+              3
+            ],
+            "sym": "crypto_stream_salsa20_xor"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              5
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 4
+        },
+        {
+          "op": 14,
+          "dst": 5,
+          "args": [
+            0,
+            4,
+            1,
+            2,
+            3
+          ],
+          "sym": "crypto_stream_salsa20_xor"
+        },
+        {
+          "op": 13,
+          "args": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crypto_onetimeauth_verify",
+      "result": "int",
+      "params": [
+        {
+          "name": "h",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "m",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        },
+        {
+          "name": "n",
+          "type": "uint64",
+          "reg": 2
+        },
+        {
+          "name": "k",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 3
+        }
+      ],
+      "nvals": 7,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 17,
+            "dst": 4,
+            "imm": 16,
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              4,
+              1,
+              2,
+              3
+            ],
+            "sym": "crypto_onetimeauth"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 6,
+            "args": [
+              0,
+              4
+            ],
+            "sym": "crypto_verify_16"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              6
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 17,
+          "dst": 4,
+          "imm": 16,
+          "elem": "uint8"
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            4,
+            1,
+            2,
+            3
+          ],
+          "sym": "crypto_onetimeauth"
+        },
+        {
+          "op": 14,
+          "dst": 6,
+          "args": [
+            0,
+            4
+          ],
+          "sym": "crypto_verify_16"
+        },
+        {
+          "op": 13,
+          "args": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crypto_secretbox",
+      "result": "int",
+      "params": [
+        {
+          "name": "c",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "m",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        },
+        {
+          "name": "d",
+          "type": "uint64",
+          "reg": 2
+        },
+        {
+          "name": "n",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 3
+        },
+        {
+          "name": "k",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 4
+        }
+      ],
+      "nvals": 26,
+      "stmts": [
+        {
+          "kind": 4,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 6,
+              "imm": 32
+            }
+          ],
+          "cond_left": 2,
+          "cond_op": "<",
+          "cond_right": 6,
+          "then_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 7,
+                "imm": 1
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 8
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 4,
+                "dst": 9,
+                "args": [
+                  8,
+                  7
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 13,
+                "args": [
+                  9
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "sym": "crypto_stream_xor"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 11,
+            "imm": 16
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 12,
+            "args": [
+              0
+            ],
+            "sym": "ptr_alias"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 3,
+            "dst": 13,
+            "args": [
+              0,
+              11
+            ],
+            "sym": "ptr_add"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 14,
+            "imm": 32
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 15,
+            "args": [
+              0
+            ],
+            "sym": "ptr_alias"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 3,
+            "dst": 16,
+            "args": [
+              0,
+              14
+            ],
+            "sym": "ptr_add"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 17,
+            "imm": 32
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 4,
+            "dst": 18,
+            "args": [
+              2,
+              17
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              13,
+              16,
+              18,
+              0
+            ],
+            "sym": "crypto_onetimeauth"
+          }
+        },
+        {
+          "kind": 1,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 20
+            },
+            {
+              "op": 2,
+              "dst": 5,
+              "args": [
+                20
+              ]
+            },
+            {
+              "op": 1,
+              "dst": 21,
+              "imm": 16
+            }
+          ],
+          "cond_left": 5,
+          "cond_op": "<",
+          "cond_right": 21,
+          "for_post": [
+            {
+              "op": 1,
+              "dst": 22,
+              "imm": 1
+            },
+            {
+              "op": 3,
+              "dst": 23,
+              "args": [
+                5,
+                22
+              ]
+            },
+            {
+              "op": 2,
+              "dst": 5,
+              "args": [
+                23
+              ]
+            }
+          ],
+          "for_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 24
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 16,
+                "args": [
+                  0,
+                  5,
+                  24
+                ],
+                "elem": "uint8"
+              }
+            }
+          ]
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 25
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              25
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 6,
+          "imm": 32
+        },
+        {
+          "op": 1,
+          "dst": 7,
+          "imm": 1
+        },
+        {
+          "op": 1,
+          "dst": 8
+        },
+        {
+          "op": 4,
+          "dst": 9,
+          "args": [
+            8,
+            7
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            9
+          ]
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "sym": "crypto_stream_xor"
+        },
+        {
+          "op": 1,
+          "dst": 11,
+          "imm": 16
+        },
+        {
+          "op": 2,
+          "dst": 12,
+          "args": [
+            0
+          ],
+          "sym": "ptr_alias"
+        },
+        {
+          "op": 3,
+          "dst": 13,
+          "args": [
+            0,
+            11
+          ],
+          "sym": "ptr_add"
+        },
+        {
+          "op": 1,
+          "dst": 14,
+          "imm": 32
+        },
+        {
+          "op": 2,
+          "dst": 15,
+          "args": [
+            0
+          ],
+          "sym": "ptr_alias"
+        },
+        {
+          "op": 3,
+          "dst": 16,
+          "args": [
+            0,
+            14
+          ],
+          "sym": "ptr_add"
+        },
+        {
+          "op": 1,
+          "dst": 17,
+          "imm": 32
+        },
+        {
+          "op": 4,
+          "dst": 18,
+          "args": [
+            2,
+            17
+          ]
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            13,
+            16,
+            18,
+            0
+          ],
+          "sym": "crypto_onetimeauth"
+        },
+        {
+          "op": 1,
+          "dst": 20
+        },
+        {
+          "op": 2,
+          "dst": 5,
+          "args": [
+            20
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 21,
+          "imm": 16
+        },
+        {
+          "op": 1,
+          "dst": 24
+        },
+        {
+          "op": 16,
+          "args": [
+            0,
+            5,
+            24
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 1,
+          "dst": 22,
+          "imm": 1
+        },
+        {
+          "op": 3,
+          "dst": 23,
+          "args": [
+            5,
+            22
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 5,
+          "args": [
+            23
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 25
+        },
+        {
+          "op": 13,
+          "args": [
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crypto_secretbox_open",
+      "result": "int",
+      "params": [
+        {
+          "name": "m",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "c",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        },
+        {
+          "name": "d",
+          "type": "uint64",
+          "reg": 2
+        },
+        {
+          "name": "n",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 3
+        },
+        {
+          "name": "k",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 4
+        }
+      ],
+      "nvals": 33,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 17,
+            "dst": 6,
+            "imm": 32,
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 4,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 7,
+              "imm": 32
+            }
+          ],
+          "cond_left": 2,
+          "cond_op": "<",
+          "cond_right": 7,
+          "then_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 8,
+                "imm": 1
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 9
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 4,
+                "dst": 10,
+                "args": [
+                  9,
+                  8
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 13,
+                "args": [
+                  10
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 11,
+            "imm": 32
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              6,
+              11,
+              3,
+              4
+            ],
+            "sym": "crypto_stream"
+          }
+        },
+        {
+          "kind": 4,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 13,
+              "imm": 16
+            },
+            {
+              "op": 2,
+              "dst": 14,
+              "args": [
+                1
+              ],
+              "sym": "ptr_alias"
+            },
+            {
+              "op": 3,
+              "dst": 15,
+              "args": [
+                1,
+                13
+              ],
+              "sym": "ptr_add"
+            },
+            {
+              "op": 1,
+              "dst": 16,
+              "imm": 32
+            },
+            {
+              "op": 2,
+              "dst": 17,
+              "args": [
+                1
+              ],
+              "sym": "ptr_alias"
+            },
+            {
+              "op": 3,
+              "dst": 18,
+              "args": [
+                1,
+                16
+              ],
+              "sym": "ptr_add"
+            },
+            {
+              "op": 1,
+              "dst": 19,
+              "imm": 32
+            },
+            {
+              "op": 4,
+              "dst": 20,
+              "args": [
+                2,
+                19
+              ]
+            },
+            {
+              "op": 14,
+              "dst": 21,
+              "args": [
+                15,
+                18,
+                20,
+                6
+              ],
+              "sym": "crypto_onetimeauth_verify"
+            },
+            {
+              "op": 1,
+              "dst": 22
+            }
+          ],
+          "cond_left": 21,
+          "cond_op": "!=",
+          "cond_right": 22,
+          "then_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 23,
+                "imm": 1
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 24
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 4,
+                "dst": 25,
+                "args": [
+                  24,
+                  23
+                ]
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 13,
+                "args": [
+                  25
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "sym": "crypto_stream_xor"
+          }
+        },
+        {
+          "kind": 1,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 27
+            },
+            {
+              "op": 2,
+              "dst": 5,
+              "args": [
+                27
+              ]
+            },
+            {
+              "op": 1,
+              "dst": 28,
+              "imm": 32
+            }
+          ],
+          "cond_left": 5,
+          "cond_op": "<",
+          "cond_right": 28,
+          "for_post": [
+            {
+              "op": 1,
+              "dst": 29,
+              "imm": 1
+            },
+            {
+              "op": 3,
+              "dst": 30,
+              "args": [
+                5,
+                29
+              ]
+            },
+            {
+              "op": 2,
+              "dst": 5,
+              "args": [
+                30
+              ]
+            }
+          ],
+          "for_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 31
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 16,
+                "args": [
+                  0,
+                  5,
+                  31
+                ],
+                "elem": "uint8"
+              }
+            }
+          ]
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 32
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              32
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 17,
+          "dst": 6,
+          "imm": 32,
+          "elem": "uint8"
+        },
+        {
+          "op": 1,
+          "dst": 7,
+          "imm": 32
+        },
+        {
+          "op": 1,
+          "dst": 8,
+          "imm": 1
+        },
+        {
+          "op": 1,
+          "dst": 9
+        },
+        {
+          "op": 4,
+          "dst": 10,
+          "args": [
+            9,
+            8
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            10
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 11,
+          "imm": 32
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            6,
+            11,
+            3,
+            4
+          ],
+          "sym": "crypto_stream"
+        },
+        {
+          "op": 1,
+          "dst": 13,
+          "imm": 16
+        },
+        {
+          "op": 2,
+          "dst": 14,
+          "args": [
+            1
+          ],
+          "sym": "ptr_alias"
+        },
+        {
+          "op": 3,
+          "dst": 15,
+          "args": [
+            1,
+            13
+          ],
+          "sym": "ptr_add"
+        },
+        {
+          "op": 1,
+          "dst": 16,
+          "imm": 32
+        },
+        {
+          "op": 2,
+          "dst": 17,
+          "args": [
+            1
+          ],
+          "sym": "ptr_alias"
+        },
+        {
+          "op": 3,
+          "dst": 18,
+          "args": [
+            1,
+            16
+          ],
+          "sym": "ptr_add"
+        },
+        {
+          "op": 1,
+          "dst": 19,
+          "imm": 32
+        },
+        {
+          "op": 4,
+          "dst": 20,
+          "args": [
+            2,
+            19
+          ]
+        },
+        {
+          "op": 14,
+          "dst": 21,
+          "args": [
+            15,
+            18,
+            20,
+            6
+          ],
+          "sym": "crypto_onetimeauth_verify"
+        },
+        {
+          "op": 1,
+          "dst": 22
+        },
+        {
+          "op": 1,
+          "dst": 23,
+          "imm": 1
+        },
+        {
+          "op": 1,
+          "dst": 24
+        },
+        {
+          "op": 4,
+          "dst": 25,
+          "args": [
+            24,
+            23
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            25
+          ]
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "sym": "crypto_stream_xor"
+        },
+        {
+          "op": 1,
+          "dst": 27
+        },
+        {
+          "op": 2,
+          "dst": 5,
+          "args": [
+            27
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 28,
+          "imm": 32
+        },
+        {
+          "op": 1,
+          "dst": 31
+        },
+        {
+          "op": 16,
+          "args": [
+            0,
+            5,
+            31
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 1,
+          "dst": 29,
+          "imm": 1
+        },
+        {
+          "op": 3,
+          "dst": 30,
+          "args": [
+            5,
+            29
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 5,
+          "args": [
+            30
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 32
+        },
+        {
+          "op": 13,
+          "args": [
+            32
+          ]
+        }
+      ]
+    },
+    {
+      "name": "neq25519",
+      "result": "int",
+      "params": [
+        {
+          "name": "a",
+          "type": "uint64",
+          "ptr": true,
+          "array_len": 16,
+          "reg": 0
+        },
+        {
+          "name": "b",
+          "type": "uint64",
+          "ptr": true,
+          "array_len": 16,
+          "reg": 1
+        }
+      ],
+      "nvals": 7,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 17,
+            "dst": 2,
+            "imm": 32,
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 17,
+            "dst": 3,
+            "imm": 32,
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              2,
+              0
+            ],
+            "sym": "pack25519"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              3,
+              1
+            ],
+            "sym": "pack25519"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 6,
+            "args": [
+              2,
+              3
+            ],
+            "sym": "crypto_verify_32"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              6
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 17,
+          "dst": 2,
+          "imm": 32,
+          "elem": "uint8"
+        },
+        {
+          "op": 17,
+          "dst": 3,
+          "imm": 32,
+          "elem": "uint8"
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            2,
+            0
+          ],
+          "sym": "pack25519"
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            3,
+            1
+          ],
+          "sym": "pack25519"
+        },
+        {
+          "op": 14,
+          "dst": 6,
+          "args": [
+            2,
+            3
+          ],
+          "sym": "crypto_verify_32"
+        },
+        {
+          "op": 13,
+          "args": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "par25519",
+      "result": "uint8",
+      "params": [
+        {
+          "name": "a",
+          "type": "uint64",
+          "ptr": true,
+          "array_len": 16,
+          "reg": 0
+        }
+      ],
+      "nvals": 7,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 17,
+            "dst": 1,
+            "imm": 32,
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              1,
+              0
+            ],
+            "sym": "pack25519"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 3
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 15,
+            "dst": 4,
+            "args": [
+              1,
+              3
+            ],
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 5,
+            "imm": 1
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 8,
+            "dst": 6,
+            "args": [
+              4,
+              5
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              6
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 17,
+          "dst": 1,
+          "imm": 32,
+          "elem": "uint8"
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            1,
+            0
+          ],
+          "sym": "pack25519"
+        },
+        {
+          "op": 1,
+          "dst": 3
+        },
+        {
+          "op": 15,
+          "dst": 4,
+          "args": [
+            1,
+            3
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 1,
+          "dst": 5,
+          "imm": 1
+        },
+        {
+          "op": 8,
+          "dst": 6,
+          "args": [
+            4,
+            5
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crypto_box_keypair",
+      "result": "int",
+      "params": [
+        {
+          "name": "y",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "x",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        }
+      ],
+      "nvals": 5,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 2,
+            "imm": 32
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              1,
+              2
+            ],
+            "sym": "randombytes"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 4,
+            "args": [
+              0,
+              1
+            ],
+            "sym": "crypto_scalarmult_base"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              4
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 2,
+          "imm": 32
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            1,
+            2
+          ],
+          "sym": "randombytes"
+        },
+        {
+          "op": 14,
+          "dst": 4,
+          "args": [
+            0,
+            1
+          ],
+          "sym": "crypto_scalarmult_base"
+        },
+        {
+          "op": 13,
+          "args": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crypto_box_afternm",
+      "result": "int",
+      "params": [
+        {
+          "name": "c",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "m",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        },
+        {
+          "name": "d",
+          "type": "uint64",
+          "reg": 2
+        },
+        {
+          "name": "n",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 3
+        },
+        {
+          "name": "k",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 4
+        }
+      ],
+      "nvals": 6,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 5,
+            "args": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "sym": "crypto_secretbox"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              5
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 14,
+          "dst": 5,
+          "args": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "sym": "crypto_secretbox"
+        },
+        {
+          "op": 13,
+          "args": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crypto_box_open_afternm",
+      "result": "int",
+      "params": [
+        {
+          "name": "m",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "c",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        },
+        {
+          "name": "d",
+          "type": "uint64",
+          "reg": 2
+        },
+        {
+          "name": "n",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 3
+        },
+        {
+          "name": "k",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 4
+        }
+      ],
+      "nvals": 6,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 5,
+            "args": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "sym": "crypto_secretbox_open"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              5
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 14,
+          "dst": 5,
+          "args": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "sym": "crypto_secretbox_open"
+        },
+        {
+          "op": 13,
+          "args": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crypto_box",
+      "result": "int",
+      "params": [
+        {
+          "name": "c",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "m",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        },
+        {
+          "name": "d",
+          "type": "uint64",
+          "reg": 2
+        },
+        {
+          "name": "n",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 3
+        },
+        {
+          "name": "y",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 4
+        },
+        {
+          "name": "x",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 5
+        }
+      ],
+      "nvals": 9,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 17,
+            "dst": 6,
+            "imm": 32,
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              6,
+              4,
+              5
+            ],
+            "sym": "crypto_box_beforenm"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 8,
+            "args": [
+              0,
+              1,
+              2,
+              3,
+              6
+            ],
+            "sym": "crypto_box_afternm"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              8
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 17,
+          "dst": 6,
+          "imm": 32,
+          "elem": "uint8"
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            6,
+            4,
+            5
+          ],
+          "sym": "crypto_box_beforenm"
+        },
+        {
+          "op": 14,
+          "dst": 8,
+          "args": [
+            0,
+            1,
+            2,
+            3,
+            6
+          ],
+          "sym": "crypto_box_afternm"
+        },
+        {
+          "op": 13,
+          "args": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crypto_box_open",
+      "result": "int",
+      "params": [
+        {
+          "name": "m",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "c",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        },
+        {
+          "name": "d",
+          "type": "uint64",
+          "reg": 2
+        },
+        {
+          "name": "n",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 3
+        },
+        {
+          "name": "y",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 4
+        },
+        {
+          "name": "x",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 5
+        }
+      ],
+      "nvals": 9,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 17,
+            "dst": 6,
+            "imm": 32,
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              6,
+              4,
+              5
+            ],
+            "sym": "crypto_box_beforenm"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 8,
+            "args": [
+              0,
+              1,
+              2,
+              3,
+              6
+            ],
+            "sym": "crypto_box_open_afternm"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              8
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 17,
+          "dst": 6,
+          "imm": 32,
+          "elem": "uint8"
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            6,
+            4,
+            5
+          ],
+          "sym": "crypto_box_beforenm"
+        },
+        {
+          "op": 14,
+          "dst": 8,
+          "args": [
+            0,
+            1,
+            2,
+            3,
+            6
+          ],
+          "sym": "crypto_box_open_afternm"
+        },
+        {
+          "op": 13,
+          "args": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "name": "R",
+      "result": "uint64",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64",
+          "reg": 0
+        },
+        {
+          "name": "c",
+          "type": "int",
+          "reg": 1
+        }
+      ],
+      "nvals": 7,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 12,
+            "dst": 2,
+            "args": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 3,
+            "imm": 64
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 4,
+            "dst": 4,
+            "args": [
+              3,
+              1
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 11,
+            "dst": 5,
+            "args": [
+              0,
+              4
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 9,
+            "dst": 6,
+            "args": [
+              2,
+              5
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              6
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 12,
+          "dst": 2,
+          "args": [
+            0,
+            1
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 3,
+          "imm": 64
+        },
+        {
+          "op": 4,
+          "dst": 4,
+          "args": [
+            3,
+            1
+          ]
+        },
+        {
+          "op": 11,
+          "dst": 5,
+          "args": [
+            0,
+            4
+          ]
+        },
+        {
+          "op": 9,
+          "dst": 6,
+          "args": [
+            2,
+            5
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ch",
+      "result": "uint64",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64",
+          "reg": 0
+        },
+        {
+          "name": "y",
+          "type": "uint64",
+          "reg": 1
+        },
+        {
+          "name": "z",
+          "type": "uint64",
+          "reg": 2
+        }
+      ],
+      "nvals": 7,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 8,
+            "dst": 3,
+            "args": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 18,
+            "dst": 4,
+            "args": [
+              0
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 8,
+            "dst": 5,
+            "args": [
+              4,
+              2
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 10,
+            "dst": 6,
+            "args": [
+              3,
+              5
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              6
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 8,
+          "dst": 3,
+          "args": [
+            0,
+            1
+          ]
+        },
+        {
+          "op": 18,
+          "dst": 4,
+          "args": [
+            0
+          ]
+        },
+        {
+          "op": 8,
+          "dst": 5,
+          "args": [
+            4,
+            2
+          ]
+        },
+        {
+          "op": 10,
+          "dst": 6,
+          "args": [
+            3,
+            5
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Maj",
+      "result": "uint64",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64",
+          "reg": 0
+        },
+        {
+          "name": "y",
+          "type": "uint64",
+          "reg": 1
+        },
+        {
+          "name": "z",
+          "type": "uint64",
+          "reg": 2
+        }
+      ],
+      "nvals": 8,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 8,
+            "dst": 3,
+            "args": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 8,
+            "dst": 4,
+            "args": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 10,
+            "dst": 5,
+            "args": [
+              3,
+              4
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 8,
+            "dst": 6,
+            "args": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 10,
+            "dst": 7,
+            "args": [
+              5,
+              6
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              7
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 8,
+          "dst": 3,
+          "args": [
+            0,
+            1
+          ]
+        },
+        {
+          "op": 8,
+          "dst": 4,
+          "args": [
+            0,
+            2
+          ]
+        },
+        {
+          "op": 10,
+          "dst": 5,
+          "args": [
+            3,
+            4
+          ]
+        },
+        {
+          "op": 8,
+          "dst": 6,
+          "args": [
+            1,
+            2
+          ]
+        },
+        {
+          "op": 10,
+          "dst": 7,
+          "args": [
+            5,
+            6
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sigma0",
+      "result": "uint64",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64",
+          "reg": 0
+        }
+      ],
+      "nvals": 9,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 1,
+            "imm": 28
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 2,
+            "args": [
+              0,
+              1
+            ],
+            "sym": "R"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 3,
+            "imm": 34
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 4,
+            "args": [
+              0,
+              3
+            ],
+            "sym": "R"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 10,
+            "dst": 5,
+            "args": [
+              2,
+              4
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 6,
+            "imm": 39
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 7,
+            "args": [
+              0,
+              6
+            ],
+            "sym": "R"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 10,
+            "dst": 8,
+            "args": [
+              5,
+              7
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              8
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 1,
+          "imm": 28
+        },
+        {
+          "op": 14,
+          "dst": 2,
+          "args": [
+            0,
+            1
+          ],
+          "sym": "R"
+        },
+        {
+          "op": 1,
+          "dst": 3,
+          "imm": 34
+        },
+        {
+          "op": 14,
+          "dst": 4,
+          "args": [
+            0,
+            3
+          ],
+          "sym": "R"
+        },
+        {
+          "op": 10,
+          "dst": 5,
+          "args": [
+            2,
+            4
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 6,
+          "imm": 39
+        },
+        {
+          "op": 14,
+          "dst": 7,
+          "args": [
+            0,
+            6
+          ],
+          "sym": "R"
+        },
+        {
+          "op": 10,
+          "dst": 8,
+          "args": [
+            5,
+            7
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sigma1",
+      "result": "uint64",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64",
+          "reg": 0
+        }
+      ],
+      "nvals": 9,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 1,
+            "imm": 14
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 2,
+            "args": [
+              0,
+              1
+            ],
+            "sym": "R"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 3,
+            "imm": 18
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 4,
+            "args": [
+              0,
+              3
+            ],
+            "sym": "R"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 10,
+            "dst": 5,
+            "args": [
+              2,
+              4
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 6,
+            "imm": 41
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 7,
+            "args": [
+              0,
+              6
+            ],
+            "sym": "R"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 10,
+            "dst": 8,
+            "args": [
+              5,
+              7
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              8
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 1,
+          "imm": 14
+        },
+        {
+          "op": 14,
+          "dst": 2,
+          "args": [
+            0,
+            1
+          ],
+          "sym": "R"
+        },
+        {
+          "op": 1,
+          "dst": 3,
+          "imm": 18
+        },
+        {
+          "op": 14,
+          "dst": 4,
+          "args": [
+            0,
+            3
+          ],
+          "sym": "R"
+        },
+        {
+          "op": 10,
+          "dst": 5,
+          "args": [
+            2,
+            4
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 6,
+          "imm": 41
+        },
+        {
+          "op": 14,
+          "dst": 7,
+          "args": [
+            0,
+            6
+          ],
+          "sym": "R"
+        },
+        {
+          "op": 10,
+          "dst": 8,
+          "args": [
+            5,
+            7
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sigma0",
+      "result": "uint64",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64",
+          "reg": 0
+        }
+      ],
+      "nvals": 9,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 1,
+            "imm": 1
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 2,
+            "args": [
+              0,
+              1
+            ],
+            "sym": "R"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 3,
+            "imm": 8
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 4,
+            "args": [
+              0,
+              3
+            ],
+            "sym": "R"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 10,
+            "dst": 5,
+            "args": [
+              2,
+              4
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 6,
+            "imm": 7
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 12,
+            "dst": 7,
+            "args": [
+              0,
+              6
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 10,
+            "dst": 8,
+            "args": [
+              5,
+              7
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              8
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 1,
+          "imm": 1
+        },
+        {
+          "op": 14,
+          "dst": 2,
+          "args": [
+            0,
+            1
+          ],
+          "sym": "R"
+        },
+        {
+          "op": 1,
+          "dst": 3,
+          "imm": 8
+        },
+        {
+          "op": 14,
+          "dst": 4,
+          "args": [
+            0,
+            3
+          ],
+          "sym": "R"
+        },
+        {
+          "op": 10,
+          "dst": 5,
+          "args": [
+            2,
+            4
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 6,
+          "imm": 7
+        },
+        {
+          "op": 12,
+          "dst": 7,
+          "args": [
+            0,
+            6
+          ]
+        },
+        {
+          "op": 10,
+          "dst": 8,
+          "args": [
+            5,
+            7
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sigma1",
+      "result": "uint64",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64",
+          "reg": 0
+        }
+      ],
+      "nvals": 9,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 1,
+            "imm": 19
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 2,
+            "args": [
+              0,
+              1
+            ],
+            "sym": "R"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 3,
+            "imm": 61
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 4,
+            "args": [
+              0,
+              3
+            ],
+            "sym": "R"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 10,
+            "dst": 5,
+            "args": [
+              2,
+              4
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 6,
+            "imm": 6
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 12,
+            "dst": 7,
+            "args": [
+              0,
+              6
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 10,
+            "dst": 8,
+            "args": [
+              5,
+              7
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              8
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 1,
+          "dst": 1,
+          "imm": 19
+        },
+        {
+          "op": 14,
+          "dst": 2,
+          "args": [
+            0,
+            1
+          ],
+          "sym": "R"
+        },
+        {
+          "op": 1,
+          "dst": 3,
+          "imm": 61
+        },
+        {
+          "op": 14,
+          "dst": 4,
+          "args": [
+            0,
+            3
+          ],
+          "sym": "R"
+        },
+        {
+          "op": 10,
+          "dst": 5,
+          "args": [
+            2,
+            4
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 6,
+          "imm": 6
+        },
+        {
+          "op": 12,
+          "dst": 7,
+          "args": [
+            0,
+            6
+          ]
+        },
+        {
+          "op": 10,
+          "dst": 8,
+          "args": [
+            5,
+            7
+          ]
+        },
+        {
+          "op": 13,
+          "args": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crypto_hash",
+      "result": "int",
+      "params": [
+        {
+          "name": "out",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 0
+        },
+        {
+          "name": "m",
+          "type": "uint8",
+          "ptr": true,
+          "reg": 1
+        },
+        {
+          "name": "n",
+          "type": "uint64",
+          "reg": 2
+        }
+      ],
+      "nvals": 53,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 3,
+            "sym": "global:iv"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 17,
+            "dst": 4,
+            "imm": 64,
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 17,
+            "dst": 5,
+            "imm": 256,
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 7,
+            "args": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": 1,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 8
+            },
+            {
+              "op": 2,
+              "dst": 6,
+              "args": [
+                8
+              ]
+            },
+            {
+              "op": 1,
+              "dst": 9,
+              "imm": 64
+            }
+          ],
+          "cond_left": 6,
+          "cond_op": "<",
+          "cond_right": 9,
+          "for_post": [
+            {
+              "op": 1,
+              "dst": 10,
+              "imm": 1
+            },
+            {
+              "op": 3,
+              "dst": 11,
+              "args": [
+                6,
+                10
+              ]
+            },
+            {
+              "op": 2,
+              "dst": 6,
+              "args": [
+                11
+              ]
+            }
+          ],
+          "for_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 15,
+                "dst": 12,
+                "args": [
+                  3,
+                  6
+                ],
+                "elem": "uint8"
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 16,
+                "args": [
+                  4,
+                  6,
+                  12
+                ],
+                "elem": "uint8"
+              }
+            }
+          ]
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              4,
+              1,
+              2
+            ],
+            "sym": "crypto_hashblocks"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 14,
+            "imm": 127
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 8,
+            "dst": 15,
+            "args": [
+              7,
+              14
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 2,
+            "args": [
+              15
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 4,
+            "dst": 16,
+            "args": [
+              7,
+              2
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 3,
+            "dst": 17,
+            "args": [
+              1,
+              16
+            ],
+            "sym": "ptr_add"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 1,
+            "args": [
+              17
+            ],
+            "sym": "ptr_alias"
+          }
+        },
+        {
+          "kind": 1,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 18
+            },
+            {
+              "op": 2,
+              "dst": 6,
+              "args": [
+                18
+              ]
+            },
+            {
+              "op": 1,
+              "dst": 19,
+              "imm": 256
+            }
+          ],
+          "cond_left": 6,
+          "cond_op": "<",
+          "cond_right": 19,
+          "for_post": [
+            {
+              "op": 1,
+              "dst": 20,
+              "imm": 1
+            },
+            {
+              "op": 3,
+              "dst": 21,
+              "args": [
+                6,
+                20
+              ]
+            },
+            {
+              "op": 2,
+              "dst": 6,
+              "args": [
+                21
+              ]
+            }
+          ],
+          "for_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 1,
+                "dst": 22
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 16,
+                "args": [
+                  5,
+                  6,
+                  22
+                ],
+                "elem": "uint8"
+              }
+            }
+          ]
+        },
+        {
+          "kind": 1,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 23
+            },
+            {
+              "op": 2,
+              "dst": 6,
+              "args": [
+                23
+              ]
+            }
+          ],
+          "cond_left": 6,
+          "cond_op": "<",
+          "cond_right": 2,
+          "for_post": [
+            {
+              "op": 1,
+              "dst": 24,
+              "imm": 1
+            },
+            {
+              "op": 3,
+              "dst": 25,
+              "args": [
+                6,
+                24
+              ]
+            },
+            {
+              "op": 2,
+              "dst": 6,
+              "args": [
+                25
+              ]
+            }
+          ],
+          "for_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 15,
+                "dst": 26,
+                "args": [
+                  1,
+                  6
+                ],
+                "elem": "uint8"
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 16,
+                "args": [
+                  5,
+                  6,
+                  26
+                ],
+                "elem": "uint8"
+              }
+            }
+          ]
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 27,
+            "imm": 128
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 16,
+            "args": [
+              5,
+              2,
+              27
+            ],
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 28,
+            "imm": 256
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 29,
+            "imm": 128
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 30,
+            "imm": 112
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": 31,
+            "args": [
+              2,
+              30
+            ],
+            "sym": "__cmp_<"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 5,
+            "dst": 32,
+            "args": [
+              29,
+              31
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 4,
+            "dst": 33,
+            "args": [
+              28,
+              32
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 2,
+            "args": [
+              33
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 34,
+            "imm": 61
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 12,
+            "dst": 35,
+            "args": [
+              7,
+              34
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 36,
+            "imm": 9
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 4,
+            "dst": 37,
+            "args": [
+              2,
+              36
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 16,
+            "args": [
+              5,
+              37,
+              35
+            ],
+            "elem": "uint8"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 38,
+            "args": [
+              5
+            ],
+            "sym": "ptr_alias"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 39,
+            "imm": 8
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 4,
+            "dst": 41,
+            "args": [
+              2,
+              39
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 2,
+            "dst": 40,
+            "args": [
+              5
+            ],
+            "sym": "ptr_alias"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 3,
+            "dst": 42,
+            "args": [
+              5,
+              41
+            ],
+            "sym": "ptr_add"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 43,
+            "imm": 3
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 11,
+            "dst": 44,
+            "args": [
+              7,
+              43
+            ]
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              42,
+              44
+            ],
+            "sym": "ts64"
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 14,
+            "dst": -1,
+            "args": [
+              4,
+              5,
+              2
+            ],
+            "sym": "crypto_hashblocks"
+          }
+        },
+        {
+          "kind": 1,
+          "ins": {
+            "op": 0
+          },
+          "for_init": [
+            {
+              "op": 1,
+              "dst": 47
+            },
+            {
+              "op": 2,
+              "dst": 6,
+              "args": [
+                47
+              ]
+            },
+            {
+              "op": 1,
+              "dst": 48,
+              "imm": 64
+            }
+          ],
+          "cond_left": 6,
+          "cond_op": "<",
+          "cond_right": 48,
+          "for_post": [
+            {
+              "op": 1,
+              "dst": 49,
+              "imm": 1
+            },
+            {
+              "op": 3,
+              "dst": 50,
+              "args": [
+                6,
+                49
+              ]
+            },
+            {
+              "op": 2,
+              "dst": 6,
+              "args": [
+                50
+              ]
+            }
+          ],
+          "for_body": [
+            {
+              "kind": 0,
+              "ins": {
+                "op": 15,
+                "dst": 51,
+                "args": [
+                  4,
+                  6
+                ],
+                "elem": "uint8"
+              }
+            },
+            {
+              "kind": 0,
+              "ins": {
+                "op": 16,
+                "args": [
+                  0,
+                  6,
+                  51
+                ],
+                "elem": "uint8"
+              }
+            }
+          ]
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1,
+            "dst": 52
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              52
+            ]
+          }
+        }
+      ],
+      "body": [
+        {
+          "op": 2,
+          "dst": 3,
+          "sym": "global:iv"
+        },
+        {
+          "op": 17,
+          "dst": 4,
+          "imm": 64,
+          "elem": "uint8"
+        },
+        {
+          "op": 17,
+          "dst": 5,
+          "imm": 256,
+          "elem": "uint8"
+        },
+        {
+          "op": 2,
+          "dst": 7,
+          "args": [
+            2
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 8
+        },
+        {
+          "op": 2,
+          "dst": 6,
+          "args": [
+            8
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 9,
+          "imm": 64
+        },
+        {
+          "op": 15,
+          "dst": 12,
+          "args": [
+            3,
+            6
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 16,
+          "args": [
+            4,
+            6,
+            12
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 1,
+          "dst": 10,
+          "imm": 1
+        },
+        {
+          "op": 3,
+          "dst": 11,
+          "args": [
+            6,
+            10
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 6,
+          "args": [
+            11
+          ]
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            4,
+            1,
+            2
+          ],
+          "sym": "crypto_hashblocks"
+        },
+        {
+          "op": 1,
+          "dst": 14,
+          "imm": 127
+        },
+        {
+          "op": 8,
+          "dst": 15,
+          "args": [
+            7,
+            14
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 2,
+          "args": [
+            15
+          ]
+        },
+        {
+          "op": 4,
+          "dst": 16,
+          "args": [
+            7,
+            2
+          ]
+        },
+        {
+          "op": 3,
+          "dst": 17,
+          "args": [
+            1,
+            16
+          ],
+          "sym": "ptr_add"
+        },
+        {
+          "op": 2,
+          "dst": 1,
+          "args": [
+            17
+          ],
+          "sym": "ptr_alias"
+        },
+        {
+          "op": 1,
+          "dst": 18
+        },
+        {
+          "op": 2,
+          "dst": 6,
+          "args": [
+            18
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 19,
+          "imm": 256
+        },
+        {
+          "op": 1,
+          "dst": 22
+        },
+        {
+          "op": 16,
+          "args": [
+            5,
+            6,
+            22
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 1,
+          "dst": 20,
+          "imm": 1
+        },
+        {
+          "op": 3,
+          "dst": 21,
+          "args": [
+            6,
+            20
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 6,
+          "args": [
+            21
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 23
+        },
+        {
+          "op": 2,
+          "dst": 6,
+          "args": [
+            23
+          ]
+        },
+        {
+          "op": 15,
+          "dst": 26,
+          "args": [
+            1,
+            6
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 16,
+          "args": [
+            5,
+            6,
+            26
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 1,
+          "dst": 24,
+          "imm": 1
+        },
+        {
+          "op": 3,
+          "dst": 25,
+          "args": [
+            6,
+            24
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 6,
+          "args": [
+            25
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 27,
+          "imm": 128
+        },
+        {
+          "op": 16,
+          "args": [
+            5,
+            2,
+            27
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 1,
+          "dst": 28,
+          "imm": 256
+        },
+        {
+          "op": 1,
+          "dst": 29,
+          "imm": 128
+        },
+        {
+          "op": 1,
+          "dst": 30,
+          "imm": 112
+        },
+        {
+          "op": 14,
+          "dst": 31,
+          "args": [
+            2,
+            30
+          ],
+          "sym": "__cmp_<"
+        },
+        {
+          "op": 5,
+          "dst": 32,
+          "args": [
+            29,
+            31
+          ]
+        },
+        {
+          "op": 4,
+          "dst": 33,
+          "args": [
+            28,
+            32
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 2,
+          "args": [
+            33
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 34,
+          "imm": 61
+        },
+        {
+          "op": 12,
+          "dst": 35,
+          "args": [
+            7,
+            34
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 36,
+          "imm": 9
+        },
+        {
+          "op": 4,
+          "dst": 37,
+          "args": [
+            2,
+            36
+          ]
+        },
+        {
+          "op": 16,
+          "args": [
+            5,
+            37,
+            35
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 2,
+          "dst": 38,
+          "args": [
+            5
+          ],
+          "sym": "ptr_alias"
+        },
+        {
+          "op": 1,
+          "dst": 39,
+          "imm": 8
+        },
+        {
+          "op": 4,
+          "dst": 41,
+          "args": [
+            2,
+            39
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 40,
+          "args": [
+            5
+          ],
+          "sym": "ptr_alias"
+        },
+        {
+          "op": 3,
+          "dst": 42,
+          "args": [
+            5,
+            41
+          ],
+          "sym": "ptr_add"
+        },
+        {
+          "op": 1,
+          "dst": 43,
+          "imm": 3
+        },
+        {
+          "op": 11,
+          "dst": 44,
+          "args": [
+            7,
+            43
+          ]
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            42,
+            44
+          ],
+          "sym": "ts64"
+        },
+        {
+          "op": 14,
+          "dst": -1,
+          "args": [
+            4,
+            5,
+            2
+          ],
+          "sym": "crypto_hashblocks"
+        },
+        {
+          "op": 1,
+          "dst": 47
+        },
+        {
+          "op": 2,
+          "dst": 6,
+          "args": [
+            47
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 48,
+          "imm": 64
+        },
+        {
+          "op": 15,
+          "dst": 51,
+          "args": [
+            4,
+            6
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 16,
+          "args": [
+            0,
+            6,
+            51
+          ],
+          "elem": "uint8"
+        },
+        {
+          "op": 1,
+          "dst": 49,
+          "imm": 1
+        },
+        {
+          "op": 3,
+          "dst": 50,
+          "args": [
+            6,
+            49
+          ]
+        },
+        {
+          "op": 2,
+          "dst": 6,
+          "args": [
+            50
+          ]
+        },
+        {
+          "op": 1,
+          "dst": 52
+        },
+        {
+          "op": 13,
+          "args": [
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Core",
+      "result": "void",
+      "params": [
+        {
+          "name": "args",
+          "type": "...any",
+          "reg": 0
+        }
+      ],
+      "nvals": -1,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13
+          }
+        }
+      ]
+    },
+    {
+      "name": "Crypto_stream_salsa20_xor",
+      "result": "int",
+      "params": [
+        {
+          "name": "args",
+          "type": "...any",
+          "reg": 0
+        }
+      ],
+      "nvals": 1,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Crypto_onetimeauth",
+      "result": "void",
+      "params": [
+        {
+          "name": "args",
+          "type": "...any",
+          "reg": 0
+        }
+      ],
+      "nvals": -1,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13
+          }
+        }
+      ]
+    },
+    {
+      "name": "Crypto_stream_xor",
+      "result": "void",
+      "params": [
+        {
+          "name": "args",
+          "type": "...any",
+          "reg": 0
+        }
+      ],
+      "nvals": -1,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13
+          }
+        }
+      ]
+    },
+    {
+      "name": "Crypto_stream",
+      "result": "void",
+      "params": [
+        {
+          "name": "args",
+          "type": "...any",
+          "reg": 0
+        }
+      ],
+      "nvals": -1,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pack25519",
+      "result": "void",
+      "params": [
+        {
+          "name": "args",
+          "type": "...any",
+          "reg": 0
+        }
+      ],
+      "nvals": -1,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13
+          }
+        }
+      ]
+    },
+    {
+      "name": "Crypto_scalarmult_base",
+      "result": "int",
+      "params": [
+        {
+          "name": "args",
+          "type": "...any",
+          "reg": 0
+        }
+      ],
+      "nvals": 1,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 1
+          }
+        },
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13,
+            "args": [
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Crypto_box_beforenm",
+      "result": "void",
+      "params": [
+        {
+          "name": "args",
+          "type": "...any",
+          "reg": 0
+        }
+      ],
+      "nvals": -1,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13
+          }
+        }
+      ]
+    },
+    {
+      "name": "Crypto_hashblocks",
+      "result": "void",
+      "params": [
+        {
+          "name": "args",
+          "type": "...any",
+          "reg": 0
+        }
+      ],
+      "nvals": -1,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ts64",
+      "result": "void",
+      "params": [
+        {
+          "name": "args",
+          "type": "...any",
+          "reg": 0
+        }
+      ],
+      "nvals": -1,
+      "stmts": [
+        {
+          "kind": 0,
+          "ins": {
+            "op": 13
+          }
+        }
+      ]
+    }
+  ]
+}

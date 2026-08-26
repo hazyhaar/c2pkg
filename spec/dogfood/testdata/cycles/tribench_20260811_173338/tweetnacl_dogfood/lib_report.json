@@ -1,0 +1,57 @@
+{
+  "id": "tweetnacl_dogfood",
+  "kind": "tweet_ver",
+  "notes": "surface verify_16; stub tweetnacl.h",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 71,
+      "binary_bytes": 39328,
+      "run_ms": 0,
+      "stdout_sha256": "fa5ba03698915194d43435c407693bf36a496a342ff50239ad553246fd9abaf2",
+      "stdout": "eq 0\nneq -1\n",
+      "match_oracle": false,
+      "lines": {
+        "eq": "0",
+        "neq": "-1"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 281,
+      "binary_bytes": 38536,
+      "run_ms": 0,
+      "stdout_sha256": "fa5ba03698915194d43435c407693bf36a496a342ff50239ad553246fd9abaf2",
+      "stdout": "eq 0\nneq -1\n",
+      "match_oracle": false,
+      "lines": {
+        "eq": "0",
+        "neq": "-1"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "fail",
+      "error": "go build: # trib/kernel\nkernel/kernel.go:27:16: invalid operation: v1 \u003c\u003c uint8(8) | uint64(x[0]) (mismatched types uint8 and uint64)\nkernel/kernel.go:214:23: invalid operation: v3 + v8 (mismatched types uint64 and int)\n",
+      "compile_ms": 109,
+      "run_ms": 0,
+      "match_oracle": false,
+      "code_lines": 270,
+      "var_count": 10,
+      "int_cast_index": 14
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": false,
+  "wall_ms": 464
+}

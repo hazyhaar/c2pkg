@@ -1,0 +1,18 @@
+{
+  "kernel": "chacha20_qr",
+  "stamp": "20260810d",
+  "src_c": "spec/c_sources/testdata/c_sources/chacha20_qr.c",
+  "ccgo": "/home/cl-ment/go/bin/ccgo",
+  "raw_lines": 501,
+  "opt_lines": 500,
+  "raw_rotl_calls": 0,
+  "opt_rotl_calls": 0,
+  "raw_bits_rotate": 0,
+  "opt_bits_rotate": 4,
+  "raw_tls_first_param_funcs": 2,
+  "opt_tls_first_param_funcs": 0,
+  "tls_params_elided": 2,
+  "bits_rotate_gained": 4,
+  "build_raw_ok": 1,
+  "build_opt_ok": 1
+}

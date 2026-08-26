@@ -1,0 +1,11 @@
+{
+  "kernel": "cjson",
+  "raw_lines": 3440,
+  "opt_lines": 3440,
+  "opt_bits": 0,
+  "raw_tls": 112,
+  "opt_tls": 81,
+  "ccgo_up": 266,
+  "gotos": 74,
+  "switches": 8
+}

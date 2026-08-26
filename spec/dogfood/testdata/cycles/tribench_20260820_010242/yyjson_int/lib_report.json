@@ -1,0 +1,74 @@
+{
+  "id": "yyjson_int",
+  "kind": "yyjson_int",
+  "notes": "yyjson fast u32 serializer",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 31,
+      "binary_bytes": 16216,
+      "run_ms": 0,
+      "stdout_sha256": "0f4b6885f631cb94dd39df21e679166d5ebccffa82b687c09f7a4f55b9f6b193",
+      "stdout": "zero 0\nsingle 7\ndouble 42\nmedium 12345\nlarge 123456789\nmax 4294967295\n",
+      "match_oracle": false,
+      "lines": {
+        "double": "42",
+        "large": "123456789",
+        "max": "4294967295",
+        "medium": "12345",
+        "single": "7",
+        "zero": "0"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 41,
+      "binary_bytes": 16128,
+      "run_ms": 0,
+      "stdout_sha256": "0f4b6885f631cb94dd39df21e679166d5ebccffa82b687c09f7a4f55b9f6b193",
+      "stdout": "zero 0\nsingle 7\ndouble 42\nmedium 12345\nlarge 123456789\nmax 4294967295\n",
+      "match_oracle": false,
+      "lines": {
+        "double": "42",
+        "large": "123456789",
+        "max": "4294967295",
+        "medium": "12345",
+        "single": "7",
+        "zero": "0"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 95,
+      "binary_bytes": 2363846,
+      "run_ms": 1,
+      "stdout_sha256": "0f4b6885f631cb94dd39df21e679166d5ebccffa82b687c09f7a4f55b9f6b193",
+      "stdout": "zero 0\nsingle 7\ndouble 42\nmedium 12345\nlarge 123456789\nmax 4294967295\n",
+      "match_oracle": true,
+      "lines": {
+        "double": "42",
+        "large": "123456789",
+        "max": "4294967295",
+        "medium": "12345",
+        "single": "7",
+        "zero": "0"
+      },
+      "code_lines": 43,
+      "var_count": 3
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 170
+}

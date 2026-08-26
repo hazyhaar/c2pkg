@@ -1,0 +1,12 @@
+{
+  "stamp": "20260810f",
+  "cycles": [
+    {      "kernel": "adv_computed_goto",      "stamp": "20260810f",      "src_c": "spec/c_sources/testdata/c_sources/adv_computed_goto.c",      "ccgo": "/home/cl-ment/go/bin/ccgo",      "raw_lines": 506,      "opt_lines": 504,      "raw_rotl_calls": 0,      "opt_rotl_calls": 0,      "raw_bits_rotate": 0,      "opt_bits_rotate": 0,      "raw_tls_first_param_funcs": 1,      "opt_tls_first_param_funcs": 0,      "tls_params_elided": 1,      "bits_rotate_gained": 0,      "build_raw_ok": 1,      "build_opt_ok": 1    }
+,
+    {      "kernel": "adv_pointer_alias",      "stamp": "20260810f",      "src_c": "spec/c_sources/testdata/c_sources/adv_pointer_alias.c",      "ccgo": "/home/cl-ment/go/bin/ccgo",      "raw_lines": 515,      "opt_lines": 515,      "raw_rotl_calls": 0,      "opt_rotl_calls": 0,      "raw_bits_rotate": 0,      "opt_bits_rotate": 0,      "raw_tls_first_param_funcs": 3,      "opt_tls_first_param_funcs": 0,      "tls_params_elided": 3,      "bits_rotate_gained": 0,      "build_raw_ok": 1,      "build_opt_ok": 1    }
+,
+    {      "kernel": "adv_stack_buf",      "stamp": "20260810f",      "src_c": "spec/c_sources/testdata/c_sources/adv_stack_buf.c",      "ccgo": "/home/cl-ment/go/bin/ccgo",      "raw_lines": 526,      "opt_lines": 526,      "raw_rotl_calls": 0,      "opt_rotl_calls": 0,      "raw_bits_rotate": 0,      "opt_bits_rotate": 0,      "raw_tls_first_param_funcs": 1,      "opt_tls_first_param_funcs": 0,      "tls_params_elided": 1,      "bits_rotate_gained": 0,      "build_raw_ok": 1,      "build_opt_ok": 1    }
+,
+    {      "kernel": "adv_tls_depth",      "stamp": "20260810f",      "src_c": "spec/c_sources/testdata/c_sources/adv_tls_depth.c",      "ccgo": "/home/cl-ment/go/bin/ccgo",      "raw_lines": 497,      "opt_lines": 495,      "raw_rotl_calls": 0,      "opt_rotl_calls": 0,      "raw_bits_rotate": 0,      "opt_bits_rotate": 0,      "raw_tls_first_param_funcs": 6,      "opt_tls_first_param_funcs": 0,      "tls_params_elided": 6,      "bits_rotate_gained": 0,      "build_raw_ok": 1,      "build_opt_ok": 1    }
+  ]
+}

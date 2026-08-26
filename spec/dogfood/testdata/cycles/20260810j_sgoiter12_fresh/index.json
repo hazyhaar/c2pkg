@@ -1,0 +1,138 @@
+{
+  "stamp": "20260810j",
+  "head": "e5c92b8",
+  "rows": [
+    {
+      "lib": "base64_simd",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK",
+      "src": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/base64_simd/src.c",
+      "go": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/base64_simd/out.go",
+      "ir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/base64_simd/out.ir.json",
+      "err": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/base64_simd/sgoiter.err"
+    },
+    {
+      "lib": "blake2b_compress",
+      "status": "harvest_fail",
+      "funcs": 0,
+      "stubs": 0,
+      "build": "\u2014",
+      "src": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/blake2b_compress/src.c",
+      "go": "",
+      "ir": "",
+      "err": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/blake2b_compress/sgoiter.err"
+    },
+    {
+      "lib": "chacha20_qr",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK",
+      "src": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/chacha20_qr/src.c",
+      "go": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/chacha20_qr/out.go",
+      "ir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/chacha20_qr/out.ir.json",
+      "err": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/chacha20_qr/sgoiter.err"
+    },
+    {
+      "lib": "crc32_ieee",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK",
+      "src": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/crc32_ieee/src.c",
+      "go": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/crc32_ieee/out.go",
+      "ir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/crc32_ieee/out.ir.json",
+      "err": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/crc32_ieee/sgoiter.err"
+    },
+    {
+      "lib": "fast_xor",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK",
+      "src": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/fast_xor/src.c",
+      "go": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/fast_xor/out.go",
+      "ir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/fast_xor/out.ir.json",
+      "err": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/fast_xor/sgoiter.err"
+    },
+    {
+      "lib": "fnv1a_64",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK",
+      "src": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/fnv1a_64/src.c",
+      "go": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/fnv1a_64/out.go",
+      "ir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/fnv1a_64/out.ir.json",
+      "err": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/fnv1a_64/sgoiter.err"
+    },
+    {
+      "lib": "libinjection_sqli",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK",
+      "src": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/libinjection_sqli/src.c",
+      "go": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/libinjection_sqli/out.go",
+      "ir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/libinjection_sqli/out.ir.json",
+      "err": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/libinjection_sqli/sgoiter.err"
+    },
+    {
+      "lib": "md5_transform",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK",
+      "src": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/md5_transform/src.c",
+      "go": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/md5_transform/out.go",
+      "ir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/md5_transform/out.ir.json",
+      "err": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/md5_transform/sgoiter.err"
+    },
+    {
+      "lib": "murmur3_x86_32",
+      "status": "ok",
+      "funcs": 3,
+      "stubs": 0,
+      "build": "OK",
+      "src": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/murmur3_x86_32/src.c",
+      "go": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/murmur3_x86_32/out.go",
+      "ir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/murmur3_x86_32/out.ir.json",
+      "err": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/murmur3_x86_32/sgoiter.err"
+    },
+    {
+      "lib": "poly1305_block5",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK",
+      "src": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/poly1305_block5/src.c",
+      "go": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/poly1305_block5/out.go",
+      "ir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/poly1305_block5/out.ir.json",
+      "err": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/poly1305_block5/sgoiter.err"
+    },
+    {
+      "lib": "siphash24",
+      "status": "ok",
+      "funcs": 1,
+      "stubs": 0,
+      "build": "OK",
+      "src": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/siphash24/src.c",
+      "go": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/siphash24/out.go",
+      "ir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/siphash24/out.ir.json",
+      "err": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/siphash24/sgoiter.err"
+    },
+    {
+      "lib": "tweetnacl_dogfood",
+      "status": "ok",
+      "funcs": 31,
+      "stubs": 9,
+      "build": "OK",
+      "src": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/tweetnacl_dogfood/src.c",
+      "go": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/tweetnacl_dogfood/out.go",
+      "ir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/tweetnacl_dogfood/out.ir.json",
+      "err": "/devhoros/c2simd/spec/dogfood/testdata/cycles/20260810j_sgoiter12_fresh/tweetnacl_dogfood/sgoiter.err"
+    }
+  ]
+}

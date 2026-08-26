@@ -1,0 +1,218 @@
+{
+  "stamp": "2026-08-12T08:17:08Z",
+  "host": "linux/amd64",
+  "go_version": "go1.26.5",
+  "sgoiter_bin": "./bin/sgoiter",
+  "ccgo_bin": "/home/cl-ment/go/bin/ccgo",
+  "out_dir": "/devhoros/c2simd/spec/dogfood/testdata/cycles/tribench_20260812_101708",
+  "libs": [
+    {
+      "id": "crc32_ieee",
+      "kind": "hash32",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 69,
+          "binary_bytes": 81912,
+          "run_ms": 1,
+          "stdout_sha256": "3afb05d21419f9099b8adb7ac92411aac6c1fc05bd8862812859389b649bf68e",
+          "stdout": "empty 00000000\nhello 3610a686\n16b 68c4f033\n17b 080a93ad\n64b 74465cc5\n1k a9da8aa6\n64k 47bee6f3\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "68c4f033",
+            "17b": "080a93ad",
+            "1k": "a9da8aa6",
+            "64b": "74465cc5",
+            "64k": "47bee6f3",
+            "empty": "00000000",
+            "hello": "3610a686"
+          }
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 70,
+          "binary_bytes": 81776,
+          "run_ms": 1,
+          "stdout_sha256": "3afb05d21419f9099b8adb7ac92411aac6c1fc05bd8862812859389b649bf68e",
+          "stdout": "empty 00000000\nhello 3610a686\n16b 68c4f033\n17b 080a93ad\n64b 74465cc5\n1k a9da8aa6\n64k 47bee6f3\n",
+          "match_oracle": false,
+          "lines": {
+            "16b": "68c4f033",
+            "17b": "080a93ad",
+            "1k": "a9da8aa6",
+            "64b": "74465cc5",
+            "64k": "47bee6f3",
+            "empty": "00000000",
+            "hello": "3610a686"
+          }
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 234,
+          "binary_bytes": 2479981,
+          "run_ms": 1,
+          "stdout_sha256": "3afb05d21419f9099b8adb7ac92411aac6c1fc05bd8862812859389b649bf68e",
+          "stdout": "empty 00000000\nhello 3610a686\n16b 68c4f033\n17b 080a93ad\n64b 74465cc5\n1k a9da8aa6\n64k 47bee6f3\n",
+          "match_oracle": true,
+          "lines": {
+            "16b": "68c4f033",
+            "17b": "080a93ad",
+            "1k": "a9da8aa6",
+            "64b": "74465cc5",
+            "64k": "47bee6f3",
+            "empty": "00000000",
+            "hello": "3610a686"
+          },
+          "code_lines": 23,
+          "var_count": 3,
+          "int_cast_index": 1
+        },
+        {
+          "backend": "ccgo",
+          "status": "skip",
+          "error": "ccgo disabled or missing",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 385
+    },
+    {
+      "id": "blake2b_compress",
+      "kind": "blake2b",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 33,
+          "binary_bytes": 16416,
+          "run_ms": 0,
+          "stdout_sha256": "3b91dbe2d075febceaabb102e263f7f89761ad4f39099f004ea98ed2a3b269ed",
+          "stdout": "zero 9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747\npattern 0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9",
+            "zero": "9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747"
+          }
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 74,
+          "binary_bytes": 16136,
+          "run_ms": 0,
+          "stdout_sha256": "3b91dbe2d075febceaabb102e263f7f89761ad4f39099f004ea98ed2a3b269ed",
+          "stdout": "zero 9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747\npattern 0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9\n",
+          "match_oracle": false,
+          "lines": {
+            "pattern": "0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9",
+            "zero": "9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747"
+          }
+        },
+        {
+          "backend": "sgoiter",
+          "status": "ok",
+          "compile_ms": 904,
+          "binary_bytes": 2419799,
+          "run_ms": 1,
+          "stdout_sha256": "3b91dbe2d075febceaabb102e263f7f89761ad4f39099f004ea98ed2a3b269ed",
+          "stdout": "zero 9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747\npattern 0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9\n",
+          "match_oracle": true,
+          "lines": {
+            "pattern": "0f2045bd22100e70c5ea8348e71a4e6018d3aba80f403093becf2f621cc1d5e52d1124bf4d57aff8d2c55f57ada83c752d9ef671d18b7ceaf983c4f72689a5b9",
+            "zero": "9b43920cc8b28f4ffec3d3efc7ebad8b20c203feaf1613b97d15393c40d8db10990adb7900d7bfa5050980bef38e6c44b5228672357353077e26c1b634aa6747"
+          },
+          "code_lines": 143,
+          "var_count": 4,
+          "rot_left_calls": 32
+        },
+        {
+          "backend": "ccgo",
+          "status": "skip",
+          "error": "ccgo disabled or missing",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": true,
+      "wall_ms": 1015
+    },
+    {
+      "id": "tweetnacl_dogfood",
+      "kind": "tweet_ver",
+      "notes": "surface verify_16; stub tweetnacl.h",
+      "oracle_backend": "c_gcc_O2",
+      "backends": [
+        {
+          "backend": "c_gcc_O0",
+          "status": "ok",
+          "compile_ms": 88,
+          "binary_bytes": 39328,
+          "run_ms": 0,
+          "stdout_sha256": "fa5ba03698915194d43435c407693bf36a496a342ff50239ad553246fd9abaf2",
+          "stdout": "eq 0\nneq -1\n",
+          "match_oracle": false,
+          "lines": {
+            "eq": "0",
+            "neq": "-1"
+          }
+        },
+        {
+          "backend": "c_gcc_O2",
+          "status": "ok",
+          "compile_ms": 422,
+          "binary_bytes": 38536,
+          "run_ms": 0,
+          "stdout_sha256": "fa5ba03698915194d43435c407693bf36a496a342ff50239ad553246fd9abaf2",
+          "stdout": "eq 0\nneq -1\n",
+          "match_oracle": false,
+          "lines": {
+            "eq": "0",
+            "neq": "-1"
+          }
+        },
+        {
+          "backend": "sgoiter",
+          "status": "fail",
+          "error": "go build: # trib/kernel\nkernel/kernel.go:24:30: syntax error: unexpected ( in parameter list; possibly missing comma or )\nkernel/kernel.go:193:10: syntax error: unexpected ., expected (\n",
+          "compile_ms": 190,
+          "run_ms": 0,
+          "match_oracle": false,
+          "code_lines": 311,
+          "var_count": 10,
+          "int_cast_index": 3,
+          "rot_left_calls": 13
+        },
+        {
+          "backend": "ccgo",
+          "status": "skip",
+          "error": "ccgo disabled or missing",
+          "compile_ms": 0,
+          "run_ms": 0,
+          "match_oracle": false
+        }
+      ],
+      "all_match_oracle": false,
+      "wall_ms": 702
+    }
+  ],
+  "summary": {
+    "libs_total": 3,
+    "libs_all_match": 2,
+    "backend_ok": 8,
+    "backend_fail": 1,
+    "backend_skip": 3,
+    "sgoiter_match_oracle": 2,
+    "ccgo_match_oracle": 0,
+    "libs_compared": 3,
+    "libs_no_oracle": 0
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "quickjs_minmax_dogfood",
+  "kind": "hash64",
+  "notes": "QuickJS min/max vector fold",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 57,
+      "binary_bytes": 81920,
+      "run_ms": 0,
+      "stdout_sha256": "1e0d8f476e77e1c22f62a376ba213f40b0952efecb4ceb311c12f656a53751e3",
+      "stdout": "empty 00000000ffffffff\nhello 0000006f00000065\n16b 0000006600000030\n17b 0000006600000030\n64b 000000a5000000a5\n1k 0000005a0000005a\n64k 0000003c0000003c\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "0000006600000030",
+        "17b": "0000006600000030",
+        "1k": "0000005a0000005a",
+        "64b": "000000a5000000a5",
+        "64k": "0000003c0000003c",
+        "empty": "00000000ffffffff",
+        "hello": "0000006f00000065"
+      }
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 65,
+      "binary_bytes": 81784,
+      "run_ms": 0,
+      "stdout_sha256": "1e0d8f476e77e1c22f62a376ba213f40b0952efecb4ceb311c12f656a53751e3",
+      "stdout": "empty 00000000ffffffff\nhello 0000006f00000065\n16b 0000006600000030\n17b 0000006600000030\n64b 000000a5000000a5\n1k 0000005a0000005a\n64k 0000003c0000003c\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "0000006600000030",
+        "17b": "0000006600000030",
+        "1k": "0000005a0000005a",
+        "64b": "000000a5000000a5",
+        "64k": "0000003c0000003c",
+        "empty": "00000000ffffffff",
+        "hello": "0000006f00000065"
+      }
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 180,
+      "binary_bytes": 2428977,
+      "run_ms": 1,
+      "stdout_sha256": "1e0d8f476e77e1c22f62a376ba213f40b0952efecb4ceb311c12f656a53751e3",
+      "stdout": "empty 00000000ffffffff\nhello 0000006f00000065\n16b 0000006600000030\n17b 0000006600000030\n64b 000000a5000000a5\n1k 0000005a0000005a\n64k 0000003c0000003c\n",
+      "match_oracle": true,
+      "lines": {
+        "16b": "0000006600000030",
+        "17b": "0000006600000030",
+        "1k": "0000005a0000005a",
+        "64b": "000000a5000000a5",
+        "64k": "0000003c0000003c",
+        "empty": "00000000ffffffff",
+        "hello": "0000006f00000065"
+      },
+      "code_lines": 26,
+      "identity_assigns": 2,
+      "var_count": 4
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "ccgo disabled or missing",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 311
+}

@@ -1,0 +1,2 @@
+zero bbbbbbbbffffff7f77777776cccccccc
+pattern bbbbbbbbffffff7f77777776cccccccc

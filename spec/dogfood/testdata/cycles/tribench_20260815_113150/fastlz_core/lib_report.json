@@ -1,0 +1,83 @@
+{
+  "id": "fastlz_core",
+  "kind": "fastlz1",
+  "notes": "FastLZ Level-1 decompressor",
+  "oracle_backend": "c_gcc_O2",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "ok",
+      "compile_ms": 56,
+      "binary_bytes": 82000,
+      "run_ms": 0,
+      "stdout_sha256": "dbeb771a455d6a109cc6ff1ce486d8c79caca76a54b358b37ef4ea1ace8c7d3a",
+      "stdout": "empty 0\nhello 0\n16b 0\n17b 0\n64b 0\n1k 0\n64k 0\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "0",
+        "17b": "0",
+        "1k": "0",
+        "64b": "0",
+        "64k": "0",
+        "empty": "0",
+        "hello": "0"
+      },
+      "bench_ns_per_op": 352648
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "ok",
+      "compile_ms": 72,
+      "binary_bytes": 81840,
+      "run_ms": 0,
+      "stdout_sha256": "dbeb771a455d6a109cc6ff1ce486d8c79caca76a54b358b37ef4ea1ace8c7d3a",
+      "stdout": "empty 0\nhello 0\n16b 0\n17b 0\n64b 0\n1k 0\n64k 0\n",
+      "match_oracle": false,
+      "lines": {
+        "16b": "0",
+        "17b": "0",
+        "1k": "0",
+        "64b": "0",
+        "64k": "0",
+        "empty": "0",
+        "hello": "0"
+      },
+      "bench_ns_per_op": 371408
+    },
+    {
+      "backend": "sgoiter",
+      "status": "ok",
+      "compile_ms": 191,
+      "binary_bytes": 2480312,
+      "run_ms": 0,
+      "stdout_sha256": "dbeb771a455d6a109cc6ff1ce486d8c79caca76a54b358b37ef4ea1ace8c7d3a",
+      "stdout": "empty 0\nhello 0\n16b 0\n17b 0\n64b 0\n1k 0\n64k 0\n",
+      "match_oracle": true,
+      "lines": {
+        "16b": "0",
+        "17b": "0",
+        "1k": "0",
+        "64b": "0",
+        "64k": "0",
+        "empty": "0",
+        "hello": "0"
+      },
+      "bench_ns_per_op": 917176,
+      "code_lines": 60,
+      "identity_assigns": 1,
+      "var_count": 6,
+      "int_cast_index": 2
+    },
+    {
+      "backend": "ccgo",
+      "status": "fail",
+      "error": "go build: # tribccgo\n./main.go:30:2: declared and not used: d0\n./main.go:32:2: declared and not used: d1\n./main.go:34:2: declared and not used: d2\n./main.go:36:2: declared and not used: d3\n./main.go:38:2: declared and not used: d4\n./main.go:40:2: declared and not used: d5\n./main.go:42:2: declared and not used: d6\n",
+      "compile_ms": 295,
+      "run_ms": 0,
+      "match_oracle": false,
+      "code_lines": 549
+    }
+  ],
+  "all_match_oracle": true,
+  "wall_ms": 1008
+}

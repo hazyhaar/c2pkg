@@ -1,0 +1,18 @@
+{
+  "kernel": "poly1305_block5",
+  "stamp": "20260810c",
+  "src_c": "spec/c_sources/testdata/c_sources/poly1305_block5.c",
+  "ccgo": "/home/cl-ment/go/bin/ccgo",
+  "raw_lines": 516,
+  "opt_lines": 514,
+  "raw_rotl_calls": 0,
+  "opt_rotl_calls": 0,
+  "raw_bits_rotate": 0,
+  "opt_bits_rotate": 0,
+  "raw_tls_first_param_funcs": 1,
+  "opt_tls_first_param_funcs": 0,
+  "tls_params_elided": 1,
+  "bits_rotate_gained": 0,
+  "build_raw_ok": 1,
+  "build_opt_ok": 1
+}

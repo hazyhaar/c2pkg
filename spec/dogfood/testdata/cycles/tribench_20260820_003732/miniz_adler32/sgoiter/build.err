@@ -1,0 +1,2 @@
+# trib/kernel
+kernel/kernel.go:44:30: invalid operation: cannot indirect v69 (variable of type uint64)

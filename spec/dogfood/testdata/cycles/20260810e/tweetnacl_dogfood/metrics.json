@@ -1,0 +1,10 @@
+{
+  "kernel": "tweetnacl_dogfood",
+  "raw_lines": 2787,
+  "opt_lines": 2787,
+  "raw_bits_rotate": 0,
+  "opt_bits_rotate": 0,
+  "raw_tls_first": 62,
+  "opt_tls_first": 47,
+  "opt_rotl_left": 0
+}

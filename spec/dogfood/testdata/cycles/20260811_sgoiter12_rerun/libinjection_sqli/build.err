@@ -1,0 +1,8 @@
+# t
+./out.go:12:58: invalid operation: cannot call len (variable of type uint64): uint64 is not a function
+./out.go:24:1: missing return
+./out.go:34:58: invalid operation: cannot call len (variable of type uint64): uint64 is not a function
+./out.go:46:1: missing return
+./out.go:55:1: missing return
+./out.go:82:1: missing return
+./out.go:100:1: missing return

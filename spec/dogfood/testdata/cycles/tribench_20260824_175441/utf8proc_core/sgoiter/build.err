@@ -1,0 +1,7 @@
+# trib
+./main.go:35:77: cannot use dst (variable of type []int) as *int value in argument to kernel.Utf8proc_iterate
+./main.go:36:77: cannot use dst (variable of type []int) as *int value in argument to kernel.Utf8proc_iterate
+./main.go:37:77: cannot use dst (variable of type []int) as *int value in argument to kernel.Utf8proc_iterate
+./main.go:38:77: cannot use dst (variable of type []int) as *int value in argument to kernel.Utf8proc_iterate
+./main.go:39:77: cannot use dst (variable of type []int) as *int value in argument to kernel.Utf8proc_iterate
+./main.go:40:77: cannot use dst (variable of type []int) as *int value in argument to kernel.Utf8proc_iterate

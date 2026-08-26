@@ -1,0 +1,7 @@
+empty 00000000
+hello 3610a686
+16b 68c4f033
+17b 080a93ad
+64b 74465cc5
+1k a9da8aa6
+64k 47bee6f3

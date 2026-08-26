@@ -1,0 +1,12 @@
+# trib/kernel
+kernel/kernel.go:27:6: declared and not used: v70
+kernel/kernel.go:31:6: declared and not used: v79
+kernel/kernel.go:39:6: declared and not used: v94
+kernel/kernel.go:43:6: declared and not used: v103
+kernel/kernel.go:57:6: declared and not used: v129
+kernel/kernel.go:61:6: declared and not used: v138
+kernel/kernel.go:69:6: declared and not used: v153
+kernel/kernel.go:73:6: declared and not used: v162
+kernel/kernel.go:86:6: declared and not used: v187
+kernel/kernel.go:90:6: declared and not used: v196
+kernel/kernel.go:90:6: too many errors

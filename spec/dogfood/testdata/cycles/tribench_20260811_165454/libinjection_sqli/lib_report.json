@@ -1,0 +1,42 @@
+{
+  "id": "libinjection_sqli",
+  "kind": "libinj",
+  "notes": "multi-header upstream — SkipC/ccgo",
+  "oracle_backend": "sgoiter",
+  "backends": [
+    {
+      "backend": "c_gcc_O0",
+      "status": "skip",
+      "error": "SkipC",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    },
+    {
+      "backend": "c_gcc_O2",
+      "status": "skip",
+      "error": "SkipC",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    },
+    {
+      "backend": "sgoiter",
+      "status": "fail",
+      "error": "sgoiter: sgoiter/front: err_include: include not found: libinjection.h\n",
+      "compile_ms": 3,
+      "run_ms": 0,
+      "match_oracle": false
+    },
+    {
+      "backend": "ccgo",
+      "status": "skip",
+      "error": "SkipC multi-file",
+      "compile_ms": 0,
+      "run_ms": 0,
+      "match_oracle": false
+    }
+  ],
+  "all_match_oracle": false,
+  "wall_ms": 8
+}
