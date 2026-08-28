@@ -73,8 +73,3 @@ func diffGridScalar(front, back []Cell, width, height, stride int, spans *[]Span
 	return changed
 }
 
-// cellEqScalar compare deux cellules (8 octets) positionnées en off dans les
-// vues octet des grilles.
-func cellEqScalar(fb, bb []byte, off int) bool {
-	return *(*uint64)(unsafe.Pointer(&fb[off])) == *(*uint64)(unsafe.Pointer(&bb[off]))
-}

@@ -18,11 +18,11 @@ const (
 
 // Constantes de modes DECSET / DECRST étendus.
 const (
-	ModeDECCKM         = 1 // Mode curseur applicatif (Application Cursor Keys)
-	ModeDECOLM         = 3 // 80/132 colonnes
-	ModeDECSCNM        = 5 // Écran inversé (Screen Inverse)
-	ModeDECOM          = 6 // Mode origine (Origin Mode)
-	ModeDECAWM         = 7 // Auto-wrap à la marge droite
+	ModeDECCKM         = 1  // Mode curseur applicatif (Application Cursor Keys)
+	ModeDECOLM         = 3  // 80/132 colonnes
+	ModeDECSCNM        = 5  // Écran inversé (Screen Inverse)
+	ModeDECOM          = 6  // Mode origine (Origin Mode)
+	ModeDECAWM         = 7  // Auto-wrap à la marge droite
 	ModeCursorBlink    = 12 // Clignotement du curseur (att610)
 	ModeCursorVisible  = 25
 	ModeAltScreen47    = 47

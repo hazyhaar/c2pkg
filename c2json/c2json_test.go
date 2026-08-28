@@ -126,7 +126,7 @@ func TestJSONVsCOracle(t *testing.T) {
 		},
 		{
 			name: "escaped_strings",
-			json: `{"msg": "Hello\nWorld!\tWith \"quotes\" and \\slash", "path": "/devhoros/bin/sgoiter", "flag": true}`,
+			json: `{"msg": "Hello\nWorld!\tWith \"quotes\" and \\slash", "path": "/usr/local/bin/sgoiter", "flag": true}`,
 		},
 		{
 			name: "invalid_syntax",

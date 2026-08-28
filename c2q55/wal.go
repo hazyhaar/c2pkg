@@ -39,8 +39,10 @@ type WALHeader struct {
 }
 
 // Invariants matériels ARCHTIME bidirectionnels : taille strictement égale à 64 octets.
-type _walHdrMin [64 - unsafe.Sizeof(WALHeader{})]byte
-type _walHdrMax [unsafe.Sizeof(WALHeader{}) - 64]byte
+var (
+	_ [64 - unsafe.Sizeof(WALHeader{})]byte
+	_ [unsafe.Sizeof(WALHeader{}) - 64]byte
+)
 
 // WALFile gère la persistance circulaire mmapée sur disque sans aucun syscall sur le chemin chaud.
 type WALFile struct {

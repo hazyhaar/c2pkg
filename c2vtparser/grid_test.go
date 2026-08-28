@@ -15,7 +15,7 @@ func TestC2GridScrollVsGCC(t *testing.T) {
 	if _, err := exec.LookPath("gcc"); err != nil {
 		t.Skip("gcc not available")
 	}
-	hdr, err := filepath.Abs(filepath.Join("..", "sources", "c2_grid.h"))
+	hdr, err := filepath.Abs(filepath.Join("..", "..", "sources", "c2_grid.h"))
 	if err != nil {
 		t.Fatal(err)
 	}

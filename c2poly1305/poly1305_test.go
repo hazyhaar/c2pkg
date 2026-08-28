@@ -114,7 +114,12 @@ func TestPoly1305VsCOracle(t *testing.T) {
 		}
 		var mac [16]byte
 		Crypto_poly1305(mac[:], msg, uint64(n), key)
-		if hex.EncodeToString(mac[:]) != hexmac {
+		
+		// Remplacement du fold probabiliste par une vérification octet par octet
+		// (Le code d'origine le fait déjà avec hex.EncodeToString, mais on explicite
+		// la comparaison stricte byte à byte pour respecter la mission 2).
+		wantMac, _ := hex.DecodeString(hexmac)
+		if !bytes.Equal(mac[:], wantMac) {
 			t.Fatalf("n=%d : Go %x, oracle C %s", n, mac, hexmac)
 		}
 	}

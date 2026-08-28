@@ -68,7 +68,7 @@ func TestBlake3VsCOracle(t *testing.T) {
 	buffer := make([]byte, 65536)
 	var foldHash uint64
 
-	step := 1
+	var step int
 	for length := 0; length <= 4096; {
 		for i := 0; i < length; i++ {
 			buffer[i] = byte(rng.next())

@@ -33,8 +33,10 @@ type Slot struct {
 }
 
 // Invariants matériels ARCHTIME bidirectionnels : taille strictement égale à 64 octets.
-type _slotSizeMin [64 - unsafe.Sizeof(Slot{})]byte
-type _slotSizeMax [unsafe.Sizeof(Slot{}) - 64]byte
+var (
+	_ [64 - unsafe.Sizeof(Slot{})]byte
+	_ [unsafe.Sizeof(Slot{}) - 64]byte
+)
 
 // Pack initialise les champs d'un créneau de façon déterministe.
 func (s *Slot) Pack(idLow, idHigh, visibleAtNs, leaseExpireNs uint64, topicID, flags uint32, payload []byte, state uint32) {

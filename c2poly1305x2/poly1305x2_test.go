@@ -131,7 +131,8 @@ func checkOracleOutput(t *testing.T, out []byte) {
 	key, _ := hex.DecodeString("85d6be7857556d337f4452fe42d506a80103808afb0db2fd4abff6af4149f51b")
 	msg := []byte("Cryptographic Forum Research Group")
 	Crypto_poly1305x2(rfcMac[:], msg, uint64(len(msg)), key)
-	if hex.EncodeToString(rfcMac[:]) != rfcHex {
+	wantRfc, _ := hex.DecodeString(rfcHex)
+	if !bytes.Equal(rfcMac[:], wantRfc) {
 		t.Fatalf("RFC : Go %x, oracle C %s", rfcMac, rfcHex)
 	}
 	var g lcg
@@ -152,7 +153,8 @@ func checkOracleOutput(t *testing.T, out []byte) {
 		}
 		var mac [16]byte
 		Crypto_poly1305x2(mac[:], m, uint64(n), k)
-		if hex.EncodeToString(mac[:]) != hexmac {
+		wantMac, _ := hex.DecodeString(hexmac)
+		if !bytes.Equal(mac[:], wantMac) {
 			t.Fatalf("n=%d : Go %x, oracle C %s", n, mac, hexmac)
 		}
 	}

@@ -7,15 +7,15 @@ package c2dxgi
 import "fmt"
 
 type Device struct {
-	ptr uintptr
+	_ uintptr
 }
 
 type DeviceContext struct {
-	ptr uintptr
+	_ uintptr
 }
 
 type SwapChain struct {
-	ptr uintptr
+	_ uintptr
 }
 
 func CallVTable(comPtr uintptr, slot uint32, args ...uintptr) (uintptr, uintptr, error) {

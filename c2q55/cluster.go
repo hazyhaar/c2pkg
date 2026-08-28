@@ -141,3 +141,13 @@ func (cn *ClusterNode) ElectLeaderIfLeaderDead(partitionID int, nowNs uint64) (b
 	newEpoch := ps.PromoteLeader(cn.nodeID)
 	return true, newEpoch, nil
 }
+
+// Close marque le nœud de cluster comme arrêté.
+func (cn *ClusterNode) Close() {
+	cn.closed.Store(true)
+}
+
+// IsClosed indique si le nœud est arrêté.
+func (cn *ClusterNode) IsClosed() bool {
+	return cn.closed.Load()
+}

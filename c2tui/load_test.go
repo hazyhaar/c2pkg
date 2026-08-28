@@ -39,10 +39,6 @@ func checkGrid(t *testing.T, g *CursorGrid, where string) {
 	}
 }
 
-func mixFrame(rng *rand.Rand, dst []byte) []byte {
-	return exoticFrame(rng, dst, rng.Intn(12))
-}
-
 func exoticFrame(rng *rand.Rand, dst []byte, kind int) []byte {
 	dst = dst[:0]
 	switch kind {
