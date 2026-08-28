@@ -7,7 +7,7 @@
 package chacha20poly1305
 
 import (
-	"code.hazyhaar.fr/devhoros/c2simd"
+	c2simd "github.com/hazyhaar/c2pkg/c2fused"
 	"golang.org/x/crypto/internal/alias"
 	"golang.org/x/crypto/internal/poly1305"
 )
