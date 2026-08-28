@@ -485,7 +485,7 @@ func TestCVE_VsCOracle(t *testing.T) {
 		t.Skip("gcc non disponible")
 	}
 
-	src, err := filepath.Abs(filepath.Join("..", "..", "sources", "c2vtparser.c"))
+	src, err := filepath.Abs(filepath.Join("..", "sources", "c2vtparser.c"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -516,7 +516,7 @@ int main(void) {
 		t.Fatal(err)
 	}
 
-	incDir, _ := filepath.Abs(filepath.Join("..", "..", "sources"))
+	incDir, _ := filepath.Abs(filepath.Join("..", "sources"))
 	bin := filepath.Join(dir, "oracle_vt")
 	cmd := exec.Command("gcc", "-O2", "-I", incDir, "-o", bin, mainPath)
 	if out, err := cmd.CombinedOutput(); err != nil {
