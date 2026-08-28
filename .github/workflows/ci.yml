@@ -1,0 +1,112 @@
+name: CI55 Hardcore (c2pkg)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  # 1. Validation de Parité Bit-Exacte contre Oracles C (ASan + UBSan)
+  oracle-c-gate:
+    name: C Oracle Parity (ASan/UBSan)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go (Go 1.27.0)
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.0'
+
+      - name: Install C Toolchain (GCC with AddressSanitizer)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc libasan6 libubsan1
+
+      - name: Run Test*VsCOracle with GOEXPERIMENT=simd under Race Detector
+        env:
+          GOEXPERIMENT: simd
+        run: |
+          go test -v -race -run 'Test.*VsCOracle' ./...
+
+  # 2. Matrice Multi-Plateformes & Dual-Mode (SIMD vs Portable Fallback)
+  matrix-test:
+    name: Multi-Target & Dual-Mode
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        goexperiment: ['', 'simd']
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.0'
+
+      - name: Run Test Suite (${{ matrix.goexperiment || 'generic' }})
+        env:
+          GOEXPERIMENT: ${{ matrix.goexperiment }}
+        run: |
+          go test -v -race -count=1 ./...
+
+  # 3. Sas Zéro Allocation & Invariants Stricts
+  zero-alloc-gate:
+    name: Zero-Allocation Invariant Gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.0'
+
+      - name: Check Zero-Allocations
+        env:
+          GOEXPERIMENT: simd
+        run: |
+          go test -v -run 'TestZeroAlloc' ./...
+
+  # 4. Contrôle Statique & Fmt Check
+  lint:
+    name: Format & Vet Static Gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.0'
+
+      - name: Gofmt Check
+        run: |
+          if [ -n "$(gofmt -l .)" ]; then
+            echo "Non-formatted Go files:"
+            gofmt -l .
+            exit 1
+          fi
+
+      - name: Go Vet
+        run: |
+          go vet ./...
