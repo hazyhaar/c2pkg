@@ -81,10 +81,11 @@ func gScalar(state *[16]uint32, a, b, c, d int, mx, my uint32) {
 
 // Digest represents an active BLAKE3 hashing instance.
 type Digest struct {
-	keyWords [8]uint32
-	stack    [54][8]uint32
-	stackLen uint8
-	chunk    chunkState
+	keyWords    [8]uint32
+	hasherFlags uint8
+	stack       [54][8]uint32
+	stackLen    uint8
+	chunk       chunkState
 }
 
 type chunkState struct {
@@ -103,15 +104,38 @@ func New() *Digest {
 	return d
 }
 
-// Reset clears state.
-func (d *Digest) Reset() {
-	d.keyWords = iv
+func wordsFromKey(key [32]byte) (w [8]uint32) {
+	for i := 0; i < 8; i++ {
+		w[i] = binary.LittleEndian.Uint32(key[i*4 : (i+1)*4])
+	}
+	return w
+}
+
+func (d *Digest) init(keyWords [8]uint32, flags uint8) {
+	d.keyWords = keyWords
+	d.hasherFlags = flags
 	d.stackLen = 0
-	d.chunk.cv = iv
+	d.chunk.cv = keyWords
 	d.chunk.chunkCounter = 0
 	d.chunk.bufLen = 0
 	d.chunk.blocksCompressed = 0
-	d.chunk.flags = 0
+	d.chunk.flags = flags
+	d.chunk.buf = [BlockSize]byte{}
+}
+
+func (d *Digest) Reset() {
+	d.init(iv, 0)
+}
+
+func DeriveKey(context string, keyMaterial []byte) [32]byte {
+	var ctx Digest
+	ctx.init(iv, DeriveKeyContext)
+	_, _ = ctx.Write([]byte(context))
+	ck := ctx.SumFinal()
+	var mat Digest
+	mat.init(wordsFromKey(ck), DeriveKeyMaterial)
+	_, _ = mat.Write(keyMaterial)
+	return mat.SumFinal()
 }
 
 // Write absorbs data.
@@ -119,26 +143,27 @@ func (d *Digest) Write(p []byte) (int, error) {
 	total := len(p)
 	for len(p) > 0 {
 		if d.chunk.bufLen == BlockSize {
-			var out [16]uint32
-			flags := d.chunk.flags
-			if d.chunk.blocksCompressed == 0 {
-				flags |= ChunkStart
+			if d.chunk.blocksCompressed == 15 {
+				chunkOut := d.chunk.output()
+				d.pushStack(chunkOut)
+				d.chunk.chunkCounter++
+				d.chunk.cv = d.keyWords
+				d.chunk.bufLen = 0
+				d.chunk.blocksCompressed = 0
+				d.chunk.flags = d.hasherFlags
+				d.chunk.buf = [BlockSize]byte{}
+			} else {
+				var out [16]uint32
+				flags := d.chunk.flags
+				if d.chunk.blocksCompressed == 0 {
+					flags |= ChunkStart
+				}
+				CompressNode(&d.chunk.cv, &d.chunk.buf, BlockSize, d.chunk.chunkCounter, flags, &out)
+				copy(d.chunk.cv[:], out[:8])
+				d.chunk.blocksCompressed++
+				d.chunk.bufLen = 0
+				d.chunk.buf = [BlockSize]byte{}
 			}
-			CompressNode(&d.chunk.cv, &d.chunk.buf, BlockSize, d.chunk.chunkCounter, flags, &out)
-			copy(d.chunk.cv[:], out[:8])
-			d.chunk.blocksCompressed++
-			d.chunk.bufLen = 0
-		}
-
-		if d.chunk.blocksCompressed == 16 {
-			// Chunk completed, add to stack
-			chunkOut := d.chunk.output()
-			d.pushStack(chunkOut)
-			d.chunk.chunkCounter++
-			d.chunk.cv = d.keyWords
-			d.chunk.bufLen = 0
-			d.chunk.blocksCompressed = 0
-			d.chunk.flags = 0
 		}
 
 		want := BlockSize - int(d.chunk.bufLen)
@@ -170,7 +195,7 @@ func (d *Digest) pushStack(cv [8]uint32) {
 		parentBlock := makeParentBlock(d.stack[d.stackLen-1], cv)
 		d.stackLen--
 		var parentOut [16]uint32
-		CompressNode(&d.keyWords, &parentBlock, BlockSize, 0, Parent, &parentOut)
+		CompressNode(&d.keyWords, &parentBlock, BlockSize, 0, Parent|d.hasherFlags, &parentOut)
 		copy(cv[:], parentOut[:8])
 		totalChunks >>= 1
 	}
@@ -216,7 +241,7 @@ func (d *Digest) SumFinal() [32]byte {
 	for d.stackLen > 0 {
 		parentBlock := makeParentBlock(d.stack[d.stackLen-1], currentCV)
 		d.stackLen--
-		flags := uint8(Parent)
+		flags := uint8(Parent) | d.hasherFlags
 		if d.stackLen == 0 {
 			flags |= Root
 		}

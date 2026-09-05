@@ -25,6 +25,7 @@ All packages provide strict invariants:
 | **`c2json`** | `simdjson.c` | Vectorized structural JSON parser with stage 1/stage 2 bitmask sweeps. |
 | **`c2pcre`** | `pcre.c` | Regular expression matching engine with DFA fast-path. |
 | **`c2ordered_swiss`**| `abseil/swiss_table`| Cache-friendly ordered hash map with SIMD metadata group probing. |
+| **`c2client`** | `client.go` | High-performance distributed client, deterministic 1024-shard Blake3 routing, 0-RTT QUIC & Zero-CA mTLS. |
 | **`c2uuidv7`** | `uuidv7.c` | Monotonic UUIDv7 timestamp generator (0 allocs). |
 | **`c2vtparser`** | `vtparser.c` | State-machine ANSI/VT500 escape sequence parser (Paul Flo Williams tables). |
 | **`c2myers`** | `myers.c` | Vectorized Myers O(ND) diffing algorithm for text buffers. |

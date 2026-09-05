@@ -147,7 +147,7 @@ func (s *QUICTransportServer) acceptLoop() {
 	}
 }
 
-func (s *QUICTransportServer) handleConnection(conn quic.Connection) {
+func (s *QUICTransportServer) handleConnection(conn *quic.Conn) {
 	defer s.wg.Done()
 
 	for !s.closed.Load() {
@@ -161,7 +161,7 @@ func (s *QUICTransportServer) handleConnection(conn quic.Connection) {
 	}
 }
 
-func (s *QUICTransportServer) handleStream(stream quic.Stream) {
+func (s *QUICTransportServer) handleStream(stream *quic.Stream) {
 	defer s.wg.Done()
 	defer stream.Close()
 
@@ -235,7 +235,7 @@ func (s *QUICTransportServer) Close() error {
 
 // QUICTransportClient assure l'émission vers un serveur QUIC/TLS 1.3 distant.
 type QUICTransportClient struct {
-	conn  quic.Connection
+	conn  *quic.Conn
 	txLSN atomic.Uint64
 }
 
