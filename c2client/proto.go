@@ -25,7 +25,7 @@ const (
 	OpEntry     uint8 = 0x82
 	OpEnd       uint8 = 0x83
 
-	MaxKeyLen uint32 = 64 * 1024        // 64 Ko
+	MaxKeyLen uint32 = 65535           // Borne uint16 exacte (0xFFFF)
 	MaxValLen uint32 = 16 * 1024 * 1024 // 16 Mo
 )
 
@@ -54,33 +54,47 @@ type Header struct {
 	Extra  uint64
 }
 
-// EncodeHeader sérialise l'en-tête sur le flux en utilisant les Vints RFC 9000 sans allocation.
+// EncodeHeader sérialise l'en-tête sur le flux en utilisant un unique buffer de pile
+// contigu [48]byte et les Vints RFC 9000 sans allocation sur le tas.
 func EncodeHeader(w io.Writer, h Header) error {
-	var magicBuf [2]byte
-	binary.LittleEndian.PutUint16(magicBuf[:], MagicProto)
-	if _, err := w.Write(magicBuf[:]); err != nil {
-		return err
-	}
+	var hdrBuf [48]byte
+	binary.LittleEndian.PutUint16(hdrBuf[:2], MagicProto)
+	n := 2
 
-	if err := writeVint(w, uint64(h.OpCode)); err != nil {
+	var nn int
+	var err error
+
+	if nn, err = putVint(hdrBuf[n:], uint64(h.OpCode)); err != nil {
 		return err
 	}
-	if err := writeVint(w, uint64(h.Flags)); err != nil {
+	n += nn
+	if nn, err = putVint(hdrBuf[n:], uint64(h.Flags)); err != nil {
 		return err
 	}
-	if err := writeVint(w, uint64(h.Tenant)); err != nil {
+	n += nn
+	if nn, err = putVint(hdrBuf[n:], uint64(h.Tenant)); err != nil {
 		return err
 	}
-	if err := writeVint(w, uint64(h.Shard)); err != nil {
+	n += nn
+	if nn, err = putVint(hdrBuf[n:], uint64(h.Shard)); err != nil {
 		return err
 	}
-	if err := writeVint(w, uint64(h.KeyLen)); err != nil {
+	n += nn
+	if nn, err = putVint(hdrBuf[n:], uint64(h.KeyLen)); err != nil {
 		return err
 	}
-	if err := writeVint(w, uint64(h.ValLen)); err != nil {
+	n += nn
+	if nn, err = putVint(hdrBuf[n:], uint64(h.ValLen)); err != nil {
 		return err
 	}
-	return writeVint(w, h.Extra)
+	n += nn
+	if nn, err = putVint(hdrBuf[n:], h.Extra); err != nil {
+		return err
+	}
+	n += nn
+
+	_, err = w.Write(hdrBuf[:n])
+	return err
 }
 
 // DecodeHeader lit et décode l'en-tête de trame via les primitives RFC 9000 de c2quic.
@@ -205,6 +219,28 @@ func ReadFramePayload(r io.Reader, h Header) (key, val []byte, err error) {
 	return key, val, nil
 }
 
+// ReadFramePayloadInto lit la charge utile directement dans les tampons pré-alloués fournis
+// par l'appelant, éliminant toute allocation sur le tas sur le chemin chaud.
+func ReadFramePayloadInto(r io.Reader, h Header, keyBuf, valBuf []byte) (keyLen, valLen int, err error) {
+	if uint32(h.KeyLen) > MaxKeyLen || h.ValLen > MaxValLen {
+		return 0, 0, ErrFrameTooLarge
+	}
+	if int(h.KeyLen) > cap(keyBuf) || int(h.ValLen) > cap(valBuf) {
+		return 0, 0, ErrShortRead
+	}
+	if h.KeyLen > 0 {
+		if _, err := io.ReadFull(r, keyBuf[:h.KeyLen]); err != nil {
+			return 0, 0, err
+		}
+	}
+	if h.ValLen > 0 {
+		if _, err := io.ReadFull(r, valBuf[:h.ValLen]); err != nil {
+			return int(h.KeyLen), 0, err
+		}
+	}
+	return int(h.KeyLen), int(h.ValLen), nil
+}
+
 func readVint(r io.Reader) (uint64, error) {
 	var first [1]byte
 	if _, err := io.ReadFull(r, first[:]); err != nil {
@@ -225,12 +261,15 @@ func readVint(r io.Reader) (uint64, error) {
 	return out.Value, nil
 }
 
-func writeVint(w io.Writer, val uint64) error {
-	var buf [8]byte
-	var out c2quic.C2quic_vint_t
-	if st := c2quic.C2quic_vint_encode(val, buf[:], 8, 0, &out); st != c2quic.OK {
-		return fmt.Errorf("c2client: vint encode failed: st=%d", st)
+
+func putVint(buf []byte, val uint64) (int, error) {
+	if val > (1<<62 - 1) {
+		return 0, fmt.Errorf("c2client: vint encode failed: value %d exceeds 62-bit RFC 9000 limit", val)
 	}
-	_, err := w.Write(buf[:out.Nbytes])
-	return err
+	var out c2quic.C2quic_vint_t
+	if st := c2quic.C2quic_vint_encode(val, buf, uint32(len(buf)), 0, &out); st != c2quic.OK {
+		return 0, fmt.Errorf("c2client: vint encode failed: st=%d", st)
+	}
+	return int(out.Nbytes), nil
 }
+

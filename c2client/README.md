@@ -37,7 +37,8 @@ import (
 )
 
 func main() {
-	masterKey := [32]byte{ /* 32 octets secrets */ }
+	// La graine est pré-dérivée par l'autorité
+	tenantSeed := [32]byte{ /* 32 octets dérivés */ }
 	tenantID := uint16(1)
 	epoch := c2uuidv7.New()
 
@@ -48,7 +49,7 @@ func main() {
 		"10.0.0.3:8155",
 	}
 
-	client, err := c2client.NewClient(masterKey, tenantID, epoch, nodes)
+	client, err := c2client.NewClient(tenantSeed, tenantID, epoch, nodes)
 	if err != nil {
 		log.Fatal(err)
 	}

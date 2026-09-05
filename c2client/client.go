@@ -9,10 +9,12 @@ import (
 	"errors"
 	"fmt"
 	"sync"
+	"time"
 
 	"github.com/hazyhaar/c2pkg/blake3archtsim"
 	"github.com/hazyhaar/c2pkg/c2uuidv7"
 	"github.com/quic-go/quic-go"
+	"golang.org/x/sync/singleflight"
 )
 
 // NumShards définit le nombre canonique de fragments virtuels (1024)
@@ -39,16 +41,20 @@ type Client struct {
 	connsMu sync.RWMutex
 	conns   map[string]*quic.Conn
 	closed  bool
+
+	dialGroup singleflight.Group
+	bufPool   sync.Pool
 }
 
 // NewClient instancie un client c2client configuré avec l'identité mTLS du tenant.
-// nodes représente la liste ordonnée des adresses UDP/QUIC (ex: "10.0.0.1:8155") du cluster.
-func NewClient(master [32]byte, tenant uint16, epoch c2uuidv7.UUID, nodes []string) (*Client, error) {
+// NewClientWithSeed instancie un client c2client à partir d'une graine de tenant pré-dérivée,
+// garantissant l'étanchéité cryptographique sans nécessiter l'accès à la clé maîtresse du cluster.
+func NewClientWithSeed(tenantSeed [32]byte, tenant uint16, epoch c2uuidv7.UUID, nodes []string) (*Client, error) {
 	if len(nodes) == 0 {
 		return nil, errors.New("c2client: at least one node address required")
 	}
 
-	tlsConf, err := GenerateTenantTLSConfig(master, tenant, epoch, false)
+	tlsConf, err := GenerateTenantTLSConfig(tenantSeed, tenant, false)
 	if err != nil {
 		return nil, fmt.Errorf("c2client: generate tls config: %w", err)
 	}
@@ -56,19 +62,24 @@ func NewClient(master [32]byte, tenant uint16, epoch c2uuidv7.UUID, nodes []stri
 	quicConf := &quic.Config{
 		Allow0RTT:             true,
 		EnableDatagrams:       true,
-		MaxIdleTimeout:        0,
-		KeepAlivePeriod:       0,
+		MaxIdleTimeout:        30 * time.Second,
+		KeepAlivePeriod:       10 * time.Second,
 		MaxIncomingStreams:    10000,
 		MaxIncomingUniStreams: 10000,
 	}
 
 	c := &Client{
-		master:   master,
 		tenant:   tenant,
 		epoch:    epoch,
 		tlsConf:  tlsConf,
 		quicConf: quicConf,
 		conns:    make(map[string]*quic.Conn),
+		bufPool: sync.Pool{
+			New: func() any {
+				b := make([]byte, 64*1024)
+				return &b
+			},
+		},
 	}
 
 	// Répartition déterministe des 1024 shards sur les nœuds du cluster
@@ -79,6 +90,18 @@ func NewClient(master [32]byte, tenant uint16, epoch c2uuidv7.UUID, nodes []stri
 	return c, nil
 }
 
+// NewClient instancie un client c2client configuré avec l'identité mTLS du tenant.
+// nodes représente la liste ordonnée des adresses UDP/QUIC (ex: "10.0.0.1:8155") du cluster.
+func NewClient(master [32]byte, tenant uint16, epoch c2uuidv7.UUID, nodes []string) (*Client, error) {
+	tenantSeed := DeriveTenantMAC(master, tenant, epoch)
+	c, err := NewClientWithSeed(tenantSeed, tenant, epoch, nodes)
+	if err != nil {
+		return nil, err
+	}
+	c.master = master
+	return c, nil
+}
+
 // Route détermine le Shard et l'adresse réseau du nœud cible à partir de la clé.
 func (c *Client) Route(key []byte) (shard uint16, addr string) {
 	shard = RouteShard(key)
@@ -86,7 +109,7 @@ func (c *Client) Route(key []byte) (shard uint16, addr string) {
 	return shard, addr
 }
 
-// getConn récupère une connexion existante du pool ou établit une nouvelle session QUIC en 0-RTT.
+// getConn récupère une connexion existante du pool ou établit une nouvelle session QUIC en 0-RTT sans bloquer les autres cibles.
 func (c *Client) getConn(ctx context.Context, addr string) (*quic.Conn, error) {
 	c.connsMu.RLock()
 	if c.closed {
@@ -97,37 +120,69 @@ func (c *Client) getConn(ctx context.Context, addr string) (*quic.Conn, error) {
 	if ok && conn != nil {
 		select {
 		case <-conn.Context().Done():
-			// Connexion terminée, nécessité de reconnexion
+			// Nettoyage immédiat d'une connexion morte détectée opportunistement
+			c.connsMu.RUnlock()
+			c.connsMu.Lock()
+			if c.conns[addr] == conn {
+				delete(c.conns, addr)
+			}
+			c.connsMu.Unlock()
 		default:
 			c.connsMu.RUnlock()
 			return conn, nil
 		}
-	}
-	c.connsMu.RUnlock()
-
-	c.connsMu.Lock()
-	defer c.connsMu.Unlock()
-
-	if c.closed {
-		return nil, errors.New("c2client: client closed")
+	} else {
+		c.connsMu.RUnlock()
 	}
 
-	if conn, ok := c.conns[addr]; ok && conn != nil {
-		select {
-		case <-conn.Context().Done():
-		default:
-			return conn, nil
+	// Déduplication des tentatives de connexion concurrentes sur la même adresse
+	res, err, _ := c.dialGroup.Do(addr, func() (interface{}, error) {
+		// Double vérification après acquisition du ticket de dial
+		c.connsMu.RLock()
+		if c.closed {
+			c.connsMu.RUnlock()
+			return nil, errors.New("c2client: client closed")
 		}
-	}
+		if existing, ok := c.conns[addr]; ok && existing != nil {
+			select {
+			case <-existing.Context().Done():
+			default:
+				c.connsMu.RUnlock()
+				return existing, nil
+			}
+		}
+		c.connsMu.RUnlock()
 
-	// Établissement de session rapide 0-RTT sans état
-	newConn, err := quic.DialAddrEarly(ctx, addr, c.tlsConf, c.quicConf)
+		// Établissement de session rapide 0-RTT sans état (hors verrou global)
+		newConn, dialErr := quic.DialAddrEarly(ctx, addr, c.tlsConf, c.quicConf)
+		if dialErr != nil {
+			return nil, fmt.Errorf("c2client: dial 0-rtt %s: %w", addr, dialErr)
+		}
+
+		c.connsMu.Lock()
+		defer c.connsMu.Unlock()
+		if c.closed {
+			_ = newConn.CloseWithError(0, "client closed")
+			return nil, errors.New("c2client: client closed")
+		}
+		
+		if existing, ok := c.conns[addr]; ok && existing != nil {
+			select {
+			case <-existing.Context().Done():
+			default:
+				_ = newConn.CloseWithError(0, "replaced")
+				return existing, nil
+			}
+		}
+
+		c.conns[addr] = newConn
+		return newConn, nil
+	})
+
 	if err != nil {
-		return nil, fmt.Errorf("c2client: dial 0-rtt %s: %w", addr, err)
+		return nil, err
 	}
-
-	c.conns[addr] = newConn
-	return newConn, nil
+	return res.(*quic.Conn), nil
 }
 
 // Put exécute une mutation transactionnelle sur le nœud hébergeant le shard ciblé.
@@ -136,6 +191,13 @@ func (c *Client) Put(ctx context.Context, key, val []byte) error {
 	conn, err := c.getConn(ctx, addr)
 	if err != nil {
 		return err
+	}
+
+	// Barrière anti-rejeu RFC 9001 : interdiction du 0-RTT sur les mutations non-idempotentes
+	select {
+	case <-conn.HandshakeComplete():
+	case <-ctx.Done():
+		return ctx.Err()
 	}
 
 	stream, err := conn.OpenStreamSync(ctx)
@@ -218,6 +280,9 @@ func (c *Client) Query(prefix []byte) *RemoteQuery {
 
 // QueryShard initialise une requête déclarative ciblée sur un shard précis.
 func (c *Client) QueryShard(shard uint16, prefix []byte) *RemoteQuery {
+	if shard >= NumShards && shard != ShardBroadcast {
+		shard = shard % NumShards
+	}
 	return &RemoteQuery{
 		client: c,
 		shard:  shard,

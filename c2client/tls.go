@@ -38,11 +38,9 @@ func DeriveTenantMAC(master [32]byte, tenant uint16, epoch c2uuidv7.UUID) [32]by
 // GenerateTenantTLSConfig génère une configuration TLS 1.3 souveraine (Zero-CA)
 // avec séparation stricte des domaines cryptographiques client et serveur.
 // Les clés Ed25519 dérivées respectent strictement la norme RFC 8410.
-func GenerateTenantTLSConfig(master [32]byte, tenant uint16, epoch c2uuidv7.UUID, isServer bool) (*tls.Config, error) {
-	baseSeed := DeriveTenantMAC(master, tenant, epoch)
-
-	serverSeed := blake3archtsim.DeriveKey(serverDomainContext, baseSeed[:])
-	clientSeed := blake3archtsim.DeriveKey(clientDomainContext, baseSeed[:])
+func GenerateTenantTLSConfig(tenantSeed [32]byte, tenant uint16, isServer bool) (*tls.Config, error) {
+	serverSeed := blake3archtsim.DeriveKey(serverDomainContext, tenantSeed[:])
+	clientSeed := blake3archtsim.DeriveKey(clientDomainContext, tenantSeed[:])
 
 	serverPriv := ed25519.NewKeyFromSeed(serverSeed[:])
 	serverPub := serverPriv.Public().(ed25519.PublicKey)
@@ -127,6 +125,7 @@ func GenerateTenantTLSConfig(master [32]byte, tenant uint16, epoch c2uuidv7.UUID
 			return nil
 		}
 	} else {
+		tlsConfig.ClientSessionCache = tls.NewLRUClientSessionCache(64)
 		tlsConfig.InsecureSkipVerify = true
 		tlsConfig.VerifyPeerCertificate = func(rawCerts [][]byte, _ [][]*x509.Certificate) error {
 			if len(rawCerts) == 0 {
